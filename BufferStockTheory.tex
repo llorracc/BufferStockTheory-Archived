@@ -19,7 +19,7 @@
 
 
 %\renewcommand{\FigDir}{Code/Python/Figures}
-\usepackage{\econtexSetup}\usepackage{\econtexShortcuts}
+\usepackage{\econtexSetup}\usepackage{\econtexShortcuts}\usepackage{makecell} 
 \input{\econtexRoot/BufferStockTheory.sty}
 
 \provideboolean{Shorter}
@@ -55,13 +55,13 @@ Theoretical Foundations of Buffer Stock Saving
 \jelclass{D81, D91, E21}
 
 
-\maketitleWithForcedDate{February 17, 2019} % Version finally sent back to QE, as MS 354
+\maketitleWithForcedDate{February 18, 2019} % Version finally sent back to QE, as MS 354
 
 %\maketitle
 
 \hypertarget{abstract}{}
 \begin{abstract}
-  This paper builds theoretical foundations for rigorous understanding of the main features of `buffer stock' saving models.  After articulating conditions under which the consumption policy function converges, the paper shows that `target' saving behavior arises only under strictly stronger conditions.  It also shows that average consumption growth equals average income growth in a small open economy populated by `buffer stock' savers.
+  This paper builds theoretical foundations for rigorous understanding of the main features of `buffer stock' saving models.  After articulating conditions under which the consumption policy function converges, the paper shows that `target' saving behavior arises only under strictly stronger conditions.  It also shows that average consumption growth equals average income growth in a small open economy populated by buffer stock savers.
 \end{abstract}
 
 \begin{small}
@@ -111,9 +111,9 @@ Theoretical Foundations of Buffer Stock Saving
 
 %Following the success of Modigliani and Brumberg's~\citeyearpar{modigliani&brumberg:lifecycle} Life Cycle model and Friedman's~\citeyearpar{friedmanATheory} Permanent Income Hypothesis, a vast literature in the 1960s and 1970s formalized the idea that household spending can be modeled as reflecting optimal intertemporal choice.  Bewley~\citeyearpar{bewleyPIH} and \cite{seIncFluct} capped this literature, paving the way for the ascendancy of dynamic stochastic optimizing models in economics.
 
-This paper establishes some basic properties of the solution to a benchmark consumption/saving problem with unbounded (constant relative risk aversion) utility, uncertainty about permanent and transitory income \textit{a la} \cite{friedmanATheory}, and no liquidity constraints.  While a substantial literature has explored related models (see the summary below, and references throughout), that literature has not established key properties of the case considered here, which is a canonical model in the consumption literature.  It turns out that some of the models previously studied can be seen as special cases of this model; for example, the case with liquidity constraints is a particular limit of the model here; or, results that hold with both transitory and permanent shocks also hold if the permanent shocks are turned off.
+This paper establishes some basic properties of the solution to a benchmark consumption/saving problem with unbounded (constant relative risk aversion) utility, uncertainty about permanent and transitory income \textit{a la} \cite{friedmanATheory}, and no liquidity constraints.  While a substantial literature has explored related models (see the summary below, and references throughout), that literature has not studied key properties of the case considered here, which is a canonical model in the consumption literature.  It turns out that some of the models previously studied can be seen as special cases of this model; for example, the case with liquidity constraints is a particular limit of the model here; or, results that hold with both transitory and permanent shocks also hold if the permanent shocks are turned off.
 
-The paper's main technical contributions are to establish the conditions under which the problem defines a contraction mapping, and conditions under which a `target' wealth-to-permanent-income ratio exists.  (This is the sense in which the paper studies the class of `buffer stock' saving models.)
+The paper's main technical contributions are to articulate the conditions under which the problem defines a contraction mapping, and conditions under which a `target' wealth-to-permanent-income ratio exists.  (This is the sense in which the paper studies the class of `buffer stock' saving models.)
 
 The gap in the literature exists partly because standard theorems from the contraction mapping literature (beginning with those in Stokey et.~al.~\citeyearpar{slpMethods} and up through the recent work of \cite{mnUnique}) cannot be used for this problem.  (See the end of \hyperlink{DiffFromLit}{section \ref{subsec:Setup}} for details).
 
@@ -300,6 +300,7 @@ where the limiting consumption function is either $\cFunc(\mRat)=0$ or $\cFunc(\
 
 The analytical solution to the perfect foresight specialization of the model, obtained by setting $\pZero=0$ and $\ushort{\tShkEmp}=\bar{\tShkEmp}=\ushort{\pShk}=\bar{\pShk}=1$, is well known, but articulating it allows us to define some remaining notation and terminology, and to establish a convenient reference point.
 
+\hypertarget{Human-Wealth}{}
 \subsubsection{Human Wealth}
 The dynamic budget constraint, strictly positive marginal utility, and the can't-die-in-debt condition \eqref{eq:NoDebtAtDeath} imply an exactly-holding intertemporal budget constraint (IBC)
 \begin{eqnarray}
@@ -309,7 +310,6 @@ where $\hLevBF_{t}$ is `human wealth,' and with a constant $\Rnorm \equiv \Rfree
 \begin{eqnarray}
   \hLevBF_{t} &  = & \pLevBF_{t}+\Rnorm^{-1} \pLevBF_{t} + \Rnorm^{-2} \pLevBF_{t} + ... + \Rnorm^{t-T} \pLevBF_{t} \notag
 \\ & = & \underbrace{\left(\frac{1-\Rnorm^{-(T-t+1)}}{1-\Rnorm^{-1}}\right)}_{\equiv \hRat_{t}}\pLevBF_{t} \label{eq:HDef}
-.
 \end{eqnarray}
 \eqref{eq:HDef} makes plain that in order for $\hRat \equiv \lim_{n \rightarrow
   \infty} \hRat_{T-n}$ to be finite, we must
@@ -322,6 +322,7 @@ the interest rate at which that income is being discounted.
 
 \subsubsection{Unconstrained Solution} \label{subsec:PFUncon}
 
+\hypertarget{AIC}{}
 The consumption Euler equation holds in every period; with $\uP(\cLevBF)=\cLevBF^{-\CRRA}$, this says
 \begin{eqnarray}
 %  \cLevBF_{t}^{-\CRRA} & = & \Rfree\DiscFac \cLevBF_{t+1}^{-\CRRA} \\ \notag
@@ -469,10 +470,9 @@ which will be finite whenever
 \end{eqnarray}
 which we call the Perfect Foresight Finite Value of Autarky Condition, PF-FVAC, because it guarantees that a consumer who always spends all his permanent income will have finite value (the consumer has `finite autarky value').  Note that the version of the PF-FVAC in \eqref{eq:PFFVACv2} implies the PF-GIC $\PatPGro < 1$ whenever \cancel{PF-FHWC} $\Rfree < \PGro$ holds.  So, if \cancel{PF-FHWC}, value for any finite $\mRat$ will be the sum of two finite numbers: The component due to the unconstrained consumption choice made over the finite horizon leading up to $\bRat_{t+n} = 0$, and the finite component due to the value of consuming all income thereafter.  The consumer's value function is therefore nondegenerate.
 
-The most peculiar possibility occurs when the RIC fails.  Remarkably,
-the appendix shows that although under these circumstances the FHWC
-must also fail, the constrained consumption function is nondegenerate even in
-this case.  While it is true that $\lim_{m \uparrow \infty}
+The most peculiar possibility occurs when the RIC fails.  The appendix shows that although under these circumstances the FHWC
+must also fail, and that the constrained consumption function is nondegenerate even in
+this case.  (See \ref{fig:PFGICHoldsFHWCFailsRICFails} for a numerical example).  While it is true that $\lim_{m \uparrow \infty}
 \mathring{\MPCFunc}(\mRat) = 0$, nevertheless the limiting constrained
 consumption function $\mathring{\cFunc}(\mRat)$ is strictly positive
 and strictly increasing in $\mRat$.  This result interestingly
@@ -511,6 +511,7 @@ uncertainty on the expected growth-normalized return (in the sense implicitly de
 \eqref{eq:EbRat}).  Note that Jensen's inequality implies that $\InvEpShkInv < 1$ for nondegenerate $\psi$ (since
 $\Ex[\psi]=1$ by assumption).
 
+\hypertarget{GIC}{}
 We can now transparently generalize the PF-GIC \eqref{eq:PFGIC} by defining a `compensated growth factor'
 \begin{verbatimwrite}{\EqDir/PGroAdj}
 \begin{eqnarray}
@@ -530,7 +531,7 @@ using some of the results below yields the conclusion that
 \begin{eqnarray*}
   \lim_{\mRat_{t} \rightarrow \infty} \Ex_{t}[\mRat_{t+1}/\mRat_{t}] & = & \PatPGroAdj,
 \end{eqnarray*}
-which implies that if we wish to prevent $\mRat$ from heading to infinity (that is, if we want $m$ to be guaranteed to be expected to fall for some large enough value of $m$) we must impose a generalized version of the Perfect Foresight Growth Impatience Conditon \eqref{eq:PFGIC} which we call simply the `growth impatience condition' \hypertarget{GIC}{}
+which implies that if we wish to prevent $\mRat$ from heading to infinity (that is, if we want $m$ to be guaranteed to be expected to fall for some large enough value of $m$) we must impose a generalized version of the Perfect Foresight Growth Impatience Conditon \eqref{eq:PFGIC} which we call simply the `growth impatience condition' 
 (GIC):\footnote{Equation \eqref{eq:GIC} is a bit easier to satisfy than the similar condition imposed by Deaton~\citeyearpar{deatonLiqConstr}: $\left(\Ex[\pShk^{-\CRRA}]\right)^{1/\CRRA} \PatPGro < 1$ to guarantee that his problem defined a contraction mapping.}
 \begin{verbatimwrite}{\EqDir/GIC}
 \begin{eqnarray}
@@ -664,6 +665,7 @@ In the course of proving this point, equation \eqref{eq:MaxMPCInv} in appendix~\
  \MinMPC_{t}^{-1} & = & 1+\MaxMPS \MinMPC_{t+1}^{-1} \label{eq:MinMPCInv}.
 \end{eqnarray}
 
+\hypertarget{WRIC}{}
 It turns out that there is a parallel expression for the limiting maximal 
 MPC as $\mRat \downarrow 0$: appendix equation \eqref{eq:MaxMPCInv}  shows that, as $\mRat_{t} \uparrow \infty$,
 \begin{eqnarray}
@@ -795,6 +797,8 @@ Unpacking the definitions, our mapping $\TMap$ can be written more explicitly as
 .
 \end{eqnarray}
 \end{comment}
+
+\hypertarget{Contraction-Conditions}{}
 
 We can show that our operator $\TMap$ satisfies the conditions that
 Boyd requires of his operator $\BoydT$, if we impose two restrictions
@@ -1078,7 +1082,8 @@ present a summary of the connections between the various conditions in the prese
 and the absence of uncertainty.
 
 \hypertarget{Sufficient-Conditions-For-Nondegenerate-Solution}{}
-\input{\TableDir/Comparison.tex}
+\subfile{\TableDir/Comparison-subfile}
+%\input{\TableDir/Comparison.tex}
 
 \input{\TableDir/Required.tex}
 
@@ -1232,20 +1237,22 @@ $\ushort{\cFunc}(\mRat)$.
 Figure~\ref{fig:mpclimits} confirms these limits visually.  The top
 plot shows the converged consumption function along with its upper and lower bounds,
 while the lower plot shows the marginal propensity to consume.
+\renewcommand{\figFile}{MPCLimits}
+\hypertarget{\figFile}{}
+\begin{figure}
+\includegraphics[width=6in]{\FigDir/MPCLimits}
+\caption{Limiting MPC's}
+\label{fig:mpclimits}
+\end{figure}
+
 \renewcommand{\figFile}{cFuncBounds}
 \hypertarget{\figFile}{}
 \begin{figure}
 \centering
 \subfigure[\large Bounds]{\includegraphics[width=6in]{\FigDir/cFuncBounds}}
 \subfigure[\large Target $\mRat$]{\includegraphics[width=6in]{\FigDir/cRatTargetFig}}
-%
-\begin{comment}
-\medskip\medskip\medskip
-\includegraphics[width=6in]{\FigDir/MPClimits}
-\caption{Bounds (in Dark) of $\cFunc(\mRat)$ and $\cFunc^{\prime}(\mRat)$ as $\mRat_{t} \uparrow \infty$ and $\mRat_{t}\rightarrow 0$}
-\end{comment}
 \caption{The Consumption Function}
-\label{fig:mpclimits}
+\label{fig:cFuncBounds}
 \end{figure}
 %
 
