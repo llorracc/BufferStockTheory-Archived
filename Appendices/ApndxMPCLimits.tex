@@ -46,7 +46,7 @@ which yields a useful recursive formula for the maximal marginal propensity to c
 \begin{eqnarray}
   (\MinMPS \MaxMPC_{t})^{-1} & = & (1-\MaxMPC_{t})^{-1}\MaxMPC_{t+1}^{-1}  \notag
 \\ \MaxMPC_{t}^{-1}(1-\MaxMPC_{t}) & = & \MinMPS \MaxMPC_{t+1}^{-1} \label{eq:muDiff} \notag
-\\ \MaxMPC_{t}^{-1} & = & 1+\MinMPS \MaxMPC_{t+1}^{-1} \label{eq:MaxMPCInv}.
+\\ \MaxMPC_{t}^{-1} & = & 1+\MinMPS \MaxMPC_{t+1}^{-1} \label{eq:MaxMPCInvApndx}.
 \end{eqnarray}
 
 As noted in the main text, we need the WRIC \eqref{eq:WRIC} for this to be a convergent sequence:
@@ -54,7 +54,7 @@ As noted in the main text, we need the WRIC \eqref{eq:WRIC} for this to be a con
   0 \leq & \pZero^{1/\CRRA} \PatR & < 1 \label{eq:WRICapndx},
 \end{eqnarray}
 
-Since $\MaxMPC_{T}=1$, iterating \eqref{eq:MaxMPCInv} backward to
+Since $\MaxMPC_{T}=1$, iterating \eqref{eq:MaxMPCInvApndx} backward to
 infinity (because we are interested in the limiting consumption function) we obtain:
 \begin{eqnarray}
 \lim_{n\rightarrow\infty}\MaxMPC_{T-n} & = &
@@ -80,11 +80,12 @@ and the same sequence of derivations used above yields the conclusion
 that if the RIC $0 \leq \PatR < 1$ holds, then a recursive formula for the
 minimal marginal propensity to consume is given by
 \begin{eqnarray}
- \MinMPC_{t}^{-1} & = & 1+\MinMPC_{t+1}^{-1}\MaxMPS  \label{eq:MinMPCInv}
+ \MinMPC_{t}^{-1} & = & 1+\MinMPC_{t+1}^{-1}\MaxMPS  \label{eq:MinMPCInvApndx}
 \end{eqnarray}
 so that $\{\MinMPC_{T-n}^{-1}\}_{n=0}^{\infty}$ is also an increasing
 convergent sequence, with $\MinMPC$ being the
 `limiting minimal MPC.'  If the RIC does {\it not} hold, then $\lim_{n \rightarrow \infty} \MinMPC_{T-n}^{-1} = \infty$
 and so the limiting MPC is $\MinMPC = 0.$
+
 
 \end{document}

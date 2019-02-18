@@ -104,17 +104,5 @@ evaluate the function is $\mRat=0$ but $\log 0 = -\infty$ which is difficult for
 %\end{verbatimwrite}%\input {\ApndxDir/ApndxSolnMethEndogGpts.tex}
 
 % When compiling main file, bibliography goes at the end of document, not at the end of this appendix
-\onlyinsubfile{
-\clearpage\vfill\eject
-
-\normalsize
-
-
-\write18{if [ ! -f \texname.bib     ]; then touch \texname.bib     ; fi}
-\write18{if [ ! -f \texname-Add.bib ]; then touch \texname-Add.bib ; fi}
-
-\bibliographystyle{\econtexBibStyle}
-\bibliography{economics,\texname,\texname-Add}
-}
 
 \end{document}
