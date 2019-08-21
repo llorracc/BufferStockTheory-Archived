@@ -553,5 +553,9 @@ latexmkrc
 #
 _region_.*
 # Ignore .py and .ipynb files so that people can use a jupyter notebook without being notified of changes every time they quit
-*.ipynb
-*.py
+# *.ipynb
+# *.py
+
+# Prevent solutions to problems from being copied 
+*-Problems-And-Solutions.*
+
