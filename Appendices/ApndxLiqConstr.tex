@@ -1,11 +1,13 @@
 \documentclass[../BufferStockTheory.tex]{subfiles}
 \input{./econtexRoot} % Switch root to subdirectory 
 
+\provideboolean{Metin}\setboolean{Metin}{true}\newcommand{\Metin}[2]{\ifthenelse{\boolean{Metin}}{\marginpar{\large Metin}\{{#1}\} $\rightarrow$ \{{#2}\}}{#2}}% PrivateMsg: Comments by Metin Uyanik
 
 \begin{document}
 
 %\begin{verbatimwrite}{\ApndxDir/ApndxSolnMethEndogGpts.tex}
 \section{Perfect Foresight Liquidity Constrained Solution}\label{sec:ApndxLiqConstr}
+%{\it Note: There is an inconsistency between the files ApndxLiqConstr.tex and ApndxLiqConstrStandAlone.tex files in the beginning of the first paragraph below. I accept ApndxLiqConstr.tex as valid and replace the first paragraph in this StandAlone version with the one in the output file. This seems counterintuitive since ApndxLiqConstr.tex is output of ApndxLiqConstrStandAlone.tex but the paragraph in the ApndxLiqConstr.tex file sounds better.} % MetinComment % PrivateMsg
 
   This appendix taxonomizes the characteristics of the limiting
   consumption function $\mathring{\cFunc}(\mRat)$ under perfect

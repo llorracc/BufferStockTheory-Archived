@@ -21,10 +21,3 @@ TEXMFCONFIG  = /usr/local/texlive/texmf-config
 
 TEXMFMETHODS = /usr/local/texlive/texmf-local # Links should be created upon setup of TeXLive
 TEXMF = {$TEXMFMETHODS,$TEXMFCONFIG,$TEXMFVAR,$TEXMFHOME,!!$TEXMFSYSCONFIG,!!$TEXMFSYSVAR,!!$TEXMFMAIN,!!$TEXMFLOCAL,!!$TEXMFDIST}
-
-% Up to this line, should be identical to master Methods version; below are CDC customizations
-TEXMFCONFIG = /Volumes/Sync/Dropbox/Sys/Config/texlive/texmf-config
-
-TEXMFCDCUSE = /Volumes/Sync/Dropbox/Sys/Config/texlive/texmf-cdcpublicuse
-TEXMFCDCDLD = /Volumes/Sync/Dropbox/Sys/Config/texlive/texmf-cdcdownloads
-TEXMF = {$TEXMFMETHODS,$TEXMFCONFIG,$TEXMFCDCUSE,$TEXMFCDCDLD,$TEXMFCONFIG,$TEXMFVAR,$TEXMFHOME,!!$TEXMFSYSCONFIG,!!$TEXMFSYSVAR,!!$TEXMFMAIN,!!$TEXMFLOCAL,!!$TEXMFDIST}

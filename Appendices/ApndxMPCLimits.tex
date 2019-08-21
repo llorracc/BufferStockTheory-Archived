@@ -4,6 +4,7 @@
 
 \begin{document}
 
+\hypertarget{The-Limiting-MPCs}{}
 \section{The Limiting MPC's}
 \label{sec:MPCLimits}
 For $\mRat_{t}>0$ we can define $\eFunc_{t}(\mRat_{t})=\cFunc_{t}(\mRat_{t})/\mRat_{t}$
@@ -15,6 +16,13 @@ and the Euler equation \eqref{eq:scaledeuler} can be rewritten
 \\ &  & + \pZero  \DiscFac \Rfree^{1-\CRRA} \Ex_{t}\left[\left(\eFunc_{t+1}(\mathcal{R}_{t+1}\aFunc_{t}(\mRat_{t}))\frac{\mRat_t-\cFunc_{t}(\mRat_{t})}{\mRat_{t}}\right)^{-\CRRA} |~ \tShkAll_{t+1} = 0 \right]  \label{eq:eRho}.
 \end{eqnarray}
 
+% \begin{Private}
+% % Jiaxiong: Below is an example of a place of what to do when you find some text
+% % that perhaps can be left out of the paper (even though there is nothing wrong with it)
+% % Things should be left out if (a) they are not necessary to the argument of the paper and
+% % (b) they do not do enough to make the paper easier to read
+% It is worthwhile to point out here that, although $\eFunc_{t}(\mRat_{t})$ by definition refers to average propensity to consume (`APC'), when $\mRat\to0$ and $\mRat\to\infty$, the two APCs are also MPCs. This is due to L'H\^opital's Rule, because both the denominator and the numerator will go to $0$ as $\mRat_{t}\to0$ and to $\infty$ as $\mRat_{t}\to\infty$ (e.g. $\lim_{\mRat_{t}\to0}\frac{\cFunc_{t}(\mRat_{t})}{\mRat_{t}} = \lim_{\mRat_{t}\to0}\frac{\cFunc_{t}^{\prime}(\mRat_{t})}{1} = \lim_{\mRat_{t}\to0}\cFunc_{t}^{\prime}(\mRat_{t})$).
+% \end{Private}
 
 
 Consider the first conditional expectation in \eqref{eq:eRho},
@@ -51,7 +59,7 @@ which yields a useful recursive formula for the maximal marginal propensity to c
 
 As noted in the main text, we need the WRIC \eqref{eq:WRIC} for this to be a convergent sequence:
 \begin{eqnarray}
-  0 \leq & \pZero^{1/\CRRA} \PatR & < 1 \label{eq:WRICapndx},
+  0 \leq & ~\pZero^{1/\CRRA} \PatR & < 1 \label{eq:WRICapndx},
 \end{eqnarray}
 
 Since $\MaxMPC_{T}=1$, iterating \eqref{eq:MaxMPCInvApndx} backward to
@@ -71,7 +79,7 @@ neglected, leading to a revised limiting Euler equation
 \begin{eqnarray*}
  ({\mRat_{t}}\eFunc_{t}(\mRat_{t}))^{-\CRRA} & = & \DiscFac \Rfree \Ex_{t}\left[\left(\eFunc_{t+1}(\aFunc_{t}(\mRat_{t})\Rnorm_{t+1})\left({\Rfree \aFunc_{t}(\mRat_{t})}\right)\right)^{-\CRRA}\right]
 \end{eqnarray*}
-and we know from L'H\^opital's rule that $\lim_{\mRat_{t} \rightarrow \infty} \eFunc_{t}(\mRat_{t}) = \MinMPC_{t}$, and $\lim_{\mRat_{t} \rightarrow \infty} \eFunc_{t+1}(\aFunc_{t}(\mRat_{t})\Rnorm_{t+1}) = \MinMPC_{t+1}$ so a further limit of the Euler equation is
+and we know from L'H\^opital's rule that $\lim_{\mRat_{t} \rightarrow \infty} \eFunc_{t}(\mRat_{t}) = \MinMPC_{t}$, and $\lim_{\mRat_{t} \rightarrow \infty} \eFunc_{t+1}(\aFunc_{t}(\mRat_{t})\Rnorm_{t+1}) = \MinMPC_{t+1}$ so a further limit of the Euler equation is\hypertarget{MPCnvrs}{}
 \begin{eqnarray*}
   (\mRat_{t}\MinMPC_{t})^{-\CRRA} & = & \DiscFac \Rfree \left(\MinMPC_{t+1} \Rfree (1-\MinMPC_{t})\mRat_{t}\right)^{-\CRRA}
 \\ \underbrace{{\Rfree}^{-1}{\Pat}}_{\equiv \MaxMPS = (1-\ushort{\MPC})} \MinMPC_{t} & = & (1-\MinMPC_{t}) \MinMPC_{t+1}
@@ -83,9 +91,23 @@ minimal marginal propensity to consume is given by
  \MinMPC_{t}^{-1} & = & 1+\MinMPC_{t+1}^{-1}\MaxMPS  \label{eq:MinMPCInvApndx}
 \end{eqnarray}
 so that $\{\MinMPC_{T-n}^{-1}\}_{n=0}^{\infty}$ is also an increasing
-convergent sequence, with $\MinMPC$ being the
-`limiting minimal MPC.'  If the RIC does {\it not} hold, then $\lim_{n \rightarrow \infty} \MinMPC_{T-n}^{-1} = \infty$
+convergent sequence, and we define
+\begin{align}
+\MinMPC^{-1} \equiv &\lim_{n \uparrow \infty} \MPC_{T-n}^{-1}  
+\end{align}
+as the limiting (inverse) marginal MPC.  If the RIC does \textit{not} hold, then $\lim_{n \rightarrow \infty} \MinMPC_{T-n}^{-1} = \infty$
 and so the limiting MPC is $\MinMPC = 0.$
 
+For the purpose of constructing the limiting perfect foresight consumption function, it is useful further to note that
+the PDV of consumption is given by\hypertarget{MPCnvrsIsCPDV}{}
+
+\begin{eqnarray*}
+  \cRat_{t}\underbrace{\left(1 + \PatR + \PatR^{2} + ... \right)}_{=1+\PatR(1+\PatR\MinMPC_{t+2}^{-1})...}  & = & \cRat_{t}\MinMPC_{T-n}^{-1}.
+\end{eqnarray*}
+
+which, combined with the intertemporal budget constraint, yields the usual formula for the perfect foresight consumption function:
+\begin{align}
+  \cRat_{t} & = (\bRat_{t}+\hRat_{t})\MinMPC_{t}
+\end{align}
 
 \end{document}
