@@ -557,5 +557,6 @@ _region_.*
 # *.py
 
 # Prevent solutions to problems from being copied 
-*-Problems-And-Solutions.*
+*-Problems-And-Solutions*.*
+*-Problems-and-Solutions*.*
 
