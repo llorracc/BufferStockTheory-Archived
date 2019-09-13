@@ -1,8 +1,11 @@
 # Theoretical Foundations of Buffer Stock Saving
 
-This repo contains all the resources needed to completely reproduce all the results of the paper "Theoretical Foundations of Buffer Stock Saving"
+[![econ-ark.org](https://img.shields.io/badge/Powered%20by-Econ--ARK-3e8acc.svg)](https://econ-ark.org/)
 
-* Code: Mathematica or Python code that reproduces paper's figures
-* BufferStockTheory.tex is the main paper
-* BufferStockTheory-Slides.tex produces the slides
+Online resources related to this paper:
+
+1. [Full paper and code](https://github.com/llorracc/BufferStockTheory)
+1. [Web version](http://econ.jhu.edu/people/ccarroll/papers/)
+1. [REMARK code for quantitative results](https://github.com/econ-ark/REMARK/tree/master/REMARKs/BufferStockTheory)
+1. [Jupyter Notebook](https://github.com/econ-ark/REMARK/tree/master/REMARKs/BufferStockTheory/BufferStockTheory.ipynb))
 
