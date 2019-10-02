@@ -7,5 +7,5 @@ Online resources related to this paper:
 1. [Full paper and code](https://github.com/llorracc/BufferStockTheory)
 1. [Web version](http://econ.jhu.edu/people/ccarroll/papers/)
 1. [REMARK code for quantitative results](https://github.com/econ-ark/REMARK/tree/master/REMARKs/BufferStockTheory)
-1. [Jupyter Notebook](https://github.com/econ-ark/REMARK/tree/master/REMARKs/BufferStockTheory/BufferStockTheory.ipynb))
+1. [Jupyter Notebook](https://github.com/econ-ark/REMARK/tree/master/REMARKs/BufferStockTheory/BufferStockTheory.ipynb)
 

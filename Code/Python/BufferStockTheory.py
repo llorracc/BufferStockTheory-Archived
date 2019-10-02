@@ -15,32 +15,30 @@
 #     name: python3
 # ---
 
-# %% [markdown] {"heading_collapsed": true}
+# %% [markdown]
 # # Theoretical Foundations of Buffer Stock Saving
 #
 # <cite data-cite="6202365/8AH9AXN2"></cite>
 #
 # <p style="text-align: center;"><small><small>Generator: BufferStockTheory-make/notebooks_byname</small></small></p>
 
-# %% [markdown] {"hidden": true}
+# %% [markdown]
 # <p style="text-align: center;"><small><small><small>For the following badges: GitHub does not allow click-through redirects; right-click to get the link, then paste into navigation bar</small></small></small></p>
 #
-# <!-- Disabling binder because it is excruciatingly slow
-# [![Open in Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/econ-ark/REMARK/master?filepath=REMARKs%2FBufferStockTheory%2FBufferStockTheory.ipynb)
-# -->
+# [![Open in Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/llorracc/BufferStockTheory/master?filepath=Code%2FPython%2FBufferStockTheory.ipynb)
 #
-# [![Open in CoLab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/econ-ark/REMARK/blob/master/REMARKs/BufferStockTheory/BufferStockTheory.ipynb)
+# [![Open in CoLab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/llorracc/BufferStockTheory/blob/master/Code/Python/BufferStockTheory.ipynb)
 #
 # [This notebook](https://github.com/econ-ark/REMARK/blob/master/REMARKs/BufferStockTheory/BufferStockTheory.ipynb) uses the [Econ-ARK/HARK](https://github.com/econ-ark/hark) toolkit to describe the main results and reproduce the figures in the paper [Theoretical Foundations of Buffer Stock Saving](http://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory) 
 #
-# If you are not familiar with the HARK toolkit, you may wish to browse the ["Gentle Introduction to HARK"](https://mybinder.org/v2/gh/econ-ark/DemARK/master?filepath=Gentle-Intro-To-HARK.ipynb) before continuing (since you are viewing this document, you presumably know a bit about [Jupyter Notebooks](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/)).
+# If you are not familiar with the HARK toolkit, you may wish to browse [the documentation](https://hark.readthedocs.io) before continuing (since you are viewing this document, you presumably know a bit about [Jupyter Notebooks](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/)).
 #
 # For instructions on how to install the [Econ-ARK/HARK](https://github.com/econ-ark/hark) toolkit on your computer, please refer to the [QUICK START GUIDE](https://github.com/econ-ark/HARK/blob/master/README.md). 
 #
 # The main HARK tool used here is $\texttt{IndShockConsumerType}$ class, in which agents have CRRA utility and face idiosyncratic shocks to permanent and transitory income.  For an introduction to this module, see the [IndShockConsumerType.ipynb](https://github.com/econ-ark/DemARK/blob/master/notebooks/IndShockConsumerType.ipynb) notebook.
 #
 
-# %% {"hidden": true}
+# %%
 # This cell does some setup; please be patient, it may take 3-5 minutes
 
 # The tools for navigating the filesystem
@@ -106,7 +104,7 @@ def in_ipynb():
 
 if in_ipynb():
     # Now install stuff aside from LaTeX (if not already installed)
-    os.system('pip install econ-ark==0.10.1')
+    os.system('pip install econ-ark>=10.1')
     os.system('pip install matplotlib')
     os.system('pip install numpy')
     os.system('pip install scipy')
@@ -170,13 +168,13 @@ if not in_ipynb(): # running in batch mode
     print('You appear to be running from a terminal')
     print('By default, figures will appear one by one')
 
-# %% {"hidden": true}
+# %%
 # Import HARK tools needed
 
 from HARK.ConsumptionSaving.ConsIndShockModel import IndShockConsumerType
 from HARK.utilities import plotFuncsDer, plotFuncs
 
-# %% [markdown] {"hidden": true}
+# %% [markdown]
 # ## [The Problem](http://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory/#The-Problem) 
 #
 # The paper defines and calibrates a small set of parameters: <!-- defined in latexdefs.tex -->
@@ -218,7 +216,7 @@ from HARK.utilities import plotFuncsDer, plotFuncs
 # \end{eqnarray*}
 #
 
-# %% {"hidden": true}
+# %%
 # Define a parameter dictionary with baseline parameter values
 
 # Set the baseline parameter values 
@@ -252,17 +250,17 @@ base_params['LivPrb']       = [1.0]   # 100 percent probability of living to nex
 base_params['CubicBool']    = True    # Use cubic spline interpolation
 base_params['T_cycle']      = 1       # No 'seasonal' cycles
 base_params['BoroCnstArt']  = None    # No artificial borrowing constraint
-# %% [markdown] {"hidden": true}
+# %% [markdown]
 # ## Convergence of the Consumption Rules
 #
-# Under the given parameter values, [the paper's first figure](http://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory/#Convergence-of-the-Consumption-Rules) depicts the successive consumption rules that apply in the last period of life $(c_{T}(m))$, the second-to-last period, and earlier periods $(c_{T-n})$.  $c(m)$ is the consumption function to which these converge as 
+# Under the given parameter values, [the paper's first figure](http://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory/#Convergence-of-the-Consumption-Rules) depicts the successive consumption rules that apply in the last period of life $(c_{T}(m))$, the second-to-last period, and earlier periods $(c_{T-n})$.  $c(m)$ is the consumption function to which these converge:
 #
-# \[
+# $$
 # c(m) = \lim_{n \uparrow \infty} c_{T-n}(m)
-# \]
+# $$
 #
 
-# %% {"hidden": true}
+# %%
 # Create a buffer stock consumer instance by passing the dictionary to the class.
 baseEx = IndShockConsumerType(**base_params)
 baseEx.cycles = 100   # Make this type have a finite horizon (Set T = 100)
@@ -271,7 +269,7 @@ baseEx.solve()        # Solve the model
 baseEx.unpackcFunc()  # Make the consumption function easily accessible
 
 
-# %% {"hidden": true}
+# %%
 # Plot the different periods' consumption rules.
 
 m1 = np.linspace(0,9.5,1000) # Set the plot range of m
@@ -315,7 +313,7 @@ else:
 
 
 
-# %% [markdown] {"hidden": true}
+# %% [markdown]
 # ## Factors and Conditions
 #
 # ### [The Finite Human Wealth Condition](http://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory/#Human-Wealth)
@@ -329,7 +327,7 @@ else:
 # which is an infinite number if $\Gamma/\mathsf{R} \geq 1$.  We say that the 'Finite Human Wealth Condition' (FHWC) holds if 
 # $0 \leq (\Gamma/\mathsf{R}) < 1$.
 
-# %% [markdown] {"hidden": true}
+# %% [markdown]
 # ### [Absolute Patience and the AIC](http://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory/#AIC)
 #
 # The paper defines the Absolute Patience Factor as being equal to the ratio of $C_{t+1}/C_{t}$ for a perfect foresight consumer.  The Old English character <span style="font-size:larger;">"&#222;"</span> is used for this object in the paper, but <span style="font-size:larger;">"&#222;"</span> cannot currently be rendered conveniently in Jupyter notebooks, so we will substitute $\Phi$ here:
@@ -342,7 +340,7 @@ else:
 #
 #
 
-# %% [markdown] {"hidden": true}
+# %% [markdown]
 # ### [Growth Patience and the GIC](http://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory/#GIC)
 #
 # For a [perfect foresight consumer](http://econ.jhu.edu/people/ccarroll/public/lecturenotes/consumption/PerfForesightCRRA), whether the ratio of consumption to the permanent component of income $P$ is rising, constant, or falling depends on the relative growth rates of consumption and permanent income, which is measured by the "Perfect Foresight Growth Patience Factor":
@@ -357,11 +355,11 @@ else:
 #   \Phi/\tilde{\Gamma} & < & 1
 # \end{eqnarray}
 
-# %% [markdown] {"hidden": true}
+# %% [markdown]
 # ### [The Finite Value of Autarky Condition (FVAC)](http://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory/#Autarky-Value)
 
 
-# %% [markdown] {"hidden": true}
+# %% [markdown]
 # The paper [shows](http://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory/#Autarky-Value) that a consumer who planned to spend his permanent income $\{ p_{t}, p_{t+1}, ...\} $ in every period would have value defined by
 #
 # \begin{equation}
@@ -374,7 +372,7 @@ else:
 # \beta \Gamma^{1-\rho} \mathbb{E}[\psi^{1-\rho}] < 1
 # \end{equation}
 
-# %% [markdown] {"hidden": true}
+# %% [markdown]
 # ### [The Weak Return Impatience Condition (WRIC)](http://www.econ2.jhu.edu/people/ccarroll/papers/BufferStockTheory/#WRIC)
 #
 # The 'Return Impatience Condition' $\Phi/\mathsf{R} < 1$ has long been understood to be required for the perfect foresight model to have a nondegenerate solution (when $\rho=1$, this reduces to $\beta < R$).  If the RIC does not hold, the consumer is so patient that the optimal consumption function approaches zero as the horizon extends.
@@ -818,7 +816,9 @@ else:
 # %% [markdown]
 # ### [Upper and Lower Limits of the Marginal Propensity to Consume](https://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory/#MPCLimits)
 #
-# The paper shows that as $m_{t}~\uparrow~\infty$ the consumption function in the presence of risk gets arbitrarily close to the perfect foresight consumption function.  Defining $\underline{\kappa}$ as the perfect foresight model's MPC, this implies that $\lim_{m_{t}~\uparrow~\infty} c^{\prime}(m) = \underline{\kappa}$.  
+# The paper shows that as $m_{t}~\uparrow~\infty$ the consumption function in the presence of risk gets arbitrarily close to the perfect foresight consumption function.  Defining \underline{κ}
+# as the perfect foresight model's MPC, this implies that $\lim_{m_{t}~\uparrow~\infty} c^{\prime}(m) = $ \underline{κ}
+# .
 #
 # The paper also derives an analytical limit $\bar{\kappa}$ for the MPC as $m$ approaches 0., its bounding value.  Strict concavity of the consumption function implies that the consumption function will be everywhere below a function $\bar{\kappa}m$, and strictly declining everywhere.  The last figure plots the MPC between these two limits.
 
