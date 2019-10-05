@@ -67,6 +67,6 @@ ExportFigsToDir[FigName_,DirNameForFigs_] := Block[{},
   If[OpenFigsUsingShell != False, Run["open "<>DirNameForFigs <> SubDirectoryString <> FigName <> ".pdf"]];
 ];
 
-ExportFigs[FigName_] := ExportFigsToDir[FigName,"../../../../Figures"];  (* Figures directories are assumed to be four levels up *)
+ExportFigs[FigName_] := ExportFigsToDir[FigName,"./Figures"];  (* Figures directories are assumed to be four levels up *)
 
 AddBracesTo[\[Bullet]_] := Transpose[{\[Bullet]}]; (* Interpolation[] requires first argument to have braces; this puts braces around its argument list *)

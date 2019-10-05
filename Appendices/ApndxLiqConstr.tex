@@ -4,6 +4,7 @@
 \provideboolean{Metin}\setboolean{Metin}{true}\newcommand{\Metin}[2]{\ifthenelse{\boolean{Metin}}{\marginpar{\large Metin}\{{#1}\} $\rightarrow$ \{{#2}\}}{#2}}% PrivateMsg: Comments by Metin Uyanik
 
 \begin{document}
+\newcommand{\FigDirApndx}{Code/Mathematica/Results/BufferStockTheory/Figures}
 
 %\begin{verbatimwrite}{\ApndxDir/ApndxSolnMethEndogGpts.tex}
 \section{Perfect Foresight Liquidity Constrained Solution}\label{sec:ApndxLiqConstr}
@@ -14,6 +15,7 @@
   foresight in the presence of a liquidity constraint requiring $\bRat
   \geq 0$ under various conditions.  Results are summarized in
   table~\ref{table:LiqConstrScenarios}.
+
 \input{\econtexRoot/\TableDir/LiqConstrScenarios.tex}
 
 \subsection{If PF-GIC Fails}
@@ -256,7 +258,7 @@ value, and consequently the consumption function is {\it not} the
 degenerate $\mathring{\cFunc}(\mRat)=0$.  (Figure~\ref{fig:PFGICHoldsFHWCFailsRICFails} presents an example for $\CRRA=2$, $\Rfree=0.98$, $\Discount = 0.99$, $\PGro = 1.0$).
 
 \begin{figure}
-\centerline{\includegraphics{\econtexRoot/Figures/PFGICHoldsFHWCFailsRICFails}}
+\centerline{\includegraphics{\econtexRoot/\FigDirApndx/PFGICHoldsFHWCFailsRICFails}}
 \caption{Nondegenerate Consumption Function with \cancel{FHWC} and \cancel{RIC}}
 \label{fig:PFGICHoldsFHWCFailsRICFails}
 \end{figure}
