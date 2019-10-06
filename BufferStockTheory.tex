@@ -100,15 +100,15 @@ This paper builds theoretical foundations for rigorous and intuitive understandi
 \label{sec:intro}
 
 
-In the presence of realistically calibrated transitory and permanent shocks to income \textit{a la} \cite{friedmanATheory}, only one additional ingredient is required to define a testable model of consumption: A utility specification.  Quantitative modelers usually assume to be of the constant relative risk aversion form (CRRA), which generates results that seem reasonably in accord with evidence (see below).
+In the presence of empirically calibrated transitory and permanent shocks to income \textit{a la} \cite{friedmanATheory}, only one additional ingredient is required to define a testable model of optimal consumption: A utility specification.  Quantitative modelers usually assume constant relative risk aversion (CRRA) utility with geometric discounting, which generates results reasonably in accord with the available evidence, if allowance is made for the possibility that consumers differ in their preferences (see citations below).
 
-But the theoretical literature has mostly studied models that are more complex, e.g.\ with liquidity constraints or consumption floors.  The gap in the literature for the simplest case exists because standard contraction mapping theorems (beginning with those in \cite{bellmanDynamicProgramming} and including those of Stokey et.~al.~\citeyearpar{slpMethods}) cannot be applied when the utility function is unbounded (as for CRRA - see the end of \hyperlink{DiffFromLit}{section \ref{subsec:Setup}} for details).  It is unclear whether newer methods such as those of \cite{mnUnique}) could overcome this problem, or how difficult it would be to do so; but in any case this particular problem does not seem to have been tackled by those methods or any others.  
+But the theoretical literature has mostly studied models that are more complex, e.g.\ with liquidity constraints or consumption floors, because standard contraction mapping theorems (beginning with \cite{bellmanDynamicProgramming} and including those of Stokey et.~al.~\citeyearpar{slpMethods}) cannot be applied when the utility function is unbounded (like CRRA - see the end of \hyperlink{DiffFromLit}{section \ref{subsec:Setup}} for details).\footnote{It is unclear whether newer methods such as those of \cite{mnUnique}) could overcome this problem, or how difficult it would be to do so; but in any case this particular problem does not seem to have been tackled by those methods or any others.}
 
-The reader could be forgiven for not having noticed a gap.  Numerical solutions to such problems have become widespread following Zeldes~\citeyearpar{zeldesStochastic}.  But without theoretical underpinnings, the `black box' character of numerical solutions makes it difficult to build intuition for how results might change with changes in the structure or calibration of the model.  Indeed, without such theory, it can be difficult even to check whether a computational solution is correct.
+The reader could be forgiven for not having noticed this gap in the literature.  Numerical solutions to such problems have become widespread following Zeldes~\citeyearpar{zeldesStochastic}.  But without theoretical underpinnings, the `black box' character of numerical solutions makes it difficult to build intuition for how results might change with changes in the structure or calibration of the model.  Indeed, without such theory, it can be difficult even to check whether a computational solution is correct.
 
 For example, numerical solutions typically indicate the existence of a target level of nonhuman wealth (`cash' for short).  Carroll~\citeyearpar{carrollBrookings,carrollBSLCPIH} showed that target saving behavior arises under plausible parameter values for both infinite and finite horizon models.  Gourinchas and Parker~\citeyearpar{gpLifeCycle} estimate that for the mean household, buffer stock behavior characterizes behavior from age 25 until around age 40-45; using the same model with different data Cagetti~\citeyearpar{cagettiWprofiles} finds target saving behavior into the 50s for the median household.  Such target saving plays a key role in understanding the main results of the recent heterogeneous agent macroeconomics literature, including, for example, the insight in \cite{kmpHandbook} that explains why, during the Great Recession, middle-class consumers cut their consumption more than the poor or the rich.  Similar behavior characterizes the `wealthy hand-to-mouth' in \cite{kaplanViolanteWeidner_wealthyH2M}, who have plenty of illiquid assets but liquid assets that are low relative to their target levels.  Despite the centrality of the mechanism, none of these papers provides a characterization of the circumstances under which target saving will emerge. 
 
-The paper's main technical contributions are to articulate the (surprisingly loose) conditions under which the problem defines a contraction mapping with a nondegenerate consumption function, and conditions under which the resulting consumption function a implies expstence of a `target' wealth-to-permanent-income ratio.  (This is the sense in which the paper studies the class of `buffer stock' saving models.)  The key condition required for target saving is that the model's parameters need to satisfy a ``Growth Impatience Condition'' which relates preferences to the predictable growth rate of income.
+The paper's main technical contributions are to articulate the (surprisingly loose) conditions under which the problem defines a contraction mapping with a nondegenerate consumption function, and conditions under which the resulting consumption function a implies expstence of a `target' wealth-to-permanent-income ratio.  (This is the sense in which the paper studies the class of `buffer stock' saving models.)  The key condition required for target saving is that the model's parameters need to satisfy a ``Growth Impatience Condition'' (equation \eqref{eq:GIC}) which relates preferences to the predictable growth rate of income.
 
 The paper also provides analytical foundations for other results that have become familiar from the numerical literature.  All theoretical conclusions are paired with numerically computed illustrations (using an open-source toolkit available from the \href{https://github.com/econ-ark/REMARK/blob/master/REMARKs/BufferStockTheory/BufferStockTheory.ipynb}{Econ-ARK} project).  All of the insights of this paper are instantiated in the toolkit, which algorithmically flags parametric choices under which a problem fails to define a contraction mapping, under which a target level of wealth does not exist, or under which the solution is otherwise degenerate.
 
@@ -116,7 +116,7 @@ The paper proceeds in three parts.
 
 The first part articulates the conditions required for the problem to define a unique nondegenerate limiting consumption function, and discusses the relation of the paper's model to models previously considered in the literature.  The required conditions turn out to be interestingly parallel to those required for the liquidity constrained perfect foresight model; that parallel is explored and explained.  Next, the paper derives some limiting properties of the consumption function as cash approaches infinity and as it approaches its lower bound, and the theorem is proven explaining when the problem defines a contraction mapping.  Finally, a related class of commonly-used models (exemplified by Deaton~\citeyearpar{deatonLiqConstr}) is shown to constitute a particular limit of this paper's more general model.
 
-The \hyperlink{AnalysisoftheConvergedConsumptionFunction}{next section} examines five key properties of the model. First, as \hyperlink{LimitsAsmtToInfty}{cash approaches infinity} the expected growth rate of consumption and the marginal propensity to consume (MPC) converge to their values in the perfect foresight case. Second, as \hyperlink{LimitsAsmtToZero}{cash approaches zero} the expected growth rate of consumption approaches infinity, and the MPC approaches a simple analytical limit.  Third, if the consumer is sufficiently `impatient' (in a particular sense), a \hyperlink{onetarget}{unique target cash-to-permanent-income ratio} will exist.  Fourth, at the target cash ratio, the \hyperlink{cGroLTpGro}{expected growth rate of consumption} is slightly less than the expected growth rate of permanent noncapital income.  Finally, the expected growth rate of consumption \hyperlink{dcgdxneg}{is declining in the level of cash}. The first four propositions are proven under general assumptions about parameter values; the last is shown to hold if there are no transitory shocks, but may fail in extreme cases if there are both transitory and permanent shocks.
+The \hyperlink{AnalysisoftheConvergedConsumptionFunction}{next section} examines five key properties of the model. First, as \hyperlink{LimitsAsmtToInfty}{cash approaches infinity} the expected growth rate of consumption and the marginal propensity to consume (MPC) converge to their values in the perfect foresight case. Second, as \hyperlink{LimitsAsmtToZero}{cash approaches zero} the expected growth rate of consumption approaches infinity, and the MPC approaches a simple analytical limit.  Third, if the consumer is `growth impatient,' a \hyperlink{onetarget}{unique target cash-to-permanent-income ratio} will exist.  Fourth, at the target cash ratio, the \hyperlink{cGroLTpGro}{expected growth rate of consumption} is slightly less than the expected growth rate of permanent noncapital income.  Finally, the expected growth rate of consumption \hyperlink{dcgdxneg}{is declining in the level of cash}. The first four propositions are proven under general assumptions about parameter values; the last is shown to hold if there are no transitory shocks, but may fail in extreme cases if there are both transitory and permanent shocks.
 
 Szeidl~\citeyearpar{szeidlInvariant} has shown that such an economy will be characterized by stable invariant distributions for the consumption ratio, the wealth ratio, and other variables.\footnote{Szeidl's proof supplants the analysis in an earlier draft of this paper, which conjectured that such a result held and provided supportive simulation evidence.}  Using Szeidl's result, the final section discusses conditions under which, even with a fixed aggregate interest rate that differs from the time preference rate, an economy populated by buffer stock consumers converges to a balanced growth equilibrium in which the growth rate of consumption tends toward the (exogenous) growth rate of permanent income.
 
@@ -131,12 +131,12 @@ $t$ until the end of life at $T$ defined by the objective
 \begin{verbatimwrite}{\EqDir/supfn.tex}
 \begin{eqnarray}
   \label{eq:supfn}
-  \max~ \Ex_{t}\left[\sum_{n=0}^{T-t} \DiscFac^{n} \util(\cLevBF_{t+n})\right]
+  \max~ \Ex_{t}\left[\sum_{n=0}^{T-t} \DiscFac^{n} \uFunc(\cLevBF_{t+n})\right]
 \end{eqnarray}
 \end{verbatimwrite}
 \input{\EqDir/supfn.tex}
 where
-$\util(\bullet)=\bullet^{1-\CRRA}/(1-\CRRA)$ is a constant relative
+$\uFunc(\bullet)=\bullet^{1-\CRRA}/(1-\CRRA)$ is a constant relative
 risk aversion utility function with $\CRRA > 1$.\footnote{The main
   results also hold for logarithmic utility which is the limit as
   $\CRRA \rightarrow 1$ but incorporating the logarithmic special case
@@ -145,7 +145,7 @@ risk aversion utility function with $\CRRA > 1$.\footnote{The main
   solution as the limit of the finite horizon problem as the horizon
   $T-t$ approaches infinity.}  The consumer's initial condition is
 defined by market resources $\mLevBF_{t}$ (\cite{deatonLiqConstr}
-called it `cash-on-hand') and permanent noncapital income $\pLevBF_{t}$.
+called this `cash-on-hand') and permanent noncapital income $\pLevBF_{t}$.
 
 In the usual treatment, a dynamic budget constraint (DBC) simultaneously incorporates
 all of the elements that determine next period's $\mLevBF$ given this
@@ -208,12 +208,12 @@ realization of the transitory shock is inessential, but simplifies the proofs an
 Combining the transition equations, the recursive nature of
 the problem allows us to rewrite it more compactly in Bellman equation form,
 \begin{eqnarray*}
-\VFunc_{t}(\mLevBF_{t},\pLevBF_{t}) & = & \max_{\cLevBF_{t}}~\left\{\util(\cLevBF_{t})+\DiscFac \Ex_{t}\left[ \VFunc_{t+1}((\mLevBF_{t}-\cLevBF_{t})\Rfree+ \pLevBF_{t+1}\tShkAll_{t+1},\pLevBF_{t} \PGro  \pShk_{t+1})\right]\right\}
+\VFunc_{t}(\mLevBF_{t},\pLevBF_{t}) & = & \max_{\cLevBF_{t}}~\left\{\uFunc(\cLevBF_{t})+\DiscFac \Ex_{t}\left[ \VFunc_{t+1}((\mLevBF_{t}-\cLevBF_{t})\Rfree+ \pLevBF_{t+1}\tShkAll_{t+1},\pLevBF_{t} \PGro  \pShk_{t+1})\right]\right\}
 .
 \end{eqnarray*}
 \end{comment}
 
-\hypertarget{DiffWithLit}{} This model differs from Bewley's~\citeyearpar{bewleyPIH} classic formulation in several ways. The CRRA utility function does not satisfy Bewley's assumption that $\util(0)$ is well defined, or that $\uP(0)$ is well defined and finite, so neither the value function nor the marginal value function will be bounded.  It differs from Schectman and Escudero~\citeyearpar{seIncFluct} in that they impose liquidity constraints and positive minimum income.  It differs from both of these in that it permits permanent growth in income, and also permanent shocks to income, which a large empirical literature finds are quantitatively important in micro data\footnote{MaCurdy~\citeyearpar{macurdyTimeseries}; Abowd and Card~\citeyearpar{acCovariance}; Carroll and Samwick~\citeyearpar{csNature}; Jappelli and Pistaferri~\citeyearpar{jpCins}; Storesletten, Telmer, and Yaron~\citeyearpar{styConsumption}; \cite{blpRisk}} and which since~\cite{friedmanATheory} have been understood to be far more consequential for household welfare than are transitory fluctuations.  It differs from Deaton~\citeyearpar{deatonLiqConstr} because liquidity constraints are absent; there are separate transitory and permanent shocks ({\it a la} \cite{muthOptimal}); and the transitory shocks here can occasionally cause income to reach zero.\footnote{Below it will become clear that the Deaton model is a particular limit of this paper's model.}  Finally, it differs from models found in Stokey et.\ al.~\citeyearpar{slpMethods} because neither liquidity constraints nor bounds on utility or marginal utility are imposed.\footnote{Similar restrictions to those in the cited literature are made in the well known papers by Scheinkman and Weiss~\citeyearpar{scheinkman&weiss:borrowing} and Clarida~\citeyearpar{claridaErgodic}.  See \cite{tocheUrisk} for an elegant analysis of a related but simpler continuous-time model.}  \cite{asHomogeneous} relaxed the bounds on the return function, but they address only the deterministic case.
+\hypertarget{DiffWithLit}{} This model differs from Bewley's~\citeyearpar{bewleyPIH} classic formulation in several ways. The CRRA utility function does not satisfy Bewley's assumption that $\uFunc(0)$ is well defined, or that $\uP(0)$ is well defined and finite, so neither the value function nor the marginal value function will be bounded.  It differs from Schectman and Escudero~\citeyearpar{seIncFluct} in that they impose liquidity constraints and positive minimum income.  It differs from both of these in that it permits permanent growth in income, and also permanent shocks to income, which a large empirical literature finds are quantitatively important in micro data\footnote{MaCurdy~\citeyearpar{macurdyTimeseries}; Abowd and Card~\citeyearpar{acCovariance}; Carroll and Samwick~\citeyearpar{csNature}; Jappelli and Pistaferri~\citeyearpar{jpCins}; Storesletten, Telmer, and Yaron~\citeyearpar{styConsumption}; \cite{blpRisk}} and which since~\cite{friedmanATheory} have been understood to be far more consequential for household welfare than are transitory fluctuations.  It differs from Deaton~\citeyearpar{deatonLiqConstr} because liquidity constraints are absent; there are separate transitory and permanent shocks ({\it a la} \cite{muthOptimal}); and the transitory shocks here can occasionally cause income to reach zero.\footnote{Below it will become clear that the Deaton model is a particular limit of this paper's model.}  Finally, it differs from models found in Stokey et.\ al.~\citeyearpar{slpMethods} because neither liquidity constraints nor bounds on utility or marginal utility are imposed.\footnote{Similar restrictions to those in the cited literature are made in the well known papers by Scheinkman and Weiss~\citeyearpar{scheinkman&weiss:borrowing} and Clarida~\citeyearpar{claridaErgodic}.  See \cite{tocheUrisk} for an elegant analysis of a related but simpler continuous-time model.}  \cite{asHomogeneous} relaxed the bounds on the return function, but they address only the deterministic case.
 
 The incorporation of permanent shocks rules out application of the tools of \cite{mnUnique}, who followed and corrected an error in the fundamental work on the local contraction mapping method developed in \cite{rrExistence}.  \cite{mvExistence} provides another correction to \cite{rrExistence}, and provides conditions that are easier to verify than those of \cite{mvExistence} in many applications, but again only addresses the deterministic case.  
 
@@ -222,16 +222,16 @@ The incorporation of permanent shocks rules out application of the tools of \cit
 
 \label{subsec:ratio}
 
-We establish a bit more notation by reviewing the standard result that in problems of this class (CRRA utility, permanent shocks) the number of relevant state variables can be reduced from two ($\mLevBF$ and $\pLevBF$) to one $(\mRat = \mLevBF/\pLevBF)$ as follows.  Defining nonbold variables as the boldface counterpart normalized by $\pLevBF_{t}$ (as with $\mRat$ just above), assume that value in the last period of life is $\util(\mLevBF_{T})$, and consider the problem in the second-to-last period,
+We establish a bit more notation by reviewing the standard result that in problems of this class (CRRA utility, permanent shocks) the number of relevant state variables can be reduced from two ($\mLevBF$ and $\pLevBF$) to one $(\mRat = \mLevBF/\pLevBF)$.  Defining nonbold variables as the boldface counterpart normalized by $\pLevBF_{t}$ (as with $\mRat$ just above), assume that value in the last period of life is $\uFunc(\mLevBF_{T})$, and consider the problem in the second-to-last period,
 \begin{eqnarray}
 \vLevBF_{T-1}(\mLevBF_{T-1},\pLevBF_{T-1}) &=&
-\max_{\cLevBF_{T-1}}~ \util(\cLevBF_{T-1}) +\DiscFac \Ex_{T-1} [ \util(\mLevBF_{T})]
+\max_{\cLevBF_{T-1}}~ \uFunc(\cLevBF_{T-1}) +\DiscFac \Ex_{T-1} [ \uFunc(\mLevBF_{T})]
 \notag \\
 & = &  \max_{\cRat_{T-1}}~
-\util(\pLevBF_{T-1}\cRat_{T-1}) + \DiscFac  \Ex_{T-1} [\util(\pLevBF_{T}{\mRat}
+\uFunc(\pLevBF_{T-1}\cRat_{T-1}) + \DiscFac  \Ex_{T-1} [\uFunc(\pLevBF_{T}{\mRat}
 _{T})]  \notag \\
 & = & \pLevBF_{T-1}^{1-\CRRA}
-\left\{\max_{\cRat_{T-1}}~ \util(c_{T-1}) + \DiscFac \Ex_{T-1} [ \util( {\PGro}_{T}
+\left\{\max_{\cRat_{T-1}}~ \uFunc(c_{T-1}) + \DiscFac \Ex_{T-1} [ \uFunc( {\PGro}_{T}
 {\mRat}_{T}) ] \right\}  . \label{eq:vBold}
 \end{eqnarray}
 
@@ -239,7 +239,7 @@ _{T})]  \notag \\
 \hypertarget{The-Related-Problem}{}
 Now, in a one-time notational deviation, define nonbold `normalized value' as $\vFunc_{t} = \vLevBF_{t}/\pLevBF_{t}^{1-\CRRA}$, and consider the related problem 
 \begin{eqnarray}
-\vFunc_{t}(\mRat_{t}) & = & \max_{\{\cFunc\}_{t}^{T}}~  \util(\cFunc_{t}) +\DiscFac \Ex_{t}[\PGro_{t+1}^{1-\CRRA}\vFunc_{t+1}({\mRat}_{t+1})] \notag \\
+\vFunc_{t}(\mRat_{t}) & = & \max_{\{\cFunc\}_{t}^{T}}~  \uFunc(\cFunc_{t}) +\DiscFac \Ex_{t}[\PGro_{t+1}^{1-\CRRA}\vFunc_{t+1}({\mRat}_{t+1})] \notag \\
 & \mbox{s.t.} &  \label{eq:veqn} \notag 
  \\ {\aRat}_{t} & = & \mRat_{t}-c_{t}  \notag
  \\ {\bRat}_{t+1} & = & (\Rfree/\PGro_{t+1})\aRat_{t}  ~ = ~ \Rnorm_{t+1}\aRat_{t}  \notag
@@ -251,7 +251,7 @@ c_{t}^{-\CRRA} & = & \Rfree \DiscFac \Ex_{t}[ {\PGro}_{t+1}^{-\CRRA} {\cRat}
 _{t+1}^{-\CRRA}].  \label{eq:scaledeuler}
 \end{eqnarray}
 
-Since $\vFunc_{T}(\mRat_{T}) = \util(\mRat_{T})$, defining $\vFunc_{T-1}(\mRat_{T-1})$ from \eqref{eq:veqn} for $t=T-1$, \eqref{eq:vBold} reduces to
+Since $\vFunc_{T}(\mRat_{T}) = \uFunc(\mRat_{T})$, defining $\vFunc_{T-1}(\mRat_{T-1})$ from \eqref{eq:veqn} for $t=T-1$, \eqref{eq:vBold} reduces to
 \begin{eqnarray*}
 \vLevBF_{T-1}(\mLevBF_{T-1},\pLevBF_{T-1}) & = & \pLevBF_{T-1}^{1-\CRRA} \vFunc_{T-1}(\underbrace{\mLevBF_{T-1}/\pLevBF_{T-1}}_{=\mRat_{T-1}}).
 \end{eqnarray*}
@@ -293,7 +293,7 @@ where $\bLevBF$ is nonhuman wealth and $\hLevBF_{t}$ is `human wealth,' and with
   \hLevBF_{t} &  = & \pLevBF_{t}+\Rnorm^{-1} \pLevBF_{t} + \Rnorm^{-2} \pLevBF_{t} + ... + \Rnorm^{t-T} \pLevBF_{t} \notag
 \\ & = & \underbrace{\left(\frac{1-\Rnorm^{-(T-t+1)}}{1-\Rnorm^{-1}}\right)}_{\equiv \hRat_{t}}\pLevBF_{t} \label{eq:HDef}
 \end{eqnarray}
-\eqref{eq:HDef} makes plain that in order for $\hRat \equiv \lim_{n \rightarrow
+Equation \eqref{eq:HDef} makes plain that in order for $\hRat \equiv \lim_{n \rightarrow
   \infty} \hRat_{T-n}$ to be finite, we must
 impose the Finite Human Wealth Condition (`FHWC') \hypertarget{FHWC}{}
 \begin{eqnarray}
@@ -366,17 +366,17 @@ Given that the RIC holds, and defining limiting objects by the absence of a time
   \bar{\cFunc}(\mRat) & = & (\mRat+\hRat-1)\MinMPC, \label{eq:cFuncPFUnc}
 \end{eqnarray}
 and we now see that in order to rule out the degenerate limiting
-solution $\bar{\cFunc}(\mRat_{t}) = \infty$ we need $\hRat$ to be finite so we
+solution $\bar{\cFunc}(\mRat) = \infty$ we need $\hRat$ to be finite so we
 must impose the finite human wealth condition \eqref{eq:FHWC}.
 
 \hypertarget{ValuePFAnalytical}{}
 A final useful point is that since the perfect foresight
-growth factor for consumption is $\Pat$, using $\util(xy) =
-x^{1-\CRRA}\util(y)$ yields an analytical expression for value:  
+growth factor for consumption is $\Pat$, using $\uFunc(xy) =
+x^{1-\CRRA}\uFunc(y)$ yields an analytical expression for value:  
 \begin{eqnarray}
-  \vRat_{t} & = & \util(\cRat_{t})+\DiscFac \util(\cRat_{t}\Pat)+\DiscFac^{2} \util(\cRat_{t} \Pat^{2})+... \label{eq:ValuePFAnalytical}
-\\ & = & \util(\cRat_{t})\left(1+\DiscFac \Pat^{1-\CRRA}+(\DiscFac \Pat^{1-\CRRA})^{2}+...\right)
-\\ & = & \util(\cRat_{t})\left(\frac{1-(\DiscFac \Pat^{1-\CRRA})^{T-t+1}}{1-\DiscFac \Pat^{1-\CRRA}}\right)
+  \vRat_{t} & = & \uFunc(\cRat_{t})+\DiscFac \uFunc(\cRat_{t}\Pat)+\DiscFac^{2} \uFunc(\cRat_{t} \Pat^{2})+... \label{eq:ValuePFAnalytical}
+\\ & = & \uFunc(\cRat_{t})\left(1+\DiscFac \Pat^{1-\CRRA}+(\DiscFac \Pat^{1-\CRRA})^{2}+...\right)
+\\ & = & \uFunc(\cRat_{t})\left(\frac{1-(\DiscFac \Pat^{1-\CRRA})^{T-t+1}}{1-\DiscFac \Pat^{1-\CRRA}}\right)
 \end{eqnarray}
 which asymptotes to a finite value as $n=T-t$ approaches $+\infty$ if $\DiscFac \Pat^{1-\CRRA} < 1$ (related to a condition in \cite{asHomogeneous}); with a bit of algebra, this requirement can be shown to be equivalent to the RIC.\footnote{
 \begin{eqnarray*}
@@ -439,11 +439,11 @@ constrained consumption function:
 \end{cases}
 \end{equation}
 
-More useful is the case where the perfect foresight growth and return impatience conditions both hold.  In this case appendix \ref{sec:ApndxLiqConstr} shows that the limiting constrained consumption function is piecewise linear, with $\mathring{\cFunc}(\mRat)=\mRat$ up to a first `kink point' at $\mRat_{\#}^{1}>1$, and with discrete declines in the MPC at successively increasing kink points $\{\mRat_{\#}^{1},\mRat_{\#}^{2},...\}$.  As $\mRat \uparrow \infty$ the constrained consumption function $\mathring{\cFunc}(\mRat)$ becomes arbitrarily close to the unconstrained $\bar{\cFunc}(\mRat)$, and the marginal propensity to consume function $\mathring{\MPCFunc}(\mRat) \equiv \mathring{\cFunc}^{\prime}(\mRat)$ limits to $\MinMPC$.  Similarly, the value function $\mathring{\vFunc}(\mRat)$ is nondegenerate and limits into the value function of the unconstrained consumer.  Surprisingly, this logic holds even when the finite human wealth condition fails (denoted \cancel{PF-FHWC}).  A solution exists because the constraint prevents the consumer from borrowing against infinite human wealth to finance infinite current consumption.  Under these circumstances, the consumer who starts with any amount of resources $\bRat_{t} > 1$ will run those resources down over time so that by some finite number of periods $n$ in the future the consumer will reach $\bRat_{t+n} = 0$, and thereafter will set $\cRat = \mRat = 1$ for eternity, a policy that will (using \eqref{eq:ValuePFAnalytical}) yield value of \hypertarget{PFFVAC}{}
+More useful is the case where the perfect foresight growth and return impatience conditions both hold.  In this case appendix \ref{sec:ApndxLiqConstr} shows that the limiting constrained consumption function is piecewise linear, with $\mathring{\cFunc}(\mRat)=\mRat$ up to a first `kink point' at $\mRat_{\#}^{1}>1$, and with discrete declines in the MPC at successively increasing kink points $\{\mRat_{\#}^{1},\mRat_{\#}^{2},...\}$.  As $\mRat \uparrow \infty$ the constrained consumption function $\mathring{\cFunc}(\mRat)$ becomes arbitrarily close to the unconstrained $\bar{\cFunc}(\mRat)$, and the marginal propensity to consume function $\mathring{\MPCFunc}(\mRat) \equiv \mathring{\cFunc}^{\prime}(\mRat)$ limits to $\MinMPC$.  Similarly, the value function $\mathring{\vFunc}(\mRat)$ is nondegenerate and limits into the value function of the unconstrained consumer.  Surprisingly, this logic holds even when the finite human wealth condition fails (denoted \cancel{FHWC}).  A solution exists because the constraint prevents the consumer from borrowing against infinite human wealth to finance infinite current consumption.  Under these circumstances, the consumer who starts with any amount of resources $\bRat_{t} > 1$ will run those resources down over time so that by some finite number of periods $n$ in the future the consumer will reach $\bRat_{t+n} = 0$, and thereafter will set $\cRat = \mRat = 1$ for eternity, a policy that will (using \eqref{eq:ValuePFAnalytical}) yield value of \hypertarget{PFFVAC}{}
 \begin{eqnarray}
-  \vLevBF_{t+n} & = & \util(\pLevBF_{t+n})\left(1+\DiscFac
+  \vLevBF_{t+n} & = & \uFunc(\pLevBF_{t+n})\left(1+\DiscFac
     \PGro^{1-\CRRA}+(\DiscFac \PGro^{1-\CRRA})^{2}+...\right) \notag
-  \\ & = & \PGro^{n(1-\CRRA)} \util(\pLevBF_{t})\left(\frac{1-(\DiscFac
+  \\ & = & \PGro^{n(1-\CRRA)} \uFunc(\pLevBF_{t})\left(\frac{1-(\DiscFac
       \PGro^{1-\CRRA})^{T-(t+n)+1}}{1-\DiscFac \PGro^{1-\CRRA}}\right),
   \notag
 \end{eqnarray}
@@ -453,7 +453,7 @@ which will be finite whenever
 \\ \DiscFac \Rfree \PGro^{-\CRRA} & < & \Rfree/\PGro \nonumber
 \\ \PatPGro & < & (\Rfree/\PGro)^{1/\CRRA} \label{eq:PFFVACv2}
 \end{eqnarray}
-which we call the Perfect Foresight Finite Value of Autarky Condition, PF-FVAC, because it guarantees that a consumer who always spends all his permanent income will have finite value (the consumer has `finite autarky value').  Note that the version of the PF-FVAC in \eqref{eq:PFFVACv2} implies the PF-GIC $\PatPGro < 1$ whenever \cancel{PF-FHWC} $\Rfree < \PGro$ holds.  So, if \cancel{PF-FHWC}, value for any finite $\mRat$ will be the sum of two finite numbers: The component due to the unconstrained consumption choice made over the finite horizon leading up to $\bRat_{t+n} = 0$, and the finite component due to the value of consuming all income thereafter.  The consumer's value function is therefore nondegenerate.
+which we call the Perfect Foresight Finite Value of Autarky Condition, PF-FVAC, because it guarantees that a consumer who always spends all his permanent income will have finite value (the consumer has `finite autarky value').  Note that the version of the PF-FVAC in \eqref{eq:PFFVACv2} implies the PF-GIC $\PatPGro < 1$ whenever \cancel{FHWC} $\Rfree < \PGro$ holds.  So, if \cancel{FHWC}, value for any finite $\mRat$ will be the sum of two finite numbers: The component due to the unconstrained consumption choice made over the finite horizon leading up to $\bRat_{t+n} = 0$, and the finite component due to the value of consuming all income thereafter.  The consumer's value function is therefore nondegenerate.
 
 The most peculiar possibility occurs when the RIC fails.  The appendix shows that under these circumstances the FHWC
 must also fail, and the constrained consumption function is nondegenerate.  (See Figure~\ref{fig:PFGICHoldsFHWCFailsRICFails} for a numerical example).  While it is true that $\lim_{m \uparrow \infty}
@@ -528,9 +528,9 @@ which is stronger than the perfect foresight version \eqref{eq:PFGIC} because $\
 \subsubsection{Autarky Value}
 Analogously to \eqref{eq:ValuePFAnalytical}, a consumer who spent his permanent income every period would have value
 \begin{eqnarray*}
-      \vLevBF_{t} & = & \Ex_{t}\left[\util(\pLevBF_{t}) + \DiscFac \util(\pLevBF_{t}\PGro_{t+1}) + ... + \DiscFac^{T-t}\util(\pLevBF_{t}\PGro_{t+1}...\PGro_{T})\right] \\
-      & = & \util(\pLevBF_{t})\left(1+ \DiscFac \Ex_{t}[\PGro_{t+1}^{1-\CRRA}] +  ... + \DiscFac^{T-t}\Ex_{t}[\PGro_{t+1}^{1-\CRRA}]...\Ex_{t}[\PGro_{T}^{1-\CRRA}]\right) \\
-      & = & \util(\pLevBF_{t})\left(\frac{1-(\DiscFac \PGro^{1-\CRRA}\Ex[\pShk^{1-\CRRA}])^{T-t+1}}{1-\DiscFac \PGro^{1-\CRRA} \Ex[\pShk^{1-\CRRA}]}\right)
+      \vLevBF_{t} & = & \Ex_{t}\left[\uFunc(\pLevBF_{t}) + \DiscFac \uFunc(\pLevBF_{t}\PGro_{t+1}) + ... + \DiscFac^{T-t}\uFunc(\pLevBF_{t}\PGro_{t+1}...\PGro_{T})\right] \\
+      & = & \uFunc(\pLevBF_{t})\left(1+ \DiscFac \Ex_{t}[\PGro_{t+1}^{1-\CRRA}] +  ... + \DiscFac^{T-t}\Ex_{t}[\PGro_{t+1}^{1-\CRRA}]...\Ex_{t}[\PGro_{T}^{1-\CRRA}]\right) \\
+      & = & \uFunc(\pLevBF_{t})\left(\frac{1-(\DiscFac \PGro^{1-\CRRA}\Ex[\pShk^{1-\CRRA}])^{T-t+1}}{1-\DiscFac \PGro^{1-\CRRA} \Ex[\pShk^{1-\CRRA}]}\right)
       \end{eqnarray*}
 which invites the definition of a utility-compensated equivalent of the permanent shock,
 \begin{eqnarray*}
@@ -613,7 +613,7 @@ call the limiting infinite-horizon consumption rule
 \hypertarget{Concave-Consumption-Function-Characteristics}{}
 \subsection{Concave Consumption Function Characteristics}\label{sec:cExists}
 
-A precondition for the main proof is that the maximization problem \eqref{eq:veqn} defines a sequence of continuously differentiable strictly increasing strictly concave\footnote{There is one obvious exception: $\cFunc_{T}(m)$ is a linear (and so only weakly concave) function.} functions $\{\cFunc_{T},\cFunc_{T-1},...\}$.\footnote{\cite{ckConcavity} proved concavity but not the other desired properties.}  The straightforward but tedious proof of this precondition is relegated to appendix~\ref{sec:ApndxcExists}.  For present purposes, the most important point is the following intuition: $\cFunc_{t}(\mRat) < m$ for all periods $t < T$ because a consumer who spent all available resources would arrive in period $t+1$ with balances $b_{t+1}$ of zero, and then might earn zero noncapital income over the remaining horizon (an unbroken series of zero-income events is unlikely but possible).  In such a case, the budget constraint and the can't-die-in-debt condition mean that the consumer would be forced to spend zero, incurring negative infinite utility.  To avoid this disaster, the consumer never spends everything.  (This is an example of the `natural borrowing constraint' induced by a precautionary motive (\cite{zeldesStochastic}).)\footnote{It would perhaps be better to call it the `utility-induced borrowing constraint' as it follows from the assumptions on the utility function (in particular, $\lim_{c \downarrow 0} \util(c)=-\infty$); for example, no such constraint arises if utility is of the (implausible) Constant Absolute Risk Aversion form.}
+A precondition for the main proof is that the maximization problem \eqref{eq:veqn} defines a sequence of continuously differentiable strictly increasing strictly concave\footnote{There is one obvious exception: $\cFunc_{T}(m)$ is a linear (and so only weakly concave) function.} functions $\{\cFunc_{T},\cFunc_{T-1},...\}$.\footnote{\cite{ckConcavity} proved concavity but not the other desired properties.}  The straightforward but tedious proof of this precondition is relegated to appendix~\ref{sec:ApndxcExists}.  For present purposes, the most important point is the following intuition: $\cFunc_{t}(\mRat) < m$ for all periods $t < T$ because a consumer who spent all available resources would arrive in period $t+1$ with balances $b_{t+1}$ of zero, and then might earn zero noncapital income over the remaining horizon (an unbroken series of zero-income events is unlikely but possible).  In such a case, the budget constraint and the can't-die-in-debt condition mean that the consumer would be forced to spend zero, incurring negative infinite utility.  To avoid this disaster, the consumer never spends everything.  (This is an example of the `natural borrowing constraint' induced by a precautionary motive (\cite{zeldesStochastic}).)\footnote{It would perhaps be better to call it the `utility-induced borrowing constraint' as it follows from the assumptions on the utility function (in particular, $\lim_{c \downarrow 0} \uFunc(c)=-\infty$); for example, no such constraint arises if utility is of the (implausible) Constant Absolute Risk Aversion form.}
 
 \hypertarget{Bounds-for-the-Consumption-Functions}{}
 \subsection{Bounds for the Consumption Functions}
@@ -760,7 +760,7 @@ Using this, we introduce the mapping \textit{$\TMap:\mathcal{C}_{\phiFunc }\left
 \{\TMap{\zFunc}\}(\mRat_{t}) &=&\underset{{\cRat}_{t} \in
 [\MinMinMPC \mRat_{t}, \MaxMPC \mRat_{t}]
 } \max
-\util(c_{t})+\DiscFac \left( \{\EEndMap \zFunc \}(\mRat_{t}-c_{t}) \right)  \label{definitionmappingT}.
+\uFunc(c_{t})+\DiscFac \left( \{\EEndMap \zFunc \}(\mRat_{t}-c_{t}) \right)  \label{definitionmappingT}.
 \end{eqnarray}
 
 
@@ -769,7 +769,7 @@ Unpacking the definitions, our mapping $\TMap$ can be written more explicitly as
 \begin{eqnarray}
 \{\TMap\zFunc\}(\mRat_{t}) &=&\underset{\cRat_{t} \in [\MinMinMPC
   \mRat_{t}, \MaxMPC \mRat_{t}]} \max \left\{
-\util(c_{t})+\DiscFac \Ex_{t}\left[ {\PGro}_{t+1} ^{1-\CRRA }\zFunc(
+\uFunc(c_{t})+\DiscFac \Ex_{t}\left[ {\PGro}_{t+1} ^{1-\CRRA }\zFunc(
 {\aRat}_{t}\Rnorm_{t+1}+\tShkAll_{t+1}) \right] \right\}
 .
 \end{eqnarray}
@@ -842,8 +842,8 @@ As noted above, the Return Impatience Condition (RIC) is necessary in
 this context to guarantee that the PDV of the stream of future
 consumption is finite; value is then given by
 \begin{eqnarray*}
-  \vLevBF_{t} & = & \util(\cLevBF_{t})+\DiscFac \util(\overbrace{(\Rfree \DiscFac)^{1/\CRRA}\cLevBF_{t}}^{=\cLevBF_{t+1}})+\DiscFac^{2} \util(((\Rfree \DiscFac)^{1/\CRRA})^{2}\cLevBF_{t})+...
-\\ & = & \util(\cLevBF_{t})\left(1+\DiscFac ((\Rfree \DiscFac)^{1/\CRRA})^{1-\CRRA}+(\DiscFac ((\Rfree \DiscFac)^{1/\CRRA})^{1-\CRRA})^{2}+...\right)
+  \vLevBF_{t} & = & \uFunc(\cLevBF_{t})+\DiscFac \uFunc(\overbrace{(\Rfree \DiscFac)^{1/\CRRA}\cLevBF_{t}}^{=\cLevBF_{t+1}})+\DiscFac^{2} \uFunc(((\Rfree \DiscFac)^{1/\CRRA})^{2}\cLevBF_{t})+...
+\\ & = & \uFunc(\cLevBF_{t})\left(1+\DiscFac ((\Rfree \DiscFac)^{1/\CRRA})^{1-\CRRA}+(\DiscFac ((\Rfree \DiscFac)^{1/\CRRA})^{1-\CRRA})^{2}+...\right)
 \end{eqnarray*}
 which has a finite limit so long as $\DiscFac ((\Rfree \DiscFac)^{1/\CRRA})^{1-\CRRA} < 1$.  But
 \begin{eqnarray*}
@@ -869,8 +869,8 @@ Value, in the constrained case, is easy to calculate, because the
 constrained consumer's spending is always equal to income, which
 always grows by $\PGro$:
 \begin{eqnarray}
-  \vLevBF_{t} & = & \util(\pLevBF_{t})+\DiscFac \util(\pLevBF_{t} \PGro) + \DiscFac^{2} \util(\pLevBF_{t} \PGro^{2}) ... \notag
-\\ & = & \util(\pLevBF_{t})\left(1+\DiscFac \PGro^{1-\CRRA}+(\DiscFac \PGro^{1-\CRRA})^{2}+...\right)
+  \vLevBF_{t} & = & \uFunc(\pLevBF_{t})+\DiscFac \uFunc(\pLevBF_{t} \PGro) + \DiscFac^{2} \uFunc(\pLevBF_{t} \PGro^{2}) ... \notag
+\\ & = & \uFunc(\pLevBF_{t})\left(1+\DiscFac \PGro^{1-\CRRA}+(\DiscFac \PGro^{1-\CRRA})^{2}+...\right)
 \end{eqnarray}
 which explains the perfect foresight finite value requirement
 \eqref{eq:FVAC}: It guarantees that value for the constrained
@@ -1809,7 +1809,7 @@ satisfies
 Assume that some $\vFunc_{t+1}$ is nice.  Our objective is to show that this
 implies $\vFunc_{t}$ is also nice; this is sufficient to establish that
 $\vFunc_{t-n}$ is nice by induction for all $n > 0$ because $\vFunc_{T}(\mRat)
-=\util(\mRat) $ and $\util(\mRat)=\mRat^{1-\CRRA}/(1-\CRRA)$ is nice by inspection.
+=\uFunc(\mRat) $ and $\uFunc(\mRat)=\mRat^{1-\CRRA}/(1-\CRRA)$ is nice by inspection.
 
 Now define an end-of-period value function $\mathfrak{v}_{t}(a) $ as
 \begin{equation}
@@ -1827,9 +1827,9 @@ be nice.  (See Hiraguchi~\citeyearpar{hiraguchiBSProofs}.)
 
 Next define $\ushort{\vFunc}_{t}(\mRat,\cRat)$ as
 \begin{equation}
-\ushort{\vFunc}_{t}(\mRat,\cRat)=\util(c)+\mathfrak{v}_{t}(\mRat-c)
+\ushort{\vFunc}_{t}(\mRat,\cRat)=\uFunc(c)+\mathfrak{v}_{t}(\mRat-c)
 \end{equation}
-which is $\mathbf{C}^{3}$ since $\mathfrak{v}_{t}$ and $\util$ are both
+which is $\mathbf{C}^{3}$ since $\mathfrak{v}_{t}$ and $\uFunc$ are both
 $\mathbf{C}^{3},$ and note that our problem's value function defined
 in \eqref{eq:veqn} can be written as
 \begin{eqnarray}
@@ -1848,54 +1848,54 @@ $\lim_{c \downarrow
 exists and is unique, and \eqref{eq:veqn} has an internal
 solution that satisfies
 \begin{equation}
-\util^{\prime }(\cFunc_{t}(\mRat))=\mathfrak{v}_{t}^{\prime }(\mRat-\cFunc_{t}(\mRat))  \label{eq:consumptionf}.
+\uFunc^{\prime }(\cFunc_{t}(\mRat))=\mathfrak{v}_{t}^{\prime }(\mRat-\cFunc_{t}(\mRat))  \label{eq:consumptionf}.
 \end{equation}
 
 
-Since both $\util$ and $\mathfrak{v}_{t}$ are strictly concave, both
+Since both $\uFunc$ and $\mathfrak{v}_{t}$ are strictly concave, both
 $\cFunc_{t}(\mRat)$ and $\aFunc_{t}(\mRat)=\mRat-\cFunc_{t}(\mRat)$
-are strictly increasing. Since both $\util$ and $\mathfrak{v}_{t}$ are
+are strictly increasing. Since both $\uFunc$ and $\mathfrak{v}_{t}$ are
 three times continuously differentiable, using $\left(
   \ref{eq:consumptionf}\right) $ we can conclude that
 $\cFunc_{t}(\mRat)$ is continuously differentiable and
 \begin{eqnarray}
-\cFunc_{t}^{\prime }(\mRat) & = & \frac{\mathfrak{v}_{t}^{\prime \prime }({\aFunc}_{t}(\mRat))  }{\util^{\prime \prime }(\cFunc_{t}(\mRat))+\mathfrak{v}_{t}^{\prime \prime }({\aFunc}_{t}(\mRat))}.
+\cFunc_{t}^{\prime }(\mRat) & = & \frac{\mathfrak{v}_{t}^{\prime \prime }({\aFunc}_{t}(\mRat))  }{\uFunc^{\prime \prime }(\cFunc_{t}(\mRat))+\mathfrak{v}_{t}^{\prime \prime }({\aFunc}_{t}(\mRat))}.
 \end{eqnarray}
 
 Similarly we can easily show that $\cFunc_{t}(\mRat)$ is twice
 continuously differentiable (as is $\aFunc_{t}(\mRat)$) (See
 Appendix~\ref{sec:CIsTwiceDifferentiable}.)  This implies that
 $\vFunc_{t}(\mRat)$ is nice, since
-$\vFunc_{t}(\mRat)=\util(\cFunc_{t}(\mRat))+\mathfrak{v}_{t}({\aFunc}_{t}(\mRat))$.
+$\vFunc_{t}(\mRat)=\uFunc(\cFunc_{t}(\mRat))+\mathfrak{v}_{t}({\aFunc}_{t}(\mRat))$.
 
 \hypertarget{cFunc-is-Twice-Continuously-Differentiable}{}
 \section{$\cFunc_{t}(\mRat)$ is Twice Continuously Differentiable}\label{sec:CIsTwiceDifferentiable}
 
 First we show that $\cFunc_{t}(\mRat)$ is $\mathbf{C}^{1}.$ Define $y$ as
 $y\equiv m+dm$.
-  Since $\util^{\prime }\left( \cFunc_{t}(y)\right) -\util^{\prime }\left(
+  Since $\uFunc^{\prime }\left( \cFunc_{t}(y)\right) -\uFunc^{\prime }\left(
     \cFunc_{t}(\mRat)\right) =\mathfrak{v}_{t}^{\prime
   }({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mRat))$ and $
   \frac{{\aFunc}_{t}(y)-{\aFunc}_{t}(\mRat)}{dm}=1-\frac{\cFunc_{t}(y)-\cFunc_{t}(\mRat)}{dm},$
 \begin{eqnarray*}
 \lefteqn{\frac{\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mRat))}{{\aFunc}_{t}(y)-{\aFunc}_{t}(\mRat)} =}   & & \\
- & & \left( \frac{\util^{\prime }\left( \cFunc_{t}(y)\right) -\util^{\prime }\left( \cFunc_{t}(\mRat)\right) }{\cFunc_{t}(y)-\cFunc_{t}(\mRat)}+\frac{\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mRat))}{{\aFunc}_{t}(y)-{\aFunc}_{t}(\mRat)}\right) \frac{\cFunc_{t}(y)-\cFunc_{t}(\mRat)}{dm}
+ & & \left( \frac{\uFunc^{\prime }\left( \cFunc_{t}(y)\right) -\uFunc^{\prime }\left( \cFunc_{t}(\mRat)\right) }{\cFunc_{t}(y)-\cFunc_{t}(\mRat)}+\frac{\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mRat))}{{\aFunc}_{t}(y)-{\aFunc}_{t}(\mRat)}\right) \frac{\cFunc_{t}(y)-\cFunc_{t}(\mRat)}{dm}
 \end{eqnarray*}
 Since $\cFunc_{t}$ and $\aFunc_{t}$ are continuous and increasing, $\underset{
-dm\rightarrow +0}{\lim }\frac{\util^{\prime }\left( \cFunc_{t}(y)\right) -\util^{\prime
+dm\rightarrow +0}{\lim }\frac{\uFunc^{\prime }\left( \cFunc_{t}(y)\right) -\uFunc^{\prime
 }\left( \cFunc_{t}(\mRat)\right) }{\cFunc_{t}(y)-\cFunc_{t}(\mRat)}<0$ and
 $\underset{dm\rightarrow+0}{\lim }\frac{\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mRat))}{
 {\aFunc}_{t}(y)-{\aFunc}_{t}(\mRat)}< 0$
-are satisfied. Then $\frac{\util^{\prime }\left(
-\cFunc_{t}(y)\right) -\util^{\prime }\left( \cFunc_{t}(\mRat)\right) }{\cFunc_{t}(y)-\cFunc_{t}(\mRat)}+
+are satisfied. Then $\frac{\uFunc^{\prime }\left(
+\cFunc_{t}(y)\right) -\uFunc^{\prime }\left( \cFunc_{t}(\mRat)\right) }{\cFunc_{t}(y)-\cFunc_{t}(\mRat)}+
 \frac{\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mRat))}{{\aFunc}_{t}(y)-{\aFunc}_{t}(\mRat)}
 <0$ for sufficiently small $dm$.
  Hence we obtain a well-defined equation:
 
 \begin{equation*}
 \frac{\cFunc_{t}(y)-\cFunc_{t}(\mRat)}{dm}=\frac{\frac{\mathfrak{v}_{t}^{\prime
-}({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mRat))}{{\aFunc}_{t}(y)-{\aFunc}_{t}(\mRat)}}{\frac{\util^{\prime
-}\left( \cFunc_{t}(y)\right) -\util^{\prime }\left( \cFunc_{t}(\mRat)\right) }{
+}({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mRat))}{{\aFunc}_{t}(y)-{\aFunc}_{t}(\mRat)}}{\frac{\uFunc^{\prime
+}\left( \cFunc_{t}(y)\right) -\uFunc^{\prime }\left( \cFunc_{t}(\mRat)\right) }{
 \cFunc_{t}(y)-\cFunc_{t}(\mRat)}+\frac{\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mRat))
 }{{\aFunc}_{t}(y)-{\aFunc}_{t}(\mRat)}}.
 \end{equation*}
@@ -1903,7 +1903,7 @@ This implies that the right-derivative, $\cFunc_{t}^{\prime +}(\mRat)$ is
 well-defined and
 
 \begin{equation*}
-\cFunc_{t}^{\prime +}(\mRat)=\frac{\mathfrak{v}_{t}^{\prime \prime }({\aFunc}_{t}(\mRat))}{\util^{\prime \prime
+\cFunc_{t}^{\prime +}(\mRat)=\frac{\mathfrak{v}_{t}^{\prime \prime }({\aFunc}_{t}(\mRat))}{\uFunc^{\prime \prime
 }(\cFunc_{t}(\mRat))+\mathfrak{v}_{t}^{\prime \prime }({\aFunc}_{t}(\mRat))}.
 \end{equation*}
 
@@ -1912,15 +1912,15 @@ which means $\cFunc_{t}^{\prime }(\mRat)$ exists. Since $\mathfrak{v}_{t}$ is
 $\mathbf{C}^{3}$, $ \cFunc_{t}^{\prime }(\mRat)$ exists and is continuous.
 $\cFunc_{t}^{\prime }(\mRat)$ is differentiable because
 $\mathfrak{v}_{t}^{\prime \prime }$ is $\mathbf{C}^{1}$, $ \cFunc_{t}(\mRat)$
-is $\mathbf{C}^{1}$ and $\util^{\prime \prime
+is $\mathbf{C}^{1}$ and $\uFunc^{\prime \prime
 }(\cFunc_{t}(\mRat))+\mathfrak{v}_{t}^{\prime \prime }\left( {\aFunc}_{t}(\mRat)\right)
 <0$. $\cFunc_{t}^{\prime \prime }(\mRat)$ is given by
 \begin{equation}
 \cFunc_{t}^{\prime \prime }(\mRat)=\frac{{\aRat}_{t}^{\prime }(\mRat)\mathfrak{v}_{t}^{\prime \prime
-\prime }({\aRat}_{t})\left[ \util^{\prime \prime }(c_{t})+\mathfrak{v}_{t}^{\prime \prime }({\aRat}_{t})
-\right] -\mathfrak{v}_{t}^{\prime \prime }({\aRat}_{t})\left[ c_{t}^{\prime }\util^{\prime \prime
+\prime }({\aRat}_{t})\left[ \uFunc^{\prime \prime }(c_{t})+\mathfrak{v}_{t}^{\prime \prime }({\aRat}_{t})
+\right] -\mathfrak{v}_{t}^{\prime \prime }({\aRat}_{t})\left[ c_{t}^{\prime }\uFunc^{\prime \prime
 \prime }(c_{t})+{\aRat}_{t}^{\prime }\mathfrak{v}_{t}^{\prime \prime \prime }({\aRat}_{t})\right] }{
-\left[ \util^{\prime \prime }(c_{t})+\mathfrak{v}_{t}^{\prime \prime }({\aRat}_{t})\right] ^{2}}.
+\left[ \uFunc^{\prime \prime }(c_{t})+\mathfrak{v}_{t}^{\prime \prime }({\aRat}_{t})\right] ^{2}}.
 \end{equation}
 Since $\mathfrak{v}_{t}^{\prime \prime }({\aFunc}_{t}(\mRat))$ is continuous,
 $\cFunc_{t}^{\prime \prime }(\mRat)$ is also continuous.
@@ -1943,13 +1943,13 @@ Consider condition 1). For this problem,
 \{\TMap{\mathfrak{\xFunc}}\}(\mRat_{t}) &\mbox{is}&\underset{\cRat_{t} \in
 [\MinMinMPC \mRat_{t}, \MaxMPC \mRat_{t}]
 }\max \left\{
-\util(c_{t})+\DiscFac \Ex_{t}\left[ {\PGro}_{t+1}^{1-\CRRA }{\mathfrak{\xFunc}}
+\uFunc(c_{t})+\DiscFac \Ex_{t}\left[ {\PGro}_{t+1}^{1-\CRRA }{\mathfrak{\xFunc}}
 \left( {\mRat}_{t+1}\right) \right] \right\}  \notag  \label{eq:condition1}
 \\
 \{\TMap{\mathfrak{\yFunc}}\}(\mRat_{t}) &\mbox{is}&\underset{\cRat_{t} \in
 [\MinMinMPC \mRat_{t}, \MaxMPC \mRat_{t}]
 }\max \left\{
-\util(c_{t})+\DiscFac \Ex_{t}\left[ {\PGro}_{t+1}^{1-\CRRA }{\mathfrak{\yFunc}}
+\uFunc(c_{t})+\DiscFac \Ex_{t}\left[ {\PGro}_{t+1}^{1-\CRRA }{\mathfrak{\yFunc}}
 \left( {\mRat}_{t+1}\right) \right] \right\} ,  \notag
 \end{eqnarray*}%
 so ${\mathfrak{\xFunc}}(\bullet) \leq {\mathfrak{\yFunc}}(\bullet)$ implies $\{\TMap{\mathfrak{\xFunc}}\}(\mRat_{t}) \leq \{\TMap{\mathfrak{\yFunc}} \}(\mRat_{t})$ by inspection.\footnote{For a fixed $\mRat_{t}$, recall that ${\mRat}_{t+1}$ is just a function of $c_{t}$ and the
@@ -1962,7 +1962,7 @@ Condition 2) requires that $\{\TMap\mathbf{0}\}\in \mathcal{C}_{\phiFunc}\left(\
 }\left\{ \left( \frac{\cRat_{t}^{1-\CRRA }}{1-\CRRA }\right) +\DiscFac 0\right\}
 \end{equation*}
 the solution to which is patently
-$\util(\MaxMPC \mRat_{t})$. Thus, condition 2)
+$\uFunc(\MaxMPC \mRat_{t})$. Thus, condition 2)
 will hold if $(\MaxMPC \mRat_{t})^{1-\CRRA}$ is $\phiFunc$-bounded.  We use
 the bounding function
 \begin{eqnarray}
@@ -1971,7 +1971,7 @@ the bounding function
 \end{eqnarray}
 for some real scalar $\eta > 0$ whose value will be determined in the
 course of the proof. Under this definition of $\phiFunc$,
-$\{\TMap\mathbf{0}\}(\mRat_{t})= \util(\MaxMPC \mRat_{t})$
+$\{\TMap\mathbf{0}\}(\mRat_{t})= \uFunc(\MaxMPC \mRat_{t})$
 is clearly
 $\phiFunc$-bounded.
 
@@ -1986,18 +1986,18 @@ functions\footnote{Section \ref{sec:cExists} proves existence of a
 $\hat{\aFunc}$ as the functions associated with $\TMap({\zFunc+\zeta
   \phiFunc})$; using this notation, condition 3) can be rewritten
 \begin{eqnarray*}
-\util(\hat{\cFunc})+\DiscFac \{\EEndMap (\zFunc+\zeta \phiFunc) \}(\hat{\aFunc})  & \leq & \util(\breve{\cFunc})+\DiscFac \{\EEndMap \zFunc \}(\breve{\aFunc})  + \zeta \Shrinker \phiFunc.
+\uFunc(\hat{\cFunc})+\DiscFac \{\EEndMap (\zFunc+\zeta \phiFunc) \}(\hat{\aFunc})  & \leq & \uFunc(\breve{\cFunc})+\DiscFac \{\EEndMap \zFunc \}(\breve{\aFunc})  + \zeta \Shrinker \phiFunc.
 \end{eqnarray*}
 
 Now note that if we force the $\smile$ consumer to consume the amount that is
 optimal for the $\wedge$ consumer, value for the $\smile$ consumer must decline (at least weakly).  That is,
 \begin{eqnarray*}
-\util(\hat{\cFunc})+\DiscFac \{\EEndMap \zFunc \}(\hat{\aFunc})  & \leq &\util(\breve{\cFunc})+\DiscFac \{\EEndMap \zFunc \}(\breve{\aFunc})
+\uFunc(\hat{\cFunc})+\DiscFac \{\EEndMap \zFunc \}(\hat{\aFunc})  & \leq &\uFunc(\breve{\cFunc})+\DiscFac \{\EEndMap \zFunc \}(\breve{\aFunc})
 .
 \end{eqnarray*}
 Thus, condition 3) will certainly hold under the stronger condition
 \begin{eqnarray*}
-\util(\hat{\cFunc})+\DiscFac\{\EEndMap (\zFunc+\zeta \phiFunc) \}(\hat{\aFunc})  & \leq & \util(\hat{\cFunc})+\DiscFac\{\EEndMap \zFunc \}(\hat{\aFunc})  + \zeta \Shrinker \phiFunc
+\uFunc(\hat{\cFunc})+\DiscFac\{\EEndMap (\zFunc+\zeta \phiFunc) \}(\hat{\aFunc})  & \leq & \uFunc(\hat{\cFunc})+\DiscFac\{\EEndMap \zFunc \}(\hat{\aFunc})  + \zeta \Shrinker \phiFunc
 \\ \DiscFac\{\EEndMap (\zFunc+\zeta \phiFunc) \}(\hat{\aFunc})  & \leq & \DiscFac\{\EEndMap \zFunc  \}(\hat{\aFunc})  + \zeta \Shrinker \phiFunc
 \\ \DiscFac\zeta \{\EEndMap \phiFunc \}(\hat{\aFunc})  & \leq & \zeta \Shrinker \phiFunc
 \\ \DiscFac\{\EEndMap \phiFunc \}(\hat{\aFunc})  & \leq & \Shrinker \phiFunc
@@ -2136,13 +2136,13 @@ $\left\{\cFunc_{T-n+1}(\mRat)\right\} _{n=1}^{\infty }$.
 We start by showing that
 \begin{equation}
 \cFunc(\mRat)=\underset{\cRat_{t}\in [\MinMinMPC \mRat,\MaxMPC \mRat]}{\arg \max }\left\{
-\util(c_{t})+\DiscFac \Ex_{t}\left[ {\PGro}_{t+1}^{1-\CRRA }\vFunc( {\mRat}_{t+1}) \right] \right\}
+\uFunc(c_{t})+\DiscFac \Ex_{t}\left[ {\PGro}_{t+1}^{1-\CRRA }\vFunc( {\mRat}_{t+1}) \right] \right\}
 \end{equation}
 is uniquely determined. We show this by contradiction. Suppose there
 exist $c_{1}$ and $c_{2}$ that both attain the supremum for some $\mRat$,
 with mean $\tilde{\cRat}=(c_{1}+c_{2})/2$. $c_{i}$ satisfies
 \begin{equation}
-\TMap{\vFunc}(\mRat)=\util(c_{i})+\DiscFac \underbrace{\Ex_{t}\left[ {\PGro}_{t+1}
+\TMap{\vFunc}(\mRat)=\uFunc(c_{i})+\DiscFac \underbrace{\Ex_{t}\left[ {\PGro}_{t+1}
 ^{1-\CRRA }\vFunc(\mFunc_{t+1}( \mRat,\cRat_{i}) )
 \right]}_{\equiv \mathfrak{v}}
 \end{equation}
@@ -2155,10 +2155,10 @@ concave and satisfies
 }\vFunc( \mFunc_{t+1}( \mRat,\cRat_{i}) ) \right] \leq
 \Ex_{t}\left[ {\PGro}_{t+1}^{1-\CRRA }\vFunc( \mFunc_{t+1}( \mRat,\tilde{\cRat}) ) \right].
 \end{equation}
-On the other hand, $\frac{1}{2}\left\{ \util(c_{1})+\util(c_{2})\right\} <\util(
+On the other hand, $\frac{1}{2}\left\{ \uFunc(c_{1})+\uFunc(c_{2})\right\} <\uFunc(
 \tilde{\cRat}).$ Then one gets
 \begin{equation}
-\TMap \vFunc(\mRat)<\util(\tilde{\cRat})+\DiscFac \Ex_{t}\left[ {\PGro}_{t+1}^{1-\CRRA
+\TMap \vFunc(\mRat)<\uFunc(\tilde{\cRat})+\DiscFac \Ex_{t}\left[ {\PGro}_{t+1}^{1-\CRRA
 }\vFunc( \mFunc_{t+1}( \mRat,\tilde{\cRat}) ) \right].
 \end{equation}
 
@@ -2175,7 +2175,7 @@ Suppose this does not hold for some $\mRat=\mRat^{*}$. In this case, $ \left\{
 \lim_{i\rightarrow \infty }\cFunc_{T-n(i)}(\mRat^{*})=\cRat^{*}$ and $\cRat^{*}\neq
 \cFunc(\mRat^{*})$. Now define $\cRat^{*} _{T-n+1}=\cFunc_{T-n+1}(\mRat^{*})$.  $\cRat^{*}>0$
 because $\lim_{ i\rightarrow \infty }\vFunc_{T-n(i)+1}(\mRat^{*})\leq \lim_{
-  i\rightarrow \infty }\util(\cRat^{*}_{T-n(i)})$. Because $\aFunc(\mRat^{*})>0$ and
+  i\rightarrow \infty }\uFunc(\cRat^{*}_{T-n(i)})$. Because $\aFunc(\mRat^{*})>0$ and
 $\pShk \in [\ushort{\pShk},\bar{\pShk}]$ there exist $\{
 \ushort{\mRat}_{+}^{*},\bar{\mRat}_{+}^{*}\} $ satisfying $0<
 \ushort{\mRat}_{+}^{*}<\bar{\mRat}_{+}^{*}$ and ${\mRat}_{T-n+1}( \mRat^{*},\cRat^{*}
@@ -2198,7 +2198,7 @@ _{T-n+1}) ) -\vFunc( {\mRat}_{T-n+1}( \mRat^{*},
 \end{eqnarray*}
 for all $n\geq n_{1}$. It follows that if we define
 \begin{equation}
-\wFunc( \mRat^{*},z) =\util(z)+\DiscFac \Ex_{T-n}\left[ {\PGro}_{T-n+1}^{1-\CRRA }\vFunc( {\mRat}_{T-n+1}( \mRat^{*}
+\wFunc( \mRat^{*},z) =\uFunc(z)+\DiscFac \Ex_{T-n}\left[ {\PGro}_{T-n+1}^{1-\CRRA }\vFunc( {\mRat}_{T-n+1}( \mRat^{*}
 ,z) ) \right]
 \end{equation}
 then $\vFunc_{T-n}(\mRat^{*})$ satisfies
