@@ -20,14 +20,11 @@
 #
 # <cite data-cite="6202365/8AH9AXN2"></cite>
 #
-# <p style="text-align: center;"><small><small>Generator: BufferStockTheory-make/notebooks_byname</small></small></p>
+# <p style="text-align: center;"><small><small><small>Generator: BufferStockTheory-make/notebooks_byname</small></small></small></p>
 
 # %% [markdown]
-# <p style="text-align: center;"><small><small><small>For the following badges: GitHub does not allow click-through redirects; right-click to get the link, then paste into navigation bar</small></small></small></p>
 #
 # [![Open in Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/llorracc/BufferStockTheory/master?filepath=Code%2FPython%2FBufferStockTheory.ipynb)
-#
-# [![Open in CoLab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/llorracc/BufferStockTheory/blob/master/Code/Python/BufferStockTheory.ipynb)
 #
 # [This notebook](https://github.com/llorracc/BufferStockTheory/blob/master/Code/Python/BufferStockTheory.ipynb) uses the [Econ-ARK/HARK](https://github.com/econ-ark/hark) toolkit to reproduce the figures in the paper [Theoretical Foundations of Buffer Stock Saving](http://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory) 
 #
@@ -58,12 +55,12 @@ if 'win' in pform:
 # Test whether latex is installed (some of the figures require it)
 from distutils.spawn import find_executable
 
-iflatexExists=False
+latexExists=False
 
 if find_executable('latex'):
-    iflatexExists=True
+    latexExists=True
 
-if not iflatexExists:
+if not latexExists:
     print('Some of the figures below require a full installation of LaTeX')
     
     # If running on Mac or Win, user can be assumed to be able to install
@@ -76,7 +73,7 @@ if not iflatexExists:
         with io.capture_output() as captured: # Hide hideously long output 
             os.system('apt-get update')
             os.system('apt-get install texlive texlive-latex-extra texlive-xetex dvipng')
-            iflatexExists=True
+            latexExists=True
     else:
         print('Please install a full distributon of LaTeX on your computer then rerun.')
         print('A full distribution means textlive, texlive-latex-extras, texlive-xetex, dvipng, and ghostscript')
@@ -99,21 +96,22 @@ def in_ipynb():
     except NameError:
         return False
 
-if in_ipynb():
-    # Now install stuff aside from LaTeX (if not already installed)
-    os.system('pip install econ-ark')
-    os.system('pip install matplotlib')
-    os.system('pip install numpy')
-    os.system('pip install scipy')
-    os.system('pip install pillow')
-    os.system('pip install ipywidgets')
-    os.system('pip install jupyter_contrib_nbextensions')
-    os.system('jupyter contrib nbextension install --user')
-    os.system('jupyter nbextension enable codefolding/main')
-    os.system('pip install cite2c')
-    os.system('python -m cite2c.install')
-else:
-    print('In batch mode')
+# Uncomment the code below if you want to run in Colab
+# if in_ipynb():
+#     # Now install stuff aside from LaTeX (if not already installed)
+#     os.system('pip install econ-ark')
+#     os.system('pip install matplotlib')
+#     os.system('pip install numpy')
+#     os.system('pip install scipy')
+#     os.system('pip install pillow')
+#     os.system('pip install ipywidgets')
+#     os.system('pip install jupyter_contrib_nbextensions')
+#     os.system('jupyter contrib nbextension install --user')
+#     os.system('jupyter nbextension enable codefolding/main')
+#     os.system('pip install cite2c')
+#     os.system('python -m cite2c.install')
+# else:
+#     print('In batch mode')
     
 # Import related generic python packages
 import numpy as np
@@ -129,8 +127,8 @@ from matplotlib.pyplot import plot, draw, show
 from matplotlib import rc
 
 plt.rc('font', family='serif')
-plt.rc('text', usetex=iflatexExists)
-if iflatexExists:
+plt.rc('text', usetex=latexExists)
+if latexExists:
     latex_preamble = r'\usepackage{amsmath}\usepackage{amsfonts}\usepackage[T1]{fontenc}'
     from os import path
     latexdefs_path = os.getcwd()+'/latexdefs.tex'
@@ -157,19 +155,43 @@ else:
     get_ipython().run_line_magic('matplotlib', 'auto')
 
 # Code to allow a master "Generator" and derived "Generated" versions
+#   - allows "$nb-Problems-And-Solutions → $nb-Problems → $nb"
 Generator=False # Is this notebook the master or is it generated?
 
-# Define (and create, if necessary) the figures directory "Figures"
-if Generator:
-    my_file_path = os.path.dirname(os.path.abspath("BufferStockTheory.ipynb")) # Find pathname to this file:
-    Figures_HARK_dir = os.path.join(my_file_path,"Figures/") # LaTeX document assumes figures will be here
-#    Figures_HARK_dir = os.path.join(my_file_path,"/tmp/Figures/") # Uncomment to make figures outside of git path
-    if not os.path.exists(Figures_HARK_dir):
-        os.makedirs(Figures_HARK_dir)
-        
+# Where to put any figures that the user wants to save
+my_file_path = os.path.dirname(os.path.abspath("BufferStockTheory.ipynb")) # Find pathname to this file:
+Figures_dir = os.path.join(my_file_path,"Figures/") # LaTeX document assumes figures will be here
+if not os.path.exists(Figures_dir):
+    os.makedirs(Figures_dir)
+    
+# Whether to save the figures 
+saveFigs=True
+
+# Whether to draw the figures
+drawFigs=True
+
 if not in_ipynb(): # running in batch mode
     print('You appear to be running from a terminal')
-    print('By default, figures will appear one by one')
+    if drawFigs:
+        print('By default, figures will appear one by one')
+        
+def show(figure_name, target_dir="Figures"):
+    # Save the figures in several formats
+    # print(f"Saving figure {figure_name} in {target_dir}")
+    if saveFigs:
+        plt.savefig(os.path.join(target_dir, f'{figure_name}.png')) # For web/html
+        plt.savefig(os.path.join(target_dir, f'{figure_name}.jpg')) # Useful to make versions 
+        plt.savefig(os.path.join(target_dir, f'{figure_name}.pdf')) # For LaTeX
+        plt.savefig(os.path.join(target_dir, f'{figure_name}.svg')) # For html5
+    if not in_ipynb():
+        if drawFigs: # Only want to draw them if you're in a GUI
+            plt.ioff()   # When plotting in the terminal, do not use interactive mode
+            plt.draw()  
+            plt.pause(2) # Wait a couple of secs to allow the figure to be briefly visible after being drawn
+    else:
+        plt.show(block=True) # Change to false if you want to run uninterrupted
+
+
 
 # %%
 # Import HARK tools needed
@@ -300,21 +322,8 @@ plt.tick_params(labelbottom=False, labelleft=False,left='off',right='off',bottom
 plt.text(0,7.05,"$c$",fontsize = 26)
 plt.text(11.1,0,"$m$",fontsize = 26)
 # Save the figures in several formats
-if Generator:
-    plt.savefig(os.path.join(Figures_HARK_dir, 'cFuncsConverge.png'))
-    plt.savefig(os.path.join(Figures_HARK_dir, 'cFuncsConverge.jpg'))
-    plt.savefig(os.path.join(Figures_HARK_dir, 'cFuncsConverge.pdf'))
-    plt.savefig(os.path.join(Figures_HARK_dir, 'cFuncsConverge.svg'))
-if not in_ipynb():
-    plt.ioff()
-    plt.draw()
-#    plt.show(block=False) 
-    plt.pause(1)
-else:
-     plt.show(block=True) # Change to False if you want to run uninterrupted
-    
 
-
+show('cFuncsConverge') # Change to False if you want to run uninterrupted
 
 # %% [markdown]
 # ## Factors and Conditions
@@ -497,26 +506,28 @@ plt.text(0,1.63,"$c$",fontsize = 26)
 plt.text(5.55,0,"$m$",fontsize = 26)
 plt.tick_params(labelbottom=False, labelleft=False,left='off',right='off',bottom='off',top='off')
 plt.text(1,0.6,"$c(m_{t})$",fontsize = 18)
-if iflatexExists:
+if latexExists:
     plt.text(1.5,1.2,"$\mathbb{E}_{t}[\Delta m_{t+1}] = 0$",fontsize = 22)
 else:
     plt.text(1.5,1.2,"$\mathsf{E}_{t}[\Delta m_{t+1}] = 0$",fontsize = 22)
 
 plt.arrow(0.98,0.62,-0.2,0,head_width= 0.02,width=0.001,facecolor='black',length_includes_head='True')
 plt.arrow(2.2,1.2,0.3,-0.05,head_width= 0.02,width=0.001,facecolor='black',length_includes_head='True')
-if Generator:
-    plt.savefig(os.path.join(Figures_HARK_dir, 'FVACnotGIC.png'))
-    plt.savefig(os.path.join(Figures_HARK_dir, 'FVACnotGIC.jpg'))
-    plt.savefig(os.path.join(Figures_HARK_dir, 'FVACnotGIC.pdf'))
-    plt.savefig(os.path.join(Figures_HARK_dir, 'FVACnotGIC.svg'))
 
-# This figure reproduces the figure shown in the paper.  
-# The gap between the two functions actually increases with $m$ in the limit.
-if not in_ipynb():
-    plt.show(block=False) 
-    plt.pause(1)
-else:
-    plt.show(block=True) # Change to False if you want to run uninterrupted
+show('FVACnotGIC')
+# if Generator:
+#     plt.savefig(os.path.join(Figures_dir, 'FVACnotGIC.png'))
+#     plt.savefig(os.path.join(Figures_dir, 'FVACnotGIC.jpg'))
+#     plt.savefig(os.path.join(Figures_dir, 'FVACnotGIC.pdf'))
+#     plt.savefig(os.path.join(Figures_dir, 'FVACnotGIC.svg'))
+
+# # This figure reproduces the figure shown in the paper.  
+# # The gap between the two functions actually increases with $m$ in the limit.
+# if not in_ipynb():
+#     plt.show(block=False) 
+#     plt.pause(1)
+# else:
+#     plt.show(block=True) # Change to False if you want to run uninterrupted
 
 # %% [markdown]
 # As a foundation for the remaining figures, we define another instance of the class $\texttt{IndShockConsumerType}$, which has the same parameter values as the instance $\texttt{baseEx}$ defined previously but is solved to convergence (our definition of an infinite horizon agent type)
@@ -698,28 +709,29 @@ ax.set_xlim(1,2.10)
 ax.set_ylim(0.98,1.08)
 ax.text(1,1.082,"Growth Rate",fontsize = 26,fontweight='bold')
 ax.text(2.105,0.975,"$m_{t}$",fontsize = 26,fontweight='bold')
-if iflatexExists:
+if latexExists:
     ax.text(1.91,1.01,"$\mathbb{E}_{t}[\mathbf{c}_{t+1}/\mathbf{c}_{t}]$",fontsize = 22,fontweight='bold')
 else:
     ax.text(1.91,1.01,"$\mathsf{E}_{t}[c_{t+1}/c_{t}]$",fontsize = 22,fontweight='bold')
 ax.text(baseEx_inf.solution[0].mNrmSS-0.02,0.974, r'$\check{m}$', fontsize = 26,fontweight='bold')
 ax.tick_params(labelbottom=False, labelleft=False,left='off',right='off',bottom='off',top='off')
-if iflatexExists:
+if latexExists:
     ax.text(1.91,0.998,r'$\pmb{\text{\TH}} = (\mathrm{\mathsf{R}}\beta)^{1/\rho}$',fontsize = 22,fontweight='bold')
 else:
     ax.text(1.91,0.998,r'$\Phi = (\mathrm{\mathsf{R}}\beta)^{1/\rho}$',fontsize = 22,fontweight='bold')
 
 ax.text(1.91,1.03, r'$\Gamma$',fontsize = 22,fontweight='bold')
-if Generator:
-    fig.savefig(os.path.join(Figures_HARK_dir, 'cGroTargetFig.png'))
-    fig.savefig(os.path.join(Figures_HARK_dir, 'cGroTargetFig.jpg'))
-    fig.savefig(os.path.join(Figures_HARK_dir, 'cGroTargetFig.pdf'))
-    fig.savefig(os.path.join(Figures_HARK_dir, 'cGroTargetFig.svg'))
-if not in_ipynb():
-    plt.show(block=False) 
-    plt.pause(1)
-else:
-    plt.show(block=True) # Change to False if you want to run uninterrupted
+show('cGroTargetFig')
+# if Generator:
+#     fig.savefig(os.path.join(Figures_dir, 'cGroTargetFig.png'))
+#     fig.savefig(os.path.join(Figures_dir, 'cGroTargetFig.jpg'))
+#     fig.savefig(os.path.join(Figures_dir, 'cGroTargetFig.pdf'))
+#     fig.savefig(os.path.join(Figures_dir, 'cGroTargetFig.svg'))
+# if not in_ipynb():
+#     plt.show(block=False) 
+#     plt.pause(1)
+# else:
+#     plt.show(block=True) # Change to False if you want to run uninterrupted
 
 # %% [markdown]
 # ### [Consumption Function Bounds](https://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory/#AnalysisOfTheConvergedConsumptionFunction)
@@ -745,7 +757,7 @@ intersect_m = ((h_inf-1)* k_lower)/((1 - baseEx_inf.UnempPrb
 
 cMaxLabel=r'$\overline{c}(m) = (m-1+h)\underline{\kappa}$'
 cMinLabel=r'$\underline{c}(m)= (1-\pmb{\text{\TH}}_{R})\underline{\kappa}m$'
-if not iflatexExists:
+if not latexExists:
     cMaxLabel=r'$\overline{c}(m) = (m-1+h)κ̲' # Use unicode kludge
     cMinLabel=r'c̲$(m)= (1-\Phi_{R})m = κ̲ m$' 
     
@@ -771,7 +783,7 @@ plt.ylim(0,1.12*conFunc_PF(25))
 plt.text(0,1.12*conFunc_PF(25)+0.05,"$c$",fontsize = 22)
 plt.text(25+0.1,0,"$m$",fontsize = 22)
 plt.text(2.5,1,r'$c(m)$',fontsize = 22,fontweight='bold')
-if iflatexExists:
+if latexExists:
     plt.text(6,5,r'$\overline{\overline{c}}(m)= \overline{\kappa}m = (1-\wp^{1/\rho}\pmb{\text{\TH}}_{R})m$',fontsize = 22,fontweight='bold')
 else:
     plt.text(6,5,r'$\overline{\overline{c}}(m)= \overline{\kappa}m = (1-\wp^{1/\rho}\Phi_{R})m$',fontsize = 22,fontweight='bold')
@@ -783,16 +795,18 @@ plt.arrow(2.15,3.88,-0.5,0.1,head_width= 0.05,width=0.001,facecolor='black',leng
 plt.arrow(8.95,4.15,-0.8,0.05,head_width= 0.05,width=0.001,facecolor='black',length_includes_head='True')
 plt.arrow(5.95,5.05,-0.4,0,head_width= 0.05,width=0.001,facecolor='black',length_includes_head='True')
 plt.arrow(14,0.70,0.5,-0.1,head_width= 0.05,width=0.001,facecolor='black',length_includes_head='True')
-if Generator:
-    plt.savefig(os.path.join(Figures_HARK_dir, 'cFuncBounds.png'))
-    plt.savefig(os.path.join(Figures_HARK_dir, 'cFuncBounds.jpg'))
-    plt.savefig(os.path.join(Figures_HARK_dir, 'cFuncBounds.pdf'))
-    plt.savefig(os.path.join(Figures_HARK_dir, 'cFuncBounds.svg'))
-if not in_ipynb():
-    plt.show(block=False) 
-    plt.pause(1)
-else:
-    plt.show(block=True) # Change to False if you want to run uninterrupted
+
+show('cFuncBounds')
+# if Generator:
+#     plt.savefig(os.path.join(Figures_dir, 'cFuncBounds.png'))
+#     plt.savefig(os.path.join(Figures_dir, 'cFuncBounds.jpg'))
+#     plt.savefig(os.path.join(Figures_dir, 'cFuncBounds.pdf'))
+#     plt.savefig(os.path.join(Figures_dir, 'cFuncBounds.svg'))
+# if not in_ipynb():
+#     plt.show(block=False) 
+#     plt.pause(1)
+# else:
+#     plt.show(block=True) # Change to False if you want to run uninterrupted
 
 # %% [markdown]
 # ### [The Consumption Function and Target $m$](https://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory/#cFuncBounds)
@@ -815,7 +829,7 @@ plt.plot([baseEx_inf.solution[0].mNrmSS, baseEx_inf.solution[0].mNrmSS],[0,2.5],
 plt.tick_params(labelbottom=False, labelleft=False,left='off',right='off',bottom='off',top='off')
 plt.text(0,1.47,r"$c$",fontsize = 26)
 plt.text(3.02,0,r"$m$",fontsize = 26)
-if iflatexExists:
+if latexExists:
     plt.text(2.3,0.94,r'$\mathbb{E}_{t}[\Delta m_{t+1}] = 0$',fontsize = 22,fontweight='bold')
 else:
     plt.text(2.3,0.94,r'$\mathsf{E}_{t}[\Delta m_{t+1}] = 0$',fontsize = 22,fontweight='bold')
@@ -823,16 +837,18 @@ plt.text(2.3,1.1,r"$c(m_{t})$",fontsize = 22,fontweight='bold')
 plt.text(baseEx_inf.solution[0].mNrmSS-0.05,-0.1, r"$\check{m}$",fontsize = 26)
 plt.arrow(2.28,1.12,-0.1,0.03,head_width= 0.02,width=0.001,facecolor='black',length_includes_head='True')
 plt.arrow(2.28,0.97,-0.1,0.02,head_width= 0.02,width=0.001,facecolor='black',length_includes_head='True')
-if Generator:
-    plt.savefig(os.path.join(Figures_HARK_dir, 'cRatTargetFig.png'))
-    plt.savefig(os.path.join(Figures_HARK_dir, 'cRatTargetFig.jpg'))
-    plt.savefig(os.path.join(Figures_HARK_dir, 'cRatTargetFig.pdf'))
-    plt.savefig(os.path.join(Figures_HARK_dir, 'cRatTargetFig.svg'))
-if not in_ipynb():
-    plt.show(block=False)
-    plt.pause(1)
-else:
-    plt.show(block=True)
+
+show('cRatTargetFig')
+# if Generator:
+#     plt.savefig(os.path.join(Figures_dir, 'cRatTargetFig.png'))
+#     plt.savefig(os.path.join(Figures_dir, 'cRatTargetFig.jpg'))
+#     plt.savefig(os.path.join(Figures_dir, 'cRatTargetFig.pdf'))
+#     plt.savefig(os.path.join(Figures_dir, 'cRatTargetFig.svg'))
+# if not in_ipynb():
+#     plt.show(block=False)
+#     plt.pause(1)
+# else:
+#     plt.show(block=True)
 
 # %% [markdown]
 # ### [Upper and Lower Limits of the Marginal Propensity to Consume](https://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory/#MPCLimits)
@@ -859,7 +875,7 @@ MPCUpper = (1 - baseEx_inf.UnempPrb ** (1.0/baseEx_inf.CRRA)*(baseEx_inf.Rfree*b
 MPCLower = k_lower
 
 kappaDef=r'$\underline{\kappa}\equiv(1-\pmb{\text{\TH}}_{R})$'
-if not iflatexExists:
+if not latexExists:
     kappaDef=r'κ̲$\equiv(1-\Phi_{R})$'
 
 plt.plot(m,MPC,color = 'black')
@@ -868,26 +884,28 @@ plt.plot([0,8],[MPCLower,MPCLower],color = 'black')
 plt.xlim(0,8)
 plt.ylim(0,1)
 plt.text(1.5,0.6,r'$\kappa(m) \equiv c^{\prime}(m)$',fontsize = 26,fontweight='bold')
-if iflatexExists:
-    plt.text(5,0.87,r'$(1-\wp^{1/\rho}\pmb{\text{\TH}}_{R})\equiv \overline{\kappa}$',fontsize = 26,fontweight='bold')
+if latexExists:
+    plt.text(5,0.87,r'$(1-\wp^{1/\rho}\pmb{\text{\TH}}_{R})\equiv \overline{\kappa}$',fontsize = 26,fontweight='bold') # Use Thorn character
 else:
-    plt.text(5,0.87,r'$(1-\wp^{1/\rho}\Phi_{R})\equiv \overline{\kappa}$',fontsize = 26,fontweight='bold')
+    plt.text(5,0.87,r'$(1-\wp^{1/\rho}\Phi_{R})\equiv \overline{\kappa}$',fontsize = 26,fontweight='bold') # Use Phi instead of Thorn (alas)
     
 plt.text(0.5,0.07,kappaDef,fontsize = 26,fontweight='bold')
 plt.text(8.05,0,"$m$",fontsize = 26)
 plt.arrow(1.45,0.61,-0.4,0,head_width= 0.02,width=0.001,facecolor='black',length_includes_head='True')
 plt.arrow(2.2,0.07,0.2,-0.01,head_width= 0.02,width=0.001,facecolor='black',length_includes_head='True')
 plt.arrow(4.95,0.895,-0.2,0.03,head_width= 0.02,width=0.001,facecolor='black',length_includes_head='True')
-if Generator:
-    plt.savefig(os.path.join(Figures_HARK_dir, 'MPCLimits.png'))
-    plt.savefig(os.path.join(Figures_HARK_dir, 'MPCLimits.jpg'))
-    plt.savefig(os.path.join(Figures_HARK_dir, 'MPCLimits.pdf'))
-    plt.savefig(os.path.join(Figures_HARK_dir, 'MPCLimits.svg'))
-if not in_ipynb():
-    plt.show(block=False) 
-    plt.pause(1)
-else:
-    plt.show(block=True) # Change to False if you want to run uninterrupted
+
+show('MPCLimits')
+# if Generator:
+#     plt.savefig(os.path.join(Figures_dir, 'MPCLimits.png'))
+#     plt.savefig(os.path.join(Figures_dir, 'MPCLimits.jpg'))
+#     plt.savefig(os.path.join(Figures_dir, 'MPCLimits.pdf'))
+#     plt.savefig(os.path.join(Figures_dir, 'MPCLimits.svg'))
+# if not in_ipynb():
+#     plt.show(block=False) 
+#     plt.pause(1)
+# else:
+#     plt.show(block=True) # Change to False if you want to run uninterrupted
 
 # %% [markdown]
 # # Summary
