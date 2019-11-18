@@ -1,6 +1,5 @@
-\documentclass[../BufferStockTheory.tex]{subfiles}
-\input{./econtexRoot}
-\begin{document}
+\input{./econtexRoot}\documentclass[../BufferStockTheory.tex]{subfiles}
+\input{\econtexRoot/\ApndxDir/onlyinsubfile.tex}\begin{document}
 
 %\begin{verbatimwrite}{\ApndxDir/ApndxSolnMethTermFunc.tex}
 \section{The Terminal/Limiting Consumption Function}
@@ -16,8 +15,8 @@
 
 A natural alternative choice for the terminal consumption rule is the solution to the perfect foresight liquidity constrained problem, to which the model's solution converges (under specified parametric restrictions) as all forms of uncertainty approach zero (as discussed in the main text).  But a difficulty with this idea is that the perfect foresight liquidity constrained solution is `kinked:' The slope of the consumption function changes discretely at the points $\{\mRat^{1}_{\#},\mRat^{2}_{\#},...\}$.  This is a practical problem because it rules out the use of derivatives of the consumption function in the approximate representation of $\cFunc(\mRat)$, thereby preventing the enormous increase in efficiency obtainable from a higher-order approximation.
 
-Our solution is simple: The formulae in appendix
-\ref{sec:ApndxLiqConstr} that identify kink points on
+Our solution is simple: The formulae in another appendix
+that identify kink points on
 $\mathring{\cFunc}(\mRat)$ for integer values of $n$ (e.g.,
 $\cRat_{\#}^{n} = \PatPGro^{-n}$) are continuous functions of $n$; the
 conclusion that $\mathring{\cFunc}(\mRat)$ is piecewise linear
@@ -103,7 +102,7 @@ which can be solved for
 \end{align}
 \end{comment}
 
-Similarly, we can solve \eqref{eq:ChiDef} for
+Similarly, we can solve \eqref{\localorexternallabel{eq:ChiDef}} for
 \begin{align}
     \cFunc_{t}(\mRat)  & = \left(1-e^{\chi_{t}(\log \mRat)}\right)\cFunc_{T}(\mRat) \label{eq:cFuncFromChi}.
 %\\ \cFunc_{t}^{\prime}(e^{\mu})e^{\mu}  & = -e^{\chi(\mu)}\chi^{\prime}\cFunc_{T}(e^{\mu})+\left(1-e^{\chi(\mu)}\right)\cFunc_{T}(e^{\mu})

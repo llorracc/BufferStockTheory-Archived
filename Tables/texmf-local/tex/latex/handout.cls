@@ -28,7 +28,7 @@
 %%%     \thanks{text of the thank-you footnote} produces a footnote at the bottom of the page containing the text
 
 % Made by handoutMake.sh
-\ProvidesClass{handout}[2014/10/29 LaTeX class for handouts written by Christopher Carroll]
+\ProvidesClass{handout}[2019/11/18 LaTeX class for handouts written by Christopher Carroll]
 \NeedsTeXFormat{LaTeX2e}
 % \RequirePackage{rotating}
 \RequirePackage{snapshot} % Creates list of external files used by a LaTeX document

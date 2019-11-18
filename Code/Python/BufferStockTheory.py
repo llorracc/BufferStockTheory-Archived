@@ -21,6 +21,8 @@
 # <cite data-cite="6202365/8AH9AXN2"></cite>
 #
 # <p style="text-align: center;"><small><small><small>Generator: BufferStockTheory-make/notebooks_byname</small></small></small></p>
+#
+# [![econ-ark.org](https://img.shields.io/badge/Powered%20by-Econ--ARK-3e8acc.svg)](https://econ-ark.org/)
 
 # %% [markdown]
 #
@@ -33,11 +35,33 @@
 # For fast (local) execution of notebooks like this, refer to the [QUICK START GUIDE](https://github.com/econ-ark/HARK/blob/master/README.md).  
 
 # %%
-# This cell does some setup; please be patient, it may take 3-5 minutes
+# This cell does some standard python setup
 
-# The tools for navigating the filesystem
+# Tools for navigating the filesystem
 import sys
 import os
+
+# Import related generic python packages
+import numpy as np
+from time import clock
+mystr = lambda number : "{:.4f}".format(number)
+from copy import copy, deepcopy
+
+# Plotting tools
+import matplotlib
+import matplotlib.pyplot as plt
+from matplotlib.pyplot import plot, draw, show
+
+# iPython gives us some interactive and graphical tools
+from IPython import get_ipython # In case it was run from python instead of ipython
+
+# The warnings package allows us to ignore some harmless but alarming warning messages
+import warnings
+warnings.filterwarnings("ignore")
+
+
+# %%
+# Set up some special requirements for this notebook; please be patient, it may take 3-5 minutes
 
 # Determine the platform so we can do things specific to each 
 import platform
@@ -79,13 +103,6 @@ if not latexExists:
         print('A full distribution means textlive, texlive-latex-extras, texlive-xetex, dvipng, and ghostscript')
         sys.exit()
 
-# This is a jupytext paired notebook that autogenerates BufferStockTheory.py
-# which can be executed from a terminal command line via "ipython BufferStockTheory.py"
-# But a terminal does not permit inline figures, so we need to test jupyter vs terminal
-# Google "how can I check if code is executed in the ipython notebook"
-
-from IPython import get_ipython # In case it was run from python instead of ipython
-
 # If the ipython process contains 'terminal' assume not in a notebook
 def in_ipynb():
     try:
@@ -95,32 +112,6 @@ def in_ipynb():
             return True
     except NameError:
         return False
-
-# Uncomment the code below if you want to run in Colab
-# if in_ipynb():
-#     # Now install stuff aside from LaTeX (if not already installed)
-#     os.system('pip install econ-ark')
-#     os.system('pip install matplotlib')
-#     os.system('pip install numpy')
-#     os.system('pip install scipy')
-#     os.system('pip install pillow')
-#     os.system('pip install ipywidgets')
-#     os.system('pip install jupyter_contrib_nbextensions')
-#     os.system('jupyter contrib nbextension install --user')
-#     os.system('jupyter nbextension enable codefolding/main')
-#     os.system('pip install cite2c')
-#     os.system('python -m cite2c.install')
-# else:
-#     print('In batch mode')
-    
-# Import related generic python packages
-import numpy as np
-from time import clock
-mystr = lambda number : "{:.4f}".format(number)
-
-import matplotlib
-import matplotlib.pyplot as plt
-from matplotlib.pyplot import plot, draw, show
 
 # In order to use LaTeX to manage all text layout in our figures, 
 # we import rc settings from matplotlib.
@@ -139,11 +130,10 @@ if latexExists:
         Path(latexdefs_path).touch()
     plt.rcParams['text.latex.preamble'] = latex_preamble
     
-# The warnings package allows us to ignore some harmless but alarming warning messages
-import warnings
-warnings.filterwarnings("ignore")
-
-from copy import copy, deepcopy
+# This is a jupytext paired notebook that autogenerates BufferStockTheory.py
+# which can be executed from a terminal command line via "ipython BufferStockTheory.py"
+# But a terminal does not permit inline figures, so we need to test jupyter vs terminal
+# Google "how can I check if code is executed in the ipython notebook"
 
 # Determine whether to make the figures inline (for spyder or jupyter)
 # vs whatever is the automatic setting that will apply if run from the terminal
@@ -164,7 +154,7 @@ Figures_dir = os.path.join(my_file_path,"Figures/") # LaTeX document assumes fig
 if not os.path.exists(Figures_dir):
     os.makedirs(Figures_dir)
     
-# Whether to save the figures 
+# Whether to save the figures to local filesystem
 saveFigs=True
 
 # Whether to draw the figures
@@ -175,6 +165,7 @@ if not in_ipynb(): # running in batch mode
     if drawFigs:
         print('By default, figures will appear one by one')
         
+# Create, and if desired, save and show the figures
 def show(figure_name, target_dir="Figures"):
     # Save the figures in several formats
     # print(f"Saving figure {figure_name} in {target_dir}")
@@ -190,7 +181,6 @@ def show(figure_name, target_dir="Figures"):
             plt.pause(2) # Wait a couple of secs to allow the figure to be briefly visible after being drawn
     else:
         plt.show(block=True) # Change to false if you want to run uninterrupted
-
 
 
 # %%
@@ -515,19 +505,7 @@ plt.arrow(0.98,0.62,-0.2,0,head_width= 0.02,width=0.001,facecolor='black',length
 plt.arrow(2.2,1.2,0.3,-0.05,head_width= 0.02,width=0.001,facecolor='black',length_includes_head='True')
 
 show('FVACnotGIC')
-# if Generator:
-#     plt.savefig(os.path.join(Figures_dir, 'FVACnotGIC.png'))
-#     plt.savefig(os.path.join(Figures_dir, 'FVACnotGIC.jpg'))
-#     plt.savefig(os.path.join(Figures_dir, 'FVACnotGIC.pdf'))
-#     plt.savefig(os.path.join(Figures_dir, 'FVACnotGIC.svg'))
 
-# # This figure reproduces the figure shown in the paper.  
-# # The gap between the two functions actually increases with $m$ in the limit.
-# if not in_ipynb():
-#     plt.show(block=False) 
-#     plt.pause(1)
-# else:
-#     plt.show(block=True) # Change to False if you want to run uninterrupted
 
 # %% [markdown]
 # As a foundation for the remaining figures, we define another instance of the class $\texttt{IndShockConsumerType}$, which has the same parameter values as the instance $\texttt{baseEx}$ defined previously but is solved to convergence (our definition of an infinite horizon agent type)
@@ -722,16 +700,7 @@ else:
 
 ax.text(1.91,1.03, r'$\Gamma$',fontsize = 22,fontweight='bold')
 show('cGroTargetFig')
-# if Generator:
-#     fig.savefig(os.path.join(Figures_dir, 'cGroTargetFig.png'))
-#     fig.savefig(os.path.join(Figures_dir, 'cGroTargetFig.jpg'))
-#     fig.savefig(os.path.join(Figures_dir, 'cGroTargetFig.pdf'))
-#     fig.savefig(os.path.join(Figures_dir, 'cGroTargetFig.svg'))
-# if not in_ipynb():
-#     plt.show(block=False) 
-#     plt.pause(1)
-# else:
-#     plt.show(block=True) # Change to False if you want to run uninterrupted
+
 
 # %% [markdown]
 # ### [Consumption Function Bounds](https://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory/#AnalysisOfTheConvergedConsumptionFunction)
@@ -797,16 +766,7 @@ plt.arrow(5.95,5.05,-0.4,0,head_width= 0.05,width=0.001,facecolor='black',length
 plt.arrow(14,0.70,0.5,-0.1,head_width= 0.05,width=0.001,facecolor='black',length_includes_head='True')
 
 show('cFuncBounds')
-# if Generator:
-#     plt.savefig(os.path.join(Figures_dir, 'cFuncBounds.png'))
-#     plt.savefig(os.path.join(Figures_dir, 'cFuncBounds.jpg'))
-#     plt.savefig(os.path.join(Figures_dir, 'cFuncBounds.pdf'))
-#     plt.savefig(os.path.join(Figures_dir, 'cFuncBounds.svg'))
-# if not in_ipynb():
-#     plt.show(block=False) 
-#     plt.pause(1)
-# else:
-#     plt.show(block=True) # Change to False if you want to run uninterrupted
+
 
 # %% [markdown]
 # ### [The Consumption Function and Target $m$](https://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory/#cFuncBounds)
@@ -839,16 +799,7 @@ plt.arrow(2.28,1.12,-0.1,0.03,head_width= 0.02,width=0.001,facecolor='black',len
 plt.arrow(2.28,0.97,-0.1,0.02,head_width= 0.02,width=0.001,facecolor='black',length_includes_head='True')
 
 show('cRatTargetFig')
-# if Generator:
-#     plt.savefig(os.path.join(Figures_dir, 'cRatTargetFig.png'))
-#     plt.savefig(os.path.join(Figures_dir, 'cRatTargetFig.jpg'))
-#     plt.savefig(os.path.join(Figures_dir, 'cRatTargetFig.pdf'))
-#     plt.savefig(os.path.join(Figures_dir, 'cRatTargetFig.svg'))
-# if not in_ipynb():
-#     plt.show(block=False)
-#     plt.pause(1)
-# else:
-#     plt.show(block=True)
+
 
 # %% [markdown]
 # ### [Upper and Lower Limits of the Marginal Propensity to Consume](https://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory/#MPCLimits)
@@ -896,16 +847,7 @@ plt.arrow(2.2,0.07,0.2,-0.01,head_width= 0.02,width=0.001,facecolor='black',leng
 plt.arrow(4.95,0.895,-0.2,0.03,head_width= 0.02,width=0.001,facecolor='black',length_includes_head='True')
 
 show('MPCLimits')
-# if Generator:
-#     plt.savefig(os.path.join(Figures_dir, 'MPCLimits.png'))
-#     plt.savefig(os.path.join(Figures_dir, 'MPCLimits.jpg'))
-#     plt.savefig(os.path.join(Figures_dir, 'MPCLimits.pdf'))
-#     plt.savefig(os.path.join(Figures_dir, 'MPCLimits.svg'))
-# if not in_ipynb():
-#     plt.show(block=False) 
-#     plt.pause(1)
-# else:
-#     plt.show(block=True) # Change to False if you want to run uninterrupted
+
 
 # %% [markdown]
 # # Summary

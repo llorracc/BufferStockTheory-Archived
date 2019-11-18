@@ -1,0 +1,31 @@
+\input{./econtexRoot}\input{\econtexRoot/econtexPaths}\documentclass[titlepage]{\econtex}\providecommand{\texname}{BufferStockTheory-Appendix}% Indicate the keyname for the bibtex entry corresponding to this paper
+
+\usepackage{\econtexRoot/BufferStockTheory}
+
+\begin{document}
+
+\renewcommand{\onlyinsubfile}[1]{}
+\renewcommand{\notinsubfile}[1]{#1}
+
+\externaldocument{BufferStockTheory-NoAppendix}
+
+\hypertarget{Appendices}{}
+\appendix \centerline{\LARGE Appendices}\vspace{0.2in}
+\subfile{\ApndxDir/ApndxLiqConstr}
+\subfile{\ApndxDir/ApndxConcaveCFunc}
+\subfile{\ApndxDir/ApndxEuclidian}
+\subfile{\ApndxDir/ApndxCGroIsPGro}
+\subfile{\ApndxDir/ApndxMPCLimits}
+\subfile{\ApndxDir/ApndxLiqConstrAsLimit}
+\subfile{\ApndxDir/ApndxSolnMethEndogGpts}
+\subfile{\ApndxDir/ApndxSolnMethTermFunc}
+
+\clearpage\vfill\eject
+
+\normalsize
+
+\bibliography{\econtexRoot/BufferStockTheory,economics}
+
+\end{document}
+
+

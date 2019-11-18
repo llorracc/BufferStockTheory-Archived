@@ -1,7 +1,7 @@
 \documentclass[../BufferStockTheory.tex]{subfiles}
 \input{./econtexRoot}
 
-\begin{document}
+\input{\econtexRoot/\ApndxDir/onlyinsubfile.tex}\begin{document}
 
 %\begin{verbatimwrite}{\ApndxDir/ApndxSolnMethEndogGpts.tex}
 \section{Endogenous Gridpoints Solution Method}
@@ -33,7 +33,7 @@ An approximation to the consumption function could be constructed by
 linear interpolation between the $\{\vec{\mRat},\vec{\cRat}\}$ points.
 But a vastly more accurate approximation can be made (for a given
 number of gridpoints) if the interpolation is constructed so that it
-also matches the marginal propensity to consume at the gridpoints. Differentiating \eqref{eq:cEulerEndog}
+also matches the marginal propensity to consume at the gridpoints. Differentiating \eqref{\localorexternallabel{eq:cEulerEndog}}
 with respect to $\aRat$ (and dropping policy function arguments for
 simplicity) yields a marginal propensity to {\it have consumed} $\cEndFunc^{\aRat}$ at
 each gridpoint:
@@ -104,5 +104,6 @@ evaluate the function is $\mRat=0$ but $\log 0 = -\infty$ which is difficult for
 %\end{verbatimwrite}%\input {\ApndxDir/ApndxSolnMethEndogGpts.tex}
 
 % When compiling main file, bibliography goes at the end of document, not at the end of this appendix
+\onlyinsubfile{\bibliography{\econtexRoot/BufferStockTheory,economics}}
 
 \end{document}
