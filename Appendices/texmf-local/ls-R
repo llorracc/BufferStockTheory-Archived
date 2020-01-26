@@ -14,12 +14,7 @@ bst
 ./bibtex/bib:
 .DS_Store
 .gitkeep
-auto
 economics.bib
-economics.bib~
-
-./bibtex/bib/auto:
-economics.el
 
 ./bibtex/bst:
 .gitkeep
@@ -37,12 +32,11 @@ plain
 .DS_Store
 .gitkeep
 ReadMe.texmf
+_region_.tex
 articleNoRefHead.cls
-auto
 bibMake.tex
 cvBibMake.tex
 econtex.cls
-econtex.log
 econtex.sty
 econtexBibMake.tex
 econtexSetup.sty
@@ -52,30 +46,38 @@ handout.cls
 handout.sty
 handoutBibMake.tex
 handoutSetup.sty
-handoutShortcuts.sty
+handoutshortcuts.sty
 makePostHandoutsStart.tex
 printvrb.sty
 snapshot.sty
 tex4ht
 tex4htMakeCFG.sh
+texmf-local
 titlesec.sty
 
-./tex/latex/auto:
-econtex.el
-econtexShortcuts.el
-handout.el
-handoutShortcuts.el
-
 ./tex/latex/tex4ht:
-auto
 pictureenv.4ht
 svg-math-and-subfigures.cfg
-svg-math-and-subfigures.cfg~
-svg-math-and-subfigures_utf8.cfg
 svg-set-size-to-1p0.mk4
 
-./tex/latex/tex4ht/auto:
-svg-math-and-subfigures.el
+./tex/latex/texmf-local:
+.gitkeep
+tex
+
+./tex/latex/texmf-local/tex:
+.gitkeep
+latex
+
+./tex/latex/texmf-local/tex/latex:
+.gitkeep
+econtex.cls
+econtex.sty
+econtexBibMake.tex
+econtexSetup.sty
+econtexShortcuts.sty
+handout.cls
+handoutSetup.sty
+handoutShortcuts.sty
 
 ./tex/plain:
 .gitkeep

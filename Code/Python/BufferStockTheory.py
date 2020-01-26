@@ -171,7 +171,6 @@ def show(figure_name, target_dir="Figures"):
     # print(f"Saving figure {figure_name} in {target_dir}")
     if saveFigs:
         plt.savefig(os.path.join(target_dir, f'{figure_name}.png')) # For web/html
-        plt.savefig(os.path.join(target_dir, f'{figure_name}.jpg')) # Useful to make versions 
         plt.savefig(os.path.join(target_dir, f'{figure_name}.pdf')) # For LaTeX
         plt.savefig(os.path.join(target_dir, f'{figure_name}.svg')) # For html5
     if not in_ipynb():
@@ -478,6 +477,13 @@ ER = GICFailExample.Rfree / PermGroFacAct
 Er = ER - 1
 mSSfunc = lambda m : 1 + (m-1)*(Er/ER)
 
+
+# %%
+InvPermShkDstn=deepcopy(GICFailExample.PermShkDstn)
+InvPermShkDstn[0][1]
+
+# %%
+GICFailExample.PermShkDstn
 
 # %%
 # Plot GICFailExample consumption function against the sustainable level of consumption

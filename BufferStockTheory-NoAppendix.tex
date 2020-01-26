@@ -69,6 +69,9 @@ This paper builds theoretical foundations for rigorous and intuitive understandi
 \label{sec:intro}
 
 
+
+
+
 In the presence of empirically realistic transitory and permanent shocks to income \textit{a la} \cite{friedmanATheory}, only one additional ingredient is required to define a testable model of optimal consumption: A description of preferences.  Modelers usually assume geometric discounting of a constant relative risk aversion (CRRA) utility function, because, starting with Zeldes~\citeyearpar{zeldesStochastic}, a large literature has shown that such models have quantitative predictions that can match microeconomic evidence reasonably well.
 
 A companion theoretical literature has shown that standard numerical solution methods provide good approximations to limiting ``true'' mathematical solutions -- but only for models more complex than the simple case with just shocks and utility.  The extra complexity has been required because standard contraction mapping theorems (beginning with \cite{bellmanDynamicProgramming} and including those following Stokey et.~al.~\citeyearpar{slpMethods}) cannot be applied when the utility function is unbounded (like CRRA - see \hyperlink{DiffFromLit}{section \ref{subsec:Setup}}).\footnote{It is unclear whether newer methods such as those of \cite{mnUnique} could overcome this problem, or how difficult it would be to do so; but in any case this particular problem does not seem to have been tackled by those methods or any others.}
@@ -271,7 +274,7 @@ the interest rate at which that income is being discounted.
 \subsubsection{Unconstrained Solution} \label{subsec:PFUncon}
 
 \hypertarget{AIC}{}
-The consumption Euler equation holds in every period; with $\uP(\cLevBF)=\cLevBF^{-\CRRA}$, this says
+The consumption Euler equation holds in every period; with $\uP(\cLevBF)=\cLevBF^{-\CRRA}$, this says\hypertarget{Pat}{}
 \begin{align}
  \cLevBF_{t+1}/\cLevBF_{t}  & = (\Rfree\DiscFac)^{1/\CRRA} \equiv \Pat   \label{eq:Pat}
 \end{align}
@@ -439,17 +442,21 @@ but the absence of liquidity constraints (also tabulated for comparison)).  The 
 \subsection{Uncertainty-Modified Conditions}
 \subsubsection{Impatience}
 
-When uncertainty is introduced, the expectation of $\bRat_{t+1}$ can be rewritten as:
+
+
+
+
+When uncertainty is introduced, the expectation of $\bRat_{t+1}$ can be rewritten as:  
 \begin{align}
   \Ex_{t}[\bRat_{t+1}]  & =  \aRat_{t}\Ex_{t}[\Rnorm_{t+1}] = \aRat_{t}\Rnorm\Ex_{t}[\pShk_{t+1}^{-1}] \label{eq:EbRat}
 \end{align}
 where Jensen's inequality guarantees that the expectation of the inverse of the permanent
-shock is strictly greater than one.  It will be convenient to define the object
+shock is strictly greater than one.  It will be convenient to define the object \hypertarget{InvEpShkInv}{}
 \begin{align*}
   \InvEpShkInv  & \equiv  (\EpShkInv)^{-1}
 \end{align*}
 because this permits us to write expressions like the RHS of
-\eqref{eq:EbRat} compactly as, e.g., $\aRat_{t}\Rnorm
+\eqref{eq:EbRat} compactly as, e.g., $\aRat_{t}\Rnorm/
 \InvEpShkInv^{-1}.$\footnote{One way to think of $\InvEpShkInv$ is as
   a particular kind of a `certainty equivalent' of the shock; this
   captures the intuition that mean-one shock renders a given mean
@@ -460,7 +467,7 @@ uncertainty on the expected growth-normalized return (in the sense implicitly de
 $\Ex[\psi]=1$ by assumption).
 
 \hypertarget{GIC}{}
-We can now transparently generalize the \PFGIC~\eqref{eq:PFGIC} by defining a `compensated growth factor'
+We can now transparently generalize the \PFGIC~\eqref{eq:PFGIC} by defining a `compensated growth factor' \hypertarget{PGroAdj}{}
 \begin{verbatimwrite}{\EqDir/PGroAdj}
 \begin{align}
   \PGroAdj  & =  \PGro \InvEpShkInv \label{eq:PGroAdj}
@@ -471,11 +478,11 @@ and a compensated growth patience factor\hypertarget{GIF}{}
 \begin{verbatimwrite}{\EqDir/PatPGroAdj}
 \begin{align}
   \PatPGroAdj  & = \Pat/\PGroAdj
+  \\ & = \Ex_{t}\left(\frac{\Pat}{\PGro \psi}\right)
 \end{align}
 \end{verbatimwrite}
 \input{\EqDir/PatPGroAdj}
-and a straightforward derivation
-using some of the results below yields the conclusion that
+and a straightforward derivation in \eqref{eq:xtp1toinfty} below yields the conclusion that
 \begin{align*}
   \lim_{\mRat_{t} \rightarrow \infty} \Ex_{t}[\mRat_{t+1}/\mRat_{t}]  & = \PatPGroAdj,
 \end{align*}
@@ -490,7 +497,7 @@ which is stronger than the perfect foresight version \eqref{eq:PFGIC} because $\
 
 \hypertarget{Autarky-Value}{}
 \subsubsection{Autarky Value}
-Analogously to \eqref{eq:ValuePFAnalytical}, a consumer who spent his permanent income every period would have value
+Analogously to \eqref{eq:ValuePFAnalytical}, a consumer who spent his permanent income every period would have value determined by the product of the expectation of the (independent) future shocks to permanent income:
 \begin{align*}
       \vLevBF_{t}  & = \Ex_{t}\left[\uFunc(\pLevBF_{t}) + \DiscFac \uFunc(\pLevBF_{t}\PGro_{t+1}) + ... + \DiscFac^{T-t}\uFunc(\pLevBF_{t}\PGro_{t+1}...\PGro_{T})\right] \\
        & = \uFunc(\pLevBF_{t})\left(1+ \DiscFac \Ex_{t}[\PGro_{t+1}^{1-\CRRA}] +  ... + \DiscFac^{T-t}\Ex_{t}[\PGro_{t+1}^{1-\CRRA}]...\Ex_{t}[\PGro_{T}^{1-\CRRA}]\right) \\
@@ -502,6 +509,7 @@ which invites the definition of a utility-compensated equivalent of the permanen
 \end{align*}
 which will satisfy $\uInvEpShkuInv < 1$ for $\CRRA>1$ and nondegenerate $\pShk$ (and $\uInvEpShkuInv < \InvEpShkInv$ for the preferred (though not required) case of $\CRRA > 2$); defining $\PGrouAdj=\PGro \uInvEpShkuInv$ we can see that $\vLevBF_{t}$ will be finite as $T$ approaches $\infty$ if
 
+
 \hypertarget{FVAC}{}
 \begin{verbatimwrite}{\EqDir/FVAC}
 \begin{align}
@@ -511,16 +519,24 @@ which will satisfy $\uInvEpShkuInv < 1$ for $\CRRA>1$ and nondegenerate $\pShk$ 
 \end{verbatimwrite}
 \input{\EqDir/FVAC} which we call the `finite value of autarky'
 condition (\FVAC) because it is the value obtained by always consuming
-permanent income.  For nondegenerate $\pShk$, this condition is stronger
+(now stochastic) permanent income.  For nondegenerate $\pShk$, this condition is stronger
 (harder to satisfy in the sense of requiring lower $\DiscFac$) than
 the perfect foresight version \eqref{eq:PFFVAC} because $\PGrouAdj <
-\PGro$.
+\PGro$.  
+
+To see this, rewrite \eqref{eq:FVAC} as 
+\begin{align}
+ \DiscFac \Rfree & < \PGrouAdj^{\CRRA-1}
+\\ (\DiscFac \Rfree)^{1/\CRRA}  & < \Rfree^{1/\CRRA} \PGro^{1-1/\CRRA} \uInvEpShkuInv^{1-1/\CRRA}
+\\ \PatPGro & < (\Rfree/\PGro)^{1/\CRRA} \PGrouAdj^{1-1/\CRRA}
+\end{align}
+where the last equation is the same as the \PFFVAC condition except that the RHS is multiplied by $\PGrouAdj^{1-1/\CRRA}$ which is strictly less than 1.
+
 \begin{comment}
 A useful alternative version is
 \begin{verbatimwrite}{\EqDir/FVACAlt}
 \begin{align}
     \DiscFac \Rfree \PGro^{-\CRRA} \uInvEpShkuInv^{1-\CRRA}   & < \Rfree/\PGro \nonumber
-%
 \\ \PatPGro \uInvEpShkuInv^{1/\CRRA-1}  & < (\Rfree/\PGro)^{1/\CRRA} \label{eq:FVACAlt}.
 \end{align}
 \end{verbatimwrite}
@@ -617,9 +633,10 @@ MPC as $\mRat \downarrow 0$: appendix equation \eqref{eq:MaxMPCInv}  shows that,
 \begin{align}
  \MaxMPC_{t}^{-1}  & = 1+\MinMPS \MaxMPC_{t+1}^{-1} \label{eq:MaxMPCInv}.
 \end{align}
+\hypertarget{WRIF}{}  
 Then
 $\left\{\MaxMPC_{T-n}^{-1}\right\} _{n=0}^{\infty}$ is a decreasing % Correction per MNW 2016-01-30
-convergent sequence if
+convergent sequence if the `weak return impatience factor' $\pZero^{1/\CRRA}\PatR$ 
 \begin{align}
   0 \leq & \pZero^{1/\CRRA} \PatR & < 1 \label{eq:WRIC},
 \end{align}
@@ -1197,12 +1214,12 @@ and
 \lim_{\mRat_{t} \uparrow \infty} \PGro_{t+1}\bar{\cFunc}(\mRat_{t+1})/\ushort{\cFunc}(\mRat_t) =
 \lim_{\mRat_{t} \uparrow \infty}\PGro_{t+1} \mRat_{t+1}/\mRat_t,  \notag
 \end{equation}
-while
-\begin{align*}  \label{eq:xtp1toinfty}
+while \hypertarget{xtp1toinfty}{}
+\begin{align}  \label{eq:xtp1toinfty}
 \lim_{m_{t} \uparrow \infty} \PGro_{t+1} \mRat_{t+1}/\mRat_t  & = \lim_{m_{t} \uparrow \infty}
 \left(\frac{\Rfree \aFunc(\mRat_t)+{\PGro}_{t+1}\tShkAll_{t+1}}{\mRat_t}\right)
 \\  & = (\Rfree \DiscFac)^{1/\CRRA} = \Pat
-\end{align*}
+\end{align}
 because $\lim_{\mRat_{t}\uparrow \infty} \aFunc^{\prime}(\mRat)=\PatR$\footnote{This is because $\lim_{\mRat_{t}\uparrow \infty} \aFunc(\mRat_{t})/\mRat_{t}=1-\lim_{\mRat_{t}\uparrow \infty} \cFunc(\mRat_{t})/\mRat_{t}=1-\lim_{\mRat_{t}\uparrow \infty}\cFunc^{\prime}(\mRat_{t})=\PatR$.} and
 $\PGro_{t+1}\tShkAll_{t+1}/\mRat_{t} \leq (\PGro \bar{\pShk} \bar{\tShkEmp}/\pNotZero )/\mRat_{t}$ which
 goes to zero as $\mRat_{t}$ goes to infinity.
@@ -1272,8 +1289,8 @@ For consumption growth, as $\mRat \downarrow 0$ we have
 \lim_{\mRat_{t} \downarrow 0} \Ex_{t}\left[\left(\frac{\cFunc({\mRat}_{t+1})}{\cFunc(\mRat_t)}\right){\PGro}_{t+1}\right]
  & > \lim_{\mRat_{t} \downarrow 0} \Ex_{t}\left[\left(\frac{\ushort{\cFunc}({\mathcal{\mathcal{R}}}_{t+1}\aFunc(\mRat_{t})+{%
 \tShkAll}_{t+1})}{\MaxMPC \mRat_{t}}\right){\PGro}_{t+1}\right]  \notag \\
- & = \phantom{+}\pZero \lim_{\mRat_{t} \downarrow 0} \Ex_{t}\left[\left(\frac{\ushort{\cFunc}({\mathcal{\mathcal{R}}}_{t+1}\aFunc(\mRat_{t}))}{\MaxMPC \mRat_{t}}\right){\PGro}_{t+1}\right] \\
-  + \pNotZero \lim_{\mRat_{t} \downarrow 0}  \Ex_{t}\left[\left(\frac{\ushort{\cFunc}({\mathcal{\mathcal{R}}}_{t+1}\aFunc(\mRat_{t})+
+  & = \pZero \lim_{\mRat_{t} \downarrow 0} \Ex_{t}\left[\left(\frac{\ushort{\cFunc}({\mathcal{\mathcal{R}}}_{t+1}\aFunc(\mRat_{t}))}{\MaxMPC \mRat_{t}}\right){\PGro}_{t+1}\right] \\
+  & ~~~~~~ + \pNotZero \lim_{\mRat_{t} \downarrow 0}  \Ex_{t}\left[\left(\frac{\ushort{\cFunc}({\mathcal{\mathcal{R}}}_{t+1}\aFunc(\mRat_{t})+
 \tShkEmp_{t+1}/\pNotZero)}{\MaxMPC \mRat_{t}}\right){\PGro}_{t+1}\right]  \\\notag
  & > \pNotZero \lim_{\mRat_{t} \downarrow 0} \Ex_{t}\left[\left(\frac{\ushort{\cFunc}(
 \tShkEmp_{t+1}/\pNotZero)}{\MaxMPC \mRat_{t}}\right){\PGro}_{t+1}\right] \\
