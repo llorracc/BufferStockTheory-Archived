@@ -112,7 +112,7 @@
 \providecommand{\DiscRate}{\ensuremath{\vartheta}}
 \providecommand{\DiscRte}{\ensuremath{\vartheta}} % New
 \providecommand{\DiscFac}{\ensuremath{\beta}} % New
-\providecommand{\DivGro}{\ensuremath{\mathsf{G}}}
+\providecommand{\DivGro}{\ensuremath{\mathrm{G}}}
 \providecommand{\divGro}{\ensuremath{\mathsf{g}}}
 \providecommand{\Div}{\ensuremath{D}}
 % \providecommand{\div}{\ensuremath{d}} reserved for divide 
@@ -279,8 +279,8 @@
 \providecommand{\ORat}{\ensuremath{O}}
 \providecommand{\oRat}{\ensuremath{o}}
 \providecommand{\Pareto}{\zeta}
-\providecommand{\PatPGroAdj}{\text{\pmb{\Thorn}}_{\acute{\PGro}}}
-\providecommand{\patpGroAdj}{\text{\thorn}_{\acute{\pGro}}}
+\providecommand{\PatPGroAdj}{\text{\pmb{\Thorn}}_{\underline{\PGro}}}
+\providecommand{\patpGroAdj}{\text{\thorn}_{\underline{\pGro}}}
 \providecommand{\patpGrohat}{\hat{\text{\thorn}}_{\pGro}}
 \providecommand{\PatPGro}{\text{\pmb{\Thorn}}_{\PGro}}
 \providecommand{\patpGro}{\text{\thorn}_{\pGro}}
@@ -316,7 +316,8 @@
 \providecommand{\PLev}{\ensuremath{P}}
 \providecommand{\PLives}{\ensuremath{\cancel{\PDies}}}
 \providecommand{\pLives}{\ensuremath{\cancel{\pDies}}}
-\providecommand{\pNotZero}{\ensuremath{\cancel{\wp}}}
+%\providecommand{\pNotZero}{\ensuremath{\cancel{\wp}}}
+\providecommand{\pNotZero}{(1-\pZero)}
 \providecommand{\PopE}{\mathcal{E}}
 \providecommand{\popE}{e}
 \providecommand{\PopGro}{\ensuremath{\Xi}}
@@ -381,8 +382,8 @@
 \providecommand{\rprod}{\ensuremath{\mathscr{r}}}
 \providecommand{\rProd}{\ensuremath{\mathsf{r}}}
 \providecommand{\RProd}{\ensuremath{\mathsf{R}}}
-\providecommand{\RSave}{\ensuremath{\ushort{\Rfree}}}
-\providecommand{\rsave}{\ensuremath{\ushort{\rfree}}}
+\providecommand{\RSave}{\ensuremath{\underline{\Rfree}}}
+\providecommand{\rsave}{\ensuremath{\underline{\rfree}}}
 \providecommand{\RBoro}{\ensuremath{\bar{\Rfree}}}
 \providecommand{\rboro}{\ensuremath{\bar{\rfree}}}
 %\providecommand{\R}{\Rfree}
@@ -442,7 +443,8 @@
 \providecommand{\Target}{\check}
 \providecommand{\TaxCombInv}{\ensuremath{\mathcal{T}^{-1}}}
 \providecommand{\TaxComb}{\ensuremath{\mathcal{T}}}
-\providecommand{\TaxCorp}{\ensuremath{\tau}}
+\providecommand{\TaxCorp}{\ensuremath{\Large \tau}}
+\providecommand{\taxCorp}{\ensuremath{\tau}}
 \providecommand{\taxDep}{\ensuremath{\partial}}
 \providecommand{\TaxFree}{\ensuremath{\cancel{\Tax}}}
 \providecommand{\TaxLev}{T}
@@ -542,8 +544,8 @@
 \providecommand{\Wend}{\ARat} % Wealth as of the end of the period (after C has been chosen)
 \providecommand{\wend}{\aRat} % wealth as of the end of the period (after C has been taken)
 \providecommand{\wFunc}{\mathrm{w}}
-\providecommand{\WGroPF}{\ensuremath{\mathsf{G}}}
-\providecommand{\WGro}{\ensuremath{\mathsf{G}}}
+\providecommand{\WGroPF}{\ensuremath{\mathrm{G}}}
+\providecommand{\WGro}{\ensuremath{\mathrm{G}}}
 \providecommand{\wGro}{\ensuremath{\mathsf{g}}}
 \providecommand{\whumMin}{\underline{\hRat}} % human wealth -- individual
 \providecommand{\WHum}{\HLev} % Human wealth -- aggregate 
@@ -599,11 +601,10 @@
 \providecommand{\ZRat}{\ensuremath{Z}}
 \providecommand{\zRat}{\ensuremath{z}}
 
-\newcommand{\discRte}{\omega}
-\newcommand{\DieFac}{\pDead}
-\newcommand{\LivFac}{\Alive}
-\newcommand{\PopFac}{\PopGro}
-\newcommand{\popRte}{\popGro}
+\providecommand{\DieFac}{\pDead}
+\providecommand{\LivFac}{\Alive}
+\providecommand{\PopFac}{\PopGro}
+\providecommand{\popRte}{\popGro}
 
 
 \providecommand{\NFALev}{\NLev}
@@ -626,5 +627,5 @@
 \providecommand{\recm}{}
 \renewcommand{\recm}{\item[\phantom{$^{*}$}]}
 
-\newcommand{\pd}[2]{\frac{\partial#1}{\partial#2}}
+\providecommand{\pd}[2]{\frac{\partial#1}{\partial#2}}
 

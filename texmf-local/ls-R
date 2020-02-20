@@ -14,7 +14,11 @@ bst
 ./bibtex/bib:
 .DS_Store
 .gitkeep
+auto
 economics.bib
+
+./bibtex/bib/auto:
+economics.el
 
 ./bibtex/bst:
 .gitkeep
@@ -58,6 +62,7 @@ titlesec.sty
 ./tex/latex/tex4ht:
 pictureenv.4ht
 svg-math-and-subfigures.cfg
+svg-math-and-subfigures_20200110_svg-preferred-does-not-work.cfg
 svg-set-size-to-1p0.mk4
 
 ./tex/latex/texmf-local:

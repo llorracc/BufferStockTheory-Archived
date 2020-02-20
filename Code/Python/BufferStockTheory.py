@@ -22,17 +22,23 @@
 #
 # <p style="text-align: center;"><small><small><small>Generator: BufferStockTheory-make/notebooks_byname</small></small></small></p>
 #
-# [![econ-ark.org](https://img.shields.io/badge/Powered%20by-Econ--ARK-3e8acc.svg)](https://econ-ark.org/)
+# [![econ-ark.org](https://img.shields.io/badge/Powered%20by-Econ--ARK-3e8acc.svg)](https://econ-ark.org/materials/BufferStockTheory)
 
 # %% [markdown]
+# [This notebook](https://github.com/llorracc/BufferStockTheory/blob/master/Code/Python/BufferStockTheory.ipynb) uses the [Econ-ARK/HARK](https://github.com/econ-ark/hark) toolkit to reproduce and illustrate key results of the paper [Theoretical Foundations of Buffer Stock Saving](http://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory).
 #
-# [![Open in Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/llorracc/BufferStockTheory/master?filepath=Code%2FPython%2FBufferStockTheory.ipynb)
+# If you are not familiar with the HARK toolkit, you can browse [the documentation](https://hark.readthedocs.io).   
 #
-# [This notebook](https://github.com/llorracc/BufferStockTheory/blob/master/Code/Python/BufferStockTheory.ipynb) uses the [Econ-ARK/HARK](https://github.com/econ-ark/hark) toolkit to reproduce the figures in the paper [Theoretical Foundations of Buffer Stock Saving](http://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory) 
-#
-# If you are not familiar with the HARK toolkit, browse [the documentation](https://hark.readthedocs.io).   
-#
-# For fast (local) execution of notebooks like this, refer to the [QUICK START GUIDE](https://github.com/econ-ark/HARK/blob/master/README.md).  
+# Options for interacting with this notebook: 
+# 1. [View (noninteractively)](https://github.com/llorracc/BufferStockTheory/blob/master/Code/Python/BufferStockTheory.ipynb) on GitHub
+# 1. [Launch Online Interactive Version](https://econ-ark.org/materials/BufferStockTheory)
+# 1. For fast (local) execution, install [HARK](http://github.com/econ-ark/HARK) on your computer ([QUICK START GUIDE](https://github.com/econ-ark/HARK/blob/master/README.md)) then follow these instructions to retrieve the full contents of the `BufferStockTheory` REMARK:
+#    1. At a command line, change the working directory to the one where you want to install 
+#        * On unix, if you install in the `/tmp` directory, the installation will disappear after a reboot:
+#        * `cd /tmp`
+#    1. `git clone https://github.com/econ-ark/REMARK`
+#    1. `cd REMARK/REMARKs/BufferStockTheory/BufferStockTheory`
+#    1. `git submodule update --recursive --remote`
 
 # %%
 # This cell does some standard python setup
@@ -48,7 +54,6 @@ mystr = lambda number : "{:.4f}".format(number)
 from copy import copy, deepcopy
 
 # Plotting tools
-import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib.pyplot import plot, draw, show
 
@@ -63,18 +68,8 @@ warnings.filterwarnings("ignore")
 # %%
 # Set up some special requirements for this notebook; please be patient, it may take 3-5 minutes
 
-# Determine the platform so we can do things specific to each 
-import platform
-pform = ''
-pform = platform.platform().lower()
-if 'darwin' in pform:
-    pf = 'darwin' # MacOS
-if 'debian' in pform:
-    pf = 'debian' # Probably cloud (MyBinder, CoLab, ...)
-if 'ubuntu' in pform:
-    pf = 'debian' # Probably cloud (MyBinder, CoLab, ...)
-if 'win' in pform:
-    pf = 'win'
+# This is a jupytext paired notebook that autogenerates BufferStockTheory.py
+# which can be executed from a terminal command line via "ipython BufferStockTheory.py"
 
 # Test whether latex is installed (some of the figures require it)
 from distutils.spawn import find_executable
@@ -103,95 +98,72 @@ if not latexExists:
         print('A full distribution means textlive, texlive-latex-extras, texlive-xetex, dvipng, and ghostscript')
         sys.exit()
 
-# If the ipython process contains 'terminal' assume not in a notebook
-def in_ipynb():
-    try:
-        if 'terminal' in str(type(get_ipython())):
-            return False
-        else:
-            return True
-    except NameError:
-        return False
-
-# In order to use LaTeX to manage all text layout in our figures, 
-# we import rc settings from matplotlib.
+# To use LaTeX to manage text layout in figures, must import rc settings from matplotlib.
 from matplotlib import rc
 
-plt.rc('font', family='serif')
+# Configure latex
+plt.rc('font', family='serif') 
 plt.rc('text', usetex=latexExists)
-if latexExists:
+
+if latexExists: # Should not get here if latexExists is false; the 'if' is for readability
+    # Install American Mathematical Society latex packages
     latex_preamble = r'\usepackage{amsmath}\usepackage{amsfonts}\usepackage[T1]{fontenc}'
     from os import path
-    latexdefs_path = os.getcwd()+'/latexdefs.tex'
+    # latex_envs notebook extension needs the latexdefs.tex file to exist; make sure it does
+    latexdefs_path = os.getcwd()+'/latexdefs.tex' 
     if path.isfile(latexdefs_path):
         latex_preamble = latex_preamble+r'\input{'+latexdefs_path+r'}'
-    else: # the required latex_envs package needs this file to exist even if it is empty
+    else: # if it did not exist, make an empty version
         from pathlib import Path
         Path(latexdefs_path).touch()
     plt.rcParams['text.latex.preamble'] = latex_preamble
-    
-# This is a jupytext paired notebook that autogenerates BufferStockTheory.py
-# which can be executed from a terminal command line via "ipython BufferStockTheory.py"
-# But a terminal does not permit inline figures, so we need to test jupyter vs terminal
-# Google "how can I check if code is executed in the ipython notebook"
-
-# Determine whether to make the figures inline (for spyder or jupyter)
-# vs whatever is the automatic setting that will apply if run from the terminal
-if in_ipynb():
-    # %matplotlib inline generates a syntax error when run from the shell
-    # so do this instead
-    get_ipython().run_line_magic('matplotlib', 'inline')
-else:
-    get_ipython().run_line_magic('matplotlib', 'auto')
 
 # Code to allow a master "Generator" and derived "Generated" versions
 #   - allows "$nb-Problems-And-Solutions → $nb-Problems → $nb"
 Generator=False # Is this notebook the master or is it generated?
 
-# Where to put any figures that the user wants to save
-my_file_path = os.path.dirname(os.path.abspath("BufferStockTheory.ipynb")) # Find pathname to this file:
-Figures_dir = os.path.join(my_file_path,"Figures/") # LaTeX document assumes figures will be here
-if not os.path.exists(Figures_dir):
-    os.makedirs(Figures_dir)
-    
-# Whether to save the figures to local filesystem
+# Whether to save the figures to Figures_dir
 saveFigs=True
 
 # Whether to draw the figures
 drawFigs=True
 
-if not in_ipynb(): # running in batch mode
-    print('You appear to be running from a terminal')
-    if drawFigs:
-        print('By default, figures will appear one by one')
-        
+# Need to figure out how to test whether running in a headless mode with no GUI
+# if headless:
+#     drawFigs=False
+#     saveFigs=True
+
+if saveFigs:
+    # Where to put any figures that the user wants to save
+    my_file_path = os.path.dirname(os.path.abspath("*.ipynb")) # Find pathname to this file:
+    Figures_dir = os.path.join(my_file_path,"Figures/") # LaTeX document assumes figures will be here
+    if not os.path.exists(Figures_dir): 
+        os.makedirs(Figures_dir)         # If dir does not exist, create it
+
 # Create, and if desired, save and show the figures
-def show(figure_name, target_dir="Figures"):
+def make(figure_name, target_dir="Figures"):
     # Save the figures in several formats
-    # print(f"Saving figure {figure_name} in {target_dir}")
+    print(f"Saving figure {figure_name} in {target_dir}")
     if saveFigs:
         plt.savefig(os.path.join(target_dir, f'{figure_name}.png')) # For web/html
         plt.savefig(os.path.join(target_dir, f'{figure_name}.pdf')) # For LaTeX
         plt.savefig(os.path.join(target_dir, f'{figure_name}.svg')) # For html5
-    if not in_ipynb():
-        if drawFigs: # Only want to draw them if you're in a GUI
-            plt.ioff()   # When plotting in the terminal, do not use interactive mode
-            plt.draw()  
-            plt.pause(2) # Wait a couple of secs to allow the figure to be briefly visible after being drawn
-    else:
-        plt.show(block=True) # Change to false if you want to run uninterrupted
+    if drawFigs:
+        plt.ion()  # Counterintuitively, you want interactive mode on if you don't want to interact
+        plt.draw() # Change to false if you want to pause after the figure
+        plt.pause(2)
 
 
 # %%
-# Import HARK tools needed
-
+# Import HARK tools 
 from HARK.ConsumptionSaving.ConsIndShockModel import IndShockConsumerType
 from HARK.utilities import plotFuncsDer, plotFuncs
+
 
 # %% [markdown]
 # ## [The Problem](http://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory/#The-Problem) 
 #
-# The paper defines and calibrates a small set of parameters: <!-- defined in latexdefs.tex -->
+# The paper defines and calibrates a small set of parameters: 
 #
 # | Parameter | Description | Code | Value |
 # |:---:| ---         | ---  | :---: |
@@ -204,20 +176,19 @@ from HARK.utilities import plotFuncsDer, plotFuncs
 # | $\sigma_\psi$ | Std Dev of Log Permanent Shock| $\texttt{PermShkStd}$ | 0.1 |
 # | $\sigma_\theta$ | Std Dev of Log Transitory Shock| $\texttt{TranShkStd}$ | 0.1 |
 #
-# For a microeconomic consumer with 'Market Resources' (net worth plus current income) $M_{t}$, end-of-period assets $A_{t}$ will be the amount remaining after consumption of $C_{t}$.  <!-- Next period's 'Balances' $B_{t+1}$ reflect this period's $A_{t}$ augmented by return factor $R$:-->
+# For a microeconomic consumer with 'Market Resources' (net worth plus current income) $M_{t}$, end-of-period assets $A_{t}$ will be the amount that remains after consumption of $C_{t}$.  <!-- Next period's 'Balances' $B_{t+1}$ reflect this period's $A_{t}$ augmented by return factor $R$:-->
 # \begin{eqnarray}
 # A_{t}   &=&M_{t}-C_{t}
 # \end{eqnarray}
 #
-# The consumer's permanent noncapital income $P$ grows by a predictable factor $\Gamma$ and is subject to an unpredictable lognormally distributed multiplicative shock $\mathbb{E}_{t}[\psi_{t+1}]=1$, 
+# The consumer's permanent noncapital income $P$ grows by a predictable factor $\Gamma$ and is subject to an unpredictable lognormally-distributed multiplicative shock $\mathbb{E}_{t}[\psi_{t+1}]=1$, 
 # \begin{eqnarray}
 # P_{t+1} & = & P_{t} \Gamma \psi_{t+1}
 # \end{eqnarray}
 #
-# and actual income is permanent income multiplied by a logormal multiplicative transitory shock, $\mathbb{E}_{t}[\theta_{t+1}]=1$, so that next period's market resources are
+# and, if the consumer is employed, actual income is permanent income multiplied by a logormal transitory shock $\theta^{\text{e}}$.  There is also a probability $\wp$ that the consumer will be temporarily unemployed and experience income of $\mu = 0$ (unemployment is nt a persistent state in this model; it is IID).  We construct $\theta^{e}$ so that its mean value is $1/(1-\wp)$ because in that case the mean level of the transitory shock (accounting for both unemployed and employed states) is exactly $1 = 0 \times p + (1-p) \times \mathbb{E}_{t}[\theta^{e}_{t+1}]$.  We can combine the unemployment shock $\theta^{u}=0$ and the transitory shock to employment income $\theta^{e}$ into $\theta _{t+1}$, so that next period's market resources are
 # \begin{eqnarray}
-# %M_{t+1} &=& B_{t+1} +P_{t+1}\theta_{t+1},  \notag
-# M_{t+1} &=& A_{t}\mathsf{R} +P_{t+1}\theta_{t+1}.  \notag
+#     M_{t+1} &=& A_{t}\mathsf{R} +P_{t+1}\theta_{t+1}.  \notag
 # \end{eqnarray}
 #
 # When the consumer has a CRRA utility function $u(c)=\frac{c^{1-\rho}}{1-\rho}$, the paper shows that the problem can be written in terms of ratios of money variables to permanent income, e.g. $m_{t} \equiv M_{t}/P_{t}$, and the Bellman form of [the problem reduces to](http://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory/#The-Related-Problem):
@@ -226,7 +197,7 @@ from HARK.utilities import plotFuncsDer, plotFuncs
 # v_t(m_t) &=& \max_{c_t}~~ u(c_t) + \beta~\mathbb{E}_{t} [(\Gamma\psi_{t+1})^{1-\rho} v_{t+1}(m_{t+1}) ] \\
 # & s.t. & \\
 # a_t &=& m_t - c_t \\
-# m_{t+1} &=& R/(\Gamma \psi_{t+1}) a_t + \theta_{t+1} \\
+# m_{t+1} &=& a_t R/(\Gamma \psi_{t+1}) + \theta_{t+1} \\
 # \end{eqnarray*}
 #
 
@@ -284,7 +255,7 @@ baseEx.unpackcFunc()  # Make the consumption function easily accessible
 
 
 # %%
-# Plot the different periods' consumption rules.
+# Plot the different consumption rules for the different periods
 
 m1 = np.linspace(0,9.5,1000) # Set the plot range of m
 m2 = np.linspace(0,6.5,500)
@@ -312,7 +283,7 @@ plt.text(0,7.05,"$c$",fontsize = 26)
 plt.text(11.1,0,"$m$",fontsize = 26)
 # Save the figures in several formats
 
-show('cFuncsConverge') # Change to False if you want to run uninterrupted
+make('cFuncsConverge') # Change to False if you want to run uninterrupted
 
 # %% [markdown]
 # ## Factors and Conditions
@@ -331,7 +302,7 @@ show('cFuncsConverge') # Change to False if you want to run uninterrupted
 # %% [markdown]
 # ### [Absolute Patience and the AIC](http://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory/#AIC)
 #
-# The paper defines the Absolute Patience Factor as being equal to the ratio of $C_{t+1}/C_{t}$ for a perfect foresight consumer.  The Old English character <span style="font-size:larger;">"&#222;"</span> is used for this object in the paper, but <span style="font-size:larger;">"&#222;"</span> cannot currently be rendered conveniently in Jupyter notebooks, so we will substitute $\Phi$ here:
+# The paper defines the Absolute Patience Factor as being equal to the ratio $C_{t+1}/C_{t}$ for a perfect foresight consumer.  The Old English character <span style="font-size:larger;">"&#222;"</span> is used for this object in the paper, but <span style="font-size:larger;">"&#222;"</span> cannot currently be rendered conveniently in the mathematical displays in Jupyter notebooks, so we will substitute $\Phi$ here:
 #
 # \begin{equation}
 # \Phi = (\mathsf{R} \beta)^{1/\rho} 
@@ -344,7 +315,7 @@ show('cFuncsConverge') # Change to False if you want to run uninterrupted
 # %% [markdown]
 # ### [Growth Patience and the GIC](http://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory/#GIC)
 #
-# For a [perfect foresight consumer](http://econ.jhu.edu/people/ccarroll/public/lecturenotes/consumption/PerfForesightCRRA), whether the ratio of consumption to the permanent component of income $P$ is rising, constant, or falling depends on the relative growth rates of consumption and permanent income, which is measured by the "Perfect Foresight Growth Patience Factor":
+# For a [perfect foresight consumer](http://econ.jhu.edu/people/ccarroll/public/lecturenotes/consumption/PerfForesightCRRA), whether the ratio of consumption to the permanent component of income $P$ is rising, constant, or falling depends on the relative growth rates of consumption and permanent income; that ratio is measured by the "Perfect Foresight Growth Patience Factor":
 #
 # \begin{eqnarray}
 # \Phi_{\Gamma} & = & \Phi/\Gamma
@@ -376,7 +347,7 @@ show('cFuncsConverge') # Change to False if you want to run uninterrupted
 # %% [markdown]
 # ### [The Weak Return Impatience Condition (WRIC)](http://www.econ2.jhu.edu/people/ccarroll/papers/BufferStockTheory/#WRIC)
 #
-# The 'Return Impatience Condition' $\Phi/\mathsf{R} < 1$ has long been understood to be required for the perfect foresight model to have a nondegenerate solution (when $\rho=1$, this reduces to $\beta < R$).  If the RIC does not hold, the consumer is so patient that the optimal consumption function approaches zero as the horizon extends.
+# The 'Return Impatience Condition' $\Phi/\mathsf{R} < 1$ has long been understood to be required for the perfect foresight model to have a nondegenerate solution (when $\rho=1$, this reduces to $\beta < R$).  If the RIC does not hold, the consumer is so patient that the optimal consumption function approaches zero as the horizon extends indefinitely.
 #
 # When the probability of unemployment is $\wp$, the paper articulates an analogous (but weaker) condition:
 #
@@ -406,11 +377,11 @@ show('cFuncsConverge') # Change to False if you want to run uninterrupted
 # %% [markdown]
 # ## [$c(m)$ is Finite Even When Human Wealth Is Infinite](http://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory/#When-The-GIC-Fails)
 #
-# In the perfect foresight model, if $\mathsf{R} < \Gamma$ the present discounted value of future labor income is infinite and so the limiting consumption function is $c(m) = \infty$ for all $m$.  Many models have no well-defined solution in this case.
+# In the perfect foresight model, if $\mathsf{R} < \Gamma$ the PDV of future labor income is infinite and so the limiting consumption function is $c(m) = \infty$ for all $m$.  Many models have no well-defined solution when human wealth is infinite.
 #
-# The presence of uncertainty changes this: The limiting consumption function is finite for all values of $m$.  
+# The presence of uncertainty changes this: Even when "human wealth" is infinite, the limiting consumption function is finite for all values of $m$.  
 #
-# This is because uncertainty imposes a "natural borrowing constraint" that deters the consumer from borrowing against their unbounded future labor income.
+# This is because uncertainty imposes a "natural borrowing constraint" that deters the consumer from borrowing against their unbounded (but uncertain) future labor income.
 
 # %% [markdown]
 # A [table](http://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory/#Sufficient-Conditions-For-Nondegenerate-Solution) puts this result in the context of implications of other conditions and restrictions.
@@ -438,7 +409,7 @@ show('cFuncsConverge') # Change to False if you want to run uninterrupted
 # | Param | Description | Code | Value |
 # | :---: | ---         | ---  | :---: |
 # | $\Gamma$ | Permanent Income Growth Factor | $\texttt{PermGroFac}$ | 1.00 |
-# | $\mathrm{\mathsf{R}}$ | Interest Factor | $\texttt{Rfree}$ | 1.08 |
+# | $\mathrm{\mathsf{R}}$ | Interest Factor | $\texttt{Rfree}$ | 1.06 |
 #
 # The figure is reproduced below.
 
@@ -446,7 +417,7 @@ show('cFuncsConverge') # Change to False if you want to run uninterrupted
 # Construct the "GIC fails" example.
 
 GIC_fail_dictionary = dict(base_params)
-GIC_fail_dictionary['Rfree']      = 1.08
+GIC_fail_dictionary['Rfree']      = 1.04
 GIC_fail_dictionary['PermGroFac'] = [1.00]
 
 GICFailExample = IndShockConsumerType(
@@ -455,35 +426,31 @@ GICFailExample = IndShockConsumerType(
 
 
 # %% [markdown]
-# The $\mathtt{IndShockConsumerType}$ tool automatically checks various parametric conditions, and will give a warning as well as the values of the factors if any conditions fail to be met. 
+# The $\mathtt{IndShockConsumerType}$ tool automatically checks various parametric conditions, and will give a warning as well as the values of the factors if key conditions fail to be met. 
 #
-# We can also directly check the conditions, in which case results will be a little more verbose by default.
+# We can also directly check the conditions, asking for the maximum verbosity:
 
 # %%
 # The checkConditions method does what it sounds like it would
 GICFailExample.checkConditions(verbose=True)
 
 # %% [markdown]
+# ### The Sustainable Level of Consumption
+#
 # Next we define the function $\mathrm{\mathbb{E}}_{t}[\Delta m_{t+1}]$ that shows the ‘sustainable’ level of spending at which $m$ is expected to remain unchanged.
 
 # %%
 # Calculate "Sustainable" consumption that leaves expected m unchanged
 # In the perfect foresight case, this is just permanent income plus interest income
 # A small adjustment is required to take account of the consequences of uncertainty
-InvEpShInvAct = np.dot(GICFailExample.PermShkDstn[0][0], GICFailExample.PermShkDstn[0][1]**(-1))
-InvInvEpShInvAct = (InvEpShInvAct) ** (-1)
-PermGroFacAct = GICFailExample.PermGroFac[0] * InvInvEpShInvAct
-ER = GICFailExample.Rfree / PermGroFacAct
-Er = ER - 1
-mSSfunc = lambda m : 1 + (m-1)*(Er/ER)
+# See "Growth Patience and the GIC" above
+InvEpShkInvAct = np.dot(GICFailExample.PermShkDstn[0][0], GICFailExample.PermShkDstn[0][1]**(-1))
+InvInvEpShkInvAct = (InvEpShkInvAct) ** (-1)                      # $E[\psi^{-1}]$
+PermGroFacAct = GICFailExample.PermGroFac[0] * InvInvEpShkInvAct # $(E[\psi^{-1}])^{-1}$
+ERnrm   = GICFailExample.Rfree / PermGroFacAct # Interest factor normalized by uncertainty-adjusted growth
+Ernrm   = ERnrm - 1                            # Interest rate is interest factor - 1 
+mSSfunc = lambda m : 1 + (m-1)*(Ernrm/ERnrm)   # "sustainable" consumption: consume your (discounted) interest income
 
-
-# %%
-InvPermShkDstn=deepcopy(GICFailExample.PermShkDstn)
-InvPermShkDstn[0][1]
-
-# %%
-GICFailExample.PermShkDstn
 
 # %%
 # Plot GICFailExample consumption function against the sustainable level of consumption
@@ -510,11 +477,15 @@ else:
 plt.arrow(0.98,0.62,-0.2,0,head_width= 0.02,width=0.001,facecolor='black',length_includes_head='True')
 plt.arrow(2.2,1.2,0.3,-0.05,head_width= 0.02,width=0.001,facecolor='black',length_includes_head='True')
 
-show('FVACnotGIC')
+make('FVACnotGIC')
+
+# %%
+# Conditions can also be checked without solving the model
+GICFailExample.checkConditions(verbose=True)  # Make the consumption function easily accessible for plotting
 
 
 # %% [markdown]
-# As a foundation for the remaining figures, we define another instance of the class $\texttt{IndShockConsumerType}$, which has the same parameter values as the instance $\texttt{baseEx}$ defined previously but is solved to convergence (our definition of an infinite horizon agent type)
+# As a foundation for the remaining figures, we define another instance of the class $\texttt{IndShockConsumerType}$, which has the same parameter values as the instance $\texttt{baseEx}$ defined previously but is solved to convergence (our definition of an infinite horizon agent type) instead of only 100 periods
 #
 
 # %%
@@ -535,25 +506,24 @@ baseEx_inf.unpackcFunc()
 # Define a function to calculate expected consumption 
 def exp_consumption(a):
     '''
-    Taking end-of-period assets as input, return expectation of next period's consumption
+    Taking end-of-period assets a as input, return expectation of next period's consumption
     Inputs:
        a: end-of-period assets
     Returns:
        expconsump: next period's expected consumption
     '''
-    GrowFactp1 = baseEx_inf.PermGroFac[0]* baseEx_inf.PermShkDstn[0][1]
-    Rnrmtp1 = baseEx_inf.Rfree / GrowFactp1
+    GrowFac_tp1 = baseEx_inf.PermGroFac[0]* baseEx_inf.PermShkDstn[0][1]
+    Rnrm_tp1 = baseEx_inf.Rfree / GrowFac_tp1
     # end-of-period assets plus normalized returns
-    btp1 = Rnrmtp1*a
-    # expand dims of btp1 and use broadcasted sum of a column and a row vector
+    b_tp1 = Rnrm_tp1*a
+    # expand dims of b_tp1 and use broadcasted sum of a column and a row vector
     # to obtain a matrix of possible beginning-of-period assets next period
-    mtp1 = np.expand_dims(btp1, axis=1) + baseEx_inf.TranShkDstn[0][1]
-    part_expconsumption = GrowFactp1*baseEx_inf.cFunc[0](mtp1).T
-    # finish expectation over permanent income shocks by right multiplying with
-    # the weights
+    # This is much much faster than looping 
+    m_tp1 = np.expand_dims(b_tp1, axis=1) + baseEx_inf.TranShkDstn[0][1]
+    part_expconsumption = GrowFac_tp1*baseEx_inf.cFunc[0](m_tp1).T
+    # finish expectation over perm shocks by right multiplying with weights
     part_expconsumption = np.dot(part_expconsumption, baseEx_inf.PermShkDstn[0][0])
-    # finish expectation over transitory income shocks by right multiplying with
-    # weights
+    # finish expectation over trans shocks by right multiplying with prob weights
     expconsumption = np.dot(part_expconsumption, baseEx_inf.TranShkDstn[0][0])
     # return expected consumption
     return expconsumption
@@ -566,7 +536,7 @@ c_m1 = baseEx_inf.cFunc[0](m1)
 a1 = m1-c_m1
 exp_consumption_l1 = [exp_consumption(i) for i in a1]
 
-# growth1 defines the values of expected consumption growth factor when m is less than target m
+# growth1 defines the plotted values consumption growth factor when m is less than target m
 growth1 = np.array(exp_consumption_l1)/c_m1
 
 # m2 defines the plot range on the right of target m value (e.g. m >= target m)
@@ -576,7 +546,7 @@ c_m2 = baseEx_inf.cFunc[0](m2)
 a2 = m2-c_m2
 exp_consumption_l2 = [exp_consumption(i) for i in a2]
 
-# growth 2 defines the values of expected consumption growth factor when m is bigger than target m
+# growth 2 constructs values to plot of expected consumption growth factor when m is bigger than target m
 growth2 = np.array(exp_consumption_l2)/c_m2
 
 
@@ -705,7 +675,7 @@ else:
     ax.text(1.91,0.998,r'$\Phi = (\mathrm{\mathsf{R}}\beta)^{1/\rho}$',fontsize = 22,fontweight='bold')
 
 ax.text(1.91,1.03, r'$\Gamma$',fontsize = 22,fontweight='bold')
-show('cGroTargetFig')
+make('cGroTargetFig')
 
 
 # %% [markdown]
@@ -771,7 +741,7 @@ plt.arrow(8.95,4.15,-0.8,0.05,head_width= 0.05,width=0.001,facecolor='black',len
 plt.arrow(5.95,5.05,-0.4,0,head_width= 0.05,width=0.001,facecolor='black',length_includes_head='True')
 plt.arrow(14,0.70,0.5,-0.1,head_width= 0.05,width=0.001,facecolor='black',length_includes_head='True')
 
-show('cFuncBounds')
+make('cFuncBounds')
 
 
 # %% [markdown]
@@ -804,7 +774,7 @@ plt.text(baseEx_inf.solution[0].mNrmSS-0.05,-0.1, r"$\check{m}$",fontsize = 26)
 plt.arrow(2.28,1.12,-0.1,0.03,head_width= 0.02,width=0.001,facecolor='black',length_includes_head='True')
 plt.arrow(2.28,0.97,-0.1,0.02,head_width= 0.02,width=0.001,facecolor='black',length_includes_head='True')
 
-show('cRatTargetFig')
+make('cRatTargetFig')
 
 
 # %% [markdown]
@@ -852,7 +822,7 @@ plt.arrow(1.45,0.61,-0.4,0,head_width= 0.02,width=0.001,facecolor='black',length
 plt.arrow(2.2,0.07,0.2,-0.01,head_width= 0.02,width=0.001,facecolor='black',length_includes_head='True')
 plt.arrow(4.95,0.895,-0.2,0.03,head_width= 0.02,width=0.001,facecolor='black',length_includes_head='True')
 
-show('MPCLimits')
+make('MPCLimits')
 
 
 # %% [markdown]
