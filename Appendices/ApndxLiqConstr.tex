@@ -85,6 +85,7 @@ any $\mRat > \mRat_{\#}$ the constraint will never bind and the
 consumer will choose to spend the same amount as the unconstrained
 consumer, $\bar{\cFunc}(\mRat)$.
 
+(\cite{StachurskiToda2019JET} obtain a similar lower bound on consumption and use it to study the tail behavior of the wealth distribution.)
 
 
 \subsection{If \PFGIC~Holds}
@@ -119,6 +120,7 @@ The PDV of consumption from $t-n$ until $t$ can thus be computed as
 % \\   \mathbb{C}_{t-n}^{t}  & = \cRat_{t-n}(1+\PatPGro/\Rnorm+ ... + (\PatPGro/\Rnorm)^{n}) \notag
 \\  & = \cRat_{\#}^{n}(1+\PatR+ ... + \PatR^{n}) \notag
 \\  & = \PatPGro^{-n}\left(\frac{1-\PatR^{n+1}}{1-\PatR}\right) \label{PDVc}
+\\  & = \left(\frac{\PatPGro^{-n}-\PatR}{1-\PatR}\right) 
 \end{align}
 and note that the consumer's human wealth between $t-n$ and $t$ (the relevant
 time horizon, because from $t$ onward the consumer will be constrained
@@ -145,7 +147,7 @@ $\{\mRat_{\#}^{n},\cRat_{\#}^{n}\}$ for integer values of $n \geq 0$
 function will return, for any value of $\mRat$, the optimal value of
 $\cRat$ for a liquidity constrained consumer with an infinite horizon.
 The function is piecewise linear with `kink points' where the slope
-discretely changes, because for infinitesimal $\epsilon$ the MPC of a
+discretely changes; for infinitesimal $\epsilon$ the MPC of a
 consumer with assets $\mRat=\mRat_{\#}^{n}-\epsilon$ is discretely
 higher than for a consumer with assets $\mRat=\mRat_{\#}^{n}+\epsilon$
 because the latter consumer will spread a marginal dollar over more
@@ -166,12 +168,12 @@ The \FHWC~requires $\Rnorm^{-1} < 1$, in which case the second term in \eqref{\l
 \\  \lim_{n \rightarrow \infty} \left(\frac{\PatPGro^{-n}-\Rnorm^{-n}\PatR}{1-\PatR}\right)  & = \infty
 \\  \lim_{n \rightarrow \infty} \left(\frac{\PatPGro^{-n}}{1-\PatR}\right)  & = \infty.
 \end{eqnarray*}
-Given the \PFGIC~$\PatPGro^{-1}>1$, this will hold iff the \RIC~holds, $\PatR < 1$.  But given that the \FHWC~$\Rfree > \PGro$ holds, the \PFGIC~is stronger (harder to satisfy) than the \RIC; thus, \FHWC~and the \PFGIC~together imply the \RIC, and so a well-defined
+Given the \PFGIC~$\PatPGro^{-1}>1$, this will hold iff the \RIC~holds, $\PatR < 1$.  But given that the \FHWC~$\Rfree > \PGro$ holds, the \PFGIC~is stronger (harder to satisfy) than the \RIC; thus, the~\FHWC~and the \PFGIC~together imply the \RIC, and so a well-defined
 solution exists.  Furthermore, in the limit as $n$ approaches
 infinity, the difference between the limiting constrained consumption
 function and the unconstrained consumption function becomes
-vanishingly small, because as the date at which the constraint binds
-becomes arbitrarily distant, the effect of that constraint on current
+vanishingly small, because the date at which the constraint binds
+becomes arbitrarily distant, so the effect of that constraint on current
 behavior shrinks to nothing.  That is,
 \begin{align}
 \lim_{m \rightarrow \infty}\grave{\cFunc}(m) - \bar{\cFunc}(m) = 0.
@@ -199,11 +201,11 @@ Given failure of \FHWC, \eqref{\localorexternallabel{eq:bToInfty}} requires
 \begin{align}
 %  \lim_{n \rightarrow \infty} \left(\frac{\PatPGro^{-n}-\Rnorm^{-n}\PatR}{1-\PatR}\right) + \left(\frac{1-\Rnorm^{-(n+1)}}{\Rnorm^{-1}-1}\right)  & = \infty \\
   \lim_{n \rightarrow \infty} \left(\frac{\Rnorm^{-n}\PatR-\PatPGro^{-n}}{\PatR-1}\right) + \left(\frac{1-\Rnorm^{-(n+1)}}{\Rnorm^{-1}-1}\right)  & = \infty \notag
-\\   \lim_{n \rightarrow \infty} \left(\frac{\PatR}{\PatR-1}-\frac{\Rnorm^{-1}}{\Rnorm^{-1}-1}\right)\Rnorm^{-n}-\left(\frac{\PatPGro^{-n}}{\PatR-1}\right)  & = \infty \notag
-\\   \lim_{n \rightarrow \infty} \left(\frac{\PatR(\Rnorm^{-1}-1)}{(\Rnorm^{-1}-1)(\PatR-1)}-\frac{\Rnorm^{-1}(\Pat<R-1)}{(\Rnorm^{-1}-1)(\PatR-1)}\right)\Rnorm^{-n}-\left(\frac{\PatPGro^{-n}}{\PatR-1}\right)  & = \infty. \label{eq:FHWCfails}
+\\   \lim_{n \rightarrow \infty} \left(\frac{\PatR}{\PatR-1}-\frac{\Rnorm^{-1}}{\Rnorm^{-1}-1}\right)\Rnorm^{-n}-\left(\frac{\PatPGro^{-n}}{\PatR-1}\right)  & = \infty \label{eq:FHWCfails} 
+%\\   \lim_{n \rightarrow \infty} \left(\frac{\PatR(\Rnorm^{-1}-1)}{(\Rnorm^{-1}-1)(\PatR-1)}-\frac{\Rnorm^{-1}(\Rnorm^{-1}-1)}{(\Rnorm^{-1}-1)(\PatR-1)}\right)\Rnorm^{-n}-\left(\frac{\PatPGro^{-n}}{\PatR-1}\right)  & = \infty. 
 \end{align}
 
-{\bf If \RIC~Holds}.  When the \RIC~holds, rearranging \eqref{\localorexternallabel{eq:FHWCfails}} gives
+\noindent {\bf If \RIC~Holds}.  When the \RIC~holds, rearranging \eqref{\localorexternallabel{eq:FHWCfails}} gives
 \begin{eqnarray*}
   \lim_{n \rightarrow \infty} \left(\frac{\PatPGro^{-n}}{1-\PatR}\right)-\Rnorm^{-n}\left(\frac{\PatR}{1-\PatR}+\frac{\Rnorm^{-1}}{\Rnorm^{-1}-1}\right)  & = \infty
 \end{eqnarray*}
@@ -216,36 +218,46 @@ and for this to be true we need
 which is merely the \RIC~again.  So the problem has a solution if the \RIC~holds.  Indeed,
 we can even calculate the limiting MPC from
 \begin{align}
-  \lim_{n \rightarrow \infty} \MPC^{n}_{\#}  & = \lim_{n \rightarrow \infty} \left(\frac{\cRat_{\#}^{n}}{\bRat_{\#}^{n}}\right)
+  \lim_{n \rightarrow \infty} \MPC^{n}_{\#}  & = \lim_{n \rightarrow \infty} \left(\frac{\cRat_{\#}^{n}}{\bRat_{\#}^{n}}\right) \label{eq:MPCConstrLim}
 \end{align}
-which with a few lines of algebra
-\begin{comment}
+which with a bit of algebra\footnote{
 Calculate the limit of
 \begin{align}
 \left(\frac{\PatPGro^{-n}}{\PatPGro^{-n}/(1-\PatR) - (1-\Rnorm^{-1}\Rnorm^{-n})/(1-\Rnorm^{-1})}\right)  & = \left(\frac{1}{1/(1-\PatR) + \Rnorm^{-n}\Rnorm^{-1}/(1-\Rnorm^{-1})}\right)
-\end{align}
-\end{comment}
-can be shown to asymptote to the MPC in the perfect foresight model:\footnote{For an example of this configuration of parameters, see the notebook \texttt{doApndxLiqConstr.nb} in the software archive.}
+\end{align}} can be shown to asymptote to the MPC in the perfect foresight model:\footnote{For an example of this configuration of parameters, see the notebook \texttt{doApndxLiqConstr.nb} in the Mathematica software  archive.}
 \begin{align}
   \lim_{m \rightarrow \infty} \grave{\pmb{\MPC}}(\mRat)  & = 1-\PatR.
 \end{align}
-{\bf If \RIC~Fails}.  Consider now the \cncl{\RIC} case, $\PatR > 1$.  In this case the constant multiplying
+
+\noindent {\bf If \RIC~Fails}.  Consider now the \cncl{\RIC} case, $\PatR > 1$.  We can rearrange \eqref{\localorexternallabel{eq:FHWCfails}}as
+\begin{eqnarray}
+ \lim_{n \rightarrow \infty} \left(\frac{\PatR(\Rnorm^{-1}-1)}{(\Rnorm^{-1}-1)(\PatR-1)}-\frac{\Rnorm^{-1}(\PatR-1)}{(\Rnorm^{-1}-1)(\PatR-1)}\right)\Rnorm^{-n}-\left(\frac{\PatPGro^{-n}}{\PatR-1}\right)  & = \infty.  
+\end{eqnarray}
+which makes clear that with $\cncl{\FHWC} \Rightarrow \Rnorm^{-1} > 1$ and $\cncl{\RIC} \Rightarrow \PatR > 1$ the numerators and denominators of both terms multiplying $\Rnorm^{-n}$ can be seen transparently to be positive.  So, the terms multiplying
 $\Rnorm^{-n}$ in \eqref{\localorexternallabel{eq:FHWCfails}} will be positive if
 \begin{eqnarray*}
-  \PatR \Rnorm^{-1} - \PatR  & >  \Rnorm^{-1}\PatR-\Rnorm^{-1}
-\\ \Rnorm^{-1}  & > \PatR
-\\ \PGro  & > \Pat
+  \PatR \Rnorm^{-1} - \PatR  & > & \Rnorm^{-1}\PatR-\Rnorm^{-1}
+\\ \Rnorm^{-1}  & > & \PatR
+\\ \PGro  & > & \Pat
 \end{eqnarray*}
 which is merely the \PFGIC~which we are maintaining.  So the first term's limit is $+\infty$.  The
 combined limit will be $+\infty$ if the term involving $\Rnorm^{-n}$
 goes to $+\infty$ faster than the term involving $-\PatPGro^{-n}$ goes to
 $-\infty$; that is, if
 \begin{eqnarray*}
-  \Rnorm^{-1}  & > \PatPGro^{-1}
-\\ \PGro/\Rfree  & > \PGro/\Pat
-\\ \Pat/\Rfree  & > 1
+  \Rnorm^{-1}  & > & \PatPGro^{-1}
+\\ \PGro/\Rfree  & > & \PGro/\Pat
+\\ \Pat/\Rfree  & > & 1
 \end{eqnarray*}
 which merely confirms the starting assumption that the \RIC~fails.
+
+What is happening here is that the $\cRat_{\#}^{n}$ term is increasing backward in time at rate dominated in the limit by $\PGro/\Pat$ while the $\bRat_{\#}$ term is increasing at a rate dominated by $\PGro/\Rfree$ term and
+\begin{eqnarray}
+ \PGro/\Rfree & > & \PGro/\Pat 
+\end{eqnarray}
+because $\cncl{\RIC} \Rightarrow \Pat > \Rfree.$
+
+Consequently, while $\lim_{n \uparrow \infty} \bRat_{\#}^{n} = \infty$, the limit of the \textit{ratio} $\cRat_{\#}^{n}/\bRat_{\#}^{n}$ in \eqref{eq:MPCConstrLim} is zero.
 Thus, surprisingly, the problem has a well defined solution with
 infinite human wealth if the \RIC~fails.  It remains true that \cncl{\RIC}
 implies a limiting MPC of zero,
@@ -326,6 +338,19 @@ interesting question is whether the \FHWC~holds.  If so, the
 RIC~automatically holds, and the solution limits
 into the solution to the unconstrained problem as $\mRat \uparrow
 \infty$.  But even if the \FHWC~fails, the problem has a
-well-defined solution, whether or not the \RIC~holds.
+well-defined and nondegenerate solution, whether or not the \RIC~holds.
+
+Although these results were derived for the perfect foresight case,
+we know from work elsewhere in this paper and in other places that the
+perfect foresight case is an upper bound for the case with uncertainty.
+If the upper bound of the MPC in the perfect foresight case is zero, it
+is not possible for the upper bound in the model with uncertainty to be
+greater than zero, because for any $\kappa > 0$ the level of consumption
+in the model with uncertainty would eventually exceed the level of consumption
+in the absence of uncertainty.
+
+\cite{MaTodaMPC} characterize the limits of MPC in a more general framework that allows for non-CRRA utility as well as capital and labor income risks in a Markovian setting, and
+find that in that much more general framework the limiting MPC is also zero.
+
 
 \end{document}

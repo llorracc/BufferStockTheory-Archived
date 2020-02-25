@@ -603,7 +603,7 @@ to have limiting slopes as $\mRat \downarrow 0$ and as $\mRat \uparrow
 slopes, which also turn out to be useful in the contraction
 mapping proof.  In a recent paper, \cite{benhabibWealth} show that the consumption function
 becomes linear as wealth approaches infinity in a model with capital income risk and liquidity
-constraints; it seems clear that their results would generalize to the limits derived here if capital income risk were added to the model.  See also \cite{mstCapIncFluct} for an analysis of the stability of models with capital income risk.
+constraints; it seems clear that their results would generalize to the limits derived here if capital income risk were added to the model.  \cite{MaStachurskiToda} establishe the existence and uniqueness of a solution to a general income fluctuation problem with capital income risk in a Markovian setting and study the tail behavior of wealth.
 
 \newcommand{\NewMaxMinMPC}{\ushort{\MPC}}
 
@@ -869,7 +869,7 @@ for a nondegenerate solution.
 But if the \RIC~does hold, some useful results can be derived.  Arguably
 the most fundamental are that the limiting values
 for the minimal and maximal marginal propensities to consume implicit in
-\eqref{eq:MaxMPCDef} and \eqref{eq:MinMPCInv} are positive and finite.
+\eqref{eq:MaxMPCInv} and \eqref{eq:MinMPCInv} are positive and finite.
 \end{comment}
 We thus begin our discussion by asking what features the problem must
 exhibit (given the \FVAC) if the \RIC~fails (that is, $\Rfree < (\Rfree \DiscFac)^{1/\CRRA})$:
@@ -1255,7 +1255,7 @@ in the proofs above.)
 \label{subsec:LimitsAsmtToZero} Now consider the limits of behavior as $\mRat_{t}$ gets
 arbitrarily small.
 
-Equation \eqref{eq:MaxMPCDef} shows that the limiting value of
+Equation \eqref{eq:MaxMPCInv} shows that the limiting value of
 $\MaxMPC$ is
 \begin{align}
  \MaxMPC  & = 1-{\Rfree}^{-1}(\pZero  \Rfree\DiscFac)^{1/\CRRA}. \nonumber
@@ -1653,7 +1653,7 @@ zero over time. (A proof that the covariance shrinks fast enough would
 mean that the term could be neglected).
 
 The desired result can be proven if there are no permanent shocks; see
-appendix \ref{sec:CGroEqPGro} for that proof, along with a discussion
+appendix \ref{subsec:cGroEqPGroQ} for that proof, along with a discussion
 of the characteristics of a covariance term that are an obstacle to proof in the
 general case with both transitory and permanent shocks.
 
