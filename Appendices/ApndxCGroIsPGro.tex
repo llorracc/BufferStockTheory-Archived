@@ -11,22 +11,22 @@ Suppose the population starts in period $t$ with an arbitrary value for
  $\mbox{cov}_{t}(a_{t+1,i},\pLevBF_{t+1,i})$. 
   Then if $\mSS$ is the invariant mean
 level of $\mRat$ we can define a `mean MPS away from $\mSS$' function
-\begin{align}
+\begin{equation}\begin{gathered}\begin{aligned}
  \acute{\aFunc}(\Delta)  & =  \Delta^{-1}\int_{\mSS}^{\mSS+\Delta} \aFunc^{\prime}(z)
  dz \label{eq:checkaFunc} \nonumber
-\end{align}
+\end{aligned}\end{gathered}\end{equation}
 and since $\pShk_{t+1,i}=1$, $\Rnorm_{t+1,i}$ is a constant at $\Rnorm$ we can write
-\begin{align}
+\begin{equation}\begin{gathered}\begin{aligned}
   a_{t+1,i} 
 & =   \aFunc(\mSS)+(\mRat_{t+1,i}-\mSS)\acute{\aFunc}(\overbrace{\Rnorm
     a_{t,i}+\tShkAll_{t+1,i}}^{\mRat_{t+1,i}}-\mSS) \nonumber
-\end{align}
+\end{aligned}\end{gathered}\end{equation}
 so
-\begin{align}
+\begin{equation}\begin{gathered}\begin{aligned}
 \mbox{cov}_{t}(a_{t+1,i},\pLevBF_{t+1,i})
  & = \mbox{cov}_{t}\left(\acute{\aFunc}(\Rnorm  a_{t,i}+\tShkAll_{t+1,i}-\mSS)
   ,\PGro   \pLevBF_{t,i}\right). \nonumber
-\end{align}
+\end{aligned}\end{gathered}\end{equation}
 
 But since ${\Rfree}^{-1}(\pZero  \Rfree\DiscFac)^{1/\CRRA} < \acute{\aFunc}(\mRat) < \PatR $,
 \begin{equation}
@@ -37,10 +37,10 @@ But since ${\Rfree}^{-1}(\pZero  \Rfree\DiscFac)^{1/\CRRA} < \acute{\aFunc}(\mRa
 and for the version of the model with no permanent shocks the \GIC~
 says that
 ${\Pat} < \PGro, $ which implies
-\begin{align}
+\begin{equation}\begin{gathered}\begin{aligned}
   |\mbox{cov}_{t}(a_{t+1,i},\pLevBF_{t+1,i})| < \PGro
   |\mbox{cov}_{t}(a_{t,i},\pLevBF_{t,i})|. \nonumber
-\end{align}
+\end{aligned}\end{gathered}\end{equation}
 
 
 This means that from any arbitrary starting value, the relative
