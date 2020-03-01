@@ -63,6 +63,7 @@ titlesec.sty
 pictureenv.4ht
 svg-math-and-subfigures.cfg
 svg-math-and-subfigures_20200110_svg-preferred-does-not-work.cfg
+svg-math-and-subfigures_latin1.cfg
 svg-set-size-to-1p0.mk4
 
 ./tex/latex/texmf-local:

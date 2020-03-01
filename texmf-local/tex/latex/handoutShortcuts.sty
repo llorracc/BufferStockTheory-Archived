@@ -280,8 +280,8 @@
 \providecommand{\ORat}{\ensuremath{O}}
 \providecommand{\oRat}{\ensuremath{o}}
 \providecommand{\Pareto}{\zeta}
-\providecommand{\PatPGroAdj}{\text{\pmb{\Thorn}}_{\underline{\PGro}}}
-\providecommand{\patpGroAdj}{\text{\thorn}_{\underline{\pGro}}}
+\providecommand{\PatPGroAdj}{\text{\pmb{\Thorn}}_{\acute{\PGro}}}
+\providecommand{\patpGroAdj}{\text{\thorn}_{\acute{\pGro}}}
 \providecommand{\patpGrohat}{\hat{\text{\thorn}}_{\pGro}}
 \providecommand{\PatPGro}{\text{\pmb{\Thorn}}_{\PGro}}
 \providecommand{\patpGro}{\text{\thorn}_{\pGro}}
@@ -317,8 +317,7 @@
 \providecommand{\PLev}{\ensuremath{P}}
 \providecommand{\PLives}{\ensuremath{\cancel{\PDies}}}
 \providecommand{\pLives}{\ensuremath{\cancel{\pDies}}}
-%\providecommand{\pNotZero}{\ensuremath{\cancel{\wp}}}
-\providecommand{\pNotZero}{(1-\pZero)}
+\providecommand{\pNotZero}{\ensuremath{\cancel{\wp}}}
 \providecommand{\PopE}{\mathcal{E}}
 \providecommand{\popE}{e}
 \providecommand{\PopGro}{\ensuremath{\Xi}}
@@ -383,8 +382,8 @@
 \providecommand{\rprod}{\ensuremath{\mathscr{r}}}
 \providecommand{\rProd}{\ensuremath{\mathsf{r}}}
 \providecommand{\RProd}{\ensuremath{\mathsf{R}}}
-\providecommand{\RSave}{\ensuremath{\underline{\Rfree}}}
-\providecommand{\rsave}{\ensuremath{\underline{\rfree}}}
+\providecommand{\RSave}{\ensuremath{\ushort{\Rfree}}}
+\providecommand{\rsave}{\ensuremath{\ushort{\rfree}}}
 \providecommand{\RBoro}{\ensuremath{\bar{\Rfree}}}
 \providecommand{\rboro}{\ensuremath{\bar{\rfree}}}
 %\providecommand{\R}{\Rfree}
@@ -444,8 +443,7 @@
 \providecommand{\Target}{\check}
 \providecommand{\TaxCombInv}{\ensuremath{\mathcal{T}^{-1}}}
 \providecommand{\TaxComb}{\ensuremath{\mathcal{T}}}
-\providecommand{\TaxCorp}{\ensuremath{\Large \tau}}
-\providecommand{\taxCorp}{\ensuremath{\tau}}
+\providecommand{\TaxCorp}{\ensuremath{\tau}}
 \providecommand{\taxDep}{\ensuremath{\partial}}
 \providecommand{\TaxFree}{\ensuremath{\cancel{\Tax}}}
 \providecommand{\TaxLev}{T}
@@ -602,10 +600,11 @@
 \providecommand{\ZRat}{\ensuremath{Z}}
 \providecommand{\zRat}{\ensuremath{z}}
 
-\providecommand{\DieFac}{\pDead}
-\providecommand{\LivFac}{\Alive}
-\providecommand{\PopFac}{\PopGro}
-\providecommand{\popRte}{\popGro}
+\newcommand{\discRte}{\omega}
+\newcommand{\DieFac}{\pDead}
+\newcommand{\LivFac}{\Alive}
+\newcommand{\PopFac}{\PopGro}
+\newcommand{\popRte}{\popGro}
 
 
 \providecommand{\NFALev}{\NLev}
@@ -628,5 +627,5 @@
 \providecommand{\recm}{}
 \renewcommand{\recm}{\item[\phantom{$^{*}$}]}
 
-\providecommand{\pd}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\pd}[2]{\frac{\partial#1}{\partial#2}}
 
