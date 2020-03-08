@@ -17,7 +17,7 @@ satisfies
 
 \item $\nFunc(z)$ is strictly concave
 
-\item $\nFunc(z)$ is $ \mathbf{C}^{3}$ (its first three derivatives exist)
+\item $\nFunc(z)$ is $ \mathbf{C}^{3}$
 
 \item $\nFunc(z)<0$
 
@@ -100,8 +100,10 @@ $y\equiv m+dm$.
   \frac{{\aFunc}_{t}(y)-{\aFunc}_{t}(\mRat)}{dm}=1-\frac{\cFunc_{t}(y)-\cFunc_{t}(\mRat)}{dm},$
   
 \begin{align*}
-\lefteqn{\frac{\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mRat))}{{\aFunc}_{t}(y)-{\aFunc}_{t}(\mRat)}} & =   \\
- & =     \left( \frac{\uFunc^{\prime }\left( \cFunc_{t}(y)\right) -\uFunc^{\prime }\left( \cFunc_{t}(\mRat)\right) }{\cFunc_{t}(y)-\cFunc_{t}(\mRat)}+\frac{\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mRat))}{{\aFunc}_{t}(y)-{\aFunc}_{t}(\mRat)}\right) \frac{\cFunc_{t}(y)-\cFunc_{t}(\mRat)}{dm}
+%  \lefteqn{
+  \frac{\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mRat))}{{\aFunc}_{t}(y)-{\aFunc}_{t}(\mRat)} %  }
+  & =   
+       \left( \frac{\uFunc^{\prime }\left( \cFunc_{t}(y)\right) -\uFunc^{\prime }\left( \cFunc_{t}(\mRat)\right) }{\cFunc_{t}(y)-\cFunc_{t}(\mRat)}+\frac{\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mRat))}{{\aFunc}_{t}(y)-{\aFunc}_{t}(\mRat)}\right) \frac{\cFunc_{t}(y)-\cFunc_{t}(\mRat)}{dm}
 \end{align*}
 Since $\cFunc_{t}$ and $\aFunc_{t}$ are continuous and increasing, $\underset{
 dm\rightarrow +0}{\lim }\frac{\uFunc^{\prime }\left( \cFunc_{t}(y)\right) -\uFunc^{\prime
@@ -162,13 +164,13 @@ difficult to show; see Hiraguchi~\citeyearpar{hiraguchiBSProofs}.
 
 Consider condition (1). For this problem,
 \begin{align*}
-\{\TMap{\mathfrak{\xFunc}}\}(\mRat_{t}) &\mbox{is}\underset{\cRat_{t} \in
+\{\TMap{\mathfrak{\xFunc}}\}(\mRat_{t}) &\mbox{~is}\underset{\cRat_{t} \in
 [\MinMinMPC \mRat_{t}, \MaxMPC \mRat_{t}]
 }\max \left\{
 \uFunc(c_{t})+\DiscFac \Ex_{t}\left[ {\PGro}_{t+1}^{1-\CRRA }{\mathfrak{\xFunc}}
 \left( {\mRat}_{t+1}\right) \right] \right\}  \notag  \label{eq:condition1}
 \\
-\{\TMap{\mathfrak{\yFunc}}\}(\mRat_{t}) &\mbox{is}\underset{\cRat_{t} \in
+\{\TMap{\mathfrak{\yFunc}}\}(\mRat_{t}) &\mbox{~is}\underset{\cRat_{t} \in
 [\MinMinMPC \mRat_{t}, \MaxMPC \mRat_{t}]
 }\max \left\{
 \uFunc(c_{t})+\DiscFac \Ex_{t}\left[ {\PGro}_{t+1}^{1-\CRRA }{\mathfrak{\yFunc}}
@@ -294,9 +296,9 @@ $\pZero$ this expression can be further simplified using $(1+\MinMPS)^{-1}
 \\  \DiscFac  \pZero^{1/\CRRA} \PatR^{1-\CRRA}  & < 1.
 \end{align*}
 
-Calling the weak return impatience factor $\PatR^{\wp}=\wp^{1/\CRRA}\PatR$ and
+Calling the weak return patience factor $\PatR^{\wp}=\wp^{1/\CRRA}\PatR$ and
 recalling that the \WRIC~was $\PatR^{\wp}<1$, the expression on the LHS
-above is $\beta \PatR^{-\CRRA}$ times the WRIF.  Since we usually assume $\beta$ not far below 1 and
+above is $\DiscFac \PatR^{-\CRRA}$ times the WRPF.  Since we usually assume $\DiscFac$ not far below 1 and
 parameter values such that $\PatR \approx 1$, this condition is clearly not very
 different from the \WRIC.
 
