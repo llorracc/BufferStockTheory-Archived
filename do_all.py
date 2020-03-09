@@ -10,10 +10,17 @@ def run_remark():
         Jupytext should be used before running this file.
     """
     filename = glob.glob("Code/Python/*.py")
-    if len(filename) == 0:
-        raise ValueError(
-            "Python file not found, make sure Jupytext synced file of the notebook is available in the Code/Python directory"
-        )
+    notebookname = glob.glob("Code/Python/*.ipynb")
+    if len(filename) == 0 and len(notebookname) == 0:
+        raise ValueError('No python or jupyter notebook found in the Code/Python directory')
+    elif len(filename) == 0:
+        print(f"Using nbconvert to convert {notebookname[0].split('/')[-1]} to a python file")
+        try:
+            import nbconvert
+        except:
+            raise ImportError('nbconvert is needed to convert the notebook into a python file')
+        subprocess.run([f"jupyter-nbconvert --to python {notebookname[0]}"], shell=True)
+        filename = notebookname[0][:-5] + 'py'
     else:
         filename = filename[0]
     directory = '/'.join(filename.split('/')[:-1])
