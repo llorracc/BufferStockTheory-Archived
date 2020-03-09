@@ -1,0 +1,31 @@
+
+\begin{align*}
+  a_{t+1} & = m_{t+1}-c_{t+1}
+ \\  a_{t+1} & = a_{t} (\Rfree/\PGro\pShk_{t+1}) + \tShkAll_{t+1}-\cFunc(a_{t} (\Rfree/\PGro\pShk_{t+1}) + \tShkAll_{t+1})
+  \\  a_{t+1}\pShk_{t+1} & = a_{t} (\Rfree/\PGro) + \pShk_{t+1}\tShkAll_{t+1}-\cFunc(a_{t} (\Rfree/\PGro\pShk_{t+1}) + \tShkAll_{t+1})\pShk_{t+1}
+  \\  a_{t+1}\pShk_{t+1} & \approx \left[\bar{m}_{t+1}+(\mRat_{t+1}-\bar{m}_{t+1})-\left(\cFunc(\bar{m}_{t+1})+\cFunc^{\prime}(\bar{m}_{t+1})(m_{t+1}-\bar{m}_{t}\right)\right]\pShk_{t+1}  \\
+%  a_{t+1}\pShk_{t+1} & \approx \bar{m}_{t+1}+(m_{t+1}-\bar{m}_{t+1}) + \tShkAll_{t+1}-\left(\cFunc(\bar{m}_{t+1})+\cFunc^{\prime}(\bar{m}_{t+1})(m_{t+1}-\bar{m}_{t+1})\right)\pShk_{t+1}
+\end{align*}
+
+\begin{align*}
+  a_{t+1} & = m_{t+1}-c_{t+1}
+  \\  a_{t+1} & = a\left(\psi_{t+1}\right) \\
+          & \approx a\left(1\right)+a^{\pShk}\left(\pShk_{t+1}-1\right)
+\\ a^{\pShk}         & = -(\Rfree/\PGro\pshk^{2})\aRat_{t}-\aRat_{t}(\cFunc()+\cFunc^{\prime}
+\end{align*}
+
+\begin{align*}
+  a_{t+1}\pShk_{t+1} & \equiv a\pShk\left(\psi_{t+1}\right) \\
+          & \approx a\pShk\left(1\right)+\left(\pShk_{t+1}-1\right)a\pShk^{\pShk}
+  \\ a\pShk^{\pShk}         & = \tShkAll_{t+1}-(\cFunc()+\pShk_{t+1}\cFunc^{\prime}()a_{t}(-\Rfree/\PGro\pShk_{t+1}^{2}))
+\\      & = \tShkAll_{t+1}-(\cFunc()+\cFunc^{\prime}a_{t}(-\Rfree/\PGro\pShk_{t+1}))
+\\  a_{t+1}\pShk_{t+1} & \approx a\pShk\left(1\right)+\tShkAll_{t+1}-(\cFunc()+\cFunc^{\prime}a_{t}(-\Rfree/\PGro\pShk_{t+1}))(\psi_{t+1}-1)
+\end{align*}
+
+
+but \cite{szeidlInvariant} proves the ergodicity of the distributions of normalized
+variables for this problem.  Since that distribution is ergodic, and since $\pShk_{t+1}$ is a white noise variable,
+it must be true that in the ergodic steady state the mean value of $\aRat_{t+1}\pShk_{t+1}/\aRat_{t}$ is
+a constant.  Thus, the growth factor for $\ALevBF$ is constant (which applies to the other variables in the model
+as well).
+
