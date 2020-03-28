@@ -36,7 +36,6 @@ Given the proof that the value functions converge, we now show the
 pointwise convergence of consumption functions
 $\left\{\cFunc_{T-n+1}(\mRat)\right\} _{n=1}^{\infty }$.
 
-%%% New version, thanks to Herschel Zheng 20200328
 Consider any convergent subsequence $\left\{\cFunc_{T-n(i)}(\mRat)\right\}$ of $\left\{\cFunc_{T-n+1}(\mRat)\right\} _{n=1}^{\infty }$ converging to $c^*$. By the definition of $\cFunc_{T-n}(\mRat)$, we have 
 \begin{equation}
     \uFunc(c_{T - n(i)}(\mRat)) + \DiscFac \Ex_{T - n(i)}[{\PGro}_{T-n(i)+1}^{1 - \CRRA}\vFunc_{T-n(i)+1}(\mRat)] \geq \uFunc(c_{T - n(i)}) + \DiscFac \Ex_{T - n(i)}[{\PGro}_{T-n(i)+1}^{1 - \CRRA}\vFunc_{T-n(i)+1}(\mRat)],
@@ -48,7 +47,7 @@ for any $\cRat_{T - n(i)} \in [\MinMinMPC \mRat,\MaxMPC \mRat]$. Now letting $n(
 Hence, $c^* \in \underset{\cRat_{T - n(i)} \in [\MinMinMPC \mRat,\MaxMPC \mRat]}{\arg \max }\left\{ \uFunc(\cRat_{T - n(i)}) + \DiscFac \Ex_{t}[{\PGro}_{t + 1}^{1 - \CRRA}\vFunc(\mRat)]\right\}$. By the uniqueness of $\cFunc(\mRat)$, $c^* = \cFunc(\mRat)$.
 
 
-\begin{comment} %%% Clumsy old version by CDC
+\begin{comment} %
 We start by showing that
 \begin{equation}
 \cFunc(\mRat)=\underset{\cRat_{t}\in [\MinMinMPC \mRat,\MaxMPC \mRat]}{\arg \max }\left\{
