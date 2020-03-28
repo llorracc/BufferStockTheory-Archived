@@ -1,5 +1,6 @@
 \documentclass[../BufferStockTheory.tex]{subfiles}
 \input{./econtexRoot}
+\provideboolean{Metin}\setboolean{Metin}{true}\newcommand{\Metin}[2]{\ifthenelse{\boolean{Metin}}{\marginpar{\large Metin}\{{#1}\} $\rightarrow$ \{{#2}\}}{#2}}% PrivateMsg: Comments by Metin Uyanik
 
 \input{\econtexRoot/\ApndxDir/onlyinsubfile.tex}\begin{document}
 
@@ -36,17 +37,17 @@ each gridpoint:
 \end{align}
 and the marginal propensity to consume at the beginning of the period is obtained from the marginal
 propensity to have consumed by noting that, if we define $\mathfrak{m}(a) = \cEndFunc(a)-a$,
-\begin{eqnarray*}
+\begin{align*}
    \cRat  & = \mathfrak{m}-\aRat
 \\ \cEndFunc^{\aRat}+1  & = \mathfrak{m}^{\aRat}
-\end{eqnarray*}
+\end{align}
 which, together with the chain rule $\cEndFunc^{\aRat}  = \cFunc^{\mRat}\mathfrak{m}^{\aRat}$,
 yields the MPC from
 
-\begin{eqnarray*}
+\begin{align*}
    \cFunc^{\mRat}(\cEndFunc^{\aRat}+1)  & = \cEndFunc^{\aRat}
 \\ \cFunc^{\mRat}  & = \cEndFunc^{\aRat}/(1+\cEndFunc^{\aRat}) \label{eq:MPCfromMPTHC}
-\end{eqnarray*}
+\end{align*}
 and we call the vector of MPC's at the $\vec{\mRat}_{t}$ gridpoints $\vec{\MPC}_{t}$.
 \begin{comment}
 

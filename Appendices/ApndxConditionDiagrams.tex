@@ -2,20 +2,20 @@
 \input{\econtexRoot/\ApndxDir/onlyinsubfile.tex}\begin{document}
 %\onlyinsubfile{\externaldocument{BufferStockTheory}}
 
-  \subsection{Condition Diagrams}
+  \subsection{Commutative Diagrams for the Perfect Foresight Model}
 The diagrams below illustrate the order of the several conditions in the text:
 \[
-  \begin{tikzcd}
+  \begin{tikzcd}[row sep=large, column sep=large]
   \textbf{\Thorn} \ar{rr}{\mathrm{PF-GIC}} \ar{dr}{\mathrm{RIC}}& & \Gamma \ar{dl}{\mathrm{FHWC}} \\
    & \mathsf{R} &
   \end{tikzcd}
  \]
 and to further incorporate the Perfect Foresight Finite Value of Autarky Condition:
- \[
-  \begin{tikzcd}
+\[
+  \begin{tikzcd}[row sep=huge, column sep=huge]
   \textbf{\Thorn} \ar{r}{\mathrm{PF-GIC}} \ar{d}{\mathrm{RIC}} \ar{dr}{\mathrm{PF-FVAC}}& \Gamma \ar{d}{\mathrm{FHWC}} \\
    \mathsf{R} &  \mathsf{R}^{1/\rho}\Gamma^{1 - 1/\rho} \ar{l}{\mathrm{FHWC}}
-  \end{tikzcd}
+ \end{tikzcd}
  \]
 In both diagrams, an arrow means ``$<$'', which indicates the annotated condition holds, so if a condition is violated, the corresponding arrow is to be reversed. 
 
