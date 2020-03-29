@@ -1,5 +1,6 @@
 \documentclass[../BufferStockTheory.tex]{subfiles}
 \input{./econtexRoot}
+\provideboolean{Metin}\setboolean{Metin}{true}\newcommand{\Metin}[2]{\ifthenelse{\boolean{Metin}}{\marginpar{\large Metin}\{{#1}\} $\rightarrow$ \{{#2}\}}{#2}}% PrivateMsg: Comments by Metin Uyanik
 
 \input{\econtexRoot/\ApndxDir/onlyinsubfile.tex}\begin{document}
 
@@ -39,7 +40,7 @@ propensity to have consumed by noting that, if we define $\mathfrak{m}(a) = \cEn
 \begin{align*}
    \cRat  & = \mathfrak{m}-\aRat
 \\ \cEndFunc^{\aRat}+1  & = \mathfrak{m}^{\aRat}
-\end{align}
+\end{align*}
 which, together with the chain rule $\cEndFunc^{\aRat}  = \cFunc^{\mRat}\mathfrak{m}^{\aRat}$,
 yields the MPC from
 
