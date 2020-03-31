@@ -16,9 +16,6 @@
 % Ensure that you're in math mode when using the \cancel command (otherwise tex4ht produces bad output)
 \newcommand\cncl[1]{\ensuremath{\cancel{#1}}}
 
-% Date of final version of paper
-\renewcommand{\forcedate}{November 17, 2019}
-
 % Define the handles for the various conditions
 \newcommand{\PFGIC}{{\mbox{PF-GIC}}}
 \newcommand{\AIC}{{\mbox{AIC}}}
@@ -32,6 +29,9 @@
 % Other tools
 \newcommand{\BoydT}{\mathsf{T}} % Contraction mapping operator
 \newcommand{\Shrinker}{\alpha}  % Contraction mapping shrinker
+
+% Special characters
+\newcommand{\isp}{\rotatebox[origin=c]{180}{$\psi$}} 
 
 % Locations of various resources
 \providecommand{\EqDir}{Equations} % Accessible to Slides; if changed in main text, propagates

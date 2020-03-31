@@ -6,22 +6,21 @@
 The diagrams below illustrate the order of the several conditions in the text:
 \[
   \begin{tikzcd}[row sep=large, column sep=large]
-  \textbf{\Thorn} \ar{rr}{\mathrm{\PF-GIC}} \ar{dr}{\mathrm{RIC}}& & \Gamma \ar{dl}{\mathrm{\FHWC}} \\
+  \textbf{\Thorn} \ar{rr}{\mathrm{\PFGIC}} \ar{dr}{\mathrm{\RIC}}& & \Gamma \ar{dl}{\mathrm{\FHWC}} \\
    & \mathsf{\Rfree} &
   \end{tikzcd}
 \]
 
-\end{document}
 and to further incorporate the Perfect Foresight Finite Value of Autarky Condition:
 \[
   \begin{tikzcd}[row sep=huge, column sep=huge]
-  \textbf{\Thorn} \ar{r}{\mathrm{PF-GIC}} \ar{d}{\mathrm{RIC}} \ar{dr}{\mathrm{PF-FVAC}}& \Gamma \ar{d}{\mathrm{FHWC}} \\
-   \mathsf{R} &  \mathsf{R}^{1/\rho}\Gamma^{1 - 1/\rho} \ar{l}{\mathrm{FHWC}}
+  \textbf{\Thorn} \ar{r}{\mathrm{\PFGIC}} \ar{d}{\mathrm{\RIC}} \ar{dr}{\mathrm{\PFFVAC}}& \Gamma \ar{d}{\mathrm{\FHWC}} \\
+   \mathsf{\Rfree} &  \mathsf{\Rfree}^{1/\CRRA}\Gamma^{1 - 1/\CRRA} \ar{l}{\mathrm{\FHWC}}
  \end{tikzcd}
  \]
 In both diagrams, an arrow means ``$<$'', which indicates the annotated condition holds, so if a condition is violated, the corresponding arrow is to be reversed. 
 
-These diagrams also keep track of the hierarchy among the conditions. For example, if the right vertical arrow in the second diagram is reversed, then the top right triangle says PF-FVAC + \cancel{FHWC} implies PF-GIC. If the left vertical arrow is reversed, then \cancel{RIC} + PF-GIC implies \cancel{FHWC}. 
+These diagrams also keep track of the hierarchy among the conditions. For example, if the right vertical arrow in the second diagram is reversed, then the top right triangle says \PFFVAC + \cncl{\FHWC} implies \PFGIC. If the left vertical arrow is reversed, then \cncl{\RIC} + {\PFGIC} implies \cncl{\FHWC}. 
 
 \onlyinsubfile{\bibliography{\econtexRoot/BufferStockTheory,economics}}
 
