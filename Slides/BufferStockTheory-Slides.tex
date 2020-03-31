@@ -1,5 +1,11 @@
 \input{./econtexRoot}\input{\econtexRoot/econtexPaths}\documentclass[pdflatex]{beamer}\providecommand{\texname}{BufferStockTheory-Slides}% Indicate the keyname for the bibtex entry corresponding to this document
+\newif\ifdvi\dvifalse
 
+\usepackage{optional}\usepackage{ifthen}%\usepackage{../BufferStockTheory}
+
+% Can't read in BufferStockTheory.sty because some packages conflict with Beamer
+% So need to redefine everything here
+\newcommand{\isp}{\rotatebox[origin=c]{180}{$\psi$}} 
 \newcommand\cncl[1]{\ensuremath{\cancel{#1}}}
 \newcommand{\PFGIC}{\mbox{PFGIC~}}
 \newcommand{\AIC}{\mbox{AIC~}}
