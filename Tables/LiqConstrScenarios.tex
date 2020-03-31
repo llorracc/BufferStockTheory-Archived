@@ -10,13 +10,25 @@ Main Condition     &\multicolumn{3}{c|}{~}         & \\ % & Example \\
 \\ \hline
 \cncl{\PFGIC}      & $\phantom{\Pat/\Rfree}$ & $\phantom{~<~}1        {~<~}$ & $        {\Pat/\PGro}$  & Constraint never binds for $\mRat \geq 1$ %& %$\{\Pat,\PGro\}=\{1,0.98\}$
 \\ ~~~~ and \RIC~          & $        {\Pat/\Rfree}$ & $        {~<~}1\phantom{~<~}$ & $\phantom{\Pat/\PGro}$  & ~~~\FHWC~holds ($\Rfree > \PGro$); $\grave{\cFunc}(\mRat) = \bar{\cFunc}(\mRat)$ for $\mRat \geq 1$ % & $\{\Rfree,\Discount, \PGro \} = $
+%%\\ ~~~~              &                         &                               &                         & ~~$\grave{\cFunc}(\mRat) = \bar{\cFunc}(\mRat)$ for $\mRat \geq 1$ % & ~~$\{1.02,1.02^{-1},0.98\}$
 \\ ~~~~ and \cncl{\RIC}   & $\phantom{\Pat/\Rfree}$ & $\phantom{~<~}1        {~<~}$ & $        {\Pat/\Rfree}$ & ~~~~$\grave{\cFunc}(\mRat)$ is degenerate: $\grave{\cFunc}(\mRat)=0$  %&
+%%\\ ~~~~               &                         &                               &                         &                                                            &
+%%\\ ~~~~~~$\cncl{\FHWC}$& $        {\Rfree/\PGro}$ & $      {~<~}1        {~<~}$ & $        {\PGro/\Rfree}$ & $1 < \Pat/\Rfree < \Pat/\PGro$ & $\{\Rfree,\Discount, \PGro,\CRRA \} = $
+%%\\ ~~~~~~             &                          &                             &                          &                                & $~~\{0.98,1.00, 0.97,2 \} $
+%% & $        {\PGro/\Rfree}$ & $      {~<~}1        {~<~}$ & $        {\Rfree/\PGro}$ & $1 < \Pat/\Rfree < \Pat/\PGro$ & $\{\Rfree,\Discount, \PGro,\CRRA \} = $
+%%\\ ~~~~~~             &                          &                             &                          &                                & $~~\{0.98,1.00, 0.97,2 \} $
 \\ \PFGIC~            & $        {\Pat/\PGro}$ & $        {~<~}1\phantom{~<~}$ & $\phantom{\Pat/\Rfree}$  & Constraint binds in finite time for any $\mRat$ % &
 \\ ~~~~ and \RIC~           & $        {\Pat/\Rfree}$  & $      {~<~}1\phantom{~<~}$ & $\phantom{\Pat/\PGro}$   & ~~~~\FHWC~may or may not hold
 \\ ~~~~               &                          &                             &                          & ~~~~~~~$\lim_{m \uparrow \infty}\bar{\cFunc}(\mRat) - \grave{\cFunc}(\mRat) = 0$ % & ~~$\{1.02,1.02^{-1},1.02\}$
 \\ ~~~~               &                          &                             &                          & ~~~~~~~$\lim_{m \uparrow \infty}\grave{\MPCFunc}(\mRat) = \MinMPC$ % & ~~$\{1.02,1.02^{-1},1.02\}$
 \\ ~~~~ and \cncl{\RIC}   &                          & $\phantom{~<~}1         ~<~ $ & $         \Pat/\Rfree$ & $\cncl{\FHWC}$
 \\ ~~~~~~             &                          &                             &                          & ~~~~~$\lim_{\mRat \uparrow \infty} \grave{\MPCFunc}(\mRat) =  0$               % & ~~$\{0.98,1.00, 0.99, 2\} $
+%%\ ~~~~               &                          &                             &                          & ~~$\lim_{m \uparrow \infty}\bar{\cFunc}(\mRat) - \grave{\cFunc}(\mRat) = 0$ % & ~~$\{1.02,1.02^{-1},1.02\}$
+%%\ ~~~~               &                          &                             &                          & ~~$\lim_{m \uparrow \infty}\grave{\MPCFunc}(\mRat) = \MinMPC$ % & ~~$\{1.02,1.02^{-1},1.02\}$
+%%\ ~~~~$\cncl{\FHWC}$  & $        {\Rfree/\PGro}$ & $      {~<~}1        {~<~}$ & $        {\PGro/\Rfree}$ & ~~$\grave{\cFunc}(\mRat)$ nondegenerate % &
+%%\ ~~~~~~ \RIC~        & $        {\Pat/\Rfree} $ & $      {~<~}1\phantom{~<~}$ & $\phantom{\PGro/\Rfree}$ &~~~~$\lim_{m \uparrow \infty}\bar{\cFunc}(\mRat) - \grave{\cFunc}(\mRat) = 0$ % & $\{\Rfree,\Discount, \PGro, \CRRA\}= $
+%%\ ~~~~~~             &                          &                             &                          &~~~~$\lim_{\mRat \uparrow \infty} \grave{\MPCFunc}(\mRat) =  \MinMPC$ % & ~~$\{1.02,1.02^{-1},1.03,2\} $
+%%\ ~~~~~~ \cncl{\RIC}& $\phantom{\Pat/\Rfree} $ & $\phantom{~<~}1      {~<~}$ & $        {\Pat/\Rfree}$  &~~~~$\lim_{\mRat \uparrow \infty} \grave{\MPCFunc}(\mRat) =  0$               % & ~~$\{0.98,1.00, 0.99, 2\} $
 \\ \hline
 \end{tabular}
 } % End \sbox
