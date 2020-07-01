@@ -17,7 +17,7 @@ Theoretical Foundations of Buffer Stock Saving
 
 \jelclass{D81, D91, E21}
 
-\maketitle 
+\maketitle %% Version finally sent back to QE, as MS 354
 
 \hypertarget{abstract}{}
 \begin{abstract}
@@ -68,23 +68,24 @@ This paper builds theoretical foundations for rigorous and intuitive understandi
 
 \label{sec:intro}
 
+%%%Following the success of Modigliani and Brumberg's~\citeyearpar{modigliani&brumberg:lifecycle} Life Cycle model and Friedman's~\citeyearpar{friedmanATheory} Permanent Income Hypothesis, a vast literature in the 1960s and 1970s formalized the idea that household spending can be modeled as reflecting optimal intertemporal choice.  Bewley~\citeyearpar{bewleyPIH} and \cite{seIncFluct} capped this literature, paving the way for the ascendancy of dynamic stochastic optimizing models in economics.
 
 
 
 
-In the presence of empirically realistic transitory and permanent shocks to income \textit{a la} \cite{friedmanATheory}, only one additional ingredient is required to define a testable model of optimal consumption: A description of preferences.  Modelers usually specify preferences by geometric discounting of a constant relative risk aversion (CRRA) utility function, because, starting with Zeldes~\citeyearpar{zeldesStochastic}, a large literature has shown that models of this kind have quantitative predictions that can match microeconomic evidence reasonably well.
+In the presence of empirically realistic transitory and permanent shocks to income \textit{a la} \cite{friedmanATheory}, only one other ingredient is required to define a testable model of optimal consumption: A description of preferences.  Modelers usually assume geometric discounting of a constant relative risk aversion (CRRA) utility function, because, starting with Zeldes~\citeyearpar{zeldesStochastic}, a large literature has shown that models of this kind have quantitative predictions that can match microeconomic evidence reasonably well.
 
 A companion theoretical literature has shown that standard numerical solution methods provide good approximations to limiting ``true'' mathematical solutions -- but only for models more complex than the simple case with just shocks and utility.  The extra complexity has been required because standard contraction mapping theorems (beginning with \cite{bellmanDynamicProgramming} and including those following Stokey et.~al.~\citeyearpar{slpMethods}) cannot be applied when the utility function is unbounded (like CRRA - see \hyperlink{DiffFromLit}{section \ref{subsec:Setup}}).\footnote{It is unclear whether newer methods such as those of \cite{mnUnique} could overcome this problem, or how difficult it would be to do so; but in any case this particular problem does not seem to have been tackled by those methods or any others.}
 
-This paper's first technical contribution is to articulate the (surprisingly loose) conditions under which the simple problem (without convenient shortcuts like a consumption floor or liquidity constraints) defines a contraction mapping with a nondegenerate consumption function (the main requirement is a \hyperlink{FVAC}{`Finite Value of Autarky'} condition).  Another contribution is to specify the conditions under which the resulting consumption function implies there is a `target' wealth-to-permanent-income ratio.  (This is the sense in which the paper studies the class of `buffer stock' saving models.)  The key requirement is that the model's parameters satisfy a \hyperlink{GIC}{``Growth Impatience Condition''} (equation \eqref{eq:GIC}) that relates preferences and uncertainty to the predictable growth rate of income.
+This paper's first technical contribution is to articulate the (surprisingly loose) conditions under which the simple problem (without convenient shortcuts like a consumption floor or liquidity constraints) defines a contraction mapping with a nondegenerate consumption function (the main requirement is a \hyperlink{FVAC}{`Finite Value of Autarky'} condition).  Another contribution is to specify the conditions under which the resulting consumption function implies there is a `target' wealth-to-permanent-income ratio (which define the class of `buffer stock' saving models.)  The key requirement for existence of a target is that the model's parameters satisfy a \hyperlink{GIC}{``Growth Impatience Condition''} (equation \eqref{eq:GIC}) that relates preferences and uncertainty to the predictable growth rate of income.
 
 \hypertarget{KMP}{}
 
-Even without a formal proof, target saving of this kind has been intuitively understood to underlie central numerical results from the heterogeneous agent macroeconomics literature; for example, the logic of target saving is central to the explanation by \cite{kmpHandbook} of the fact that, during the Great Recession, middle-class consumers cut their consumption more than the poor or the rich - even if everyone has the same fundamental preferences.  The theoretical logic articulated below explains this finding:  Learning that the future has become more uncertain does not change the urgent imperatives of the poor (their high $\uFunc^{\prime}(\cRat)$) because they have little room to maneuver, and it does not change the behavior of the rich because the increase in uncertainty does not threaten their consumption much.  
+Even without a formal proof, target saving of this kind has been intuitively understood to underlie central numerical results from the heterogeneous agent macroeconomics literature; for example, the logic of target saving is central to the explanation by \cite{kmpHandbook} of the fact that, during the Great Recession, middle-class consumers cut their consumption more than the poor or the rich.  The theoretical logic articulated below explains this finding:  Learning that the future has become more uncertain does not change the urgent imperatives of the poor (their high $\uFunc^{\prime}(\cRat)$) because they have little room to maneuver.  Increased labor income uncertainty does not change the behavior of the rich because the increase in uncertainty does not threaten their consumption much.  Only people in the middle have both the motivation and the wiggle-room to reduce their discretionary spending.
 
 Conveniently, elements required for the convergence proof turn out to provide analytical foundations for many other results that have become familiar from the numerical literature.  All theoretical conclusions are paired with numerically computed illustrations (using an open-source toolkit available from the \href{https://github.com/econ-ark/REMARK/blob/master/REMARKs/BufferStockTheory/BufferStockTheory.ipynb}{Econ-ARK} project).  All of the insights of this paper are instantiated in the toolkit, which algorithmically flags parametric choices under which a problem fails to define a contraction mapping, under which a target level of wealth does not exist, or under which the solution is otherwise degenerate.
 
-Thus, the theoretical foundations provided here are valuable both because they provide intuition about the determinants of saving targets, and because they make it easier to develop reliable numerical solution methods (by providing new restrictions that valid solutions must satisfy).
+Thus, the theoretical foundations provided here are valuable both because they provide intuition about the determinants of saving targets, and because they make it easier to develop reliable numerical solution methods (by providing tight restrictions that valid solutions must satisfy).
 
 The paper proceeds in three parts.
 
@@ -178,7 +179,7 @@ the present discounted value of minimum income into current market assets,\footn
   section~\ref{sec:discussConvergence}.}  analytically transforming
 that model back into the model analyzed here.  Also, the assumption of
 a positive point mass (as opposed to positive density) for the worst
-realization of the transitory shock is inessential, but simplifies the proofs and is a powerful aid to intuition.
+realization of the transitory shock is inessential, but simplifies the proofs and is a powerful aid to intuition.\footnote{No key results would change if the unemployment state were persistent but mean-reverting, instead of IID.}
 
 \begin{comment}
 Combining the transition equations, the recursive nature of
@@ -215,6 +216,7 @@ x^{1-\CRRA}\uFunc(y)$.
 
 \hypertarget{The-Related-Problem}{}
 Now, in a one-time deviation from the notational convention established in the last paragraph, define nonbold `normalized value' not as $\vLevBF_{t}/\pLevBF_{t}$ but as $\vFunc_{t} = \vLevBF_{t}/\pLevBF_{t}^{1-\CRRA}$, because this allows us to use the related problem 
+%%\begin{verbatimwrite}{\EqDir/veqn.tex} % Weirdly, if \label{eq:veqn} is in verbatimwritten file, reference is not correctly constructed, so comment out verbatimrwite here
 \begin{align}
 \vFunc_{t}(\mRat_{t})  & = \max_{\{\cFunc\}_{t}^{T}}~  \uFunc(\cFunc_{t}) +\DiscFac \Ex_{t}[\PGro_{t+1}^{1-\CRRA}\vFunc_{t+1}({\mRat}_{t+1})] \notag \\
 & \mbox{s.t.}  \label{eq:veqn} 
@@ -222,6 +224,7 @@ Now, in a one-time deviation from the notational convention established in the l
  \\ {\bRat}_{t+1}  & = (\Rfree/\PGro_{t+1})\aRat_{t}  ~ = ~ \Rnorm_{t+1}\aRat_{t}  \notag
 \\ \mRat_{t+1}  & = \bRat_{t+1}+\tShkAll_{t+1}  \notag %
 \end{align}
+%%\end{verbatimwrite}\input{\EqDir/veqn.tex}
 where $\Rnorm_{t+1}\equiv (\Rfree/\PGro_{t+1})$ is a `growth-normalized' return factor, and the problem's first order condition is
 \begin{align}
 c_{t}^{-\CRRA}  & = \Rfree \DiscFac \Ex_{t}[ {\PGro}_{t+1}^{-\CRRA} {\cRat}
@@ -282,9 +285,11 @@ the interest rate at which that income is being discounted.
 \hypertarget{Unconstrained-Solution}{}
 \subsubsection{Unconstrained Solution} \label{subsec:PFUncon}
 
+\hypertarget{APF}{}
 \hypertarget{AIC}{}
 The consumption Euler equation holds in every period; with $\uP(\cLevBF)=\cLevBF^{-\CRRA}$, this says\hypertarget{Pat}{}
 \begin{align}
+%%  \cLevBF_{t}^{-\CRRA}  & = \Rfree\DiscFac \cLevBF_{t+1}^{-\CRRA} \\ \notag
  \cLevBF_{t+1}/\cLevBF_{t}  & = (\Rfree\DiscFac)^{1/\CRRA} \equiv \Pat   \label{eq:Pat}
 \end{align}
 where the Old English letter `thorn' represents what we will call the
@@ -321,11 +326,11 @@ which defines a normalized finite-horizon perfect foresight consumption function
   \bar{\cFunc}_{T-n}(\mRat_{T-n})  & = (\overbrace{\mRat_{T-n}-1}^{=\bRat_{T-n}}+\hRat_{T-n})\MinMPC_{T-n}
 \end{align}
 where $\MinMPC_{t}$ is the marginal propensity to consume (MPC) because it answers the
-question `if the consumer had an extra unit of wealth, how much more would he spend.'
+question `if the consumer had an extra unit of wealth, how much more would he spend.' \hypertarget{RIC}{}
 (The overbar on $\cFunc$ reflects the fact that this will be an upper bound as we modify the problem to incorporate constraints and uncertainty; analogously, the underbar for $\MPC$ indicates that it is a lower bound).
 Equation \eqref{eq:WDef} makes plain that for the limiting
-MPC to be strictly positive as $n=T-t$ goes to infinity we must impose the
-condition \hypertarget{RIC}{}
+MPC to be strictly positive as $n=T-t$ goes to infinity we must impose the Return Impatience Condition:
+condition 
 \begin{align}
 \PatR  & < 1   \label{eq:RIC},
 \end{align}
@@ -357,6 +362,7 @@ x^{1-\CRRA}\uFunc(y)$, yields an analytical expression for value:
 which asymptotes to a finite number as $n=T-t$ approaches $+\infty$ if $\DiscFac \Pat^{1-\CRRA} < 1$ (related to a condition in \cite{asHomogeneous}); with a bit of algebra, this requirement can be shown to be equivalent to the \RIC.\footnote{
 \begin{align*}
    \DiscFac ((\Rfree \DiscFac)^{1/\CRRA})^{1-\CRRA}  & < 1
+%%\\ \DiscFac (\Rfree\DiscFac)^{(1-\CRRA)/\CRRA}  & < 1
 \\ \DiscFac (\Rfree\DiscFac)^{1/\CRRA}/\Rfree\DiscFac  & < 1
 \\ (\Rfree \DiscFac)^{1/\CRRA} /\Rfree  & < 1
 \end{align*}.
@@ -379,6 +385,7 @@ choices would violate the Euler equation \eqref{eq:scaledeuler}:
     1^{-\CRRA}  & > \Rfree \DiscFac (\PGro)^{-\CRRA}1^{-\CRRA}  \label{eq:LiqConstrBinds}.
 \end{align}
 
+\hypertarget{PFGPF}{}
 \hypertarget{PFGIC}{}
 By analogy to the return patience factor, we therefore define a `perfect
 foresight growth patience factor' as
@@ -451,16 +458,19 @@ but the absence of liquidity constraints (also tabulated for comparison)).  The 
 
 
 
+Now define $\isp \equiv \psi^{-1}$ and $\bar{\isp} = \Ex_{t}[\isp_{t+1}]$.  % PrivateMsg
 
 
 When uncertainty is introduced, the expectation of $\bRat_{t+1}$ can be rewritten as:  
 \begin{align}
   \Ex_{t}[\bRat_{t+1}]  & =  \aRat_{t}\Ex_{t}[\Rnorm_{t+1}] = \aRat_{t}\Rnorm\Ex_{t}[\pShk_{t+1}^{-1}] \label{eq:EbRat}
+\\ & = \aRat_{t}\Rnorm\Ex_{t}[\isp_{t+1}] = \aRat_{t}\Rnorm\bar{\isp} % PrivateMsg
 \end{align}
 where Jensen's inequality guarantees that the expectation of the inverse of the permanent
 shock is strictly greater than one.  It will be convenient to define the object \hypertarget{InvEpShkInv}{}
 \begin{align*}
   \InvEpShkInv  & \equiv  (\EpShkInv)^{-1}
+\\ &                  \equiv \bar{\isp}^{-1}  % PrivateMsg
 \end{align*}
 because this permits us to write expressions like the RHS of
 \eqref{eq:EbRat} compactly as, e.g., $\aRat_{t}\Rnorm/
@@ -473,6 +483,7 @@ uncertainty on the expected growth-normalized return (in the sense implicitly de
 \eqref{eq:EbRat}).
 
 \hypertarget{GIC}{}
+\hypertarget{GICI}{}
 We can now transparently generalize the \PFGIC~\eqref{eq:PFGIC} by defining a `compensated growth factor' \hypertarget{PGroAdj}{}
 \begin{verbatimwrite}{\EqDir/PGroAdj}
 \begin{align}
@@ -480,10 +491,11 @@ We can now transparently generalize the \PFGIC~\eqref{eq:PFGIC} by defining a `c
 \end{align}
 \end{verbatimwrite}
 \input{\EqDir/PGroAdj}
-and a compensated growth patience factor\hypertarget{GIF}{}
+and a compensated Growth Patience Pactor (GPF):\hypertarget{GIF}{}
 \begin{verbatimwrite}{\EqDir/PatPGroAdj}
 \begin{align}
   \PatPGroAdj  & = \Pat/\PGroAdj
+       \\ & = \bar{\isp}\PatPGro  % PrivateMsg
   \\ & = \Ex\left(\frac{\Pat}{\PGro \psi}\right)
 \end{align}
 \end{verbatimwrite}
@@ -579,13 +591,25 @@ baseline parameter values listed in Table~\ref{table:Calibration}.
 the last period of life it is optimal to spend all remaining
 resources.)
 
+\hypertarget{Calibration}{}
+
 \input{\econtexRoot/\TableDir/Parameters.tex}
+
+\hypertarget{Symbols}{}
+
 \input{\econtexRoot/\TableDir/Calibration.tex}
 
 \providecommand{\figName}{Convergence-of-the-Consumption-Rules} % Allows generic definition of hypertargets based on title of figure
 \providecommand{\figFile}{cFuncsConverge} %  and on filename
 \hypertarget{\figFile}{}
 \hypertarget{\figName}{}
+%% \begin{verbatimwrite}{\econtexRoot/\FigsTeX/cFuncsConverge} % Store the tex for standalone compilation 
+%% \begin{figure}[tbp]
+%% \centerline{\includegraphics[width=6in]{\econtexRoot/\FigsRaw/cFuncsConverge}}
+%% \caption{Convergence of the Consumption Rules}
+%% \label{fig:cFuncsConverge}
+%% \end{figure}
+%% \end{verbatimwrite} % end storing of tex
 \input{\econtexRoot/\FigsTeX/cFuncsConverge} % Read in the tex to generate the figure
 
 In the figure, the consumption rules appear to converge as the horizon
@@ -607,9 +631,9 @@ The consumption functions depicted in Figure~\ref{fig:cFuncsConverge} appear
 to have limiting slopes as $\mRat \downarrow 0$ and as $\mRat \uparrow
 \infty$.  This section confirms that impression and derives those
 slopes, which also turn out to be useful in the contraction
-mapping proof.  In a recent paper, \cite{benhabibWealth} show that the consumption function
+mapping proof.  \cite{benhabibWealth} show that the consumption function
 becomes linear as wealth approaches infinity in a model with capital income risk and liquidity
-constraints; it seems clear that their results would generalize to the limits derived here if capital income risk were added to the model.  \cite{MaStachurskiToda2020JET} establish the existence and uniqueness of a solution to a general income fluctuation problem with capital income risk in a Markovian setting and use such a model to study the tail behavior of wealth in the presence of risky returns to capital.
+constraints; their results should generalize to the limits derived here if capital income risk were added to the model.  \cite{MaStachurskiToda2020JET} establish the existence and uniqueness of a solution to a general income fluctuation problem with capital income risk in a Markovian setting and use such a model to study the tail behavior of wealth in the presence of risky returns to capital.
 
 \newcommand{\NewMaxMinMPC}{\ushort{\MPC}}
 
@@ -627,11 +651,13 @@ consequence is that the proportional difference between the solution to the
 model with uncertainty and the perfect foresight model shrinks to zero.
 
 \hypertarget{MPCnvrsLower}{}
+\hypertarget{WRICCond}{}
 In the course of proving this point, appendix~\ref{sec:MPCLimits}  provides a useful recursive expression for the (inverse of the) limiting MPC: 
 \begin{align}
  \MinMPC_{t}^{-1}  & = 1+\MaxMPS \MinMPC_{t+1}^{-1} \label{eq:MinMPCInv}.
 \end{align}
 
+\subsubsection{WeakRICConditions}{}
 \hypertarget{MPCnvrsUpper}{}
 \hypertarget{WRIC}{}
 It turns out that there is a parallel expression for the limiting maximal 
@@ -1010,6 +1036,13 @@ locus $(1-\PGroAdj/\Rfree)$,\footnote{This is because
 
 \renewcommand{\figFile}{FVACnotGIC}
 \hypertarget{\figFile}{}
+%% \begin{verbatimwrite}{\econtexRoot/\FigsTeX/FVACnotGIC}
+%% \begin{figure}[tbp]
+%% \centerline{\includegraphics[width=6in]{\econtexRoot/\FigsRaw/FVACnotGIC}}
+%% \caption{Example Solution when \FVAC~Holds but \GIC~Does Not}
+%% \label{fig:FVACnotGIC}
+%% \end{figure}
+%% \end{verbatimwrite}
 \input{\econtexRoot/\FigsTeX/FVACnotGIC}
 
 \begin{comment}
@@ -1142,6 +1175,13 @@ present.\footnote{Throughout the remaining analysis I make a final
 
 \renewcommand{\figFile}{cGroTargetFig}
 \hypertarget{\figFile}{}
+%% \begin{verbatimwrite}{\econtexRoot/\FigsTeX/cGroTargetFig}
+%% \begin{figure}[tbp]
+%% \centerline{\includegraphics[width=6in]{\econtexRoot/\FigsRaw/cGroTargetFig}}
+%% \caption{Target $\mRat$, Expected Consumption Growth, and Permanent Income Growth}
+%% \label{fig:cGroTargetFig}
+%% \end{figure}
+%% \end{verbatimwrite}
 \input{\econtexRoot/\FigsTeX/cGroTargetFig}
 
 \hypertarget{LimitsAsmtToInfty}{}
@@ -1198,10 +1238,26 @@ plot shows the converged consumption function along with its upper and lower bou
 while the lower plot shows the marginal propensity to consume.
 \renewcommand{\figFile}{mpclimits}
 \hypertarget{\figFile}{}
+%% \begin{verbatimwrite}{\econtexRoot/\FigsTeX/MPCLimits}
+%% \begin{figure}
+%% \centerline{\includegraphics[width=6in]{\econtexRoot/\FigsRaw/MPCLimits}}
+%% \caption{Limiting MPC's}
+%% \label{fig:mpclimits}
+%% \end{figure}
+%% \end{verbatimwrite}
 \input{\econtexRoot/\FigsTeX/MPCLimits}
 
 \renewcommand{\figFile}{cFuncBounds}
 \hypertarget{\figFile}{}
+%%\begin{verbatimwrite}{\econtexRoot/\FigsTeX/cFuncBounds}
+%%\begin{figure}
+%%\centering
+%%\subfigure[\large Bounds]{\includegraphics[width=6in]{\econtexRoot/\FigsRaw/cFuncBounds}}
+%%\subfigure[\large Target $\mRat$]{\includegraphics[width=6in]{\econtexRoot/\FigsRaw/cRatTargetFig}}
+%%\caption{The Consumption Function}
+%%\label{fig:cFuncBounds}
+%%\end{figure}
+%%\end{verbatimwrite}
 \input{\econtexRoot/\FigsTeX/cFuncBounds}
 
 
@@ -1373,7 +1429,7 @@ The target level of market resources is the $\mRat$ such that if $\mRat_{t}=\mTa
 
 At the target, equation \eqref{eq:numer} is
 \begin{align}
-\numFunc(\mTarg)  & = \bar{\Rnorm}\cFunc(\mTarg) - \bar{\Rnorm}\cFunc^{\prime}(\mTarg)\mTarg - 1.  \nonumber 
+\numFunc(\mTarg)  & = \bar{\Rnorm}\cFunc(\mTarg) - \bar{\Rnorm}\cFunc^{\prime}(\mTarg)\mTarg - 1.  \nonumber %% \label{eq:numerxstar} 
 \end{align}
 
 Substituting for the first term in this expression using

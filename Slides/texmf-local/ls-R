@@ -15,6 +15,7 @@ bst
 .DS_Store
 .gitkeep
 auto
+economics-UTF8.bib
 economics.bib
 
 ./bibtex/bib/auto:
