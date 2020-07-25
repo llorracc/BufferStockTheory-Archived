@@ -1,5 +1,6 @@
 \documentclass[../BufferStockTheory.tex]{subfiles}
 \input{./econtexRoot}
+\provideboolean{Metin}\setboolean{Metin}{true}\newcommand{\Metin}[2]{\ifthenelse{\boolean{Metin}}{\marginpar{\large Metin}\{{#1}\} $\rightarrow$ \{{#2}\}}{#2}}% PrivateMsg: Comments by Metin Uyanik
 
 \input{\econtexRoot/\ApndxDir/onlyinsubfile.tex}\begin{document}
 
