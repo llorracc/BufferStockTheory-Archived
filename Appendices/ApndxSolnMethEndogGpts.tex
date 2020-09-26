@@ -1,5 +1,6 @@
 \input{./econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
 \input{./econtexRoot}
+\provideboolean{Metin}\setboolean{Metin}{true}\newcommand{\Metin}[2]{\ifthenelse{\boolean{Metin}}{\marginpar{\large Metin}\{{#1}\} $\rightarrow$ \{{#2}\}}{#2}}% PrivateMsg: Comments by Metin Uyanik
 
 \input{\ApndxDir/onlyinsubfile}\begin{document}
 
@@ -107,7 +108,7 @@ evaluate the function is $\mRat=0$ but $\log 0 = -\infty$ which is difficult for
 % TeX-PDF-mode: t
 % TeX-file-line-error: t
 % TeX-debug-warnings: t
-% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=LaTeX %S%(PDFout)"))
+% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=../LaTeX %S%(PDFout)"))
 % TeX-source-correlate-mode: t
 % TeX-source-correlate-start-server: 0
 % TeX-parse-self: t
