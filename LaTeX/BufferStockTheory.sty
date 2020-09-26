@@ -13,6 +13,17 @@
   \fi #1%
 }
 
+% \begin{Web}
+\provideboolean{ifWeb}
+\setboolean{ifWeb}{true}
+\setboolean{ifWeb}{false}
+\opt{Web}{\setboolean{ifWeb}{true}}
+\provideboolean{ifBig}
+\setboolean{ifBig}{true}
+\opt{Biggen}{\setboolean{ifBig}{true}}
+\newcommand{\Biggen}{\ifthenelse{\boolean{ifBig}}{\large}{}}
+% \end{Web}
+
 % Ensure that you're in math mode when using the \cancel command (otherwise tex4ht produces bad output)
 \newcommand\cncl[1]{\ensuremath{\cancel{#1}}}
 

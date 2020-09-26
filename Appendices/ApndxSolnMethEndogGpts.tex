@@ -1,7 +1,8 @@
-\documentclass[../BufferStockTheory.tex]{subfiles}
+\input{./econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
 \input{./econtexRoot}
+\provideboolean{Metin}\setboolean{Metin}{true}\newcommand{\Metin}[2]{\ifthenelse{\boolean{Metin}}{\marginpar{\large Metin}\{{#1}\} $\rightarrow$ \{{#2}\}}{#2}}% PrivateMsg: Comments by Metin Uyanik
 
-\input{\econtexRoot/\ApndxDir/onlyinsubfile.tex}\begin{document}
+\input{\ApndxDir/onlyinsubfile}\begin{document}
 
 %\begin{verbatimwrite}{\ApndxDir/ApndxSolnMethEndogGpts.tex}
 \section{Endogenous Gridpoints Solution Method}
