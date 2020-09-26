@@ -1,4 +1,4 @@
-\input{./econtexRoot}\documentclass[\econtexRoot/BufferStockTheory.tex]{subfiles}
+\input{./econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
 \input{./econtexRoot}\input{\ApndxDir/onlyinsubfile}\begin{document}
 
 \section{Equality of Aggregate Consumption Growth and Income Growth with Transitory Shocks}\label{sec:ApndxCGroIsPGro}
@@ -60,7 +60,6 @@ To see the problem clearly, define $\breve{\Rnorm }=\Mean\left[\Rnorm _{t+1,i}\r
   \AMPS(\mTarg_{t+1,i})+\AMPS^{\prime}(\mTarg_{t+1,i})\left(\mRat_{t+1,i}-\mTarg_{t+1,i}\right)
  \nonumber.
 \end{align*}
-%
 
 
 The problem comes from the $\AMPS^{\prime}$ term.  The
@@ -74,3 +73,16 @@ consumer arbitrarily close to the self-imposed liquidity constraint).
 
 
 \end{document}
+%%% Local Variables:
+%%% eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)  :help "Run Biber") TeX-command-list))
+%%% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) %s" TeX-run-BibTeX nil t                                                                              :help "Run BibTeX") TeX-command-list))
+%%% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) %s" TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode) :help "Run BibTeX") TeX-command-list))
+%%% eval: (add-to-list 'TeX-command-list	'("BibTeX" "%(bibtex) LaTeX/%s" TeX-run-BibTeX nil t :help "Run BibTeX") t)
+%%% TeX-PDF-mode: t
+%%% TeX-file-line-error: t
+%%% TeX-debug-warnings: t
+%%% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=LaTeX %S%(PDFout)"))
+%%% TeX-source-correlate-mode: t
+%%% TeX-source-correlate-start-server: 0
+%%% TeX-parse-self: t
+%%% End:
