@@ -1,4 +1,3 @@
-Theoretical Foundations of Buffer Stock Saving
 Chris Carroll
 Johns Hopkins University
 
@@ -263,7 +262,7 @@ Surely This Problem Has Been Solved?
 
 No.
 Can’t Use Stokey et. al. theorems because CRRA utility
-Lit thru Matkowski and Nowak (2011) Can’t Handle Permanent Shocks
+Lit thru ? Can’t Handle Permanent Shocks
 Must Use Boyd’s ‘Weighted’ Contraction Mapping Theorem
 Surprisingly Subtle
 Fortunately, the Conclusions Are Simple!
@@ -285,7 +284,7 @@ Surely This Problem Has Been Solved?
 
 No.
 Can’t Use Stokey et. al. theorems because CRRA utility
-Lit thru Matkowski and Nowak (2011) Can’t Handle Permanent Shocks
+Lit thru ? Can’t Handle Permanent Shocks
 Must Use Boyd’s ‘Weighted’ Contraction Mapping Theorem
 Surprisingly Subtle
 Fortunately, the Conclusions Are Simple!
@@ -307,7 +306,7 @@ Surely This Problem Has Been Solved?
 
 No.
 Can’t Use Stokey et. al. theorems because CRRA utility
-Lit thru Matkowski and Nowak (2011) Can’t Handle Permanent Shocks
+Lit thru ? Can’t Handle Permanent Shocks
 Must Use Boyd’s ‘Weighted’ Contraction Mapping Theorem
 Surprisingly Subtle
 Fortunately, the Conclusions Are Simple!
@@ -536,6 +535,8 @@ Definitions: ‘Uncertainty-Adjusted’ Growth:
 (9)
 
 Þ Γ = Þ /Γ
+ψ̄
+= ÞΓ
  
 Þ
 =E
@@ -545,11 +546,11 @@ Definitions: ‘Uncertainty-Adjusted’ Growth:
 
 ÞΓ < 1
 
-(12)
+(13)
 
 Adjusted Growth Patience Factor:
-
 (11)
+(12)
 
 Growth Impatience Condition:
 
@@ -557,15 +558,13 @@ Why? Because it can be shown that
 
 
 mt+1
-lim Et
-= ÞΓ
-mt →∞
-mt
-Carroll
+Buffer Stock
+lim ECarroll
+= Theory
+ÞΓ
+t
 
-Buffer Stock Theory
-
-(13)
+(14)
 
 Introduction
 The Problem
@@ -740,7 +739,7 @@ The Invariant Distribution
 Balanced Growth Equilbrium
 
 Convergence To The Invariant Distribution
-Szeidl (2012) Proves Existence of an Invariant Distribution of m, c, a, etc.
+? Proves Existence of an Invariant Distribution of m, c, a, etc.
 ℱ
 1.0
 ℱ1a ⟶
@@ -797,7 +796,7 @@ Yt+1 /Yt = Ct+1 /Ct
 
 = Γ
 
-(14)
+(15)
 
 Fisherian Separation Fails, Even Without Liquidity Constraints!
 Insight:
@@ -810,7 +809,7 @@ Carroll
 
 Buffer Stock Theory
 
-(15)
+(16)
 
 Introduction
 The Problem
@@ -827,7 +826,7 @@ Yt+1 /Yt = Ct+1 /Ct
 
 = Γ
 
-(14)
+(15)
 
 Fisherian Separation Fails, Even Without Liquidity Constraints!
 Insight:
@@ -840,7 +839,7 @@ Carroll
 
 Buffer Stock Theory
 
-(15)
+(16)
 
 Introduction
 The Problem
@@ -857,7 +856,7 @@ Yt+1 /Yt = Ct+1 /Ct
 
 = Γ
 
-(14)
+(15)
 
 Fisherian Separation Fails, Even Without Liquidity Constraints!
 Insight:
@@ -870,7 +869,7 @@ Carroll
 
 Buffer Stock Theory
 
-(15)
+(16)
 
 Introduction
 The Problem
@@ -916,11 +915,6 @@ The Problem
 Features Of the Solution
 A Small Open Buffer Stock Economy
 Conclusions
-
-Matkowski, Janusz, and Andrzej S. Nowak (2011): “On Discounted Dynamic Programming With Unbounded Returns,”
-Economic Theory, 46, 455–474.
-Szeidl, Adam (2012): “Stable Invariant Distribution in Buffer-Stock Saving and Stochastic Growth Models,” Manuscript,
-Central European University.
 
 Carroll
 

@@ -1,0 +1,502 @@
+Under perfect foresight in the presence of a liquidity constraint requiring b ≥ 0, this
+appendix taxonomizes the varieties of the limiting consumption function c̀(m) that arise
+under various parametric conditions. Results are summarized in table 1.
+
+1.1 If PF-GIC Fails
+A consumer is ‘growth patient’ if the perfect foresight growth impatience condition
+(
+(
+(((
+(((
+fails ((
+PF-GIC,
+1 < Þ /Γ). Under (
+PF-GIC
+the constraint does not bind at the lowest
+feasible value of mt = 1 because 1 < (Rβ)1/ρ /Γ implies that spending everything today
+(setting ct = mt = 1) produces lower marginal utility than is obtainable by reallocating
+a marginal unit of resources to the next period at return R:1
+1 < (Rβ)1/ρ Γ−1
+1 < RβΓ−ρ
+u0 (1) < Rβu0 (Γ).
+
+(1)
+(2)
+(3)
+
+Similar logic shows that under these circumstances the constraint will never bind at
+m = 1 for a constrained consumer with a finite horizon of n periods, so for m ≥ 1
+such a consumer’s consumption function will be the same as for the unconstrained case
+examined in the main text.
+If the RIC fails (1 < Þ R ) while the finite human wealth condition holds, the limiting
+value of this consumption function as n ↑ ∞ is the degenerate function
+c̀T −n (m) = 0(bt + h).
+
+(4)
+
+(that is, consumption is zero for any level of human or nonhuman wealth).
+If the RIC fails and the FHWC fails, human wealth limits to h = ∞ so the consumption
+function limits to either c̀T −n (m) = 0 or c̀T −n (m) = ∞ depending on the relative speeds
+with which the MPC approaches zero and human wealth approaches ∞.2
+Thus, the requirement that the consumption function be nondegenerate implies that
+(
+(((
+for a consumer satisfying (
+PF-GIC
+we must impose the RIC (and the FHWC can be
+(
+(((
+shown to be a consequence of (
+PF-GIC
+and RIC). In this case, the consumer’s optimal
+behavior is easy to describe. We can calculate the point at which the unconstrained
+consumer would choose c = m from equation (??):
+m# = (m# − 1 + h)κ
+m# (1 − κ) = (h − 1)κ
+
+
+κ
+m# = (h − 1)
+1−κ
+1
+
+(5)
+(6)
+(7)
+
+The point at which the constraint would bind (if that point could be attained) is the m = c for
+which u0 (c# ) = Rβu0 (Γ) which is c# = Γ/(Rβ)1/ρ and the consumption function will be defined by
+c̀(m) = min[m, c# + (m − c# )κ].
+2
+The knife-edge case is where Þ = Γ, in which case the two quantites counterbalance and the
+limiting function is c̀(m) = min[m, 1].
+
+which (under these assumptions) satisfies 0 < m# < 1.3 For m < m# the unconstrained
+consumer would choose to consume more than m; for such m, the constrained consumer
+is obliged to choose c̀(m) = m.4 For any m > m# the constraint will never bind and the
+consumer will choose to spend the same amount as the unconstrained consumer, c̄(m).
+(? obtain a similar lower bound on consumption and use it to study the tail behavior
+of the wealth distribution.)
+
+1.2 If PF-GIC Holds
+Imposition of the PF-GIC reverses the inequality in (3), and thus reverses the conclusion:
+A consumer who starts with mt = 1 will desire to consume more than 1. Such a consumer
+will be constrained, not only in period t, but perpetually thereafter.
+Now define bn# as the bt such that an unconstrained consumer holding bt = bn# would
+behave so as to arrive in period t + n with bt+n = 0 (with b0# trivially equal to 0); for
+example, a consumer with bt−1 = b1# was on the ‘cusp’ of being constrained in period t−1:
+Had bt−1 been infinitesimally smaller, the constraint would have been binding (because
+the consumer would have desired, but been unable, to enter period t with negative, not
+zero, b). Given the PF-GIC, the constraint certainly binds in period t (and thereafter)
+with resources of mt = m0# = 1 + b0# = 1: The consumer cannot spend more (because
+constrained), and will not choose to spend less (because impatient), than ct = c0# = 1.
+We can construct the entire ‘prehistory’ of this consumer leading up to t as follows.
+Maintaining the assumption that the constraint has never bound in the past, c must
+have been growing according to Þ Γ , so consumption n periods in the past must have
+been
+−n
+cn# = Þ −n
+Γ ct = Þ Γ .
+
+(8)
+
+The PDV of consumption from t − n until t can thus be computed as
+Þ/R)n )
+Ctt−n = ct−n (1 + Þ /R + ... + (Þ
+= cn# (1 + ÞR + ... + ÞnR )
+
+
+1 − Þ n+1
+−n
+R
+= ÞΓ
+1 − ÞR
+ −n
+
+ÞΓ − ÞR
+=
+1 − ÞR
+
+(9)
+(10)
+
+and note that the consumer’s human wealth between t − n and t (the relevant time
+horizon, because from t onward the consumer will be constrained and unable to access
+post-t income) is
+hn# = 1 + ... + R−n
+3
+
+(11)
+
+(((
+Note that 0 < m# is implied by RIC and m# < 1 is implied by (
+PF-GIC.
+As an illustration, consider a consumer for whom Þ = 1, R = 1.01 and Γ = 0.99. This consumer will
+save the amount necessary to ensure that growth in market wealth exactly offsets the decline in human
+wealth represented by Γ < 1; total wealth (and therefore total consumption) will remain constant, even
+as market wealth and human wealth trend in opposite directions.
+4
+
+2
+
+while the intertemporal budget constraint says
+Ctt−n = bn# + hn#
+from which we can solve for the bn# such that the consumer with bt−n = bn# would
+unconstrainedly plan (in period t − n) to arrive in period t with bt = 0:
+hn
+#
+
+bn# = Ctt−n −
+
+z
+
+}|
+{
+−(n+1)
+1−R
+.
+1 − R−1
+
+(12)
+
+Defining mn# = bn# + 1, consider the function c̀(m) defined by linearly connecting the
+points {mn# , cn# } for integer values of n ≥ 0 (and setting c̀(m) = m for m < 1). This
+function will return, for any value of m, the optimal value of c for a liquidity constrained
+consumer with an infinite horizon. The function is piecewise linear with ‘kink points’
+where the slope discretely changes; for infinitesimal  the MPC of a consumer with assets
+m = mn# −  is discretely higher than for a consumer with assets m = mn# +  because
+the latter consumer will spread a marginal dollar over more periods before exhausting
+it.
+In order for a unique consumption function to be defined by this sequence (12) for the
+entire domain of positive real values of b, we need bn# to become arbitrarily large with
+n. That is, we need
+lim bn# = ∞.
+
+n→∞
+
+(13)
+
+1.2.1 If FHWC Holds
+The FHWC requires R−1 < 1, in which case the second term in (12) limits to a constant
+as n ↑ ∞, and (13) reduces to a requirement that
+
+ −n
+ÞR /Þ
+ÞΓ )nÞ R
+Þ Γ − (Þ
+=∞
+lim
+n→∞
+1 − ÞR
+ −n
+
+Þ Γ − R−nÞ R
+lim
+=∞
+n→∞
+1 − ÞR
+ −n 
+ÞΓ
+lim
+= ∞.
+n→∞
+1 − ÞR
+
+Given the PF-GIC Þ −1
+Γ > 1, this will hold iff the RIC holds, Þ R < 1. But given that
+the FHWC R > Γ holds, the PF-GIC is stronger (harder to satisfy) than the RIC; thus,
+the FHWC and the PF-GIC together imply the RIC, and so a well-defined solution exists.
+Furthermore, in the limit as n approaches infinity, the difference between the limiting
+constrained consumption function and the unconstrained consumption function becomes
+vanishingly small, because the date at which the constraint binds becomes arbitrarily
+distant, so the effect of that constraint on current behavior shrinks to nothing. That is,
+lim c̀(m) − c̄(m) = 0.
+
+m→∞
+
+3
+
+(14)
+
+1.2.2 If FHWC Fails
+If the FHWC fails, matters are a bit more complex.
+Given failure of FHWC, (13) requires
+ 
+
+R−nÞ R − Þ −n
+1 − R−(n+1)
+Γ
+lim
++
+=∞
+n→∞
+ÞR − 1
+R−1 − 1
+
+
+ −n 
+ÞR
+ÞΓ
+R−1
+−n
+lim
+− −1
+R −
+=∞
+n→∞ Þ R − 1
+R −1
+ÞR − 1
+
+
+(15)
+
+If RIC Holds. When the RIC holds, rearranging (15) gives
+
+
+ −n 
+ÞR
+R−1
+ÞΓ
+−n
+−R
++
+=∞
+lim
+n→∞
+1 − ÞR
+1 − ÞR R−1 − 1
+
+and for this to be true we need
+
+Þ −1
+> R−1
+Γ
+Þ > Γ/R
+Γ/Þ
+1 > Þ /R
+
+which is merely the RIC again. So the problem has a solution if the RIC holds. Indeed,
+we can even calculate the limiting MPC from
+!
+n
+c
+#
+lim κn# = lim
+(16)
+n→∞
+n→∞
+bn#
+which with a bit of algebra5 can be shown to asymptote to the MPC in the perfect
+foresight model:6
+κ(m) = 1 − Þ R .
+lim κ̀
+
+(18)
+
+m→∞
+
+ case, Þ > 1. We can rearrange (15)as
+
+If RIC Fails. Consider now the 
+RIC
+R
+
+
+ −n 
+ÞR − 1)
+R−1 (Þ
+Þ R (R−1 − 1)
+ÞΓ
+−n
+lim
+−
+R −
+= ∞.
+−1
+−1
+n→∞
+ÞR − 1) (R − 1)(Þ
+ÞR − 1)
+(R − 1)(Þ
+ÞR − 1
+
+(19)
+
+ ⇒ Þ > 1 the numerators and
+
+ ⇒ R−1 > 1 and 
+which makes clear that with 
+FHWC
+RIC
+R
+denominators of both terms multiplying R−n can be seen transparently to be positive.
+So, the terms multiplying R−n in (15) will be positive if
+
+
+Þ R R−1 − Þ R > R−1Þ R − R−1
+5
+
+Calculate the limit of
+Þ −n
+Γ
+−n
+Þ Γ /(1 − Þ R ) − (1 − R−1 R−n )/(1 − R−1 )
+
+!
+
+
+=
+
+6
+
+1
+1/(1 − Þ R ) + R−n R−1 /(1 − R−1 )
+
+
+(17)
+
+For an example of this configuration of parameters, see the notebook doApndxLiqConstr.nb in the
+Mathematica software archive.
+
+4
+
+R−1 > Þ R
+Γ > Þ
+
+which is merely the PF-GIC which we are maintaining. So the first term’s limit is +∞.
+The combined limit will be +∞ if the term involving R−n goes to +∞ faster than the
+Þ−n
+term involving −Þ
+Γ goes to −∞; that is, if
+R−1 > Þ −1
+Γ
+Þ
+Γ/R > Γ/Þ
+Þ/R > 1
+
+which merely confirms the starting assumption that the RIC fails.
+What is happening here is that the cn# term is increasing backward in time at rate
+Þ while the b# term is increasing at a rate dominated by
+dominated in the limit by Γ/Þ
+Γ/R term and
+Þ
+Γ/R > Γ/Þ
+
+(20)
+
+κ(m) = 0,
+lim κ̀
+
+(21)
+
+ ⇒ Þ > R.
+
+because 
+RIC
+Consequently, while limn↑∞ bn# = ∞, the limit of the ratio cn# /bn# in (16) is zero. Thus,
+surprisingly, the problem has a well defined solution with infinite human wealth if the
+ implies a limiting MPC of zero,
+
+RIC fails. It remains true that 
+RIC
+m→∞
+
+but that limit is approached gradually, starting from a positive value, and consequently
+the consumption function is not the degenerate c̀(m) = 0. (Figure 1 presents an example
+for ρ = 2, R = 0.98, β = 1.00, Γ = 0.99; note that the horizontal axis is bank balances
+b = m−1; the part of the consumption function below the depicted points is uninteresting
+– c = m – so not worth plotting).
+We can summarize as follows. Given that the PF-GIC holds, the interesting question is
+whether the FHWC holds. If so, the RIC automatically holds, and the solution limits into
+the solution to the unconstrained problem as m ↑ ∞. But even if the FHWC fails, the
+problem has a well-defined and nondegenerate solution, whether or not the RIC holds.
+Although these results were derived for the perfect foresight case, we know from work
+elsewhere in this paper and in other places that the perfect foresight case is an upper
+bound for the case with uncertainty. If the upper bound of the MPC in the perfect
+foresight case is zero, it is not possible for the upper bound in the model with uncertainty
+to be greater than zero, because for any κ > 0 the level of consumption in the model
+with uncertainty would eventually exceed the level of consumption in the absence of
+uncertainty.
+? characterize the limits of MPC in a more general framework that allows for nonCRRA utility as well as capital and labor income risks in a Markovian setting, and find
+that in that much more general framework the limiting MPC is also zero.
+
+References
+
+5
+
+
+1.015
+
+1.010
+
+1.005
+
+1.000
+2
+
+4
+
+6
+
+8
+
+
+
+
+
+ and 
+Figure 1 Nondegenerate Consumption Function with 
+FHWC
+RIC
+
+
+Table 1 Taxonomy of Perfect Foresight Liquidity Constrained Model Outcomes
+For constrained c̀ and unconstrained c̄ consumption functions
+Main Condition
+Subcondition
+Math
+Outcome, Comments or Results
+(
+(
+(
+(
+(
+PF-GIC
+1 < Þ /Γ Constraint never binds for m ≥ 1
+and RIC
+Þ /R < 1
+FHWC holds (R > Γ); c̀(m) = c̄(m) for m ≥ 1
+
+
+and 
+RIC
+1 < Þ /R
+c̀(m) is degenerate: c̀(m) = 0
+PF-GIC
+Þ /Γ < 1
+Constraint binds in finite time for any m
+and RIC
+Þ /R < 1
+FHWC may or may not hold
+limm↑∞ c̄(m) − c̀(m) = 0
+κ(m) = κ
+limm↑∞ κ̀
+
+
+
+and 
+RIC
+1 < Þ /R 
+FHWC
+κ(m) = 0
+limm↑∞ κ̀
+Conditions are applied from left to right; for example, the second row indicates conclusions in the case where
+((( and RIC both hold, while the third row indicates that when the PF-GIC and the RIC both fail, the
+(
+PF-GIC
+consumption function is degenerate; the next row indicates that whenever the PF-GIC holds, the constraint will
+bind in finite time.
+
+6
+
+
