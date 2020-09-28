@@ -1,15 +1,16 @@
 \input{./econtexRoot}\documentclass[\econtexRoot/BufferStockTheory.tex]{subfiles}
-\input{./econtexRoot}\input{\ApndxDir/onlyinsubfile}\begin{document}
-
+\input{./econtexRoot}\input{\ApndxDir/onlyinsubfile}
+\onlyinsubfile{\externaldocument{BufferStockTheory}} % Get xrefs -- esp to appendix -- from main file; only works properly if main file has already been compiled;
+\begin{document}
 \let\TableWidth\relax
 \newlength\TableWidth
 \providecommand{\FigsRawApndx}{\econtexRoot/Code/Mathematica/Results/BufferStockTheory/Figures}
 
 \section{Perfect Foresight Liquidity Constrained Solution}\label{sec:ApndxLiqConstr}
 
-  Under perfect foresight in the presence of a liquidity constraint requiring $\bRat
-  \geq 0$, this appendix taxonomizes the varieties of the limiting
-  consumption function $\grave{\cFunc}(\mRat)$ that arise under various parametric conditions.  Results are summarized in table~\ref{table:LiqConstrScenarios}.
+Under perfect foresight in the presence of a liquidity constraint requiring $\bRat
+\geq 0$, this appendix taxonomizes the varieties of the limiting
+consumption function $\grave{\cFunc}(\mRat)$ that arise under various parametric conditions.  Results are summarized in table~\ref{table:LiqConstrScenarios}.
 
 \input{\TableDir/LiqConstrScenarios.tex}
 
@@ -29,11 +30,11 @@ resources to the next period at return $\Rfree$:\footnote{The point at
   will be defined by
   $\grave{\cFunc}(\mRat)=\min[\mRat,\cRat_{\#}+(\mRat-\cRat_{\#})\MinMPC
   ]$.}
-\begin{equation}\begin{gathered}\begin{aligned}
-1  & < (\Rfree \Discount)^{1/\CRRA}\PGro^{-1}    
-\\ 1  & < \Rfree \Discount \PGro^{-\CRRA}
-\\  \uFunc^{\prime}(1)  & < \Rfree \Discount \uFunc^{\prime}(\PGro)   \label{eq:EulerPFGICFailsEnd}.
-\end{aligned}\end{gathered}\end{equation}
+\begin{align}
+  1  & < (\Rfree \Discount)^{1/\CRRA}\PGro^{-1}    
+  \\ 1  & < \Rfree \Discount \PGro^{-\CRRA}
+  \\  \uFunc^{\prime}(1)  & < \Rfree \Discount \uFunc^{\prime}(\PGro)   \label{eq:EulerPFGICFailsEnd}.
+\end{align}
 
 Similar logic shows that under these circumstances the constraint will
 never bind at $\mRat=1$ for a constrained consumer with a finite horizon of $n$
@@ -43,9 +44,9 @@ unconstrained case examined in the main text.
 If the \RIC~fails ($1 < \PatR$) while the finite human wealth condition
 holds, the limiting value of this consumption function as $n \uparrow
 \infty$ is the degenerate function
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \grave{\cFunc}_{T-n}(\mRat)  & = 0 (\bRat_{t}+\hRat).
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 (that is, consumption is zero for any level of human or nonhuman wealth).
 
 If the \RIC~fails and the \FHWC~fails, human wealth limits to $\hRat =
@@ -66,11 +67,11 @@ the \RIC~(and the \FHWC~can be shown to be a consequence of \cncl{\PFGIC} and \R
 this case, the consumer's optimal behavior is easy to describe.  We
 can calculate the point at which the unconstrained consumer would
 choose $\cRat = \mRat$ from equation \eqref{\localorexternallabel{eq:cFuncPFUnc}}:
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \mRat_{\#}  & = (\mRat_{\#}-1+\hRat)\MinMPC
-\\ \mRat_{\#}(1-\MinMPC)  & = (\hRat - 1)\MinMPC
-\\ \mRat_{\#}  & = (\hRat - 1)\left(\frac{\MinMPC}{1-\MinMPC}\right)
-\end{aligned}\end{gathered}\end{equation}
+  \\ \mRat_{\#}(1-\MinMPC)  & = (\hRat - 1)\MinMPC
+  \\ \mRat_{\#}  & = (\hRat - 1)\left(\frac{\MinMPC}{1-\MinMPC}\right)
+\end{align}
 which (under these assumptions) satisfies $0 < \mRat_{\#} < 1$.\footnote{Note that $0 < \mRat_{\#}$ is implied by \RIC~and $ \mRat_{\#}<1$ is implied by \cncl{\PFGIC}.}  For
 $\mRat < \mRat_{\#}$ the unconstrained consumer would choose to
 consume more than $\mRat$; for such $\mRat$, the constrained consumer
@@ -110,24 +111,24 @@ spend more (because constrained), and will not choose to spend less
 We can construct the entire `prehistory' of this consumer leading up to $t$ as follows.
 Maintaining the assumption that the constraint has never bound in the past,
 $\cRat$ must have been growing according to $\PatPGro$, so consumption $n$ periods in the past must have been
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \cRat_{\#}^{n}  & = \PatPGro^{-n} \cRat_{t} = \PatPGro^{-n}. \label{eq:cPreHist}
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 
 The PDV of consumption from $t-n$ until $t$ can thus be computed as
-\begin{equation}\begin{gathered}\begin{aligned}
-   \mathbb{C}_{t-n}^{t}  & = \cRat_{t-n}(1+\Pat/\Rfree+ ... + (\Pat/\Rfree)^{n}) \notag
-% \\   \mathbb{C}_{t-n}^{t}  & = \cRat_{t-n}(1+\PatPGro/\Rnorm+ ... + (\PatPGro/\Rnorm)^{n}) \notag
-\\  & = \cRat_{\#}^{n}(1+\PatR+ ... + \PatR^{n}) \notag
-\\  & = \PatPGro^{-n}\left(\frac{1-\PatR^{n+1}}{1-\PatR}\right) \label{PDVc}
-\\  & = \left(\frac{\PatPGro^{-n}-\PatR}{1-\PatR}\right) 
-\end{aligned}\end{gathered}\end{equation}
+\begin{align}
+  \mathbb{C}_{t-n}^{t}  & = \cRat_{t-n}(1+\Pat/\Rfree+ ... + (\Pat/\Rfree)^{n}) \notag
+  % \\   \mathbb{C}_{t-n}^{t}  & = \cRat_{t-n}(1+\PatPGro/\Rnorm+ ... + (\PatPGro/\Rnorm)^{n}) \notag
+  \\  & = \cRat_{\#}^{n}(1+\PatR+ ... + \PatR^{n}) \notag
+  \\  & = \PatPGro^{-n}\left(\frac{1-\PatR^{n+1}}{1-\PatR}\right) \label{PDVc}
+  \\  & = \left(\frac{\PatPGro^{-n}-\PatR}{1-\PatR}\right) 
+\end{align}
 and note that the consumer's human wealth between $t-n$ and $t$ (the relevant
 time horizon, because from $t$ onward the consumer will be constrained
 and unable to access post-$t$ income) is
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \hRat_{\#}^{n}  & = 1+...+\Rnorm^{-n}
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 while the intertemporal budget constraint says
 \begin{eqnarray*}
   \mathbb{C}_{t-n}^{t}  & = \bRat_{\#}^{n}+\hRat_{\#}^{n}
@@ -136,9 +137,9 @@ from which we can solve for the $\bRat_{\#}^{n}$ such that
 the consumer with $\bRat_{t-n} = \bRat_{\#}^{n}$ would
 unconstrainedly plan (in period $t-n$) to arrive in period $t$ with
 $\bRat_{t}=0$:
-\begin{equation}\begin{gathered}\begin{aligned}
-\bRat_{\#}^{n} & =  \mathbb{C}_{t-n}^{t} - \overbrace{\left(\frac{1-\Rnorm^{-(n+1)}}{1-\Rnorm^{-1}}\right)}^{\hRat_{\#}^{n}} \label{eq:bPound}.
-\end{aligned}\end{gathered}\end{equation}
+\begin{align}
+  \bRat_{\#}^{n} & =  \mathbb{C}_{t-n}^{t} - \overbrace{\left(\frac{1-\Rnorm^{-(n+1)}}{1-\Rnorm^{-1}}\right)}^{\hRat_{\#}^{n}} \label{eq:bPound}.
+\end{align}
 
 Defining $\mRat_{\#}^{n}=\bRat_{\#}^{n}+1$, consider the function
 $\grave{\cFunc}(\mRat)$ defined by linearly connecting the points
@@ -157,16 +158,16 @@ In order for a unique consumption function to be defined by this
 sequence \eqref{\localorexternallabel{eq:bPound}} for the entire domain of positive real
 values of $b$, we need $\bRat_{\#}^{n}$ to become arbitrarily large with
 $n$.  That is, we need
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \lim_{n \rightarrow \infty} \bRat_{\#}^{n} = \infty. \label{eq:bToInfty}
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 
 \subsubsection{If \FHWC~Holds}
 The \FHWC~requires $\Rnorm^{-1} < 1$, in which case the second term in \eqref{\localorexternallabel{eq:bPound}} limits to a constant as $n \uparrow \infty$, and \eqref{\localorexternallabel{eq:bToInfty}} reduces to a requirement that
 \begin{eqnarray*}
   \lim_{n \rightarrow \infty} \left(\frac{\PatPGro^{-n}-(\PatR/\PatPGro)^{n}\PatR}{1-\PatR}\right)  & = \infty
-\\  \lim_{n \rightarrow \infty} \left(\frac{\PatPGro^{-n}-\Rnorm^{-n}\PatR}{1-\PatR}\right)  & = \infty
-\\  \lim_{n \rightarrow \infty} \left(\frac{\PatPGro^{-n}}{1-\PatR}\right)  & = \infty.
+  \\  \lim_{n \rightarrow \infty} \left(\frac{\PatPGro^{-n}-\Rnorm^{-n}\PatR}{1-\PatR}\right)  & = \infty
+  \\  \lim_{n \rightarrow \infty} \left(\frac{\PatPGro^{-n}}{1-\PatR}\right)  & = \infty.
 \end{eqnarray*}
 Given the \PFGIC~$\PatPGro^{-1}>1$, this will hold iff the \RIC~holds, $\PatR < 1$.  But given that the \FHWC~$\Rfree > \PGro$ holds, the \PFGIC~is stronger (harder to satisfy) than the \RIC; thus, the~\FHWC~and the \PFGIC~together imply the \RIC, and so a well-defined
 solution exists.  Furthermore, in the limit as $n$ approaches
@@ -175,9 +176,9 @@ function and the unconstrained consumption function becomes
 vanishingly small, because the date at which the constraint binds
 becomes arbitrarily distant, so the effect of that constraint on current
 behavior shrinks to nothing.  That is,
-\begin{equation}\begin{gathered}\begin{aligned}
-\lim_{m \rightarrow \infty}\grave{\cFunc}(m) - \bar{\cFunc}(m) = 0.
-\end{aligned}\end{gathered}\end{equation}
+\begin{align}
+  \lim_{m \rightarrow \infty}\grave{\cFunc}(m) - \bar{\cFunc}(m) = 0.
+\end{align}
 
 % Finally, the main text shows that the \PFGIC~is a stronger condition than the PF-FVR; that is, \PFGIC~$\Rightarrow$ PF-FVR.
 
@@ -185,25 +186,25 @@ behavior shrinks to nothing.  That is,
 If the \FHWC~fails, matters are a bit more complex.
 
 \begin{comment}
-As noted in the main text, the Finite Value Requirement for such a consumer
-requires $\PatPGro < (\Rfree/\PGro)^{1/\CRRA}$,\footnote{A
-  unique well-defined nondegenerate limiting consumption function can
-  actually exist even if a nondegenerate value function does not.  But
-  the parametric combinations required for this are somewhat peculiar
-  (including both $\Rfree < 1$ and $\PGro < 1$); but we restrict our attention
-  to the more useful and plausible cases with finite value.} which is stronger (holds
-in strictly fewer circumstances) than the \PFGIC~condition $\PatPGro < 1$.
-Thus, the \PFGIC~is an implication of $\cncl{\FHWC}$.
+  As noted in the main text, the Finite Value Requirement for such a consumer
+  requires $\PatPGro < (\Rfree/\PGro)^{1/\CRRA}$,\footnote{A
+    unique well-defined nondegenerate limiting consumption function can
+    actually exist even if a nondegenerate value function does not.  But
+    the parametric combinations required for this are somewhat peculiar
+    (including both $\Rfree < 1$ and $\PGro < 1$); but we restrict our attention
+    to the more useful and plausible cases with finite value.} which is stronger (holds
+  in strictly fewer circumstances) than the \PFGIC~condition $\PatPGro < 1$.
+  Thus, the \PFGIC~is an implication of $\cncl{\FHWC}$.
 \end{comment}
 
 Given failure of \FHWC, \eqref{\localorexternallabel{eq:bToInfty}} requires
 
-\begin{equation}\begin{gathered}\begin{aligned}
-%  \lim_{n \rightarrow \infty} \left(\frac{\PatPGro^{-n}-\Rnorm^{-n}\PatR}{1-\PatR}\right) + \left(\frac{1-\Rnorm^{-(n+1)}}{\Rnorm^{-1}-1}\right)  & = \infty \\
+\begin{align}
+  % \lim_{n \rightarrow \infty} \left(\frac{\PatPGro^{-n}-\Rnorm^{-n}\PatR}{1-\PatR}\right) + \left(\frac{1-\Rnorm^{-(n+1)}}{\Rnorm^{-1}-1}\right)  & = \infty \\
   \lim_{n \rightarrow \infty} \left(\frac{\Rnorm^{-n}\PatR-\PatPGro^{-n}}{\PatR-1}\right) + \left(\frac{1-\Rnorm^{-(n+1)}}{\Rnorm^{-1}-1}\right)  & = \infty \notag
-\\   \lim_{n \rightarrow \infty} \left(\frac{\PatR}{\PatR-1}-\frac{\Rnorm^{-1}}{\Rnorm^{-1}-1}\right)\Rnorm^{-n}-\left(\frac{\PatPGro^{-n}}{\PatR-1}\right)  & = \infty \label{eq:FHWCfails} 
-%\\   \lim_{n \rightarrow \infty} \left(\frac{\PatR(\Rnorm^{-1}-1)}{(\Rnorm^{-1}-1)(\PatR-1)}-\frac{\Rnorm^{-1}(\Rnorm^{-1}-1)}{(\Rnorm^{-1}-1)(\PatR-1)}\right)\Rnorm^{-n}-\left(\frac{\PatPGro^{-n}}{\PatR-1}\right)  & = \infty. 
-\end{aligned}\end{gathered}\end{equation}
+  \\   \lim_{n \rightarrow \infty} \left(\frac{\PatR}{\PatR-1}-\frac{\Rnorm^{-1}}{\Rnorm^{-1}-1}\right)\Rnorm^{-n}-\left(\frac{\PatPGro^{-n}}{\PatR-1}\right)  & = \infty \label{eq:FHWCfails} 
+  % \\   \lim_{n \rightarrow \infty} \left(\frac{\PatR(\Rnorm^{-1}-1)}{(\Rnorm^{-1}-1)(\PatR-1)}-\frac{\Rnorm^{-1}(\Rnorm^{-1}-1)}{(\Rnorm^{-1}-1)(\PatR-1)}\right)\Rnorm^{-n}-\left(\frac{\PatPGro^{-n}}{\PatR-1}\right)  & = \infty. 
+\end{align}
 
 \noindent {\bf If \RIC~Holds}.  When the \RIC~holds, rearranging \eqref{\localorexternallabel{eq:FHWCfails}} gives
 \begin{eqnarray*}
@@ -212,33 +213,33 @@ Given failure of \FHWC, \eqref{\localorexternallabel{eq:bToInfty}} requires
 and for this to be true we need
 \begin{eqnarray*}
   \PatPGro^{-1}  & > \Rnorm^{-1}
-\\ \PGro/\Pat  & > \PGro/\Rfree
-\\ 1  & > \Pat/\Rfree
+  \\ \PGro/\Pat  & > \PGro/\Rfree
+  \\ 1  & > \Pat/\Rfree
 \end{eqnarray*}
 which is merely the \RIC~again.  So the problem has a solution if the \RIC~holds.  Indeed,
 we can even calculate the limiting MPC from
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \lim_{n \rightarrow \infty} \MPC^{n}_{\#}  & = \lim_{n \rightarrow \infty} \left(\frac{\cRat_{\#}^{n}}{\bRat_{\#}^{n}}\right) \label{eq:MPCConstrLim}
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 which with a bit of algebra\footnote{
-Calculate the limit of
-\begin{equation}\begin{gathered}\begin{aligned}
-\left(\frac{\PatPGro^{-n}}{\PatPGro^{-n}/(1-\PatR) - (1-\Rnorm^{-1}\Rnorm^{-n})/(1-\Rnorm^{-1})}\right)  & = \left(\frac{1}{1/(1-\PatR) + \Rnorm^{-n}\Rnorm^{-1}/(1-\Rnorm^{-1})}\right)
-\end{aligned}\end{gathered}\end{equation}} can be shown to asymptote to the MPC in the perfect foresight model:\footnote{For an example of this configuration of parameters, see the notebook \texttt{doApndxLiqConstr.nb} in the Mathematica software  archive.}
-\begin{equation}\begin{gathered}\begin{aligned}
+  Calculate the limit of
+  \begin{align}
+    \left(\frac{\PatPGro^{-n}}{\PatPGro^{-n}/(1-\PatR) - (1-\Rnorm^{-1}\Rnorm^{-n})/(1-\Rnorm^{-1})}\right)  & = \left(\frac{1}{1/(1-\PatR) + \Rnorm^{-n}\Rnorm^{-1}/(1-\Rnorm^{-1})}\right)
+  \end{align}} can be shown to asymptote to the MPC in the perfect foresight model:\footnote{For an example of this configuration of parameters, see the notebook \texttt{doApndxLiqConstr.nb} in the Mathematica software  archive.}
+\begin{align}
   \lim_{m \rightarrow \infty} \grave{\pmb{\MPC}}(\mRat)  & = 1-\PatR.
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 
 \noindent {\bf If \RIC~Fails}.  Consider now the \cncl{\RIC} case, $\PatR > 1$.  We can rearrange \eqref{\localorexternallabel{eq:FHWCfails}}as
 \begin{eqnarray}
- \lim_{n \rightarrow \infty} \left(\frac{\PatR(\Rnorm^{-1}-1)}{(\Rnorm^{-1}-1)(\PatR-1)}-\frac{\Rnorm^{-1}(\PatR-1)}{(\Rnorm^{-1}-1)(\PatR-1)}\right)\Rnorm^{-n}-\left(\frac{\PatPGro^{-n}}{\PatR-1}\right)  & = \infty.  
+  \lim_{n \rightarrow \infty} \left(\frac{\PatR(\Rnorm^{-1}-1)}{(\Rnorm^{-1}-1)(\PatR-1)}-\frac{\Rnorm^{-1}(\PatR-1)}{(\Rnorm^{-1}-1)(\PatR-1)}\right)\Rnorm^{-n}-\left(\frac{\PatPGro^{-n}}{\PatR-1}\right)  & = \infty.  
 \end{eqnarray}
 which makes clear that with $\cncl{\FHWC} \Rightarrow \Rnorm^{-1} > 1$ and $\cncl{\RIC} \Rightarrow \PatR > 1$ the numerators and denominators of both terms multiplying $\Rnorm^{-n}$ can be seen transparently to be positive.  So, the terms multiplying
 $\Rnorm^{-n}$ in \eqref{\localorexternallabel{eq:FHWCfails}} will be positive if
 \begin{eqnarray*}
   \PatR \Rnorm^{-1} - \PatR  & > & \Rnorm^{-1}\PatR-\Rnorm^{-1}
-\\ \Rnorm^{-1}  & > & \PatR
-\\ \PGro  & > & \Pat
+  \\ \Rnorm^{-1}  & > & \PatR
+  \\ \PGro  & > & \Pat
 \end{eqnarray*}
 which is merely the \PFGIC~which we are maintaining.  So the first term's limit is $+\infty$.  The
 combined limit will be $+\infty$ if the term involving $\Rnorm^{-n}$
@@ -246,14 +247,14 @@ goes to $+\infty$ faster than the term involving $-\PatPGro^{-n}$ goes to
 $-\infty$; that is, if
 \begin{eqnarray*}
   \Rnorm^{-1}  & > & \PatPGro^{-1}
-\\ \PGro/\Rfree  & > & \PGro/\Pat
-\\ \Pat/\Rfree  & > & 1
+  \\ \PGro/\Rfree  & > & \PGro/\Pat
+  \\ \Pat/\Rfree  & > & 1
 \end{eqnarray*}
 which merely confirms the starting assumption that the \RIC~fails.
 
 What is happening here is that the $\cRat_{\#}^{n}$ term is increasing backward in time at rate dominated in the limit by $\PGro/\Pat$ while the $\bRat_{\#}$ term is increasing at a rate dominated by $\PGro/\Rfree$ term and
 \begin{eqnarray}
- \PGro/\Rfree & > & \PGro/\Pat 
+  \PGro/\Rfree & > & \PGro/\Pat 
 \end{eqnarray}
 because $\cncl{\RIC} \Rightarrow \Pat > \Rfree.$
 
@@ -261,9 +262,9 @@ Consequently, while $\lim_{n \uparrow \infty} \bRat_{\#}^{n} = \infty$, the limi
 Thus, surprisingly, the problem has a well defined solution with
 infinite human wealth if the \RIC~fails.  It remains true that \cncl{\RIC}
 implies a limiting MPC of zero,
-\begin{equation}\begin{gathered}\begin{aligned}
+\begin{align}
   \lim_{\mRat \rightarrow \infty} \grave{\pmb{\MPC}}(\mRat)   & = 0,
-\end{aligned}\end{gathered}\end{equation}
+\end{align}
 but that limit is approached gradually, starting from a positive
 value, and consequently the consumption function is {\it not} the
 degenerate $\grave{\cFunc}(\mRat)=0$.  (Figure~\ref{fig:PFGICHoldsFHWCFailsRICFails} presents an example for $\CRRA=2$, $\Rfree=0.98$, $\Discount = 1.00$, $\PGro = 0.99$; note that the horizontal axis is bank balances $\bRat = \mRat-1$; the part of the consumption function below the depicted points is uninteresting -- $\cRat = \mRat$ -- so not worth plotting).
@@ -274,62 +275,62 @@ degenerate $\grave{\cFunc}(\mRat)=0$.  (Figure~\ref{fig:PFGICHoldsFHWCFailsRICFa
 
 
 \begin{comment}
-We can rewrite the expression for $\mathbb{C}$ from \eqref{\localorexternallabel{PDVc}} as:
-\begin{eqnarray*}
-   \mathbb{C}_{t-n}^{t}  & =  \left(\frac{\PatPGro^{-n}-\PatPGro^{-n}\PatR^{n+1}}{1-\PatR}\right)
-\\  & =  \left(\frac{\PatPGro^{-n}-\PatR\PGro^{n}/\Rfree^{n}}{1-\PatR}\right)
-\\  & =  \left(\frac{(\PGro/\Pat)^{n}-\PatR(\PGro/\Rfree)^{n}}{1-\PatR}\right)
-\\  & =  (\PGro/\Rfree)^{n}\left(\frac{(\Rfree/\Pat)^{n}-\PatR}{1-\PatR}\right)
-\\ \Rnorm^{n}\mathbb{C}_{t-n}^{t}   & =  \left(\frac{(\Rfree/\Pat)^{n}-\PatR}{1-\PatR}\right)
-\end{eqnarray*}
-but \cncl{\RIC} implies that $\Pat > \Rfree$ so
-\begin{eqnarray*}
-\lim_{n \rightarrow \infty} \Rnorm^{n}\mathbb{C}_{t-n}^{t}   & =  \left(\frac{-\PatR}{1-\PatR}\right)
-\end{eqnarray*}
-which means that in the limit
-\begin{equation}\begin{gathered}\begin{aligned}
-\lim_{n \rightarrow \infty} \Rnorm^{n}\bRat_{\#}^{n}  & =  \left(\frac{-\PatR}{1-\PatR}\right) - \Rnorm^{n}\left(\frac{1-\Rnorm^{-1}\Rnorm^{-n}}{1-\Rnorm^{-1}}\right) %\label{eq:bPoundLim}
-\\  & = \left(\frac{-\PatR}{1-\PatR} + \frac{-\Rnorm^{-1}}{1-\Rnorm^{-1}}\right) - \left(\frac{\Rnorm^{n}}{1-\Rnorm^{-1}}\right)
-\end{aligned}\end{gathered}\end{equation}
-so we can solve for the limiting $n$ as a function of $\bRat$ via
-\begin{equation}\begin{gathered}\begin{aligned}
-  \bRat + \left(\frac{1}{1-\Rnorm^{-1}}\right)  & = \Rnorm^{-\hat{n}}\left(\frac{-\PatR}{1-\PatR} + \frac{-\Rnorm^{-1}}{1-\Rnorm^{-1}}\right)
-\\ \log \left(\bRat + \left(\frac{1}{1-\Rnorm^{-1}}\right)\right)  & = -\hat{n} \log \Rnorm + \log \left(\frac{-\PatR}{1-\PatR} + \frac{-\Rnorm^{-1}}{1-\Rnorm^{-1}}\right)
-\\ \frac{\log \left(\frac{-\PatR}{1-\PatR} + \frac{-\Rnorm^{-1}}{1-\Rnorm^{-1}}\right)-\log \left(\bRat + \left(\frac{1}{1-\Rnorm^{-1}}\right)\right)}{\log \Rnorm }  & = \hat{n}
-\end{aligned}\end{gathered}\end{equation}
-which defines $\hat{\nFunc}(\bRat)$ which yields an approximation to the
-value of $n$ associated with a given $\bRat$.
+  We can rewrite the expression for $\mathbb{C}$ from \eqref{\localorexternallabel{PDVc}} as:
+  \begin{eqnarray*}
+    \mathbb{C}_{t-n}^{t}  & =  \left(\frac{\PatPGro^{-n}-\PatPGro^{-n}\PatR^{n+1}}{1-\PatR}\right)
+    \\  & =  \left(\frac{\PatPGro^{-n}-\PatR\PGro^{n}/\Rfree^{n}}{1-\PatR}\right)
+    \\  & =  \left(\frac{(\PGro/\Pat)^{n}-\PatR(\PGro/\Rfree)^{n}}{1-\PatR}\right)
+    \\  & =  (\PGro/\Rfree)^{n}\left(\frac{(\Rfree/\Pat)^{n}-\PatR}{1-\PatR}\right)
+    \\ \Rnorm^{n}\mathbb{C}_{t-n}^{t}   & =  \left(\frac{(\Rfree/\Pat)^{n}-\PatR}{1-\PatR}\right)
+  \end{eqnarray*}
+  but \cncl{\RIC} implies that $\Pat > \Rfree$ so
+  \begin{eqnarray*}
+    \lim_{n \rightarrow \infty} \Rnorm^{n}\mathbb{C}_{t-n}^{t}   & =  \left(\frac{-\PatR}{1-\PatR}\right)
+  \end{eqnarray*}
+  which means that in the limit
+  \begin{align}
+    \lim_{n \rightarrow \infty} \Rnorm^{n}\bRat_{\#}^{n}  & =  \left(\frac{-\PatR}{1-\PatR}\right) - \Rnorm^{n}\left(\frac{1-\Rnorm^{-1}\Rnorm^{-n}}{1-\Rnorm^{-1}}\right) %\label{eq:bPoundLim}
+    \\  & = \left(\frac{-\PatR}{1-\PatR} + \frac{-\Rnorm^{-1}}{1-\Rnorm^{-1}}\right) - \left(\frac{\Rnorm^{n}}{1-\Rnorm^{-1}}\right)
+  \end{align}
+  so we can solve for the limiting $n$ as a function of $\bRat$ via
+  \begin{align}
+    \bRat + \left(\frac{1}{1-\Rnorm^{-1}}\right)  & = \Rnorm^{-\hat{n}}\left(\frac{-\PatR}{1-\PatR} + \frac{-\Rnorm^{-1}}{1-\Rnorm^{-1}}\right)
+    \\ \log \left(\bRat + \left(\frac{1}{1-\Rnorm^{-1}}\right)\right)  & = -\hat{n} \log \Rnorm + \log \left(\frac{-\PatR}{1-\PatR} + \frac{-\Rnorm^{-1}}{1-\Rnorm^{-1}}\right)
+    \\ \frac{\log \left(\frac{-\PatR}{1-\PatR} + \frac{-\Rnorm^{-1}}{1-\Rnorm^{-1}}\right)-\log \left(\bRat + \left(\frac{1}{1-\Rnorm^{-1}}\right)\right)}{\log \Rnorm }  & = \hat{n}
+  \end{align}
+  which defines $\hat{\nFunc}(\bRat)$ which yields an approximation to the
+  value of $n$ associated with a given $\bRat$.
 
-We can directly compute
-\begin{equation}\begin{gathered}\begin{aligned}
-  \nabla  & = \bRat - \bRat_{\#}^{\hat{n}}
-\end{aligned}\end{gathered}\end{equation}
-and can obtain a better appxoimation to the correct $n$ from
-\begin{equation}\begin{gathered}\begin{aligned}
-  \hat{\hat{n}} 
-& = \end{aligned}\end{gathered}\end{equation}
+  We can directly compute
+  \begin{align}
+    \nabla  & = \bRat - \bRat_{\#}^{\hat{n}}
+  \end{align}
+  and can obtain a better appxoimation to the correct $n$ from
+  \begin{align}
+    \hat{\hat{n}} 
+    & = \end{align}
 
-We can obtain a more exact approximation to the correct ${n}$ by defining
-\begin{equation}\begin{gathered}\begin{aligned}
-\nabla(n) \equiv   \lim_{n \rightarrow \infty}\Rnorm^{n}\mathbb{C}_{t-n}^{t}-\Rnorm^{n}\mathbb{C}_{t-n}^{t}  & =  \left(\frac{\PatR^{-n}}{1-\PatR}\right).
-\end{aligned}\end{gathered}\end{equation}
-from which we can obtain the difference between the approximate and the exact $\mathbb{C}_{t-n}^{t}$ as $\Rnorm^{-n}\nabla(n)$ and
+  We can obtain a more exact approximation to the correct ${n}$ by defining
+  \begin{align}
+    \nabla(n) \equiv   \lim_{n \rightarrow \infty}\Rnorm^{n}\mathbb{C}_{t-n}^{t}-\Rnorm^{n}\mathbb{C}_{t-n}^{t}  & =  \left(\frac{\PatR^{-n}}{1-\PatR}\right).
+  \end{align}
+  from which we can obtain the difference between the approximate and the exact $\mathbb{C}_{t-n}^{t}$ as $\Rnorm^{-n}\nabla(n)$ and
 
 
-For this $n$ and
-$\bRat$ we can obtain the corresponding
-$\cRat=\PatPGro^{-\nFunc(\bRat)}$.  Note, however, that this is {\it not}
-the level of $\cRat$ directly associated with $\bRat$ on the true
-consumption function, because we used only a limiting approximation to
-the correct $n$ rather than the correct $n$.
+  For this $n$ and
+  $\bRat$ we can obtain the corresponding
+  $\cRat=\PatPGro^{-\nFunc(\bRat)}$.  Note, however, that this is {\it not}
+  the level of $\cRat$ directly associated with $\bRat$ on the true
+  consumption function, because we used only a limiting approximation to
+  the correct $n$ rather than the correct $n$.
 
-Our strategy, in this case, is
+  Our strategy, in this case, is
 
-The limiting difference can be obtained by realizing that
-\begin{equation}\begin{gathered}\begin{aligned}
-\nabla(n) \equiv   \lim_{n \rightarrow \infty}\Rnorm^{n}\mathbb{C}_{t-n}^{t}-\Rnorm^{n}\mathbb{C}_{t-n}^{t}  & =  \left(\frac{\PatR^{-n}}{1-\PatR}\right).
-\end{aligned}\end{gathered}\end{equation}
-and so
+  The limiting difference can be obtained by realizing that
+  \begin{align}
+    \nabla(n) \equiv   \lim_{n \rightarrow \infty}\Rnorm^{n}\mathbb{C}_{t-n}^{t}-\Rnorm^{n}\mathbb{C}_{t-n}^{t}  & =  \left(\frac{\PatR^{-n}}{1-\PatR}\right).
+  \end{align}
+  and so
 
 \end{comment}
 
@@ -362,7 +363,7 @@ find that in that much more general framework the limiting MPC is also zero.
 % TeX-PDF-mode: t
 % TeX-file-line-error: t
 % TeX-debug-warnings: t
-% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=LaTeX %S%(PDFout)"))
+% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=../LaTeX %S%(PDFout)"))
 % TeX-source-correlate-mode: t
 % TeX-source-correlate-start-server: 0
 % TeX-parse-self: t
