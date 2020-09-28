@@ -1,25 +1,15 @@
-\input{./econtexRoot}\input{\econtexRoot/LaTeX/econtexPaths}\documentclass[titlepage]{\econtex}\providecommand{\texname}{BufferStockTheory-Appendix}% Indicate the keyname for the bibtex entry corresponding to this paper
-
-\usepackage{\econtexRoot/LaTeX/BufferStockTheory}
-
-
-\externaldocument{BufferStockTheory-NoAppendix}
+\input{./econtexRoot}\input{\econtexRoot/LaTeX/econtexPaths}\documentclass[../BufferStockTheory.tex]{subfiles}
+\input{./econtexRoot}
 \begin{document}
 
-\renewcommand{\onlyinsubfile}[1]{}
-\renewcommand{\notinsubfile}[1]{#1}
-
-\hypertarget{Appendices}{}
-\appendix \centerline{\LARGE Appendices}\vspace{0.2in}
-\subfile{\ApndxDir/ApndxLiqConstr}
-
-\clearpage\vfill\eject
-
-\normalsize
-
-\bibliography{\econtexRoot/LaTeX/BufferStockTheory,economics}
+\input{\TableDir/Parameters}
+\input{\TableDir/Calibration}
+\input{\TableDir/Comparison}
+\input{\TableDir/Required}
+\input{\TableDir/LiqConstrScenarios}
 
 \end{document}
+
 % Local Variables:
 % eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)  :help "Run Biber") TeX-command-list))
 % eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) %s" TeX-run-BibTeX nil t                                                                              :help "Run BibTeX") TeX-command-list))
@@ -28,7 +18,7 @@
 % TeX-PDF-mode: t
 % TeX-file-line-error: t
 % TeX-debug-warnings: t
-% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=LaTeX %S%(PDFout)"))
+% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=../LaTeX %S%(PDFout)"))
 % TeX-source-correlate-mode: t
 % TeX-source-correlate-start-server: 0
 % TeX-parse-self: t
