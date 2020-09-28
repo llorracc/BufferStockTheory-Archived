@@ -821,13 +821,13 @@ i(1 − ℘)ρ θ1−ρ
 (32)
 1−i
 which is a positive finite number under our assumptions.
-The proof that T defines a contraction mapping under the conditions (40) and (33) is
+The proof that T defines a contraction mapping under the conditions (42) and (35) is
 now complete.
 η>η=
 
 D.1 T and v
 In defining our operator T we made the restriction κmt ≤ ct ≤ κ̄mt . However, in the
-discussion of the consumption function bounds, we showed only (in (41)) that κt mt ≤
+discussion of the consumption function bounds, we showed only (in (43)) that κt mt ≤
 ct (mt ) ≤ κ̄t mt . (The difference is in the presence or absence of time subscripts on the
 MPC’s.) We have therefore not proven (yet) that the sequence of value functions (7)
 defines a contraction mapping.
@@ -842,7 +842,7 @@ condition is
 
 (℘β)1/(1−ρ) (1 − (1 + ℘1/ρÞ R )−1 ) > 1
 
-where we have used (39) for κ̄T −1 (and in the second step the reversal of the inequality
+where we have used (41) for κ̄T −1 (and in the second step the reversal of the inequality
 occurs because we have assumed ρ > 1 so that we are exponentiating both sides by the
 negative number 1 − ρ). To see that this is a weak condition, note that for small values
 of ℘ this expression can be further simplified using (1 + ℘1/ρÞ R )−1 ≈ 1 − ℘1/ρÞ R so that
@@ -1039,7 +1039,7 @@ t+1 .
 
 (41)
 
-As noted in the main text, we need the WRIC (40) for this to be a convergent sequence:
+As noted in the main text, we need the WRIC (42) for this to be a convergent sequence:
 0 ≤ ℘1/ρÞ R < 1,
 
 (42)

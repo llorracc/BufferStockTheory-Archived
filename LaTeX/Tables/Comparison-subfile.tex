@@ -8,9 +8,9 @@
 \renewcommand\theadalign{tl}
 \renewcommand\theadfont{\normalsize}
 
-%\renewcommand{\TableDir}{./tmp} % This is a location accessible from either the root a subdirectory
-%\providecommand{\TableDir}{./tmp} 
 \begin{document}
+
+\ifthenelse{\boolean{ifWeb}}{\renewcommand{\TableDir}{./Tables}}{} % Not sure why \TableDir differs in dvi vs regular mode, but this fixes it
 
 \begin{verbatimwrite}{\TableDir/Comparison}
   \let\TableWidth\relax
