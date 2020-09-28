@@ -1,5 +1,5 @@
-\input{./econtexRoot}\documentclass[../BufferStockTheory.tex]{subfiles}
-\input{./econtexRoot}
+\input{./econtexRoot}\input{\econtexRoot/LaTeX/econtexPaths}\documentclass[../BufferStockTheory]{subfiles}\input{./econtexRoot}
+
 % This needed to be a subfile to tweak the use of the makecell \thead commands
 % without having to recompile the whole document
 \let\TableWidth\relax % Necessary to allow redefinition of tablewidth, which might already be defined
@@ -7,10 +7,9 @@
 
 \renewcommand\theadalign{tl}
 \renewcommand\theadfont{\normalsize}
-
 \begin{document}
 
-\ifthenelse{\boolean{ifWeb}}{\renewcommand{\TableDir}{./Tables}}{} % Not sure why \TableDir differs in dvi vs regular mode, but this fixes it
+\notinsubfile{\renewcommand{\TableDir}{./Tables}} % Not sure why this needs to be redefined here; if not, tries to write to ../../Tables
 
 \begin{verbatimwrite}{\TableDir/Comparison}
   \let\TableWidth\relax

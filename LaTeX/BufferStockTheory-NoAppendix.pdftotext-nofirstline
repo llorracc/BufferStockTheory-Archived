@@ -1,7 +1,7 @@
 
 Theoretical Foundations of
 Buffer Stock Saving
-September 27, 2020
+September 28, 2020
 
 Christopher D. Carroll1
 
@@ -1135,7 +1135,7 @@ goes to infinity ‘as fast or faster’ than the function you are normalizing w
 is just that, with an infinite horizon, with any initial amount of bank balances b0 , in the
 limit your value can always be made greater than you would get by consuming all of your
 permanent income and nothing else every period (say, by consuming (r/RF ree)b0 − 
-for some small  > 0.
+for some small  > 0).
 The details of the proof are cumbersome, and are therefore relegated to appendix D.
 Given that the value function converges, appendix D.3 shows that the consumption
 functions converge.
@@ -1162,11 +1162,11 @@ possibility of earning zero income over the remainder of the horizon, which prev
 the consumer from ending the current period with zero assets because with some finite
 probability the consumer would be forced to consume zero, which would be infinitely
 painful.
-But extent to which the consumer feels the need to make this precautionary provision
-depends on the probability that it will turn out to matter. As ℘ ↓ 0, that probability
-becomes arbitrarily small, so the amount of precautionary saving approaches zero. But
-zero precautionary saving is the amount of saving that a liquidity constrained consumer
-with perfect foresight would choose.
+But the extent to which the consumer feels the need to make this precautionary
+provision depends on the probability that it will turn out to matter. As ℘ ↓ 0, that
+probability becomes arbitrarily small, so the amount of precautionary saving approaches
+zero. But zero precautionary saving is the amount of saving that a liquidity constrained
+consumer with perfect foresight would choose.
 Another way to think about this is just to think of the liquidity constraint as being
 imposed by specifying a component of the utility function that is zero whenever the
 consumer ends the period with (weakly) positive assets, but negative infinity if the

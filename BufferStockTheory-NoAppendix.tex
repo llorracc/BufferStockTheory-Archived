@@ -9,10 +9,11 @@
 \onlyinsubfile{\externaldocument{BufferStockTheory}} % Get xrefs -- esp to appendix -- from main file; only works properly if main file has already been compiled; 
 
 \begin{document}
+
 \providecommand{\versn}{} % Version; like, web or pdf or journal submission
 \ifthenelse{\boolean{ifWeb}}{  \renewcommand{\ushort}{\underline}\renewcommand{\versn}{Web} }{} % ushort does not work in tex4ht
 
-\hfill{\tiny \jobname~\versn~\today, time:\DTMcurrenttime, source-commit: \input{.git-source-commit}, public-commit: \input{.git-public-commit}}
+\hfill{\tiny \jobname~\versn~\today\@\DTMcurrenttime, \input{.git-source-commit}~~\input{.git-public-commit}}
 
 %%%\begin{verbatimwrite}{BufferStockTheory.title}  % Write title to .title file
 %%%Theoretical Foundations of Buffer Stock Saving
@@ -60,8 +61,7 @@ This paper builds theoretical foundations for rigorous and intuitive understandi
 \name{Contact: \href{mailto:ccarroll@jhu.edu}{\texttt{ccarroll@jhu.edu}}, Department of Economics, 590 Wyman Hall, Johns Hopkins University, Baltimore, MD 21218, \url{http://econ.jhu.edu/people/ccarroll}, and National Bureau of Economic Research.}
 \end{authorsinfo}
 
-\thanks{All numerical results herein were produced using the \href{https://econ-ark/HARK}{Econ-ARK/HARK} toolkit, which can be cited per our references (\cite{carroll_et_al-proc-scipy-2018}); for reference to the toolkit itself see \href{https://econ-ark.org/acknowledging/}{Acknowleding Econ-ARK}.  Thanks to James Feigenbaum, Joseph Kaboski, Miles Kimball, Qingyin Ma, Misuzu Otsuka, Damiano Sandri, John Stachurski, Adam Szeidl, Metin Uyanik, Weifeng Wu, Xudong Zheng,
-  and Jiaxiong Yao for comments on earlier versions of this paper, John Boyd for help
+\newcommand{\thankstext}{All numerical results herein were produced using the \href{https://econ-ark/HARK}{Econ-ARK/HARK} toolkit, which can be cited per our references (\cite{carroll_et_al-proc-scipy-2018}); for reference to the toolkit itself see \href{https://econ-ark.org/acknowledging/}{Acknowleding Econ-ARK}.  Thanks to James Feigenbaum, Joseph Kaboski, Miles Kimball, Qingyin Ma, Misuzu Otsuka, Damiano Sandri, John Stachurski, Adam Szeidl, Metin Uyanik, Weifeng Wu, Xudong Zheng,  and Jiaxiong Yao for comments on earlier versions of this paper, John Boyd for help
   in applying his weighted contraction mapping theorem, Ryoji
   Hiraguchi for extraordinary mathematical insight that improved the
   paper greatly, David Zervos for early guidance to the literature,
@@ -69,11 +69,15 @@ This paper builds theoretical foundations for rigorous and intuitive understandi
   presentation at the 2009 meetings of the Society of Economic
   Dynamics for their insights.}
 
+\ifthenelse{\boolean{ifWeb}}{}{\thanks{\thankstext}}
+
 \titlepagefinish
 
 
 \newtheorem{defn}{Definition}
 \newtheorem{theorem}{Theorem}
+
+\ifthenelse{\boolean{ifWeb}}{\footnotesize \thanks{\thankstext}}
 
 \hypertarget{Introduction}{}
 \section{Introduction}
@@ -81,8 +85,6 @@ This paper builds theoretical foundations for rigorous and intuitive understandi
 \label{sec:intro}
 
 %%%Following the success of Modigliani and Brumberg's~\citeyearpar{modigliani&brumberg:lifecycle} Life Cycle model and Friedman's~\citeyearpar{friedmanATheory} Permanent Income Hypothesis, a vast literature in the 1960s and 1970s formalized the idea that household spending can be modeled as reflecting optimal intertemporal choice.  Bewley~\citeyearpar{bewleyPIH} and \cite{seIncFluct} capped this literature, paving the way for the ascendancy of dynamic stochastic optimizing models in economics.
-
-
 
 In the presence of empirically realistic transitory and permanent shocks to income \textit{a la} \cite{friedmanATheory}, only one other ingredient is required to define a testable model of optimal consumption: A description of preferences.  Modelers usually assume geometric discounting of a constant relative risk aversion (CRRA) utility function, because, starting with Zeldes~\citeyearpar{zeldesStochastic}, a large literature has shown that models of this kind have quantitative predictions that can match microeconomic evidence reasonably well.
 
@@ -625,6 +627,1141 @@ resources.)
 %% \end{verbatimwrite} % end storing of tex
 \input{\econtexRoot/\FigsTeX/cFuncsConverge} % Read in the tex to generate the figure
 
+In the figure, the consumption rules appear to converge as the horizon
+recedes (our purpose is to show that this appearance is not deceptive); we
+call the limiting infinite-horizon consumption rule
+\begin{align}
+\cFunc(\mRat)  & \equiv  \lim_{n \rightarrow \infty} \cFunc_{T-n}(\mRat).
+\end{align}
+
+\hypertarget{Concave-Consumption-Function-Characteristics}{}
+\subsection{Concave Consumption Function Characteristics}\label{sec:cExists}
+
+A precondition for the main proof is that the maximization problem \eqref{eq:veqn} defines a sequence of continuously differentiable strictly increasing strictly concave\footnote{There is one obvious exception: $\cFunc_{T}(m)$ is a linear (and so only weakly concave) function.} functions $\{\cFunc_{T},\cFunc_{T-1},...\}$.\footnote{\cite{ckConcavity} proved concavity but not the other desired properties.}  The straightforward but tedious proof is relegated to appendix~\ref{sec:ApndxcExists}.  For present purposes, the most important point is the following intuition: $\cFunc_{t}(\mRat) < m$ for all periods $t < T$ because a consumer who spent all available resources would arrive in period $t+1$ with balances $b_{t+1}$ of zero, and then might earn zero noncapital income over the remaining horizon (an unbroken series of zero-income events is unlikely but possible).  In such a case, the budget constraint and the can't-die-in-debt condition mean that the consumer would be forced to spend zero, incurring negative infinite utility.  To avoid this disaster, the consumer never spends everything.  (This is an example of the `natural borrowing constraint' induced by a precautionary motive (\cite{zeldesStochastic}).)\footnote{It would perhaps be better to call it the `utility-induced borrowing constraint' as it follows from the assumptions on the utility function (in particular, $\lim_{c \downarrow 0} \uFunc(c)=-\infty$); for example, no such constraint arises if utility is of the (implausible) Constant Absolute Risk Aversion form.}
+
+\hypertarget{Bounds-for-the-Consumption-Functions}{}
+\subsection{Bounds for the Consumption Functions}
+
+The consumption functions depicted in Figure~\ref{fig:cFuncsConverge} appear
+to have limiting slopes as $\mRat \downarrow 0$ and as $\mRat \uparrow
+\infty$.  This section confirms that impression and derives those
+slopes, which also turn out to be useful in the contraction
+mapping proof.  \cite{benhabibWealth} show that the consumption function
+becomes linear as wealth approaches infinity in a model with capital income risk and liquidity
+constraints; their results should generalize to the limits derived here if capital income risk were added to the model.  \cite{MaStachurskiToda2020JET} establish the existence and uniqueness of a solution to a general income fluctuation problem with capital income risk in a Markovian setting and use such a model to study the tail behavior of wealth in the presence of risky returns to capital.
+
+\newcommand{\NewMaxMinMPC}{\ushort{\MPC}}
+
+Assume (as discussed above) that a continuously differentiable
+concave consumption function exists in period $t+1$, with an origin at
+$\cFunc_{t+1}(0)=0$, a minimal MPC $\NewMaxMinMPC_{t+1}>0$, and
+maximal MPC $\MaxMPC_{t+1} \leq 1$.  (If $t+1 = T$ these will be
+$\NewMaxMinMPC_{T}=\MaxMPC_{T}=1$; for earlier periods they will exist
+by recursion from the following arguments.)
+
+The MPC bound as wealth approaches infinity is easy to understand: In this case,
+under our imposed assumption about finite human wealth, the proportion of consumption
+that will be financed out of human wealth approaches zero. The
+consequence is that the proportional difference between the solution to the
+model with uncertainty and the perfect foresight model shrinks to zero.
+
+\hypertarget{MPCnvrsLower}{}
+\hypertarget{WRICCond}{}
+In the course of proving this point, appendix~\ref{sec:MPCLimits}  provides a useful recursive expression for the (inverse of the) limiting MPC: 
+\begin{align}
+ \MinMPC_{t}^{-1}  & = 1+\MaxMPS \MinMPC_{t+1}^{-1} \label{eq:MinMPCInv}.
+\end{align}
+
+\subsubsection{WeakRICConditions}{}
+\hypertarget{MPCnvrsUpper}{}
+\hypertarget{WRIC}{}
+It turns out that there is a parallel expression for the limiting maximal 
+ MPC as $\mRat \downarrow 0$: appendix equation \eqref{eq:MaxMPCInvApndx}  shows that, as $\mRat_{t} \uparrow \infty$,
+\begin{align}
+ \MaxMPC_{t}^{-1}  & = 1+\MinMPS \MaxMPC_{t+1}^{-1} \label{eq:MaxMPCInv}.
+\end{align}
+\hypertarget{WRIF}{}  
+Then
+$\left\{\MaxMPC_{T-n}^{-1}\right\} _{n=0}^{\infty}$ is a decreasing % Correction per MNW 2016-01-30
+convergent sequence if the `weak return patience factor' $\pZero^{1/\CRRA}\PatR$ 
+\begin{align}
+  0 \leq & \pZero^{1/\CRRA} \PatR < 1 \label{eq:WRIC},
+\end{align}
+a condition that we dub the `Weak Return Impatience Condition' (\WRIC)
+because with $\pZero < 1$ it will hold more easily (for a larger set of parameter
+values) than the \RIC~($\PatR < 1$).
+
+The essence of the argument is that as wealth approaches zero, the overriding
+consideration that limits consumption is the (recursive) fear of the zero
+income events.  (That consideration is why the probability of the zero
+income event $\pZero$ appears in the expression.)  
+
+We are now in position to observe that the optimal consumption function must satisfy
+\begin{align}
+  \MinMinMPC_{t} \mRat_{t} ~ \leq &   \cFunc_{t}(\mRat_{t})  \leq  ~ \MaxMPC_{t} \mRat_{t} \label{eq:cBounds}
+\end{align}
+because consumption starts at zero and is continuously
+differentiable (as argued above), is strictly
+concave (\cite{ckConcavity}), and always exhibits a
+slope between $\MinMinMPC_{t}$ and $\MaxMPC_{t}$ (the formal proof is provided in appendix \ref{sec:Tcomplete}).
+
+These limits are useful at least in the sense that they can be hard-wired into a solution algorithm for the model, which has the potential to make the solution more efficient (cf.\ \cite{cctwMoM}).  Alternatively, they can provide a useful check on the accuracy of a solution algorithm that does not impose them directly.
+
+\begin{comment}
+If the \FHWC~does not hold, we make do with a less useful bound on the minimal MPC: It is
+weakly greater than zero, which follows from the logic in
+\ref{sec:cExists}; hence the `max' in \eqref{eq:MinMinMPCDef}.
+\end{comment}
+
+\hypertarget{Conditions-Under-Which-the-Problem-Defines-a-Contraction-Mapping}{}
+\subsection{Conditions Under Which the Problem Defines a Contraction Mapping}
+
+\label{subsec:contraction}
+
+To prove that the consumption rules converge, we need to show that the
+problem defines a contraction mapping. This cannot be proven using the
+standard theorems in, say, Stokey et.\ al.~\citeyearpar{slpMethods},
+which require marginal utility to be bounded over the space of
+possible values of $\mRat$, because the possibility (however unlikely)
+of an unbroken string of zero-income events for the remainder of life
+means that as $\mRat$ approaches zero $c$ must approach zero (see the
+discussion in \ref{sec:cExists}); thus, marginal utility is unbounded.
+Although a recent literature examines the existence and uniqueness 
+of solutions to Bellman equations in the presence of `unbounded returns' (see, e.g.,
+\cite{mnUnique}), the techniques in that literature
+cannot be used to solve the problem here because the required conditions 
+are violated by a problem that involves permanent shocks.\footnote{See \cite{yaoNote}
+for a detailed discussion of the reasons the existing literature up through \cite{mnUnique} cannot handle 
+the problem described here.}
+
+Fortunately, Boyd~\citeyearpar{jboydWeighted} provided a weighted contraction mapping theorem that \cite{asHomogeneous} showed how to address the homogeneous case (of which CRRA formulation is an example) in a deterministic framework; \cite{duranDiscounting} showed how to extend \cite{jboydWeighted} approach to the stochastic case.
+\begin{defn}
+Consider any function $\bullet\in \mathcal{C}(\mathscr{A},\mathscr{B})$ where $\mathcal{C}(\mathscr{A},\mathscr{B})$ is the space of continuous functions from $\mathscr{A}$ to $%
+\mathscr{B}$. Suppose $\phiFunc \in \mathcal{C}(\mathscr{A},\mathscr{B})$ with $%
+\mathscr{B}\subseteq\mathbb{R}$ and $\phiFunc >0$. Then $\bullet$ is $\phiFunc$-bounded if the $\phiFunc$-norm of $\bullet$,
+\begin{equation}
+\Vert \bullet\Vert _{\phiFunc }=\sup_{\mRat}\left[ \frac{|\bullet(\mRat)|}{\phiFunc (\mRat)}\right] ,
+\label{eq:phinorm}
+\end{equation}%
+is finite.
+\end{defn}
+
+For $\mathcal{C}_{\phiFunc }\left( \mathscr{A},\mathscr{B}\right) $
+defined as the set of functions in
+$\mathcal{C}(\mathscr{A},\mathscr{B})$ that are $\phiFunc$-bounded;
+$\wFunc$, $\xFunc$, $\yFunc$, and $\zFunc$ as examples of
+$\phiFunc$-bounded functions; and using $\mathbf{0}(\mRat)=0$ to
+indicate the function that returns zero for any argument,
+Boyd~\citeyearpar{jboydWeighted} proves the following.
+
+\textbf{Boyd's Weighted Contraction Mapping Theorem.} \textit{Let $\BoydT:\mathcal{C}_{\phiFunc }\left( \mathscr{A},\mathscr{B}\right)
+\rightarrow \mathcal{C}\left( \mathscr{A},\mathscr{B}\right) $ such
+that}\footnote{We will usually denote the function that results from the mapping as, e.g., $\{\BoydT\wFunc\}$.}$^,$\footnote{To non-theorists, this notation may be slightly confusing; the inequality relations in (1) and (3) are taken to mean `for any specific element $\bullet$ in the domain of the functions in question' so that, e.g., $\xFunc \leq \yFunc$ is short for $\xFunc(\bullet) \leq \yFunc(\bullet)~\forall~\bullet\in \mathscr{A}.$  In this notation, $\zeta \Shrinker \phiFunc$ in (3) is a {\it function} which can be applied to any argument $\bullet$ (because $\phiFunc$ is a function).} \nopagebreak
+\begin{align*}
+\mbox{(1)} &\BoydT%
+\mbox{ {\it is non-decreasing, i.e.\ ${\xFunc} \leq {\yFunc}\Rightarrow
+\{\BoydT{\xFunc}\} \leq \{\BoydT{\yFunc}\}$}}   \nonumber \\
+\mbox{(2)} & \{\BoydT\mathbf{0}\}\in ~ \mathcal{C}_{\phiFunc }\left(\mathscr{A},\mathscr{B}\right)  \notag \\
+\mbox{(3)}
+& \mbox{\it There exists some real $0 < \Shrinker < 1$, such that} \\
+& \{\BoydT({\wFunc} +\zeta\phiFunc )\} \leq \{\BoydT{\wFunc}\} +\zeta\Shrinker \phiFunc
+\mbox{ {\it ~holds for all real $\zeta > 0$} }.
+\end{align*}%
+\textit{Then $\BoydT$ defines a contraction with a unique fixed point.}
+
+For our problem, take $\mathscr{A}$ as $\mathbb{R}_{++}$ and $\mathscr{B}$
+as $\mathbb{R}$, and define
+\begin{align*}
+  \{\EEndMap \zFunc\}(a_{t})  & = \Ex_{t}\left[\PGro^{1-\CRRA}_{t+1} \zFunc(a_{t} \Rnorm_{t+1} + \tShkAll_{t+1})\right].
+\end{align*}
+
+Using this, we introduce the mapping \textit{$\TMap:\mathcal{C}_{\phiFunc }\left( \mathscr{A},\mathscr{B}\right) \rightarrow \mathcal{C}\left(
+    \mathscr{A},\mathscr{B}\right) $},\footnote{Note that the existence of the maximum is assured by the continuity of $\{\EEndMap \zFunc\}(a_{t})$ (it is continuous because it is the sum of continuous $\phiFunc$-bounded functions $\zFunc$) and the compactness of $[\MinMinMPC \mRat_{t},  \MaxMPC \mRat_{t}]$.}
+\begin{comment} %
+(In the subtle case when $\MinMinMPC=0$, the compact interval could be revised as $ [(\MinMinMPC+\epsilon) \mRat_{t},
+  \MaxMPC \mRat_{t}]$ where $\epsilon$ is a very small positive number because obviously $\MinMinMPC \mRat_{t}=0$ will not be the $\argmax$)
+\end{comment}
+\begin{align}
+\{\TMap{\zFunc}\}(\mRat_{t})  & = \underset{{\cRat}_{t} \in
+[\MinMinMPC \mRat_{t}, \MaxMPC \mRat_{t}]
+} \max
+\uFunc(c_{t})+\DiscFac \left( \{\EEndMap \zFunc \}(\mRat_{t}-c_{t}) \right)  \label{definitionmappingT}.
+%
+\end{align}
+
+
+\begin{comment}
+Unpacking the definitions, our mapping $\TMap$ can be written more explicitly as
+\begin{align}
+\{\TMap\zFunc\}(\mRat_{t})  & = \underset{\cRat_{t} \in [\MinMinMPC
+  \mRat_{t}, \MaxMPC \mRat_{t}]} \max \left\{
+\uFunc(c_{t})+\DiscFac \Ex_{t}\left[ {\PGro}_{t+1} ^{1-\CRRA }\zFunc(
+{\aRat}_{t}\Rnorm_{t+1}+\tShkAll_{t+1}) \right] \right\}
+.
+\end{align}
+\end{comment}
+
+\hypertarget{Contraction-Conditions}{}
+
+We can show that our operator $\TMap$ satisfies the conditions that
+Boyd requires of his operator $\BoydT$, if we impose two restrictions
+on parameter values.  The first restriction is the \WRIC~necessary for
+convergence of the maximal MPC, equation \eqref{eq:WRIC} above.  A
+more serious restriction is the utility-compensated Finite Value of
+Autarky condition, equation \eqref{eq:FVAC}.  (We discuss the
+interpretation of these restrictions in detail in section
+\ref{sec:discussConvergence} below.)  Imposing these restrictions, we
+are now in position to state the central theorem of the paper.
+
+\hypertarget{MainTheorem}{}
+\setcounter{theorem}{0}
+\begin{theorem}
+  \label{thm:contmap} $\TMap$ is a contraction mapping if
+  the restrictions on parameter values \eqref{eq:WRIC} and
+  \eqref{eq:FVAC} are true (that is, if the weak return impatience condition and the finite value of autarky condition hold).
+\end{theorem}
+
+Intuitively, Boyd's theorem shows that if you can find a $\phiFunc$ that is everywhere finite but goes to infinity `as fast or faster' than the function you are normalizing with $\phiFunc$, the normalized problem defines a contraction mapping.  The intuition for the {\FVAC} condition is just that, with an infinite horizon, with any initial amount of bank balances $\bRat_{0}$, in the limit your value can always be made greater than you would get by consuming all of your permanent income and nothing else every period (say, by consuming $(\rfree/RFree)\bRat_{0}-\epsilon$ for some small $\epsilon>0$).
+
+The details of the proof are cumbersome, and are therefore relegated to
+appendix~\ref{sec:Tcomplete}.  Given that the value function
+converges, appendix~\ref{subsec:cConverges} shows that the consumption
+functions converge.
+
+\hypertarget{The-Liquidity-Constrained-Solution-as-a-Limit}{}
+\subsection{The Liquidity Constrained Solution as a Limit} \label{sec:deatonIsLimit}
+
+This section shows that a related problem commonly considered in the
+literature (e.g., with a simpler income process, by
+Deaton~\citeyearpar{deatonLiqConstr}), with a liquidity constraint
+and a positive minimum value of income, is the limit of the problem
+considered here as the probability $\pZero$ of the zero-income event
+approaches zero.
+
+The essence of the argument is easy to state.  As noted above, there is a finite possibility of earning zero income over the remainder of the horizon, which prevents
+the consumer from ending the current period with zero assets because
+with some finite probability the consumer would be forced to consume zero,
+which would be infinitely painful.
+
+But the \textit{extent} to which the consumer feels the need to make this
+precautionary provision depends on the probability that it will turn
+out to matter.  As $\pZero \downarrow 0$, that probability becomes
+arbitrarily small, so the amount of precautionary saving approaches zero.
+But zero precautionary saving is the amount of saving that a liquidity
+constrained consumer with perfect foresight would choose.
+
+Another way to think about this is just to think of the liquidity
+constraint as being imposed by specifying a component of the utility
+function that is zero whenever the consumer ends the period with
+(weakly) positive assets, but negative infinity if the consumer
+ended the period with (strictly) negative assets.
+
+See appendix \ref{sec:LiqConstrAsLimit} for the formal proof justifying the
+foregoing intuitive discussion.
+
+\hypertarget{Discussion-of-Parametric-Restrictions}{}
+\subsection{Discussion of Parametric Restrictions}\label{sec:discussConvergence}
+
+\begin{comment}
+\subsubsection{Perfect Foresight Case}
+
+The unconstrained perfect foresight model is the natural starting
+point for developing the intuition behind our parametric restrictions.
+As noted above, the Return Impatience Condition (\RIC) is necessary in
+this context to guarantee that the PDV of the stream of future
+consumption is finite; value is then given by
+\begin{align*}
+  \vLevBF_{t}  & = \uFunc(\cLevBF_{t})+\DiscFac \uFunc(\overbrace{(\Rfree \DiscFac)^{1/\CRRA}\cLevBF_{t}}^{=\cLevBF_{t+1}})+\DiscFac^{2} \uFunc(((\Rfree \DiscFac)^{1/\CRRA})^{2}\cLevBF_{t})+...
+\\  & = \uFunc(\cLevBF_{t})\left(1+\DiscFac ((\Rfree \DiscFac)^{1/\CRRA})^{1-\CRRA}+(\DiscFac ((\Rfree \DiscFac)^{1/\CRRA})^{1-\CRRA})^{2}+...\right)
+\end{align*}
+which has a finite limit so long as $\DiscFac ((\Rfree \DiscFac)^{1/\CRRA})^{1-\CRRA} < 1$.  But
+\begin{align*}
+\DiscFac ({\Pat})^{1-\CRRA}   & = \DiscFac (\DiscFac \Rfree)^{1/\CRRA - 1}
+\\  & = {\Pat}/\Rfree = \PatR
+\end{align*}
+so the \RIC~guarantees the finiteness of value in addition to the PDV
+of consumption (given a finite starting point).
+
+The starting point for consumption is guaranteed to be finite by
+imposition of the finite human wealth (\FHWC) requirement.  (If human
+wealth were unbounded, our unconstrained consumer could freely borrow
+in order to spend an infinite amount in every period.)
+
+An alternative way to limit consumption is by imposing a liquidity
+constraint $\cRat_{t} \leq \mRat_{t}$.  Naturally, in the presence of
+such an urgent constraint, other constraints become less important.
+Indeed, the strength of the liquidity constraint can be appreciated
+from the fact that it prevents consumption from exceeding current
+resources even when human wealth is infinite.
+
+Value, in the constrained case, is easy to calculate, because the
+constrained consumer's spending is always equal to income, which
+always grows by $\PGro$:
+\begin{align}
+  \vLevBF_{t}  & = \uFunc(\pLevBF_{t})+\DiscFac \uFunc(\pLevBF_{t} \PGro) + \DiscFac^{2} \uFunc(\pLevBF_{t} \PGro^{2}) ... \notag
+\\  & = \uFunc(\pLevBF_{t})\left(1+\DiscFac \PGro^{1-\CRRA}+(\DiscFac \PGro^{1-\CRRA})^{2}+...\right)
+\end{align}
+which explains the perfect foresight finite value requirement
+\eqref{eq:FVAC}: It guarantees that value for the constrained
+consumer is finite.  Thus, the introduction of constraints is what
+makes the finite value requirement interesting; with finite value it becomes
+possible to calculate the consequences of alternatives.
+\end{comment}
+
+\subsubsection{The \RIC}
+
+In the perfect foresight unconstrained problem
+(section~\ref{subsec:PFUncon}), the \RIC~was required for existence of
+a nondegenerate solution.  It is surprising, therefore, that in the
+presence of uncertainty, the \RIC~is neither necessary nor sufficient
+for a nondegenerate solution.
+\begin{comment}
+But if the \RIC~does hold, some useful results can be derived.  Arguably
+the most fundamental are that the limiting values
+for the minimal and maximal marginal propensities to consume implicit in
+\eqref{eq:MaxMPCInv} and \eqref{eq:MinMPCInv} are positive and finite.
+\end{comment}
+We thus begin our discussion by asking what features the problem must
+exhibit (given the \FVAC) if the \RIC~fails (that is, $\Rfree < (\Rfree \DiscFac)^{1/\CRRA})$:
+\begin{align}
+    \Rfree   & < \overbrace{(\Rfree \DiscFac)^{1/\CRRA} ~ < ~ (\Rfree (\PGro \uInvEpShkuInv)^{\CRRA-1})^{1/\CRRA}}^{\text{implied by \FVAC}} \notag
+\\  \Rfree   & < (\Rfree/\PGro)^{1/\CRRA}\PGro \uInvEpShkuInv^{1-1/\CRRA} \notag
+\\  \Rfree/\PGro  & < (\Rfree/\PGro)^{1/\CRRA}\uInvEpShkuInv^{1-1/\CRRA} \notag
+\\  (\Rfree/\PGro)^{1-1/\CRRA}  & < \uInvEpShkuInv^{1-1/\CRRA} \label{eq:RICimplies}
+\end{align}
+but since $\uInvEpShkuInv<1$ and $0 < 1-1/\CRRA < 1$ (because we have
+assumed $\CRRA > 1$), this can hold only if $\Rfree/\PGro < 1$; that
+is, given the \FVAC, the \RIC~can fail only if human wealth is
+unbounded.  Unbounded human wealth is permitted here, as in the
+perfect foresight liquidity constrained problem.  But,
+ from  equation
+\eqref{eq:MinMPCInv}, an implication of \cncl{\RIC} is that $\lim_{m
+  \uparrow \infty} \cFunc^{\prime}(m) = 0$.  Thus, interestingly,
+the presence of uncertainty both permits unlimited human wealth and at
+the same time prevents that unlimited wealth from resulting in
+infinite consumption.  That is, in the presence of uncertainty,
+pathological patience (which in the perfect foresight model with
+finite wealth results in consumption of zero) plus infinite human
+wealth (which the perfect foresight model rules out because it leads
+to infinite consumption) combine here to yield a unique finite
+limiting MPC for any finite value of $\mRat$.  Note
+the close parallel to the conclusion in the perfect foresight
+liquidity constrained model in the
+\{\PFGIC,\cncl{\RIC}\} case (for detailed analysis of this
+case see the appendix).  There, too, the tension between infinite human wealth
+and pathological patience was resolved with a nondegenerate consumption function
+whose limiting MPC was zero.
+
+\subsubsection{The \WRIC}
+
+The `weakness' of the additional requirement for contraction, the
+weak \RIC, can be seen by asking `under what circumstances
+would the \FVAC~hold but the \WRIC~fail?'
+Algebraically, the requirement is
+\begin{align}
+ \DiscFac \PGro^{1-\CRRA}\uInvEpShkuInv^{1-\CRRA} & < ~ 1 ~ <  (\pZero \DiscFac)^{1/\CRRA}/\Rfree^{1-1/\CRRA}. \label{eq:WRICandFVAC}
+\end{align}
+
+If there were no conceivable parameter values that could satisfy both
+of these inequalities, the \WRIC~would have no force; it would be
+redundant.  And if we require $\Rfree \geq 1$, the \WRIC~is indeed
+redundant because now $\DiscFac <1<\Rfree^{\CRRA-1}$, so that the \RIC~(and \WRIC) must hold.
+
+But neither theory nor evidence demands that we assume $\Rfree \geq
+1$.  We can therefore approach the question of the \WRIC's relevance by
+asking just how low $\Rfree$ must be for the condition to be relevant.
+Suppose for illustration that $\CRRA=2$, $\uInvEpShkuInv^{1-\CRRA}=1.01$,
+$\PGro^{1-\CRRA}=1.01^{-1}$ and $\pZero = 0.10$.  In that case
+\eqref{eq:WRICandFVAC} reduces to
+\begin{align}
+  \DiscFac  & < 1 < (0.1 \DiscFac/\Rfree)^{1/2} \notag
+\end{align}
+but since $\DiscFac < 1$ by assumption, the binding requirement is that
+\begin{align}
+  \Rfree  & < \DiscFac/10 \notag
+\end{align}
+so that for example if $\DiscFac=0.96$ we would need $\Rfree < 0.096$
+(that is, a perpetual riskfree rate of return of worse than -90
+percent a year) in order for the \WRIC~to bind.
+Thus, the relevance of the \WRIC~is indeed ``Weak.''
+
+Perhaps the best way of thinking about this is to note that the space
+of parameter values for which the \WRIC~is relevant shrinks out of
+existence as $\pZero \rightarrow 0$, which section
+\ref{sec:deatonIsLimit} showed was the precise limiting condition
+under which behavior becomes arbitrarily close to the liquidity
+constrained solution (in the absence of other risks).  On the other
+hand, when $\pZero = 1$, the consumer has no noncapital income (so
+that the \FHWC~holds) and with $\pZero=1$ the \WRIC~is identical to the
+RIC; but the \RIC~is
+ the only condition required for a solution to exist
+for a perfect foresight consumer with no noncapital income.  Thus the
+WRIC~forms a sort of `bridge' between the liquidity constrained and
+the unconstrained problems as $\pZero$ moves from 0 to 1.
+
+\hypertarget{The-GIC}{}
+\hypertarget{When-the-GIC-Fails}{}
+\subsubsection{When the \GIC~Fails}
+
+If both the \GIC~and the \RIC~hold, the arguments above establish that the limiting consumption
+function asymptotes to the consumption function for the perfect foresight unconstrained function.
+The more interesting case is where the \GIC~fails.
+\begin{comment}
+\WW{}{The same
+steps as above lead to the same implication that this requires
+$\InvEpShkInv < (\Rfree/\PGro)^{1/\CRRA}\uInvEpShkuInv^{1-1/\CRRA}$,
+but when the \RIC~$\Rfree/\PGro > 1$ holds this condition is much more
+easily satisfied.}
+If the \FVAC~holds but the \GIC~does not, the parameters must satisfy:
+\begin{align}
+\DiscFac \PGro^{1-\CRRA}\Ex[\pshk^{1-\CRRA}] & < 1 < (\Rfree\DiscFac)^{1/\CRRA}(\PGro\Ex[\pshk^{-1}])^{-1}. \label{eq:FVACnotGIC}
+\end{align}
+
+Note first that by Jensens's inequality $\Ex[\pshk^{1-\CRRA}] > 1$ and $(\Ex[\pshk^{-1}])^{-1} < 1$,
+so \eqref{eq:FVACnotGIC} is stronger than
+\begin{align}
+\DiscFac \PGro^{1-\CRRA} & < 1 < (\Rfree\DiscFac)^{1/\CRRA}/\PGro. \label{eq:PFFVACnotPFGIC}
+\end{align}
+
+
+Suppose $\PGro=1$, $\CRRA=2$ and $\pshk$ is lognormally distributed with $\sigma^{2}_{\pshk}=0.01$ (that is, $\log \pshk \sim \mathcal{N}(-\sigma_{\psi}^{2}/2,\sigma_{\psi}^{2})$) so that $\Ex_{t}[\pshk_{t+1}^{1-\CRRA}] =\Ex_{t}[\pshk_{t+1}^{-1}] =\exp(\sigma^{2}_{\psi})=e^{0.01}.$  Then the condition becomes
+\begin{align}
+\DiscFac e^{0.01} & < 1 < (\Rfree \DiscFac)^{1/2}e^{-0.01}
+\end{align}
+which can be satisfied, for example, by $\DiscFac = 0.96$ and $\Rfree=1.08$.
+\end{comment}
+A solution that satisfies the combination \FVAC~and
+\cncl{\GIC} is depicted in Figure \ref{fig:FVACnotGIC}.  The
+consumption function is shown along with the $\Ex_{t}[\Delta
+\mRat_{t+1}]=0$ locus that identifies the `sustainable' level of
+spending at which $\mRat$ is expected to remain unchanged.  The
+diagram suggests a fact that is confirmed by deeper analysis: Under
+the depicted configuration of parameter values (see the code for details), the consumption function never reaches the
+$\Ex_{t}[\Delta \mRat_{t+1}]=0$ locus; indeed, when the \RIC~holds but
+the \GIC~does not, the consumption function's limiting slope
+$(1-\Pat/\Rfree)$ is shallower than that of the sustainable consumption
+locus $(1-\PGroAdj/\Rfree)$,\footnote{This is because
+    $\Ex_{t}[\mRat_{t+1}]=\Ex_{t}[\Rnorm_{t+1}(\mRat_{t}-\cRat_{t})]+1$; solve $\mRat = (\mRat - \cRat)\Rnorm \InvEpShkInv^{-1}+1$ for $\cRat$ and differentiate.}
+  so the gap between the two actually increases with $\mRat$ in the
+  limit.  That is, although a nondegenerate consumption function
+  exists, a target level of $\mRat$ does not (or, rather, the
+  target is $\mRat=\infty$), because no matter how wealthy a consumer
+  becomes, he will always spend less than the amount that
+  would keep $\mRat$ stable (in expectation).
+
+\renewcommand{\figFile}{FVACnotGIC}
+\hypertarget{\figFile}{}
+%% \begin{verbatimwrite}{\econtexRoot/\FigsTeX/FVACnotGIC}
+%% \begin{figure}[tbp]
+%% \centerline{\includegraphics[width=6in]{\econtexRoot/\FigsRaw/FVACnotGIC}}
+%% \caption{Example Solution when \FVAC~Holds but \GIC~Does Not}
+%% \label{fig:FVACnotGIC}
+%% \end{figure}
+%% \end{verbatimwrite}
+\input{\econtexRoot/\FigsTeX/FVACnotGIC}
+
+\begin{comment}
+The foregoing has some connection with the theoretical results in
+Szeidl~\citeyearpar{szeidlInvariant}, who shows that the condition we
+call the \GIC~guarantees that $\mRat$ will have an asymptotically
+bounded mean.  He also shows that under these circumstances $\mRat$
+satisfies conditions he proves to be necessary for the existence of a
+stable invariant distribution.  Furthermore, $\aRat$, $\bRat$, and $\cRat$
+are also shown to have stable invariant distributions and asymptotically
+bounded means.  We make use of these results below.
+\end{comment}
+
+\begin{comment} % Not really necessary
+A final point worth reemphasizing is that neither the Return
+Impatience Condition nor the Finite Human Wealth Condition was
+required for the contraction mapping proof.  Both these conditions are
+necessary for a nondegenerate solution to exist in the unconstrained
+perfect foresight case.  This is noteworthy because in some models and
+in many economists' intuition, the introduction of uncertainty reduces
+the space of parameter values for which a unique solution exists;
+here, precisely the opposite occurs.  Indeed, many of the
+parameterizations newly eligible for solution are quite plausible, so
+this observation is not merely a curiosum but of real practical
+value.\footnote{An easy example of a case where the perfect foresight
+  model has no solution is where $\Rfree >1$, $\DiscFac = 1/\Rfree$
+  and $\PGro > \Rfree$.}
+\end{comment}
+
+For the reader's convenience, Tables \ref{table:Comparison} and \ref{table:Required}
+present a summary of the connections between the various conditions in the presence
+and the absence of uncertainty.
+
+\hypertarget{Factors-Defined-And-Compared}{}
+\subfile{\TableDir/Comparison-subfile}
+
+\hypertarget{Sufficient-Conditions}{}
+\hypertarget{Sufficient-Conditions-For-Nondegenerate-Solution}{}
+\input{\TableDir/Required.tex}
+
+\begin{comment}
+To help interpret our condition, consider an infinite horizon perfect
+foresight consumer who does satisfy $\PGro < \Rfree$ and who arrives in period
+$t$ with beginning-of-period resources of zero, so that he has only
+human wealth.  If initial permanent income is $\pLevBF_{t}$ then
+$\hLevBF_{t}=\pLevBF_{t}(\Rfree/(\Rfree-\PGro))$ and the formula for consumption \eqref{eq:WDef} becomes
+\begin{align}
+  \cLevBF_{t}  & = \left(\frac{\Rfree - {\Pat}}{\Rfree-\PGro}\right)\pLevBF_{t}
+\end{align}
+so the condition ${\Pat} < \PGro$ guarantees that consumption
+will exceed noncapital income of $\pLevBF_{t}$.  Thus, this consumer is `impatient'
+in the sense of wanting to borrow against future noncapital income to finance
+current consumption (this justifies our labeling of \eqref{eq:GIC} as the
+`growth impatience condition.')
+
+The presence of permanent shocks tightens the restriction, since if
+$\pShk$ is nondegenerate then $\Ex[\pShk^{-\CRRA}]^{-1/\CRRA} > 1$.  The
+interpretation of this effect is simple: The presence of uncertainty
+in permanent income increases the consumer's precautionary saving
+motive, and therefore increases the degree of patience; the condition
+requires that even after this boost to the saving motive, the consumer
+remains impatient in the relevant sense.
+
+The simplest intuition for why our model has a solution when $\PGro>\Rfree$
+comes from the essential equivalence between the precautionary saving
+motive and liquidity constraints. Consider a version of the perfect
+foresight model with liquidity constraints.  This model {\it does}
+have a well defined solution for $\PGro>\Rfree$ because even a consumer with
+considerable current resources cannot spend an infinite amount (even
+if the PDV of future noncapital income is infinite) because that would
+violate the constraint.  Furthermore, the amount the consumer is
+willing to spend today is limited by the knowledge that, because of
+impatience, they will be constrained at some point in the future.
+
+The precautionary motive induced by the noncapital income risk can be
+thought of as being like a smoothed version of liquidity constraints.
+As cash declines toward zero, the size of the risk relative to the
+size of cash increases, which means that the relative variation in
+consumption increases, which means that the intensity of the
+precautionary motive increases.  For a more rigorous and detailed
+treatment of the relationship between precautionary saving and
+liquidity constraints, see Carroll and
+Kimball~\citeyearpar{carroll&kimball:liquidity}.
+\end{comment}
+
+\hypertarget{AnalysisoftheConvergedConsumptionFunction}{}
+\section{Analysis of the Converged Consumption Function}
+
+Figures~\ref{fig:cGroTargetFig} and \ref{fig:mpclimits}a,b capture the
+main properties of the converged consumption rule when the \RIC, \GIC,
+and \FHWC~all hold.\footnote{These figures reflect the converged rule
+  corresponding to the parameter values indicated in
+  Table~\ref{table:Calibration}.}  Figure~\ref{fig:cGroTargetFig}
+shows the expected consumption growth factor
+$\Ex_{t}[\cLevBF_{t+1}/\cLevBF_{t}]$ for a consumer behaving according to
+the converged consumption rule, while Figures~\ref{fig:mpclimits}a,b
+illustrate theoretical bounds for the consumption function and the
+marginal propensity to consume.
+
+Five features of behavior are captured, or suggested, by the
+figures. First, as $\mRat_{t} \uparrow \infty$ the expected
+consumption growth factor goes to ${\Pat}$, indicated by the lower
+bound in Figure \ref{fig:cGroTargetFig}, and the marginal propensity
+to consume approaches $\MinMPC=(1-\PatR)$
+(Figure~\ref{fig:mpclimits}), the same as the perfect foresight MPC.\footnote{If the \RIC~fails, the limiting minimal MPC is 0; see appendix.}  Second, as $\mRat_t \downarrow 0$ the consumption
+growth factor approaches $\infty$ (Figure~\ref{fig:cGroTargetFig}) and
+the MPC approaches $\MaxMPC=(1-\pZero^{1/\CRRA}\PatR)$ (Figure~\ref{fig:mpclimits}).  Third (Figure
+\ref{fig:cGroTargetFig}), there is a target cash-on-hand-to-income
+ratio $\mTarg$ such that if $\mRat_t = \mTarg$ then $\Ex_t [
+{\mRat}_{t+1}] = \mRat_t$, and (as indicated by the arrows of motion
+on the $\Ex_{t}[\cLevBF_{t+1}/\cLevBF_{t}]$ curve), the model's dynamics
+are `stable' around the target in the sense that if $\mRat_{t} <
+\mTarg$ then cash-on-hand will rise (in expectation), while if
+$\mRat_{t} > \mTarg$, it will fall (in expectation).  Fourth (Figure
+\ref{fig:cGroTargetFig}), at the target $\mRat$, the expected rate of
+growth of consumption is slightly less than the expected growth rate
+of permanent noncapital income. The final proposition suggested by
+Figure~\ref{fig:cGroTargetFig} is that the expected consumption growth
+factor is declining in the level of the cash-on-hand ratio
+$\mRat_{t}$.  This turns out to be true in the absence of permanent
+shocks, but in extreme cases it can be false if permanent shocks are
+present.\footnote{Throughout the remaining analysis I make a final
+  assumption that is not strictly justified by the foregoing.  We have
+  seen that the finite-horizon consumption functions
+  $\cFunc_{T-n}(\mRat)$ are twice continuously differentiable and
+  strictly concave, and that they converge to a continuous function
+  $\cFunc(\mRat)$.  It does not strictly follow that the limiting
+  function $\cFunc(\mRat)$ is twice continuously differentiable, but I
+  will assume that it is.}
+
+\renewcommand{\figFile}{cGroTargetFig}
+\hypertarget{\figFile}{}
+%% \begin{verbatimwrite}{\econtexRoot/\FigsTeX/cGroTargetFig}
+%% \begin{figure}[tbp]
+%% \centerline{\includegraphics[width=6in]{\econtexRoot/\FigsRaw/cGroTargetFig}}
+%% \caption{Target $\mRat$, Expected Consumption Growth, and Permanent Income Growth}
+%% \label{fig:cGroTargetFig}
+%% \end{figure}
+%% \end{verbatimwrite}
+\input{\econtexRoot/\FigsTeX/cGroTargetFig}
+
+\hypertarget{LimitsAsmtToInfty}{}
+\subsection{Limits as $\mRat_t \uparrow \infty$}
+
+\label{subsec:LimitsAsmtToInfty}
+
+Define
+\begin{align}
+   \ushort{\cFunc}(\mRat)  & = \MinMPC \mRat \nonumber
+\end{align}
+which is the solution to an infinite-horizon problem with no noncapital
+income
+($\tShkAll_{t+n} = 0~\forall~n\geq1$); 
+  clearly $\ushort{\cFunc}(\mRat)
+< \cFunc(\mRat)$, since allowing the possibility of future noncapital
+income cannot reduce current consumption.\footnote{We will assume the
+  \RIC~holds here and subsequently so that $\MinMPC > 0$; the situation
+  is a bit more complex when the \RIC~does not hold.   In that case the bound on consumption is given by the spending
+  that would be undertaken by a consumer who faced binding liquidity
+  constraints.  Detailed analysis of this special case is not
+  sufficiently interesting to warrant inclusion in the paper.}
+
+Assuming the \FHWC~holds, the infinite horizon perfect
+foresight solution \eqref{eq:cFuncPFUnc} constitutes an upper
+bound on consumption in the presence of uncertainty, since Carroll and
+Kimball~\citeyearpar{ckConcavity} show that the introduction of
+uncertainty strictly decreases the level of consumption at any $\mRat$.
+
+Thus, we can write
+\begin{align}  
+\ushort{\cFunc}(\mRat) < & \cFunc(\mRat)  < \bar{\cFunc}(\mRat) \label{eq:lowerltupper} \\
+1 < & \cFunc(\mRat)/\ushort{\cFunc}(\mRat)  < \bar{\cFunc}(\mRat)/\ushort{\cFunc}(\mRat). \nonumber
+\end{align}
+But
+\begin{align}  \label{eq:limitlowerupper}
+\lim_{m \uparrow \infty} \bar{\cFunc}(\mRat)/\ushort{\cFunc}(\mRat) 
+& = \lim_{m \uparrow \infty} (\mRat -1+ \hRat)/\mRat \nonumber \\
+ & = 1, \nonumber
+\end{align}
+so as $\mRat \uparrow \infty, \cFunc(\mRat)/\ushort{\cFunc}(\mRat)
+\rightarrow 1$, and the continuous differentiability and strict
+concavity of $\cFunc(\mRat)$ therefore implies
+\begin{equation}  \label{eq:limxtoinftycp}
+\lim_{m \uparrow \infty} \cFunc^{\prime}(\mRat) =
+\ushort{\cFunc}^{\prime}(\mRat) = \bar{\cFunc}^{\prime}(\mRat) = \MinMPC \notag
+\end{equation}
+because any other fixed limit would eventually lead to a level of
+consumption either exceeding $\bar{\cFunc}(\mRat)$ or lower than
+$\ushort{\cFunc}(\mRat)$.
+
+Figure~\ref{fig:mpclimits} confirms these limits visually.  The top
+plot shows the converged consumption function along with its upper and lower bounds,
+while the lower plot shows the marginal propensity to consume.
+\renewcommand{\figFile}{mpclimits}
+\hypertarget{\figFile}{}
+%% \begin{verbatimwrite}{\econtexRoot/\FigsTeX/MPCLimits}
+%% \begin{figure}
+%% \centerline{\includegraphics[width=6in]{\econtexRoot/\FigsRaw/MPCLimits}}
+%% \caption{Limiting MPC's}
+%% \label{fig:mpclimits}
+%% \end{figure}
+%% \end{verbatimwrite}
+\input{\econtexRoot/\FigsTeX/MPCLimits}
+
+\renewcommand{\figFile}{cFuncBounds}
+\hypertarget{\figFile}{}
+%%\begin{verbatimwrite}{\econtexRoot/\FigsTeX/cFuncBounds}
+%%\begin{figure}
+%%\centering
+%%\subfigure[\large Bounds]{\includegraphics[width=6in]{\econtexRoot/\FigsRaw/cFuncBounds}}
+%%\subfigure[\large Target $\mRat$]{\includegraphics[width=6in]{\econtexRoot/\FigsRaw/cRatTargetFig}}
+%%\caption{The Consumption Function}
+%%\label{fig:cFuncBounds}
+%%\end{figure}
+%%\end{verbatimwrite}
+\input{\econtexRoot/\FigsTeX/cFuncBounds}
+
+
+Next we establish the limit of the expected consumption growth factor
+as $\mRat_{t} \uparrow \infty$:
+\begin{align}
+\lim_{\mRat_{t} \uparrow \infty} \Ex_{t}[
+\cLevBF_{t+1}/\cLevBF_{t}]  & = \lim_{\mRat_{t} \uparrow \infty} \Ex_{t}[
+{\PGro}_{t+1} {\cRat}_{t+1}/c_{t}]. \notag
+\end{align}
+
+But
+\begin{align*}
+\Ex_{t}[{\PGro}_{t+1} {\ushort{\cRat}}_{t+1}/\bar{\cRat_{t}}] \leq \Ex_{t}[{\PGro}_{t+1} {\cRat}_{t+1}/\cRat_{t}] \leq \Ex_{t}[{\PGro}_{t+1} {\bar{\cRat}}_{t+1}/\ushort{\cRat}_{t}]
+\end{align*}
+and
+\begin{equation}  \label{eq:xttoinfty}
+\lim_{\mRat_t \uparrow \infty} \PGro_{t+1}\ushort{\cFunc}(\mRat_{t+1})/\bar{\cFunc}(\mRat_t) =
+\lim_{\mRat_{t} \uparrow \infty} \PGro_{t+1}\bar{\cFunc}(\mRat_{t+1})/\ushort{\cFunc}(\mRat_t) =
+\lim_{\mRat_{t} \uparrow \infty}\PGro_{t+1} \mRat_{t+1}/\mRat_t,  \notag
+\end{equation}
+while \hypertarget{xtp1toinfty}{}
+\begin{align}  \label{eq:xtp1toinfty}
+\lim_{m_{t} \uparrow \infty} \PGro_{t+1} \mRat_{t+1}/\mRat_t  & = \lim_{m_{t} \uparrow \infty}
+\left(\frac{\Rfree \aFunc(\mRat_t)+{\PGro}_{t+1}\tShkAll_{t+1}}{\mRat_t}\right)
+\\  & = (\Rfree \DiscFac)^{1/\CRRA} = \Pat
+\end{align}
+because $\lim_{\mRat_{t}\uparrow \infty} \aFunc^{\prime}(\mRat)=\PatR$\footnote{This is because $\lim_{\mRat_{t}\uparrow \infty} \aFunc(\mRat_{t})/\mRat_{t}=1-\lim_{\mRat_{t}\uparrow \infty} \cFunc(\mRat_{t})/\mRat_{t}=1-\lim_{\mRat_{t}\uparrow \infty}\cFunc^{\prime}(\mRat_{t})=\PatR$.} and
+$\PGro_{t+1}\tShkAll_{t+1}/\mRat_{t} \leq (\PGro \bar{\pShk} \bar{\tShkEmp}/\pNotZero )/\mRat_{t}$ which
+goes to zero as $\mRat_{t}$ goes to infinity.
+
+Hence we have
+\begin{equation}
+  {\Pat}  \leq \lim_{\mRat_{t} \uparrow \infty} \Ex_{t}[\cLevBF_{t+1}/\cLevBF_{t}] \leq {\Pat} \nonumber
+\end{equation}
+so as cash goes to infinity, consumption growth approaches its
+value $\Pat$ in the perfect foresight model.
+
+This argument applies equally well to the problem of the restrained
+consumer, because as $\mRat$ approaches infinity the constraint becomes
+irrelevant (assuming the \FHWC~holds).
+
+\begin{comment}
+Of course, the constraint never becomes irrelevant if human wealth is
+infinite.  We ruled out infinite human wealth at the beginning of this
+section by assuming $\Rfree> \PGro$.  If this finite human wealth
+condition does not hold, it is possible to show that for any finite
+horizon consumer the marginal propensity to consume approaches the
+finite-horizon perfect foresight MPC as wealth approaches infinity.
+However, as the horizon gets longer, the perfect foresight MPC
+approaches zero.  It can be shown therefore that the limiting MPC for
+the converged consumption function approaches (but never reaches)
+zero.  (This is why we chose $\MinMinMPC=0$ if the \FHWC~fails
+in the proofs above.)
+\end{comment}
+
+\hypertarget{LimitsAsmtToZero}{}
+\subsection{Limits as $\mRat_t \downarrow 0$}
+
+\label{subsec:LimitsAsmtToZero} Now consider the limits of behavior as $\mRat_{t}$ gets
+arbitrarily small.
+
+Equation \eqref{eq:MaxMPCInv} shows that the limiting value of
+$\MaxMPC$ is
+\begin{align}
+ \MaxMPC  & = 1-{\Rfree}^{-1}(\pZero  \Rfree\DiscFac)^{1/\CRRA}. \nonumber
+\end{align}
+
+Defining $\eFunc(\mRat)=\cFunc(\mRat)/\mRat$ as before we have
+\begin{align}
+  \lim_{m \downarrow 0} \eFunc(\mRat)  & = (1-\pZero^{1/\CRRA}\PatR) = \MaxMPC \nonumber.
+\end{align}
+
+Now using the continuous differentiability of the consumption function
+along with L'H\^opital's rule, we have
+\begin{comment}
+\begin{align*}
+    \eFunc^{\prime}(\mRat)  & = \mRat^{-1} \cFunc^{\prime}(\mRat) - \mRat^{-2} \cFunc(\mRat)
+\\ \mRat \eFunc^{\prime}(\mRat)  & = \cFunc^{\prime}(\mRat) - \cFunc(\mRat)/\mRat
+\\ \cFunc^{\prime}(\mRat)  & = \eFunc(\mRat)+ \mRat \eFunc^{\prime}(\mRat)
+\end{align*}
+and since $0<\eFunc(\mRat)<1$ we have
+\end{comment}
+\begin{align}
+  \lim_{m \downarrow 0} \cFunc^{\prime}(\mRat)  & = \lim_{m \downarrow 0}
+  \eFunc(\mRat) = \MaxMPC. \nonumber
+\end{align}
+
+Figure~\ref{fig:mpclimits} confirms that the numerical solution method
+obtains this limit for the MPC as $\mRat$ approaches zero.
+
+For consumption growth, as $\mRat \downarrow 0$ we have
+\begin{align*}
+\lim_{\mRat_{t} \downarrow 0} \Ex_{t}\left[\left(\frac{\cFunc({\mRat}_{t+1})}{\cFunc(\mRat_t)}\right){\PGro}_{t+1}\right]
+ & > \lim_{\mRat_{t} \downarrow 0} \Ex_{t}\left[\left(\frac{\ushort{\cFunc}({\mathcal{\mathcal{R}}}_{t+1}\aFunc(\mRat_{t})+{%
+\tShkAll}_{t+1})}{\MaxMPC \mRat_{t}}\right){\PGro}_{t+1}\right]  \notag \\
+  & = \pZero \lim_{\mRat_{t} \downarrow 0} \Ex_{t}\left[\left(\frac{\ushort{\cFunc}({\mathcal{\mathcal{R}}}_{t+1}\aFunc(\mRat_{t}))}{\MaxMPC \mRat_{t}}\right){\PGro}_{t+1}\right] \\
+  & ~~~~~~ + \pNotZero \lim_{\mRat_{t} \downarrow 0}  \Ex_{t}\left[\left(\frac{\ushort{\cFunc}({\mathcal{\mathcal{R}}}_{t+1}\aFunc(\mRat_{t})+
+\tShkEmp_{t+1}/\pNotZero)}{\MaxMPC \mRat_{t}}\right){\PGro}_{t+1}\right]  \\\notag
+ & > \pNotZero \lim_{\mRat_{t} \downarrow 0} \Ex_{t}\left[\left(\frac{\ushort{\cFunc}(
+\tShkEmp_{t+1}/\pNotZero)}{\MaxMPC \mRat_{t}}\right){\PGro}_{t+1}\right] \\
+ & = \infty \nonumber
+\end{align*}
+where the second-to-last line follows because  $\lim_{\mRat_{t} \downarrow 0} \Ex_{t}\left[\left(\frac{\ushort{\cFunc}({\mathcal{\mathcal{R}}}_{t+1}\aFunc(\mRat_{t}))}{\MaxMPC \mRat_{t}}\right){\PGro}_{t+1}\right]$ is positive, and the last line follows because the minimum possible realization of $\tShkEmp_{t+1}$ is $\ushort{\tShkEmp}>0$ so the minimum possible value of expected next-period consumption is positive.\footnote{
+The same arguments establish $\lim_{m \downarrow 0} \Ex_{t}[\cLevBF_{t+1}/\cLevBF_{t}] = \infty$
+for the problem of the restrained consumer.%
+}
+
+\hypertarget{onetarget}{}
+\subsection{There Exists Exactly One Target Cash-on-Hand Ratio,
+which is Stable}
+
+\label{subsec:onetarget}
+
+Define the target cash-on-hand-to-income ratio $\mTarg$ as the value of $\mRat$
+such that
+\begin{equation}  
+\Ex_t [{\mRat}_{t+1}/\mRat_t] = 1 \mbox{~if~} \mRat_t = \mTarg. \label{eq:mTarget}
+\end{equation}
+where the $\vee$ accent is meant to invoke the fact that this is the value that other $\mRat$'s `point to.'
+
+We prove existence by arguing that $\Ex_t [{\mRat}_{t+1}/\mRat_t]$ is
+continuous on $\mRat_{t}>0$, %
+and takes on values both above and below 1,
+so that it must equal 1 somewhere by the intermediate
+value theorem.
+
+Specifically, the same logic used in section~\ref{subsec:LimitsAsmtToZero} shows
+that $\lim_{\mRat_t \downarrow 0} \Ex_t [{\mRat}_{t+1}/\mRat_t] =
+\infty$.
+
+The limit as $\mRat_{t}$ goes to infinity is
+\begin{align*}
+  \lim_{\mRat_{t} \uparrow \infty} \Ex_{t}[{\mRat}_{t+1}/\mRat_{t}]  & =   \lim_{\mRat_{t} \uparrow \infty} \Ex_{t}\left[\frac{{\mathcal{\mathcal{R}}}_{t+1}\aFunc(\mRat_{t})+{\tShkAll}_{t+1}}{\mRat_{t}}\right]
+\\  & = \Ex_{t}[(\Rfree/{\PGro}_{t+1})\PatR]
+\\  & = \Ex_{t}[{\Pat}/{\PGro}_{t+1}]
+\\  & < 1
+\end{align*}
+where the last line is guaranteed by our imposition of the \GIC~\eqref{eq:GIC}.
+
+Stability means that in a local neighborhood of $\mTarg$, values of $\mRat_{t}$
+above $\mTarg$ will result in a smaller ratio of $\Ex_{t}[{\mRat}%
+_{t+1}/\mRat_{t}] $ than at $\mTarg$. That is, if $\mRat_{t} > \mTarg$ then $%
+\Ex_{t}[\mRat_{t+1}/\mRat_{t}] < 1 $. This will be true if
+\begin{align}
+\left(\frac{d}{d\mRat_t}\right) \Ex_t [{\mRat}_{t+1}/\mRat_t ]  & < 0 \label{eq:stable} \nonumber
+\end{align}
+at $\mRat_{t}=\mTarg$.  But \providecommand{\numFunc}{\pmb{\zeta}}
+\begin{align*}
+\left( \frac{d}{d\mRat_{t}}\right) \Ex_{t}[{\mRat}_{t+1}/\mRat_{t}]  & = \Ex_{t}\left[
+\left( \frac{d}{d\mRat_{t}}\right) \left[ {\Rnorm}_{t+1}(1-\cFunc(\mRat_{t})/\mRat_{t})+%
+{\tShkAll}_{t+1}/\mRat_{t}\right] \right]  \nonumber \\
+ & = \Ex_{t}\left[ \frac{{\Rnorm}_{t+1}(\cFunc(\mRat_{t})-\cFunc^{\prime}(\mRat_{t})\mRat_{t})-%
+{\tShkAll}_{t+1}}{\mRat_{t}^{2}}\right]  \notag
+\end{align*}
+which will be negative if its numerator is negative. Define $\numFunc(\mRat_{t})$
+as the expectation of the numerator,
+\begin{equation}
+\numFunc (\mRat_{t})=\underbrace{\Ex_{t}[{\Rnorm}_{t+1}]}_{\equiv \bar{\Rnorm}}(\cFunc(\mRat_{t})-\cFunc^{\prime}(\mRat_{t})\mRat_{t})-1. \label{eq:numer}
+\end{equation}
+
+The target level of market resources is the $\mRat$ such that if $\mRat_{t}=\mTarg$ then $\Ex_{t}[\mRat_{t+1}]=\mTarg$.
+\begin{align}
+\Ex_{t}[{\mRat}_{t+1}]  & = \Ex_{t}[{\Rnorm}_{t+1}(\mRat_{t}-c_{t})+{%
+\tShkAll}_{t+1}] \nonumber \\
+\mTarg  & = \bar{\Rnorm}(\mTarg-\cFunc(\mTarg))+1  \nonumber \\
+\bar{\Rnorm}\cFunc(\mTarg)  & = 1+(\bar{\Rnorm}-1)\mTarg  \label{eq:cstar}.
+\end{align}
+
+At the target, equation \eqref{eq:numer} is
+\begin{align}
+\numFunc(\mTarg)  & = \bar{\Rnorm}\cFunc(\mTarg) - \bar{\Rnorm}\cFunc^{\prime}(\mTarg)\mTarg - 1.  \nonumber % \label{eq:numerxstar} 
+\end{align}
+
+Substituting for the first term in this expression using
+\eqref{eq:cstar} gives
+\begin{align*}
+\numFunc(\mTarg)  & = 1+(\bar{\Rnorm}-1)\mTarg- \bar{\Rnorm}\cFunc^{\prime}(\mTarg)\mTarg - 1 \\
+ & = \mTarg\left(\bar{\Rnorm}-1-\bar{\Rnorm}\cFunc^{\prime}(\mTarg)\right) \\
+ & = \mTarg\left(\bar{\Rnorm}(1-\cFunc^{\prime}(\mTarg))-1\right) \\
+ & < \mTarg\left(\bar{\Rnorm}(1-(1-{\Rfree}^{-1}(\Rfree\DiscFac)^{1/%
+\CRRA}))-1\right) \\
+ & = \mTarg\left(\bar{\Rnorm}\PatR-1%
+\right) \\
+ & = \mTarg\left(\underbrace{\Ex_{t}[{\Pat}/{\PGro}_{t+1}]}_{<
+1\text{~from \eqref{eq:GIC}}}-1\right) \\
+ & < 0
+\end{align*}
+where the step introducing the inequality imposes the fact that $\cFunc^{\prime} > \PatR$ which is an
+implication of the concavity of the consumption function.
+
+We have now proven that some target $\mTarg$ must exist, and that at any such
+$\mTarg$ the solution is stable. Nothing so far, however, rules
+out the possibility that there will be multiple values of $\mRat$ that
+satisfy the definition \eqref{eq:mTarget} of a target.
+
+Multiple targets can be ruled out as follows. Suppose there exist
+multiple targets; these can be arranged in ascending order and indexed
+by an integer superscript, so that the target with the smallest value is,
+e.g., $\mTarg^{1}$. The argument just completed implies that since
+$\Ex_{t}[{\mRat}_{t+1}/\mRat_{t}]$ is continuously differentiable
+there must exist some small $\epsilon$ such that
+$\Ex_{t}[{\mRat}_{t+1}/\mRat_{t}] < 1$ for $\mRat_{t} =
+\mTarg^{1}+\epsilon$. (Continuous differentiability of
+$\Ex_{t}[{\mRat}_{t+1}/\mRat_{t}]$ follows from the continuous
+differentiability of $\cFunc(\mRat_{t})$.) 
+
+Now assume there exists a second value of $\mRat$ satisfying the
+definition of a target, $\mTarg^{2}$. Since
+$\Ex_{t}[{\mRat}_{t+1}/\mRat_{t}]$ is continuous, it must be
+approaching 1 from below as $\mRat_{t} \rightarrow \mTarg^{2}$, since
+by the intermediate value theorem it could not have gone above 1
+between $\mTarg^{1}+\epsilon$ and $\mTarg^{2}$ without passing through
+1, and by the definition of $\mTarg^{2}$ it cannot have passed through
+1 before reaching $\mTarg^{2}$.  But saying that
+$\Ex_{t}[{\mRat}_{t+1}/\mRat_{t}]$ is approaching 1 from below as
+$\mRat_{t} \rightarrow \mTarg^{2}$ implies that
+\begin{align}
+\left(\frac{d}{d\mRat_{t}}\right)\Ex_{t}[{\mRat}_{t+1}/\mRat_{t}]  & > 0
+\label{eq:badeqn}
+\end{align}
+at $\mRat_{t}=\mTarg^{2}$. However, we just showed above that, under
+our assumption that the \GIC~holds, precisely the opposite of equation
+\eqref{eq:badeqn} must hold for any $\mRat$ that satisfies the definition
+of a target. Thus, assuming the existence of more than one target
+implies a contradiction.
+
+The foregoing arguments rely on the continuous differentiability of
+$\cFunc(\mRat)$, so the arguments do not directly go through for the
+restrained consumer's problem in which the existence of liquidity
+constraints can lead to discrete changes in the slope
+$\cFunc^{\prime}(\mRat)$ at particular values of $\mRat$. But we can
+use the fact that the restrained model is the limit of the baseline
+model as $\pZero \downarrow 0$ to conclude that there is likely a
+unique target cash level even in the restrained model.
+
+If consumers are sufficiently impatient, the limiting target level in the
+restrained model will be $\mTarg = \Ex_{t}[{\tShkAll}_{t+1}] = 1$. That
+is, if a consumer starting with $\mRat = 1$ will save nothing, ${\aFunc}(1)=0$,
+then the target level of $\mRat$ in the restrained model will be 1; if a
+consumer with $\mRat=1$ would choose to save something, then the target
+level of cash-on-hand will be greater than the expected level of income.
+
+\hypertarget{cGroLTpGro}{}
+\subsection{Expected Consumption Growth at Target $\mRat$ Is Less than
+Expected Permanent Income Growth}
+
+\label{subsec:expcgrowth} In Figure~\ref{fig:cGroTargetFig} the intersection of
+the target cash-on-hand ratio locus at $\mTarg$ with the expected consumption
+growth curve lies below the intersection with the horizontal line
+representing the growth rate of expected permanent income. This can be
+proven as follows.
+
+Strict concavity of the consumption function implies that if $\Ex_{t}[{\mRat}_{t+1}] = \mTarg = \mRat_{t}$ then
+\begin{align}
+\Ex_{t}\left[\frac{{\PGro}_{t+1} \cFunc({\mRat}_{t+1})}{\cFunc(\mRat_{t})}
+\right]  & < \Ex_{t}\left[\left(\frac{{\PGro}_{t+1}
+(\cFunc(\mTarg)+\cFunc^{\prime}(\mTarg)({\mRat}_{t+1}-\mTarg))}{\cFunc(\mTarg)}\right)\right]  \nonumber \\
+ & = \Ex_{t}\left[{\PGro}_{t+1} \left(1+\left(\frac{\cFunc^{\prime}(\mTarg)}{%
+\cFunc(\mTarg)}\right)({\mRat}_{t+1}-\mTarg)\right)\right]  \nonumber  \\
+ & = \PGro + \left(\frac{\cFunc^{\prime}(\mTarg)}{\cFunc(\mTarg)}\right)\Ex_{t}\left[ {\PGro}_{t+1}\left({\mRat}_{t+1}-\mTarg\right)\right]  \nonumber \\
+ & = \PGro + \left(\frac{\cFunc^{\prime}(\mTarg)}{\cFunc(\mTarg)}\right)\left[
+\Ex_{t}[ \PGro_{t+1}]\underbrace{\Ex_{t}[
+{\mRat}_{t+1}-\mTarg]}_{=0}+\mbox{cov}_{t}( {\PGro}_{t+1},{\mRat}_{t+1})\right]
+ \label{eq:covcgrow}
+\end{align}
+and since $\mRat_{t+1} = (\Rfree/\PGro_{t+1}) \aFunc(\mTarg)+\tShkAll_{t+1}$ and
+$\aFunc(\mTarg)>0$ it is clear that
+cov$_{t}({\PGro}_{t+1},{\mRat}_{t+1})<0$ which implies that
+the entire term added to $\PGro$ in \eqref{eq:covcgrow} is negative, as
+required.
+
+\hypertarget{dcgdxneg}{}
+\subsection{Expected Consumption Growth Is a Declining Function of $\mRat_{t}$ (or Is It?)}
+\label{subsec:dcgdxneg}
+
+Figure~\ref{fig:cGroTargetFig} depicts the expected consumption growth factor as a strictly
+declining function of the cash-on-hand ratio. To investigate this,
+define
+\begin{align*}
+\pmb{\Upsilon}(\mRat_{t})  & \equiv  \PGro_{t+1} \cFunc(\Rnorm_{t+1}\aFunc(\mRat_{t})+\tShkAll_{t+1})/\cFunc(\mRat_{t})  = \cLevBF_{t+1}/\cLevBF_{t}
+\end{align*}
+and the proposition in which we are interested is
+
+\begin{align}
+  (d/d\mRat_{t})\Ex_{t}[\underbrace{\pmb{\Upsilon}(\mRat_{t})}_{\equiv \pmb{\Upsilon}_{t+1}}]  & < 0  \nonumber
+\end{align}
+or differentiating through the expectations operator, what we want is
+\begin{align}
+\Ex_{t}\left[\PGro_{t+1} \left(\frac{\cFunc^{\prime}(\mRat_{t+1})\Rnorm_{t+1}\aFunc^{\prime}(\mRat_{t})\cFunc(\mRat_{t})-\cFunc(\mRat_{t+1})\cFunc^{\prime}(\mRat_{t})}{\cFunc(\mRat_{t})^{2}}\right)\right]  & < 0 \label{eq:kappaPrimeLT0}.
+\end{align}
+
+Henceforth indicating appropriate arguments by the corresponding
+subscript (e.g.\ $\cFunc_{t+1}^{\prime} \equiv \cFunc^{\prime}(\mRat_{t+1})$), since
+$\PGro_{t+1}\Rnorm_{t+1}=\Rfree$, the portion of the LHS of equation \eqref{eq:kappaPrimeLT0} in brackets can be manipulated to yield
+\begin{align}
+ \cFunc_{t} \pmb{\Upsilon}^{\prime}_{t+1}  & = \cFunc^{\prime}_{t+1}\aFunc^{\prime}_{t}\Rfree-\cFunc^{\prime}_{t} \PGro_{t+1} \cFunc_{t+1}/\cFunc_{t} \nonumber
+\\  & = \cFunc^{\prime}_{t+1}\aFunc^{\prime}_{t}\Rfree-\cFunc^{\prime}_{t} \pmb{\Upsilon}_{t+1} \label{eq:cPrimek}
+.
+\end{align}
+
+Now differentiate the Euler equation with respect to $\mRat_{t}$:
+\begin{align}
+  1  & = \Rfree \DiscFac \Ex_{t}[ \pmb{\Upsilon}_{t+1}^{-\CRRA}] \notag
+\\ 0  & = \Ex_{t}[\pmb{\Upsilon}_{t+1}^{-\CRRA-1} \pmb{\Upsilon}_{t+1}^{\prime}] \notag
+\\  & = \Ex_{t}[\pmb{\Upsilon}_{t+1}^{-\CRRA-1}]\Ex_{t}[\pmb{\Upsilon}_{t+1}^{\prime}]+\mbox{cov}_{t}(\pmb{\Upsilon}_{t+1}^{-\CRRA-1},\pmb{\Upsilon}_{t+1}^{\prime}) \notag
+\\ \Ex_{t}[\pmb{\Upsilon}_{t+1}^{\prime}]  & = -\mbox{cov}_{t}(\pmb{\Upsilon}_{t+1}^{-\CRRA-1},\pmb{\Upsilon}_{t+1}^{\prime})/\Ex_{t}[\pmb{\Upsilon}_{t+1}^{-\CRRA-1}] \label{eq:covgen}
+\end{align}
+but since $\pmb{\Upsilon}_{t+1} > 0$ we can see from \eqref{eq:covgen} that \eqref{eq:kappaPrimeLT0} is equivalent to
+\begin{align}
+ \mbox{cov}_{t}(\pmb{\Upsilon}_{t+1}^{-\CRRA-1},\pmb{\Upsilon}_{t+1}^{\prime})  & > 0 \nonumber
+\end{align}
+which, using \eqref{eq:cPrimek}, will be true if
+\begin{align}
+ \mbox{cov}_{t}(\pmb{\Upsilon}_{t+1}^{-\CRRA-1},\cFunc^{\prime}_{t+1}\aFunc^{\prime}_{t}\Rfree - \cFunc^{\prime}_{t}\pmb{\Upsilon}_{t+1})  & > 0 \notag
+\end{align}
+which in turn will be true if both
+\begin{align}
+  \mbox{cov}_{t}(\pmb{\Upsilon}_{t+1}^{-\CRRA-1},\cFunc^{\prime}_{t+1} )  & > 0 \notag
+\end{align}
+and
+\begin{align*}
+  \mbox{cov}_{t}(\pmb{\Upsilon}_{t+1}^{-\CRRA-1},\pmb{\Upsilon}_{t+1})  & < 0. \notag
+\end{align*}
+
+The latter proposition is obviously true under our assumption $\CRRA > 1$.  The former will be true if
+\begin{align*}
+  \mbox{cov}_{t}\left((\PGro \pShk_{t+1} \cFunc(\mRat_{t+1}))^{-\CRRA-1},\cFunc^{\prime}(\mRat_{t+1}) \right)  & > 0 \nonumber.
+\end{align*}
+
+The two shocks cause two kinds of variation in $\mRat_{t+1}$.
+Variations due to $\tShkAll_{t+1}$ satisfy the proposition, since a
+higher draw of $\tShkAll$ both reduces $c_{t+1}^{-\CRRA-1}$ and
+reduces the marginal propensity to consume.  However, permanent shocks
+have conflicting effects.  On the one hand, a higher draw of
+$\pShk_{t+1}$ will reduce $\mRat_{t+1}$, thus increasing both
+$c_{t+1}^{-\CRRA-1}$ and $c_{t+1}^{\prime}$.  On the other hand, the
+$c_{t+1}^{-\CRRA-1}$ term is multiplied by $\PGro \pShk_{t+1}$, so the
+effect of a higher $\pShk_{t+1}$ could be to decrease the first term
+in the covariance, leading to a negative covariance with the second
+term.  (Analogously, a lower permanent shock $\pShk_{t+1}$ can also
+lead a negative correlation.)
+
+
+The software archive associated with this paper presents an example in
+which this perverse effect dominates.  However, extreme assumptions
+were required (in particular, a very small probability of the
+zero-income shock) and the region in which
+$\pmb{\Upsilon}_{t+1}^{\prime} > 0$ was tiny.  In practice, for
+plausible parametric choices,
+$\Ex_{t}[\pmb{\Upsilon}_{t+1}^{\prime}]<0$ should generally hold.
+
+
+%\ifthenelse{\boolean{showBody}}{
+
+\hypertarget{The-Aggregate-and-Idiosyncratic-Relationship-Between-Consumption-Growth-and-Income-Growth}{}
+\section{The Aggregate and Idiosyncratic Relationship Between
+Consumption Growth and Income Growth}
+
+This section examines the behavior of large collections of buffer-stock consumers with identical parameter values. Such a collection can be thought of as either a subset of the population within a single country (say, members of a given education or occupation group), or as the whole population in a small open economy.\footnote{We will continue to take the aggregate interest rate as exogenous and constant. It is also possible, and only slightly more difficult, to solve for the steady-state of a closed-economy version of the model where the interest rate is endogenous.}
+
+
+Formally, we assume a continuum of {\it ex ante} identical households
+on the unit interval, with constant total mass normalized to one and
+indexed by $i \in [0,1]$, all behaving according to the model
+specified above.\footnote{One inconvenient aspect of the model as
+  specified is that it does not exhibit a stationary distribution of
+  idiosyncratic permanent noncapital income; the longer the economy lasts, the wider is the
+  distribution.  This problem can be remedied by assuming a constant
+  probability of death, and replacing deceased households with
+  newborns whose initial idiosyncratic permanent income matches the
+  mean idiosyncratic permanent income of the population.  For a fully
+  worked-out general equilibrium version of such a model, see \cite{BSinKS}.}
+
+Szeidl~\citeyearpar{szeidlInvariant} proves that such a
+population will be characterized by an invariant
+distribution of $\mRat$ that induces invariant distributions for $\cRat$ and
+$\aRat$; designate these $\mathcal{F}^{\mRat}$, $\mathcal{F}^{\aRat}$, and
+$\mathcal{F}^{\cRat}$.\footnote{Szeidl's proof supplants simulation evidence of ergodicity
+that appeared in an earlier version of this paper.}
+
+
+\hypertarget{Consumption-and-Income-Growth-at-the-Household-Level}{}
+\subsection{Consumption and Income Growth at the Household Level}
+
+It is useful to define the operator $\Mean\left[\bullet\right]$
+which yields the mean value of its argument in the population, as
+distinct from the expectations operator $\Ex\left[\bullet\right]$ which represents beliefs about the
+future.
+
+An economist with a microeconomic dataset could calculate the average
+growth rate of idiosyncratic consumption, and would find
+\begin{align*}
+\Mean\left[\Delta \log \cLevBF_{t+1}\right]  & = \Mean\left[ \log {\cRat}_{t+1}\pLevBF_{t+1} - \log c_{t}\pLevBF_{t}\right]  \notag \\
+ & = \Mean\left[ \log \pLevBF_{t+1}- \log \pLevBF_{t} + \log {\cRat}_{t+1} - \log c_{t}\right]  \notag \\
+ & = \Mean\left[ \log \pLevBF_{t+1}- \log \pLevBF_{t}\right] + \Mean\left[ \log {\cRat}_{t+1} - \log c_{t}\right]  \notag \\
+ & = (\gamma - \sigma^{2}_{\pshk}/2) + \Mean[\log \cRat_{t+1} - \log \cRat_{t}] \\
+ & = (\gamma - \sigma^{2}_{\pshk}/2)
+\end{align*}
+where $\gamma=\log \PGro$ and the last equality follows because the invariance of
+$\mathcal{F}^{\cRat}$ (see \cite{szeidlInvariant}) means that $\Mean\left[ \log
+  {\cRat}_{t+n}\right] = \Mean\left[ \log
+  c_{t}\right]$.\footnote{Papers in the simulation literature have
+  observed an approximate equivalence between the average growth rates
+  of idiosyncratic consumption and permanent income, but formal proof
+  was not possible until Szeidl's proof of ergodicity.}
+
+Thus, in a population that has reached its invariant distribution, the growth
+rate of idiosyncratic log consumption matches the growth rate of idiosyncratic log permanent income.
+
+\ShorterYN{}{
+\hypertarget{Growth-Rates-of-Aggregate-Income-and-Consumption}{}
+\subsection{Growth Rates of Aggregate Income and Consumption}
+\label{subsec:cGroEqPGroQ}
+
+Attanasio and Weber~\citeyearpar{aw95} point out that
+concavity of the consumption function (or other nonlinearities) can
+imply that it is quantitatively important to distinguish between the
+growth rate of average consumption and the average growth rate of
+consumption.\footnote{Since we assume number of the households are
+  normalized to 1, aggregate and average variables are identical.}  We
+have just examined the average growth rate; we now examine the growth
+rate of the average.
+
+Using boldface capital letters for aggregate
+variables, the growth factor for aggregate income is given by:
+\begin{align*}
+\YLevBF_{t+1}/\YLevBF_{t}  & = \Mean\left[\tShkAll_{t+1}\PGro \pShk_{t+1}\pLevBF_{t}\right]/\Mean\left[\pLevBF_{t}\tShkAll_{t}\right]  \\
+                           & = \PGro
+\end{align*}
+because of the independence assumptions we have made about $\tShkAll$ and $\pShk$.
+
+The growth factor for aggregate assets is:
+\begin{align*}
+\left(\frac{\ALevBF_{t+1}}{\ALevBF_{t}}\right)  & = \frac{\Mean[a_{t+1} \pLevBF_{t+1}]}{\Mean[a_{t} \pLevBF_{t}]}   \\ 
+                                                & = \PGro \left[\frac{\Mean[a_{t+1}\pLevBF_{t}\psi_{t+1}]}{\Mean[a_{t}\pLevBF_{t}]}\right] \\
+%                                                & = \PGro \left[\frac{\Mean[(a_{t+1}/a_{t})a_{t}\pLevBF_{t}\psi_{t+1}]}{\Mean[a_{t}\pLevBF_{t}]}\right] \\
+%                                                & = \PGro \left[\frac{\Mean[(\psi_{t+1}a_{t+1}/a_{t})]\Mean[a_{t}\pLevBF_{t}]+\cov(\psi_{t+1}a_{t+1}/a_{t},a_{t}\pLevBF_{t})}{\Mean[a_{t}\pLevBF_{t}]}\right] \\
+                                                & = \PGro \left[\frac{\Mean[(a_{t}+(a_{t+1}-a_{t}))\pLevBF_{t}\psi_{t+1}]}{\Mean[a_{t}\pLevBF_{t}]}\right] \\
+  & = \PGro \left[1+\frac{\Mean[(a_{t+1}-a_{t})\pLevBF_{t}\psi_{t+1}]}{\Mean[a_{t}\pLevBF_{t}]}\right] \\  
+  \\  & = \PGro \left[1+\frac{\Mean[a_{t+1}-a_{t}]\Mean[\pLevBF_{t}\psi_{t+1}]+\cov((a_{t+1}-a_{t}),\pLevBF_{t}\psi_{t+1})}{\Mean[a_{t}\pLevBF_{t}]}\right] \\
+\\  & = \PGro \left[1+\frac{\cov(a_{t+1},\pLevBF_{t}\psi_{t+1})}{\Mean[a_{t}\pLevBF_{t}]}\right] \\    
+\end{align*}
+where the second-to-last line follows from \cite{szeidlInvariant}'s proof the ergodicity of the distributions of normalized
+variables for this problem, which implies that $\Mean[a_{t+1}-a_{t}]=0$.
+
+Unfortunately, it is clear that the covariance term in the numerator, while generally small, will not in general be zero.  This is because the realization of the permanent shock $\pShk_{t+1}$ has a nonlinear effect on $\aRat_{t+1}$.
+
+One way of thinking about this is that it reflects the fact that, under our assumptions, the $\pLev$ variable does not have an ergodic distribution;
+the distribution of permanent income becomes forever wider and wider as time progress in this model.
+
+There is a simple solution to that problem, however. In practice most modelers incorporate a constant positive probability of death in their models, following \cite{blanchardFinite}.  \cite{cstwMPC} show that for probabilities of death that exceed a threshold that depends on the size of the permanent shocks, the distribution of permanent income has a finite variance.  In such cases, numerical results confirm the intuition that the growth rate of aggregate assets ends up matching the growth rate of permanent income.
+
+Matters are simpler if there are no permanent shocks; \ref{sec:ApndxCGroIsPGro} for a proof that in that case the growth rate of assets (and other variables) does eventually converge to the growth rate of aggregate permanent income.
+
+} % end ShorterYN
+%}% end showBody
+
+\hypertarget{Conclusions}{}
+\section{Conclusions}
+
+This paper provides theoretical foundations for many characteristics
+of buffer stock saving models that have heretofore been observed in
+numerical solutions but not proven.  Perhaps the most important such
+proposition is the existence of a target cash-to-permanent-income
+ratio toward which actual resources will move.  The intuition provided by
+the existence of such a target can be a powerful aid to understanding a host
+of numerical results.
+
+Another contribution is integration of the paper's results with an the open-source \href{https://econ-ark.org}{Econ-ARK} toolkit, which is used to generate all of the quantitative results of the paper, and which integrally incorporates all of the analytical insights of the paper.
+
+\clearpage\vfill\eject
+
+\onlyinsubfile{\bibliography{\LaTeXFiles/BufferStockTheory,economics}}
+
+%Replace defaults with commands that know that generated files are in ./LaTeX
+
 \end{document}
 
-
+% Local Variables:
+% eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)  :help "Run Biber") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) %s" TeX-run-BibTeX nil t                                                                              :help "Run BibTeX") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) %s" TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode) :help "Run BibTeX") TeX-command-list))
+% eval: (add-to-list 'TeX-command-list	'("BibTeX" "%(bibtex) LaTeX/%s" TeX-run-BibTeX nil t :help "Run BibTeX") t)
+% TeX-PDF-mode: t
+% TeX-file-line-error: t
+% TeX-debug-warnings: t
+% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=LaTeX %S%(PDFout)"))
+% TeX-source-correlate-mode: t
+% TeX-source-correlate-start-server: 0
+% TeX-parse-self: t
+% End:
