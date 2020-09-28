@@ -11,14 +11,11 @@
 \begin{document}
 
 \providecommand{\versn}{} % Version; like, web or pdf or journal submission
-\ifthenelse{\boolean{ifWeb}}{\renewcommand{\ushort}{\underline}\renewcommand{\versn}{Web}}{} % ushort does not work in tex4ht
+\ifthenelse{\boolean{ifWeb}}{\renewcommand{\underline}{\underline}\renewcommand{\versn}{Web}}{} % underline does not work in tex4ht
 
 \hfill{\tiny \jobname~\versn~\today, time:\DTMcurrenttime, commit: \input{.git-source-commit}}
 
 
-%%%\begin{verbatimwrite}{BufferStockTheory.title}  % Write title to .title file
-%%%Theoretical Foundations of Buffer Stock Saving
-%%%\end{verbatimwrite}
 
 \title{Theoretical Foundations of \\ Buffer Stock Saving}
 
@@ -31,7 +28,7 @@
 \renewcommand{\forcedate}{September 27, 2020}
 \date{\forcedate}
 
-\maketitle %% Version finally sent back to QE, as MS 354
+\maketitle 
 
 \hypertarget{abstract}{}
 \begin{abstract}
@@ -82,7 +79,6 @@ This paper builds theoretical foundations for rigorous and intuitive understandi
 
 \label{sec:intro}
 
-%%%Following the success of Modigliani and Brumberg's~\citeyearpar{modigliani&brumberg:lifecycle} Life Cycle model and Friedman's~\citeyearpar{friedmanATheory} Permanent Income Hypothesis, a vast literature in the 1960s and 1970s formalized the idea that household spending can be modeled as reflecting optimal intertemporal choice.  Bewley~\citeyearpar{bewleyPIH} and \cite{seIncFluct} capped this literature, paving the way for the ascendancy of dynamic stochastic optimizing models in economics.
 
 
 
@@ -152,8 +148,8 @@ disarticulate the steps so that individual ingredients can be separately examine
 \end{align}
 \end{verbatimwrite}
 
-\input{\EqDir/DBCparts.tex} where $\aLevBF_{t}$ indicates the consumer's assets at the end of period $t$, which grow by a fixed interest factor $\Rfree =(1+\rfree)$ between periods,\footnote{See \cite{mstCapIncFluct} for interesting new work that considers the case where capital returns are stochastic and liquidity constraints exist.  \cite{benhabibWealth} examines implications of capital income risk for the distribution of wealth.}  so that $\bLevBF_{t+1}$ is the consumer's financial (`bank') balances before next period's consumption choice;\footnote{Allowing a stochastic interest factor is straightforward but adds little insight.  The effects are more interesting for analysis of the invariant distribution (\cite{szeidlInvariant}).} $\mLevBF_{t+1}$ (`market resources' or `money') is the sum of financial wealth $\bLevBF_{t+1}$ and noncapital income $\pLevBF_{t+1}\tShkAll_{t+1}$ (permanent noncapital income $\pLevBF_{t+1}$ multiplied by a mean-one iid transitory income shock factor $\tShkAll_{t+1}$; future transitory shocks are assumed to satisfy $\Ex_{t}[{\tShkAll}_{t+n}]=1~\forall~n\geq 1$). Permanent noncapital income in period $t+1$ is equal to its previous value, multiplied by a growth factor $\PGro$, modified by a mean-one iid shock $\pShk_{t+1}$, $\Ex_{t}[{\pShk}_{t+n}]=1~\forall~n \geq 1$ satisfying $\pShk \in [\ushort{\pShk},\bar{\pShk}]$ for $0 < \ushort{\pShk} \leq 1 \leq \bar{\pShk} < \infty$ where \tracingassigns=1\tracingmacros=1
-$\ushort{\pShk}=\bar{\pShk}=1$ is the degenerate case with no permanent shocks.\footnote{It is useful to emphasize that permanent noncapital income as defined here differs from what Deaton~\citeyearpar{deatonUnderstandingC} calls permanent income (which is often adopted in the macro literature).  Deaton defines permanent income as the amount that a perfect foresight consumer could spend while leaving total (human and nonhuman) wealth constant.  Relatedly, we refer to $\mLevBF_{t}$ as `cash-on-hand' or `market resources' rather than as wealth to avoid any confusion for readers accustomed to thinking of the discounted value of future noncapital income as a part of wealth.  The `market resources' terminology is motivated by the model's assumption that human wealth cannot be capitalized, an implication of anti-slavery laws.}$^{,}$\footnote{Hereafter for brevity we occasionally drop time subscripts, e.g.\ $\Ex[\pShk^{-\CRRA}]$ signifies $\Ex_{t}[\pShk_{t+1}^{-\CRRA}]$.}
+\input{\EqDir/DBCparts.tex} where $\aLevBF_{t}$ indicates the consumer's assets at the end of period $t$, which grow by a fixed interest factor $\Rfree =(1+\rfree)$ between periods,\footnote{See \cite{mstCapIncFluct} for interesting new work that considers the case where capital returns are stochastic and liquidity constraints exist.  \cite{benhabibWealth} examines implications of capital income risk for the distribution of wealth.}  so that $\bLevBF_{t+1}$ is the consumer's financial (`bank') balances before next period's consumption choice;\footnote{Allowing a stochastic interest factor is straightforward but adds little insight.  The effects are more interesting for analysis of the invariant distribution (\cite{szeidlInvariant}).} $\mLevBF_{t+1}$ (`market resources' or `money') is the sum of financial wealth $\bLevBF_{t+1}$ and noncapital income $\pLevBF_{t+1}\tShkAll_{t+1}$ (permanent noncapital income $\pLevBF_{t+1}$ multiplied by a mean-one iid transitory income shock factor $\tShkAll_{t+1}$; future transitory shocks are assumed to satisfy $\Ex_{t}[{\tShkAll}_{t+n}]=1~\forall~n\geq 1$). Permanent noncapital income in period $t+1$ is equal to its previous value, multiplied by a growth factor $\PGro$, modified by a mean-one iid shock $\pShk_{t+1}$, $\Ex_{t}[{\pShk}_{t+n}]=1~\forall~n \geq 1$ satisfying $\pShk \in [\underline{\pShk},\bar{\pShk}]$ for $0 < \underline{\pShk} \leq 1 \leq \bar{\pShk} < \infty$ where \tracingassigns=1\tracingmacros=1
+$\underline{\pShk}=\bar{\pShk}=1$ is the degenerate case with no permanent shocks.\footnote{It is useful to emphasize that permanent noncapital income as defined here differs from what Deaton~\citeyearpar{deatonUnderstandingC} calls permanent income (which is often adopted in the macro literature).  Deaton defines permanent income as the amount that a perfect foresight consumer could spend while leaving total (human and nonhuman) wealth constant.  Relatedly, we refer to $\mLevBF_{t}$ as `cash-on-hand' or `market resources' rather than as wealth to avoid any confusion for readers accustomed to thinking of the discounted value of future noncapital income as a part of wealth.  The `market resources' terminology is motivated by the model's assumption that human wealth cannot be capitalized, an implication of anti-slavery laws.}$^{,}$\footnote{Hereafter for brevity we occasionally drop time subscripts, e.g.\ $\Ex[\pShk^{-\CRRA}]$ signifies $\Ex_{t}[\pShk_{t+1}^{-\CRRA}]$.}
 
 
 In future periods $t+n ~\forall~ n \geq 1$ there is a small probability $\pZero$ that income will
@@ -171,9 +167,9 @@ be zero (a `zero-income event'),
 where $\tShkEmp_{t+n}$ is an iid mean-one random variable
 ($\Ex_{t}[{\tShkEmp}_{t+n}]=1~\forall~n>0$)
 that has a distribution
-satisfying $\tShkEmp \in \lbrack \ushort{\tShkEmp},\bar{\tShkEmp}\rbrack$
-where $0<\ushort{\tShkEmp} \leq 1 \leq \bar{\tShkEmp}<\infty$
-(degenerately $\ushort{\tShkEmp}=\bar{\tShkEmp}=1$). (See \cite{rabaultBorrowing} and \cite{lsIncFluct} for analyses of cases where the shock processes have unbounded support).  Call the cumulative
+satisfying $\tShkEmp \in \lbrack \underline{\tShkEmp},\bar{\tShkEmp}\rbrack$
+where $0<\underline{\tShkEmp} \leq 1 \leq \bar{\tShkEmp}<\infty$
+(degenerately $\underline{\tShkEmp}=\bar{\tShkEmp}=1$). (See \cite{rabaultBorrowing} and \cite{lsIncFluct} for analyses of cases where the shock processes have unbounded support).  Call the cumulative
 distribution functions $\CDF_{\pShk}$ and $\CDF_{\tShkEmp}$ (and $\CDF_{\tShkAll}$
 is derived trivially from \eqref{eq:tShkDef} and $\CDF_{\tShkEmp}$).
 Permanent income and cash start out strictly positive, $\{\pLevBF_{t},\mLevBF_{t}\} \in
@@ -232,7 +228,6 @@ x^{1-\CRRA}\uFunc(y)$.
 
 \hypertarget{The-Related-Problem}{}
 Now, in a one-time deviation from the notational convention established in the last paragraph, define nonbold `normalized value' not as $\vLevBF_{t}/\pLevBF_{t}$ but as $\vFunc_{t} = \vLevBF_{t}/\pLevBF_{t}^{1-\CRRA}$, because this allows us to use the related problem 
-%%\begin{verbatimwrite}{\EqDir/veqn.tex} % Weirdly, if \label{eq:veqn} is in verbatimwritten file, reference is not correctly constructed, so comment out verbatimrwite here
 \begin{align}
 \vFunc_{t}(\mRat_{t})  & = \max_{\{\cFunc\}_{t}^{T}}~  \uFunc(\cFunc_{t}) +\DiscFac \Ex_{t}[\PGro_{t+1}^{1-\CRRA}\vFunc_{t+1}({\mRat}_{t+1})] \notag \\
 & \mbox{s.t.}  \label{eq:veqn} 
@@ -240,7 +235,6 @@ Now, in a one-time deviation from the notational convention established in the l
  \\ {\bRat}_{t+1}  & = (\Rfree/\PGro_{t+1})\aRat_{t}  ~ = ~ \Rnorm_{t+1}\aRat_{t}  \notag
 \\ \mRat_{t+1}  & = \bRat_{t+1}+\tShkAll_{t+1}  \notag %
 \end{align}
-%%\end{verbatimwrite}\input{\EqDir/veqn.tex}
 where $\Rnorm_{t+1}\equiv (\Rfree/\PGro_{t+1})$ is a `growth-normalized' return factor, and the problem's first order condition is
 \begin{align}
 c_{t}^{-\CRRA}  & = \Rfree \DiscFac \Ex_{t}[ {\PGro}_{t+1}^{-\CRRA} {\cRat}
@@ -276,7 +270,7 @@ where the limiting consumption function is either $\cFunc(\mRat)=0$ or $\cFunc(\
 \hypertarget{Perfect-Foresight-Benchmarks}{}
 \subsection{Perfect Foresight Benchmarks}
 
-Articulating the familiar analytical solution to the perfect foresight specialization of the model, obtained by setting $\pZero=0$ and $\ushort{\tShkEmp}=\bar{\tShkEmp}=\ushort{\pShk}=\bar{\pShk}=1$, allows us to define some remaining notation and terminology, and to define a convenient reference point.
+Articulating the familiar analytical solution to the perfect foresight specialization of the model, obtained by setting $\pZero=0$ and $\underline{\tShkEmp}=\bar{\tShkEmp}=\underline{\pShk}=\bar{\pShk}=1$, allows us to define some remaining notation and terminology, and to define a convenient reference point.
 
 \hypertarget{Human-Wealth}{}
 \subsubsection{Human Wealth}
@@ -305,7 +299,6 @@ the interest rate at which that income is being discounted.
 \hypertarget{AIC}{}
 The consumption Euler equation holds in every period; with $\uP(\cLevBF)=\cLevBF^{-\CRRA}$, this says\hypertarget{Pat}{}
 \begin{align}
-%%  \cLevBF_{t}^{-\CRRA}  & = \Rfree\DiscFac \cLevBF_{t+1}^{-\CRRA} \\ \notag
  \cLevBF_{t+1}/\cLevBF_{t}  & = (\Rfree\DiscFac)^{1/\CRRA} \equiv \Pat   \label{eq:Pat}
 \end{align}
 where the Old English letter `thorn' represents what we will call the
@@ -378,7 +371,6 @@ x^{1-\CRRA}\uFunc(y)$, yields an analytical expression for value:
 which asymptotes to a finite number as $n=T-t$ approaches $+\infty$ if $\DiscFac \Pat^{1-\CRRA} < 1$ (related to a condition in \cite{asHomogeneous}); with a bit of algebra, this requirement can be shown to be equivalent to the \RIC.\footnote{
 \begin{align*}
    \DiscFac ((\Rfree \DiscFac)^{1/\CRRA})^{1-\CRRA}  & < 1
-%%\\ \DiscFac (\Rfree\DiscFac)^{(1-\CRRA)/\CRRA}  & < 1
 \\ \DiscFac (\Rfree\DiscFac)^{1/\CRRA}/\Rfree\DiscFac  & < 1
 \\ (\Rfree \DiscFac)^{1/\CRRA} /\Rfree  & < 1
 \end{align*}.
@@ -474,19 +466,16 @@ but the absence of liquidity constraints (also tabulated for comparison)).  The 
 
 
 
-Now define $\isp \equiv \psi^{-1}$ and $\bar{\isp} = \Ex_{t}[\isp_{t+1}]$.  % PrivateMsg
 
 
 When uncertainty is introduced, the expectation of $\bRat_{t+1}$ can be rewritten as:  
 \begin{align}
   \Ex_{t}[\bRat_{t+1}]  & =  \aRat_{t}\Ex_{t}[\Rnorm_{t+1}] = \aRat_{t}\Rnorm\Ex_{t}[\pShk_{t+1}^{-1}] \label{eq:EbRat}
-\\ & = \aRat_{t}\Rnorm\Ex_{t}[\isp_{t+1}] = \aRat_{t}\Rnorm\bar{\isp} % PrivateMsg
 \end{align}
 where Jensen's inequality guarantees that the expectation of the inverse of the permanent
 shock is strictly greater than one.  It will be convenient to define the object \hypertarget{InvEpShkInv}{}
 \begin{align*}
   \InvEpShkInv  & \equiv  (\EpShkInv)^{-1}
-\\ &                  \equiv \bar{\isp}^{-1}  % PrivateMsg
 \end{align*}
 because this permits us to write expressions like the RHS of
 \eqref{eq:EbRat} compactly as, e.g., $\aRat_{t}\Rnorm/
@@ -511,7 +500,6 @@ and a compensated Growth Patience Pactor (GPF):\hypertarget{GIF}{}
 \begin{verbatimwrite}{\EqDir/PatPGroAdj}
 \begin{align}
   \PatPGroAdj  & = \Pat/\PGroAdj
-       \\ & = \bar{\isp}\PatPGro  % PrivateMsg
   \\ & = \Ex\left(\frac{\Pat}{\PGro \psi}\right)
 \end{align}
 \end{verbatimwrite}
@@ -619,13 +607,6 @@ resources.)
 \providecommand{\figFile}{cFuncsConverge} %  and on filename
 \hypertarget{\figFile}{}
 \hypertarget{\figName}{}
-%% \begin{verbatimwrite}{\econtexRoot/\FigsTeX/cFuncsConverge} % Store the tex for standalone compilation 
-%% \begin{figure}[tbp]
-%% \centerline{\includegraphics[width=6in]{\econtexRoot/\FigsRaw/cFuncsConverge}}
-%% \caption{Convergence of the Consumption Rules}
-%% \label{fig:cFuncsConverge}
-%% \end{figure}
-%% \end{verbatimwrite} % end storing of tex
 \input{\econtexRoot/\FigsTeX/cFuncsConverge} % Read in the tex to generate the figure
 
 In the figure, the consumption rules appear to converge as the horizon
@@ -651,7 +632,7 @@ mapping proof.  \cite{benhabibWealth} show that the consumption function
 becomes linear as wealth approaches infinity in a model with capital income risk and liquidity
 constraints; their results should generalize to the limits derived here if capital income risk were added to the model.  \cite{MaStachurskiToda2020JET} establish the existence and uniqueness of a solution to a general income fluctuation problem with capital income risk in a Markovian setting and use such a model to study the tail behavior of wealth in the presence of risky returns to capital.
 
-\newcommand{\NewMaxMinMPC}{\ushort{\MPC}}
+\newcommand{\NewMaxMinMPC}{\underline{\MPC}}
 
 Assume (as discussed above) that a continuously differentiable
 concave consumption function exists in period $t+1$, with an origin at
@@ -1052,13 +1033,6 @@ locus $(1-\PGroAdj/\Rfree)$,\footnote{This is because
 
 \renewcommand{\figFile}{FVACnotGIC}
 \hypertarget{\figFile}{}
-%% \begin{verbatimwrite}{\econtexRoot/\FigsTeX/FVACnotGIC}
-%% \begin{figure}[tbp]
-%% \centerline{\includegraphics[width=6in]{\econtexRoot/\FigsRaw/FVACnotGIC}}
-%% \caption{Example Solution when \FVAC~Holds but \GIC~Does Not}
-%% \label{fig:FVACnotGIC}
-%% \end{figure}
-%% \end{verbatimwrite}
 \input{\econtexRoot/\FigsTeX/FVACnotGIC}
 
 \begin{comment}
@@ -1191,13 +1165,6 @@ present.\footnote{Throughout the remaining analysis I make a final
 
 \renewcommand{\figFile}{cGroTargetFig}
 \hypertarget{\figFile}{}
-%% \begin{verbatimwrite}{\econtexRoot/\FigsTeX/cGroTargetFig}
-%% \begin{figure}[tbp]
-%% \centerline{\includegraphics[width=6in]{\econtexRoot/\FigsRaw/cGroTargetFig}}
-%% \caption{Target $\mRat$, Expected Consumption Growth, and Permanent Income Growth}
-%% \label{fig:cGroTargetFig}
-%% \end{figure}
-%% \end{verbatimwrite}
 \input{\econtexRoot/\FigsTeX/cGroTargetFig}
 
 \hypertarget{LimitsAsmtToInfty}{}
@@ -1207,12 +1174,12 @@ present.\footnote{Throughout the remaining analysis I make a final
 
 Define
 \begin{align}
-   \ushort{\cFunc}(\mRat)  & = \MinMPC \mRat \nonumber
+   \underline{\cFunc}(\mRat)  & = \MinMPC \mRat \nonumber
 \end{align}
 which is the solution to an infinite-horizon problem with no noncapital
 income
 ($\tShkAll_{t+n} = 0~\forall~n\geq1$); 
-  clearly $\ushort{\cFunc}(\mRat)
+  clearly $\underline{\cFunc}(\mRat)
 < \cFunc(\mRat)$, since allowing the possibility of future noncapital
 income cannot reduce current consumption.\footnote{We will assume the
   \RIC~holds here and subsequently so that $\MinMPC > 0$; the situation
@@ -1229,51 +1196,35 @@ uncertainty strictly decreases the level of consumption at any $\mRat$.
 
 Thus, we can write
 \begin{align}  
-\ushort{\cFunc}(\mRat) < & \cFunc(\mRat)  < \bar{\cFunc}(\mRat) \label{eq:lowerltupper} \\
-1 < & \cFunc(\mRat)/\ushort{\cFunc}(\mRat)  < \bar{\cFunc}(\mRat)/\ushort{\cFunc}(\mRat). \nonumber
+\underline{\cFunc}(\mRat) < & \cFunc(\mRat)  < \bar{\cFunc}(\mRat) \label{eq:lowerltupper} \\
+1 < & \cFunc(\mRat)/\underline{\cFunc}(\mRat)  < \bar{\cFunc}(\mRat)/\underline{\cFunc}(\mRat). \nonumber
 \end{align}
 But
 \begin{align}  \label{eq:limitlowerupper}
-\lim_{m \uparrow \infty} \bar{\cFunc}(\mRat)/\ushort{\cFunc}(\mRat) 
+\lim_{m \uparrow \infty} \bar{\cFunc}(\mRat)/\underline{\cFunc}(\mRat) 
 & = \lim_{m \uparrow \infty} (\mRat -1+ \hRat)/\mRat \nonumber \\
  & = 1, \nonumber
 \end{align}
-so as $\mRat \uparrow \infty, \cFunc(\mRat)/\ushort{\cFunc}(\mRat)
+so as $\mRat \uparrow \infty, \cFunc(\mRat)/\underline{\cFunc}(\mRat)
 \rightarrow 1$, and the continuous differentiability and strict
 concavity of $\cFunc(\mRat)$ therefore implies
 \begin{equation}  \label{eq:limxtoinftycp}
 \lim_{m \uparrow \infty} \cFunc^{\prime}(\mRat) =
-\ushort{\cFunc}^{\prime}(\mRat) = \bar{\cFunc}^{\prime}(\mRat) = \MinMPC \notag
+\underline{\cFunc}^{\prime}(\mRat) = \bar{\cFunc}^{\prime}(\mRat) = \MinMPC \notag
 \end{equation}
 because any other fixed limit would eventually lead to a level of
 consumption either exceeding $\bar{\cFunc}(\mRat)$ or lower than
-$\ushort{\cFunc}(\mRat)$.
+$\underline{\cFunc}(\mRat)$.
 
 Figure~\ref{fig:mpclimits} confirms these limits visually.  The top
 plot shows the converged consumption function along with its upper and lower bounds,
 while the lower plot shows the marginal propensity to consume.
 \renewcommand{\figFile}{mpclimits}
 \hypertarget{\figFile}{}
-%% \begin{verbatimwrite}{\econtexRoot/\FigsTeX/MPCLimits}
-%% \begin{figure}
-%% \centerline{\includegraphics[width=6in]{\econtexRoot/\FigsRaw/MPCLimits}}
-%% \caption{Limiting MPC's}
-%% \label{fig:mpclimits}
-%% \end{figure}
-%% \end{verbatimwrite}
 \input{\econtexRoot/\FigsTeX/MPCLimits}
 
 \renewcommand{\figFile}{cFuncBounds}
 \hypertarget{\figFile}{}
-%%\begin{verbatimwrite}{\econtexRoot/\FigsTeX/cFuncBounds}
-%%\begin{figure}
-%%\centering
-%%\subfigure[\large Bounds]{\includegraphics[width=6in]{\econtexRoot/\FigsRaw/cFuncBounds}}
-%%\subfigure[\large Target $\mRat$]{\includegraphics[width=6in]{\econtexRoot/\FigsRaw/cRatTargetFig}}
-%%\caption{The Consumption Function}
-%%\label{fig:cFuncBounds}
-%%\end{figure}
-%%\end{verbatimwrite}
 \input{\econtexRoot/\FigsTeX/cFuncBounds}
 
 
@@ -1287,12 +1238,12 @@ as $\mRat_{t} \uparrow \infty$:
 
 But
 \begin{align*}
-\Ex_{t}[{\PGro}_{t+1} {\ushort{\cRat}}_{t+1}/\bar{\cRat_{t}}] \leq \Ex_{t}[{\PGro}_{t+1} {\cRat}_{t+1}/\cRat_{t}] \leq \Ex_{t}[{\PGro}_{t+1} {\bar{\cRat}}_{t+1}/\ushort{\cRat}_{t}]
+\Ex_{t}[{\PGro}_{t+1} {\underline{\cRat}}_{t+1}/\bar{\cRat_{t}}] \leq \Ex_{t}[{\PGro}_{t+1} {\cRat}_{t+1}/\cRat_{t}] \leq \Ex_{t}[{\PGro}_{t+1} {\bar{\cRat}}_{t+1}/\underline{\cRat}_{t}]
 \end{align*}
 and
 \begin{equation}  \label{eq:xttoinfty}
-\lim_{\mRat_t \uparrow \infty} \PGro_{t+1}\ushort{\cFunc}(\mRat_{t+1})/\bar{\cFunc}(\mRat_t) =
-\lim_{\mRat_{t} \uparrow \infty} \PGro_{t+1}\bar{\cFunc}(\mRat_{t+1})/\ushort{\cFunc}(\mRat_t) =
+\lim_{\mRat_t \uparrow \infty} \PGro_{t+1}\underline{\cFunc}(\mRat_{t+1})/\bar{\cFunc}(\mRat_t) =
+\lim_{\mRat_{t} \uparrow \infty} \PGro_{t+1}\bar{\cFunc}(\mRat_{t+1})/\underline{\cFunc}(\mRat_t) =
 \lim_{\mRat_{t} \uparrow \infty}\PGro_{t+1} \mRat_{t+1}/\mRat_t,  \notag
 \end{equation}
 while \hypertarget{xtp1toinfty}{}
@@ -1368,16 +1319,16 @@ obtains this limit for the MPC as $\mRat$ approaches zero.
 For consumption growth, as $\mRat \downarrow 0$ we have
 \begin{align*}
 \lim_{\mRat_{t} \downarrow 0} \Ex_{t}\left[\left(\frac{\cFunc({\mRat}_{t+1})}{\cFunc(\mRat_t)}\right){\PGro}_{t+1}\right]
- & > \lim_{\mRat_{t} \downarrow 0} \Ex_{t}\left[\left(\frac{\ushort{\cFunc}({\mathcal{\mathcal{R}}}_{t+1}\aFunc(\mRat_{t})+{%
+ & > \lim_{\mRat_{t} \downarrow 0} \Ex_{t}\left[\left(\frac{\underline{\cFunc}({\mathcal{\mathcal{R}}}_{t+1}\aFunc(\mRat_{t})+{%
 \tShkAll}_{t+1})}{\MaxMPC \mRat_{t}}\right){\PGro}_{t+1}\right]  \notag \\
-  & = \pZero \lim_{\mRat_{t} \downarrow 0} \Ex_{t}\left[\left(\frac{\ushort{\cFunc}({\mathcal{\mathcal{R}}}_{t+1}\aFunc(\mRat_{t}))}{\MaxMPC \mRat_{t}}\right){\PGro}_{t+1}\right] \\
-  & ~~~~~~ + \pNotZero \lim_{\mRat_{t} \downarrow 0}  \Ex_{t}\left[\left(\frac{\ushort{\cFunc}({\mathcal{\mathcal{R}}}_{t+1}\aFunc(\mRat_{t})+
+  & = \pZero \lim_{\mRat_{t} \downarrow 0} \Ex_{t}\left[\left(\frac{\underline{\cFunc}({\mathcal{\mathcal{R}}}_{t+1}\aFunc(\mRat_{t}))}{\MaxMPC \mRat_{t}}\right){\PGro}_{t+1}\right] \\
+  & ~~~~~~ + \pNotZero \lim_{\mRat_{t} \downarrow 0}  \Ex_{t}\left[\left(\frac{\underline{\cFunc}({\mathcal{\mathcal{R}}}_{t+1}\aFunc(\mRat_{t})+
 \tShkEmp_{t+1}/\pNotZero)}{\MaxMPC \mRat_{t}}\right){\PGro}_{t+1}\right]  \\\notag
- & > \pNotZero \lim_{\mRat_{t} \downarrow 0} \Ex_{t}\left[\left(\frac{\ushort{\cFunc}(
+ & > \pNotZero \lim_{\mRat_{t} \downarrow 0} \Ex_{t}\left[\left(\frac{\underline{\cFunc}(
 \tShkEmp_{t+1}/\pNotZero)}{\MaxMPC \mRat_{t}}\right){\PGro}_{t+1}\right] \\
  & = \infty \nonumber
 \end{align*}
-where the second-to-last line follows because  $\lim_{\mRat_{t} \downarrow 0} \Ex_{t}\left[\left(\frac{\ushort{\cFunc}({\mathcal{\mathcal{R}}}_{t+1}\aFunc(\mRat_{t}))}{\MaxMPC \mRat_{t}}\right){\PGro}_{t+1}\right]$ is positive, and the last line follows because the minimum possible realization of $\tShkEmp_{t+1}$ is $\ushort{\tShkEmp}>0$ so the minimum possible value of expected next-period consumption is positive.\footnote{
+where the second-to-last line follows because  $\lim_{\mRat_{t} \downarrow 0} \Ex_{t}\left[\left(\frac{\underline{\cFunc}({\mathcal{\mathcal{R}}}_{t+1}\aFunc(\mRat_{t}))}{\MaxMPC \mRat_{t}}\right){\PGro}_{t+1}\right]$ is positive, and the last line follows because the minimum possible realization of $\tShkEmp_{t+1}$ is $\underline{\tShkEmp}>0$ so the minimum possible value of expected next-period consumption is positive.\footnote{
 The same arguments establish $\lim_{m \downarrow 0} \Ex_{t}[\cLevBF_{t+1}/\cLevBF_{t}] = \infty$
 for the problem of the restrained consumer.%
 }
@@ -1756,16 +1707,3 @@ Another contribution is integration of the paper's results with an the open-sour
 
 \end{document}
 
-%%% Local Variables:
-%%% eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)  :help "Run Biber") TeX-command-list))
-%%% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) %s" TeX-run-BibTeX nil t                                                                              :help "Run BibTeX") TeX-command-list))
-%%% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) %s" TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode) :help "Run BibTeX") TeX-command-list))
-%%% eval: (add-to-list 'TeX-command-list	'("BibTeX" "%(bibtex) LaTeX/%s" TeX-run-BibTeX nil t :help "Run BibTeX") t)
-%%% TeX-PDF-mode: t
-%%% TeX-file-line-error: t
-%%% TeX-debug-warnings: t
-%%% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=LaTeX %S%(PDFout)"))
-%%% TeX-source-correlate-mode: t
-%%% TeX-source-correlate-start-server: 0
-%%% TeX-parse-self: t
-%%% End:
