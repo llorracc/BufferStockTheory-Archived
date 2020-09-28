@@ -1,21 +1,22 @@
 The diagrams below illustrate the order of the several conditions in the text:
-Þ
-
 PF-GIC
 
-Γ
+Þ
 
 RIC
+
+Γ
 FHWC
+
+R1/ρ Γ1−1/ρ
+FHWC
+and to further incorporate the Perfect Foresight Finite Value of Autarky Condition:
+PF-GIC
+Þ
+Γ
 R
 
-and to further incorporate the Perfect Foresight Finite Value of Autarky Condition:
-Þ
 RIC
-
-PF-GIC
-
-Γ
 
 PF-FVAC
 
@@ -34,8 +35,7 @@ says PF-FVAC+ 
 FHWC
 RIC
 
-
-
+
 + PF-GIC implies 
 FHWC.
 R
