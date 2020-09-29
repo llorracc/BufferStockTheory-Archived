@@ -13,7 +13,7 @@
 \providecommand{\versn}{} % Version; like, web or pdf or journal submission
 \ifthenelse{\boolean{ifWeb}}{  \renewcommand{\ushort}{\underline}\renewcommand{\versn}{Web} }{} % ushort does not work in tex4ht
 
-\hfill{\tiny \jobname~\versn~\today\@\DTMcurrenttime, \input{.git-source-commit}~~\input{.git-public-commit}}
+\hfill{\tiny \jobname~\versn~\today at \DTMcurrenttime, \input{.git-source-commit}~~\input{.git-public-commit}}
 
 %%%\begin{verbatimwrite}{BufferStockTheory.title}  % Write title to .title file
 %%%Theoretical Foundations of Buffer Stock Saving
@@ -27,7 +27,7 @@
 
 \jelclass{D81, D91, E21}
 
-\renewcommand{\forcedate}{September 28, 2020}
+\renewcommand{\forcedate}{September 29, 2020}
 \date{\forcedate}
 
 \maketitle %% Version finally sent back to QE, as MS 354
