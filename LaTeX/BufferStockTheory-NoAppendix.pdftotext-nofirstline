@@ -1,4 +1,6 @@
 
+public-commit: 27b825b
+
 Theoretical Foundations of
 Buffer Stock Saving
 September 29, 2020
@@ -65,7 +67,7 @@ floor or liquidity constraints) defines a contraction mapping with a nondegenera
 Another contribution is to specify the conditions under which the resulting consumption
 function implies there is a ‘target’ wealth-to-permanent-income ratio (so the model
 exhibits ‘buffer stock’ saving behavior.) The key requirement for existence of a target
-is that the model’s parameters satisfy a “Growth Impatience Condition” (equation (34))
+is that the model’s parameters satisfy a “Growth Impatience Condition” (equation (32))
 that relates preferences and uncertainty to the predictable growth rate of income.
 Even without a formal proof, target saving of this kind has been intuitively understood
 to underlie central numerical results from the heterogeneous agent macroeconomics
@@ -636,29 +638,16 @@ to the model with constraints but without uncertainty.
 
 2.5 Uncertainty-Modified Conditions
 2.5.1 Impatience
-ψ̄
-Now define ≡ ψ −1 and = Et [ t+1 ].
 When uncertainty is introduced, the expectation of bt+1 can be rewritten as:
-ψ
-
-ψ
-
 −1
 Et [bt+1 ] = at Et [Rt+1 ] = at R Et [ψt+1
 ]
-ψ̄
-= at R Et [ t+1 ] = at R
 
 (28)
-(29)
-
-ψ
 
 where Jensen’s inequality guarantees that the expectation of the inverse of the permanent
 shock is strictly greater than one. It will be convenient to define the object
 ψ ≡ (E[ψ −1 ])−1
-ψ̄
-≡ −1
 
 11
 
@@ -670,22 +659,19 @@ We can now transparently generalize the PF-GIC (25) by defining a ‘compensated
 growth factor’
 Γ = Γψ
 
-(30)
+(29)
 
 and a compensated Growth Patience Pactor (GPF):
 Þ Γ = Þ /Γ
-ψ̄
-= ÞΓ
  
 Þ
 =E
 Γψ
 
+(30)
 (31)
-(32)
-(33)
 
-and a straightforward derivation in (49) below yields the conclusion that
+and a straightforward derivation in (47) below yields the conclusion that
 lim Et [mt+1 /mt ] = Þ Γ ,
 
 mt →∞
@@ -696,7 +682,7 @@ impose a generalized version of the Perfect Foresight Growth Impatience Conditon
 which we call simply the ‘growth impatience condition’ (GIC):18
 ÞΓ < 1
 
-(34)
+(32)
 
 which is stronger than the perfect foresight version (25) because Γ < Γ (Jensen’s
 inequality implies that ψ < 1 for nondegenerate ψ).
@@ -726,7 +712,7 @@ which invites the definition of a utility-compensated equivalent of the permanen
 17 One way to think of ψ is as a particular kind of a ‘certainty equivalent’ of the shock; this captures the intuition that
 mean-one shock renders a given mean level of income less valuable than if the shock did not exist, so that ψ < 1.
 
-18 Equation (34) is a bit easier to satisfy than the similar condition imposed by Deaton (1991): E[ψ −ρ ] 1/ρ Þ < 1
+18 Equation (32) is a bit easier to satisfy than the similar condition imposed by Deaton (1991): E[ψ −ρ ] 1/ρ Þ < 1
 Γ
 to guarantee that his problem defined a contraction mapping.
 
@@ -740,21 +726,21 @@ as T approaches ∞ if
 z }| {
 βΓ1−ρ < 1
 
-(35)
+(33)
 
 β < Γρ−1
 which we call the ‘finite value of autarky’ condition (FVAC) because it is the value
 obtained by always consuming (now stochastic) permanent income. For nondegenerate
 ψ, this condition is stronger (harder to satisfy in the sense of requiring lower β) than
 the perfect foresight version (27) because Γ < Γ.
-To see this, rewrite (35) as
+To see this, rewrite (33) as
 βR < Γρ−1
 (βR)1/ρ < R1/ρ Γ1−1/ρ ψ 1−1/ρ
 Þ Γ < (R/Γ)1/ρ Γ1−1/ρ
 
+(34)
+(35)
 (36)
-(37)
-(38)
 
 where the last equation is the same as the PF-FVAC condition except that the RHS is
 multiplied by Γ1−1/ρ which is strictly less than 1.
@@ -769,7 +755,7 @@ purpose is to show that this appearance is not deceptive); we call the limiting 
 c(m) ≡ lim cT −n (m).
 n→∞
 
-(39)
+(37)
 
 2.7 Concave Consumption Function Characteristics
 A precondition for the main proof is that the maximization problem (7) defines a
@@ -1009,11 +995,11 @@ for the (inverse of the) limiting MPC:
 κ−1
 t = 1 + Þ R κt+1 .
 
-(40)
+(38)
 
 2.8.1 WeakRICConditions
 It turns out that there is a parallel expression for the limiting maximal MPC as m ↓ 0:
-appendix equation (99) shows that, as mt ↑ ∞,
+appendix equation (97) shows that, as mt ↑ ∞,
 Then κ̄−1
 T −n
 ℘1/ρÞ R
@@ -1028,11 +1014,11 @@ n=0
 t = 1+℘
 t+1 .
 
-(41)
+(39)
 
 0 ≤℘1/ρÞ R < 1,
 
-(42)
+(40)
 
 is a decreasing convergent sequence if the ‘weak return patience factor’
 
@@ -1051,7 +1037,7 @@ expression.)
 We are now in position to observe that the optimal consumption function must satisfy
 κt mt ≤ct (mt ) ≤ κ̄t mt
 
-(43)
+(41)
 
 because consumption starts at zero and is continuously differentiable (as argued above),
 is strictly concave (Carroll and Kimball (1996)), and always exhibits a slope between κt
@@ -1082,7 +1068,7 @@ z-bounded if the z-norm of •,
 
 | • (m)|
 ,
-(44)
+(42)
 k • kz = sup
 z(m)
 m
@@ -1118,17 +1104,17 @@ ct ∈[κmt ,κ̄mt ]
 
 u(ct ) + β ({Ez}(mt − ct )) .
 
-(45)
+(43)
 
 We can show that our operator T satisfies the conditions that Boyd requires of his
 operator T, if we impose two restrictions on parameter values. The first restriction is
-the WRIC necessary for convergence of the maximal MPC, equation (42) above. A
+the WRIC necessary for convergence of the maximal MPC, equation (40) above. A
 more serious restriction is the utility-compensated Finite Value of Autarky condition,
-equation (35). (We discuss the interpretation of these restrictions in detail in section
+equation (33). (We discuss the interpretation of these restrictions in detail in section
 2.11 below.) Imposing these restrictions, we are now in position to state the central
 theorem of the paper.
-Theorem 1. T is a contraction mapping if the restrictions on parameter values (42)
-and (35) are true (that is, if the weak return impatience condition and the finite value
+Theorem 1. T is a contraction mapping if the restrictions on parameter values (40)
+and (33) are true (that is, if the weak return impatience condition and the finite value
 of autarky condition hold).
 Intuitively, Boyd’s theorem shows that if you can find a z that is everywhere finite but
 goes to infinity ‘as fast or faster’ than the function you are normalizing with z, the normalized problem defines a contraction mapping. The intuition for the FVAC condition
@@ -1190,14 +1176,14 @@ R < (R/Γ)1/ρ Γψ 1−1/ρ
 R/Γ < (R/Γ)1/ρ ψ 1−1/ρ
 (R/Γ)1−1/ρ < ψ 1−1/ρ
 
-(46)
+(44)
 
 but since ψ < 1 and 0 < 1 − 1/ρ < 1 (because we have assumed ρ > 1), this
 can hold only if R/Γ < 1; that is, given the FVAC, the RIC can fail only if human
 wealth is unbounded. Unbounded human wealth is permitted here, as in the perfect
 
 
-foresight liquidity constrained problem. But, from equation (40), an implication of 
+foresight liquidity constrained problem. But, from equation (38), an implication of 
 RIC
 is that limm↑∞ c0 (m) = 0. Thus, interestingly, the presence of uncertainty both permits
 unlimited human wealth and at the same time prevents that unlimited wealth from
@@ -1222,7 +1208,7 @@ seen by asking ‘under what circumstances would the FVAC hold but the WRIC fail
 Algebraically, the requirement is
 βΓ1−ρ ψ 1−ρ < 1 < (℘β)1/ρ /R1−1/ρ .
 
-(47)
+(45)
 
 If there were no conceivable parameter values that could satisfy both of these inequalities, the WRIC would have no force; it would be redundant. And if we require R ≥ 1,
 the WRIC is indeed redundant because now β < 1 < Rρ−1 , so that the RIC (and WRIC)
@@ -1230,7 +1216,7 @@ must hold.
 But neither theory nor evidence demands that we assume R ≥ 1. We can therefore
 approach the question of the WRIC’s relevance by asking just how low R must be for the
 condition to be relevant. Suppose for illustration that ρ = 2, ψ 1−ρ = 1.01, Γ1−ρ = 1.01−1
-and ℘ = 0.10. In that case (47) reduces to
+and ℘ = 0.10. In that case (45) reduces to
 β < 1 < (0.1β/R)1/2
 but since β < 1 by assumption, the binding requirement is that
 R < β/10
@@ -1349,7 +1335,7 @@ Thus, we can write
 c(m) <c(m) < c̄(m)
 1 <c(m)/c(m) < c̄(m)/c(m).
 
-(48)
+(46)
 
 But
 lim c̄(m)/c(m) = lim (m − 1 + h)/m
@@ -1438,8 +1424,8 @@ mt
 = (Rβ) = Þ
 
 
-(49)
-(50)
+(47)
+(48)
 
 because limmt ↑∞ a0 (m) = Þ R 31 and Γt+1 ξt+1 /mt ≤ (Γψ̄ θ̄/(1 − ℘))/mt which goes to zero
 as mt goes to infinity.
@@ -1492,7 +1478,7 @@ as m approaches infinity the constraint becomes irrelevant (assuming the FHWC ho
 3.2 Limits as mt ↓ 0
 
 Now consider the limits of behavior as mt gets arbitrarily small.
-Equation (41) shows that the limiting value of κ̄ is
+Equation (39) shows that the limiting value of κ̄ is
 κ̄ = 1 − R−1 (℘Rβ)1/ρ .
 
 Defining e(m) = c(m)/m as before we have
@@ -1565,7 +1551,7 @@ minimum possible value of expected next-period consumption is positive.32
 Define the target cash-on-hand-to-income ratio m̌ as the value of m such that
 Et [mt+1 /mt ] = 1 if mt = m̌.
 
-(51)
+(49)
 
 where the ∨ accent is meant to invoke the fact that this is the value that other m’s
 ‘point to.’
@@ -1593,7 +1579,7 @@ mt
 Þ/Γt+1 ]
 = Et [Þ
 <1
-where the last line is guaranteed by our imposition of the GIC (34).
+where the last line is guaranteed by our imposition of the GIC (32).
 Stability means that in a local neighborhood of m̌, values of mt above m̌ will result
 in a smaller ratio of Et [mt+1 /mt ] than at m̌. That is, if mt > m̌ then Et [mt+1 /mt ] < 1.
 This will be true if
@@ -1624,7 +1610,7 @@ the numerator,
 ζ (mt ) = Et [Rt+1 ](c(mt ) − c0 (mt )mt ) − 1.
 | {z }
 
-(52)
+(50)
 
 ≡R̄
 
@@ -1632,9 +1618,9 @@ The target level of market resources is the m such that if mt = m̌ then Et [mt+
 Et [mt+1 ] = Et [Rt+1 (mt − ct ) + ξt+1 ]
 m̌ = R̄(m̌ − c(m̌)) + 1
 R̄c(m̌) = 1 + (R̄ − 1)m̌.
-At the target, equation (52) is
+At the target, equation (50) is
 ζ (m̌) = R̄c(m̌) − R̄c0 (m̌)m̌ − 1.
-Substituting for the first term in this expression using (53) gives
+Substituting for the first term in this expression using (51) gives
 ζ (m̌) = 1 + (R̄ − 1)m̌ − R̄c0 (m̌)m̌ − 1
 
 = m̌ R̄ − 1 − R̄c0 (m̌)
@@ -1646,7 +1632,7 @@ Substituting for the first term in this expression using (53) gives
 
 27
 
-(53)
+(51)
 
 
 ÞR − 1
@@ -1660,14 +1646,14 @@ Substituting for the first term in this expression using (53) gives
 Þ/Γt+1 ] −1
 = m̌ Et [Þ
 | {z }
-<1 from (34)
+<1 from (32)
 
 <0
 where the step introducing the inequality imposes the fact that c0 > Þ R which is an
 implication of the concavity of the consumption function.
 We have now proven that some target m̌ must exist, and that at any such m̌ the
 solution is stable. Nothing so far, however, rules out the possibility that there will be
-multiple values of m that satisfy the definition (51) of a target.
+multiple values of m that satisfy the definition (49) of a target.
 Multiple targets can be ruled out as follows. Suppose there exist multiple targets;
 these can be arranged in ascending order and indexed by an integer superscript, so that
 the target with the smallest value is, e.g., m̌1 . The argument just completed implies that
@@ -1684,10 +1670,10 @@ as mt → m̌2 implies that
 
 d
 Et [mt+1 /mt ] > 0
-(54)
+(52)
 dmt
 at mt = m̌2 . However, we just showed above that, under our assumption that the
-GIC holds, precisely the opposite of equation (54) must hold for any m that satisfies the
+GIC holds, precisely the opposite of equation (52) must hold for any m that satisfies the
 definition of a target. Thus, assuming the existence of more than one target implies a
 contradiction.
 The foregoing arguments rely on the continuous differentiability of c(m), so the
@@ -1741,7 +1727,7 @@ c(m̌)
 
  0
 c (m̌) 
-Et [Γt+1 ] Et [mt+1 − m̌] +covt (Γt+1 , mt+1 ) (55)
+Et [Γt+1 ] Et [mt+1 − m̌] +covt (Γt+1 , mt+1 ) (53)
 =Γ+
 |
 {z
@@ -1750,7 +1736,7 @@ c(m̌)
 =0
 
 and since mt+1 = (R/Γt+1 )a(m̌) + ξt+1 and a(m̌) > 0 it is clear that covt (Γt+1 , mt+1 ) < 0
-which implies that the entire term added to Γ in (55) is negative, as required.
+which implies that the entire term added to Γ in (53) is negative, as required.
 
 3.5 Expected Consumption Growth Is a Declining Function of mt (or Is
 It?)
@@ -1773,17 +1759,17 @@ Et Γt+1
 < 0.
 c(mt )2
 
-(56)
+(54)
 
 Henceforth indicating appropriate arguments by the corresponding subscript (e.g.
-c0t+1 ≡ c0 (mt+1 )), since Γt+1 Rt+1 = R, the portion of the LHS of equation (56) in
+c0t+1 ≡ c0 (mt+1 )), since Γt+1 Rt+1 = R, the portion of the LHS of equation (54) in
 brackets can be manipulated to yield
 ctΥ 0t+1 = c0t+1 a0t R − c0t Γt+1 ct+1 /ct
 = c0t+1 a0t R − c0tΥ t+1 .
 
 29
 
-(57)
+(55)
 
 Now differentiate the Euler equation with respect to mt :
 Υ−ρ
@@ -1808,15 +1794,15 @@ Et [Υ
 t+1 ]
 t+1 , Υ t+1 )/ Et [Υ
 
-(58)
+(56)
 
-but since Υt+1 > 0 we can see from (58) that (56) is equivalent to
+but since Υt+1 > 0 we can see from (56) that (54) is equivalent to
 0
 Υ−ρ−1
 covt (Υ
 t+1 , Υ t+1 ) > 0
 
-which, using (57), will be true if
+which, using (55), will be true if
 0
 0
 0
