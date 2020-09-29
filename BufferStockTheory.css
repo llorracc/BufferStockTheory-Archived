@@ -24,8 +24,6 @@
 .ecti-1200{ font-style: italic;}
 .ecti-1200{ font-style: italic;}
 .ecti-1200{ font-style: italic;}
-.ecti-1200{ font-style: italic;}
-.ecbx-1200{ font-weight: bold;}
 .ecbx-1200{ font-weight: bold;}
 .ecbx-1200{ font-weight: bold;}
 .ecbx-1200{ font-weight: bold;}
@@ -42,30 +40,8 @@
 .ecbx-1200{ font-weight: bold;}
 .ecbx-1200{ font-weight: bold;}
 .ecrm-0600{font-size:50%;}
-.ecrm-2074{font-size:166%;}
-.ecbx-2074{font-size:166%; font-weight: bold;}
-.ecbx-2074{ font-weight: bold;}
-.ecbx-2074{ font-weight: bold;}
-.ecbx-2074{ font-weight: bold;}
-.ecbx-2074{ font-weight: bold;}
-.ecbx-2074{ font-weight: bold;}
-.ecbx-2074{ font-weight: bold;}
-.ecbx-2074{ font-weight: bold;}
-.ecbx-2074{ font-weight: bold;}
-.ecbx-2074{ font-weight: bold;}
-.ecbx-2074{ font-weight: bold;}
-.ecbx-2074{ font-weight: bold;}
-.ecbx-2074{ font-weight: bold;}
-.ecbx-2074{ font-weight: bold;}
-.ecbx-2074{ font-weight: bold;}
-.ecbx-2074{ font-weight: bold;}
-.ecrm-1440{font-size:116%;}
-.cmmi-12x-x-120{font-size:120%;font-style: italic;}
-.msbm-10{font-size:83%;}
-.wasy-10{font-size:83%;}
 .ecrm-1095{font-size:83%;}
 .ectt-1095{font-size:83%; font-family: monospace,monospace;}
-.ectt-1095{ font-family: monospace,monospace;}
 .ectt-1095{ font-family: monospace,monospace;}
 .ectt-1095{ font-family: monospace,monospace;}
 .ectt-1095{ font-family: monospace,monospace;}
@@ -103,9 +79,7 @@
 .ecti-1095{ font-style: italic;}
 .ecti-1095{ font-style: italic;}
 .ecti-1095{ font-style: italic;}
-.ecti-1095{ font-style: italic;}
 .ecit-1095{font-size:83%; font-style: italic; font-family: monospace,monospace;}
-.ecit-1095{ font-style: italic; font-family: monospace,monospace;}
 .ecit-1095{ font-style: italic; font-family: monospace,monospace;}
 .ecit-1095{ font-style: italic; font-family: monospace,monospace;}
 .ecit-1095{ font-style: italic; font-family: monospace,monospace;}
@@ -136,24 +110,25 @@
 .ectt-1000{ font-family: monospace,monospace;}
 .ectt-1000{ font-family: monospace,monospace;}
 .ectt-1000{ font-family: monospace,monospace;}
-.ectt-1000{ font-family: monospace,monospace;}
-.ectt-1200{ font-family: monospace,monospace;}
-.ectt-1200{ font-family: monospace,monospace;}
-.ectt-1200{ font-family: monospace,monospace;}
-.ectt-1200{ font-family: monospace,monospace;}
-.ectt-1200{ font-family: monospace,monospace;}
-.ectt-1200{ font-family: monospace,monospace;}
-.ectt-1200{ font-family: monospace,monospace;}
-.ectt-1200{ font-family: monospace,monospace;}
-.ectt-1200{ font-family: monospace,monospace;}
-.ectt-1200{ font-family: monospace,monospace;}
-.ectt-1200{ font-family: monospace,monospace;}
-.ectt-1200{ font-family: monospace,monospace;}
-.ectt-1200{ font-family: monospace,monospace;}
-.ectt-1200{ font-family: monospace,monospace;}
-.ectt-1200{ font-family: monospace,monospace;}
-.ectt-1200{ font-family: monospace,monospace;}
+.msbm-10{font-size:83%;}
+.wasy-10{font-size:83%;}
+.ecbx-1000{font-size:83%; font-weight: bold;}
+.ecbx-1000{ font-weight: bold;}
+.ecbx-1000{ font-weight: bold;}
+.ecbx-1000{ font-weight: bold;}
+.ecbx-1000{ font-weight: bold;}
+.ecbx-1000{ font-weight: bold;}
+.ecbx-1000{ font-weight: bold;}
+.ecbx-1000{ font-weight: bold;}
+.ecbx-1000{ font-weight: bold;}
+.ecbx-1000{ font-weight: bold;}
+.ecbx-1000{ font-weight: bold;}
+.ecbx-1000{ font-weight: bold;}
+.ecbx-1000{ font-weight: bold;}
+.ecbx-1000{ font-weight: bold;}
+.ecbx-1000{ font-weight: bold;}
 .cmmi-12{font-style: italic;}
+.ecrm-1440{font-size:116%;}
 .cmbx-12{ font-weight: bold;}
 .cmbx-12{ font-weight: bold;}
 .cmbx-12{ font-weight: bold;}
@@ -205,9 +180,9 @@
 .ecti-1000{ font-style: italic;}
 .ecti-1000{ font-style: italic;}
 .ecti-1000{ font-style: italic;}
-.ecti-1000{ font-style: italic;}
+.cmmi-12x-x-120{font-size:120%;font-style: italic;}
+.ecrm-2074{font-size:166%;}
 .eufm-10x-x-80{font-size:66%;}
-.small-caps{font-variant: small-caps; }
 p{margin-top:0;margin-bottom:0}
 p.indent{text-indent:0;}
 p + p{margin-top:1em;}
