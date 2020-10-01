@@ -10,15 +10,19 @@
 % The "appropriate sequence" is instantiated in the "reproduce_text.sh" file
 % which has been tested on a Docker image with Ubuntu Linux installed
 % See: 
+%% 2019-11-15: Final version for QE - make appendix a separate doc
+%% 2019-10-19: Final version for QE?
+%% 2019-10-05: Final tweaks for JHU class
+%% 2019-02-20: Small tweaks in response to feedback from Qingyin 
+%% 2019-02-16: Revision for QE resubmission
+%% 2018-10-20: Revise to allow use of either Mathematica or HARK figures (to use Mma figs, comment out the second \FigsRaw
+%% Modified on 2012/04/21 to fix typo found by Patrick Toche
+%% Modified by CDC to incorporate edits and insights from Jiaxiong Yao, 2012-08-31
 \input{./econtexRoot}\input{\econtexRoot/LaTeX/econtexPaths} % Some setup 
 \documentclass[titlepage]{\econtex} % defined in ./texmf-local
 \providecommand{\texname}{BufferStockTheory}% Indicate the keyname for the paper
 
-
-\tracingifs=2
-
 \usepackage{\LaTeXFiles/BufferStockTheory}
-%\usepackage{tikz}\usetikzlibrary{cd}
 
 \begin{document}
 
@@ -29,14 +33,9 @@
 \renewcommand{\notinsubfile}[1]{#1}
 
 \subfile{BufferStockTheory-NoAppendix}
-
-
 \hypertarget{Appendices}{}
-
-
 \appendix \centerline{\LARGE Appendices}\vspace{0.2in}
 \subfile{\ApndxDir/ApndxLiqConstr}
-
 \subfile{\ApndxDir/ApndxConcaveCFunc}
 \subfile{\ApndxDir/ApndxEuclidian}
 \subfile{\ApndxDir/ApndxCGroIsPGro}
@@ -45,7 +44,6 @@
 \subfile{\ApndxDir/ApndxSolnMethEndogGpts}
 \subfile{\ApndxDir/ApndxSolnMethTermFunc}
 \subfile{\ApndxDir/ApndxConditionDiagrams}
-
 
 \clearpage\vfill\eject
 
@@ -61,12 +59,11 @@
 % eval: (add-to-list 'TeX-command-list	'("BibTeX" "%(bibtex) LaTeX/%s" TeX-run-BibTeX nil t :help "Run BibTeX") t)
 % TeX-PDF-mode: t
 % TeX-file-line-error: t
-% TeX-debug-warnings: f
+% TeX-debug-warnings: t
 % LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=LaTeX %S%(PDFout)"))
 % TeX-source-correlate-mode: t
 % TeX-source-correlate-start-server: 0
 % TeX-parse-self: t
+% TeX-view-program-list: (("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n LaTeX/%o %b"))
+%  eval: (cond ((string-equal system-type "darwin") (progn (setq 'TeX-view-program-list '(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n LaTeX/%o %b"))))))
 % End:
-
-
-
