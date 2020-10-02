@@ -1,7 +1,212 @@
  
 /* start css.sty */
+.cmex-10{font-size:83%;}
+.line-10{font-size:83%;}
+.cmr-7{font-size:58%;}
+.cmr-10{font-size:83%;}
+.cmmi-5{font-size:41%;font-style: italic;}
+.cmmi-7{font-size:58%;font-style: italic;}
+.cmmi-10{font-size:83%;font-style: italic;}
+.cmsy-7{font-size:58%;}
+.cmsy-10{font-size:83%;}
 .ecti-1200{ font-style: italic;}
 .ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecrm-0600{font-size:50%;}
+.ecrm-2074{font-size:166%;}
+.ecbx-2074{font-size:166%; font-weight: bold;}
+.ecbx-2074{ font-weight: bold;}
+.ecbx-2074{ font-weight: bold;}
+.ecbx-2074{ font-weight: bold;}
+.ecbx-2074{ font-weight: bold;}
+.ecbx-2074{ font-weight: bold;}
+.ecbx-2074{ font-weight: bold;}
+.ecbx-2074{ font-weight: bold;}
+.ecbx-2074{ font-weight: bold;}
+.ecbx-2074{ font-weight: bold;}
+.ecbx-2074{ font-weight: bold;}
+.ecbx-2074{ font-weight: bold;}
+.ecbx-2074{ font-weight: bold;}
+.ecbx-2074{ font-weight: bold;}
+.ecbx-2074{ font-weight: bold;}
+.ecbx-2074{ font-weight: bold;}
+.ecrm-1440{font-size:116%;}
+.cmmi-12x-x-120{font-size:120%;font-style: italic;}
+.msbm-10{font-size:83%;}
+.wasy-10{font-size:83%;}
+.ecrm-1095{font-size:83%;}
+.ectt-1095{font-size:83%; font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.cmr-8{font-size:66%;}
+.cmr-6{font-size:50%;}
+.cmmi-8{font-size:66%;font-style: italic;}
+.cmmi-6{font-size:50%;font-style: italic;}
+.cmsy-8{font-size:66%;}
+.cmsy-6{font-size:50%;}
+.msbm-10x-x-80{font-size:66%;}
+.wasy-8{font-size:66%;}
+.ecti-1095{font-size:83%; font-style: italic;}
+.ecti-1095{ font-style: italic;}
+.ecti-1095{ font-style: italic;}
+.ecti-1095{ font-style: italic;}
+.ecti-1095{ font-style: italic;}
+.ecti-1095{ font-style: italic;}
+.ecti-1095{ font-style: italic;}
+.ecti-1095{ font-style: italic;}
+.ecti-1095{ font-style: italic;}
+.ecti-1095{ font-style: italic;}
+.ecti-1095{ font-style: italic;}
+.ecti-1095{ font-style: italic;}
+.ecti-1095{ font-style: italic;}
+.ecti-1095{ font-style: italic;}
+.ecti-1095{ font-style: italic;}
+.ecti-1095{ font-style: italic;}
+.ecit-1095{font-size:83%; font-style: italic; font-family: monospace,monospace;}
+.ecit-1095{ font-style: italic; font-family: monospace,monospace;}
+.ecit-1095{ font-style: italic; font-family: monospace,monospace;}
+.ecit-1095{ font-style: italic; font-family: monospace,monospace;}
+.ecit-1095{ font-style: italic; font-family: monospace,monospace;}
+.ecit-1095{ font-style: italic; font-family: monospace,monospace;}
+.ecit-1095{ font-style: italic; font-family: monospace,monospace;}
+.ecit-1095{ font-style: italic; font-family: monospace,monospace;}
+.ecit-1095{ font-style: italic; font-family: monospace,monospace;}
+.ecit-1095{ font-style: italic; font-family: monospace,monospace;}
+.ecit-1095{ font-style: italic; font-family: monospace,monospace;}
+.ecit-1095{ font-style: italic; font-family: monospace,monospace;}
+.ecit-1095{ font-style: italic; font-family: monospace,monospace;}
+.ecit-1095{ font-style: italic; font-family: monospace,monospace;}
+.ecit-1095{ font-style: italic; font-family: monospace,monospace;}
+.ecit-1095{ font-style: italic; font-family: monospace,monospace;}
+.ecrm-1000{font-size:83%;}
+.ectt-1000{font-size:83%; font-family: monospace,monospace;}
+.ectt-1000{ font-family: monospace,monospace;}
+.ectt-1000{ font-family: monospace,monospace;}
+.ectt-1000{ font-family: monospace,monospace;}
+.ectt-1000{ font-family: monospace,monospace;}
+.ectt-1000{ font-family: monospace,monospace;}
+.ectt-1000{ font-family: monospace,monospace;}
+.ectt-1000{ font-family: monospace,monospace;}
+.ectt-1000{ font-family: monospace,monospace;}
+.ectt-1000{ font-family: monospace,monospace;}
+.ectt-1000{ font-family: monospace,monospace;}
+.ectt-1000{ font-family: monospace,monospace;}
+.ectt-1000{ font-family: monospace,monospace;}
+.ectt-1000{ font-family: monospace,monospace;}
+.ectt-1000{ font-family: monospace,monospace;}
+.ectt-1000{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.cmmi-12{font-style: italic;}
+.cmbx-12{ font-weight: bold;}
+.cmbx-12{ font-weight: bold;}
+.cmbx-12{ font-weight: bold;}
+.cmbx-8{font-size:66%; font-weight: bold;}
+.cmbx-8{ font-weight: bold;}
+.cmbx-8{ font-weight: bold;}
+.cmbx-10{font-size:83%; font-weight: bold;}
+.cmbx-10{ font-weight: bold;}
+.cmbx-10{ font-weight: bold;}
+.cmss-12{  font-family: sans-serif;}
+.cmss-12{  font-family: sans-serif;}
+.cmss-12{  font-family: sans-serif;}
+.cmss-12{  font-family: sans-serif;}
+.cmss-12{  font-family: sans-serif;}
+.cmss-8{font-size:66%;  font-family: sans-serif;}
+.cmss-8{  font-family: sans-serif;}
+.cmss-8{  font-family: sans-serif;}
+.cmss-8{  font-family: sans-serif;}
+.cmss-8{  font-family: sans-serif;}
+.cmss-8x-x-75{font-size:50%;  font-family: sans-serif;}
+.cmss-8x-x-75{  font-family: sans-serif;}
+.cmss-8x-x-75{  font-family: sans-serif;}
+.cmss-8x-x-75{  font-family: sans-serif;}
+.cmss-8x-x-75{  font-family: sans-serif;}
+.cmss-10{font-size:83%;  font-family: sans-serif;}
+.cmss-10{  font-family: sans-serif;}
+.cmss-10{  font-family: sans-serif;}
+.cmss-10{  font-family: sans-serif;}
+.cmss-10{  font-family: sans-serif;}
+.cmss-8x-x-87{font-size:58%;  font-family: sans-serif;}
+.cmss-8x-x-87{  font-family: sans-serif;}
+.cmss-8x-x-87{  font-family: sans-serif;}
+.cmss-8x-x-87{  font-family: sans-serif;}
+.cmss-8x-x-87{  font-family: sans-serif;}
+.ecrm-0800{font-size:66%;}
+.eusm-10{font-size:83%;}
+.ecti-1000{font-size:83%; font-style: italic;}
+.ecti-1000{ font-style: italic;}
+.ecti-1000{ font-style: italic;}
+.ecti-1000{ font-style: italic;}
+.ecti-1000{ font-style: italic;}
+.ecti-1000{ font-style: italic;}
+.ecti-1000{ font-style: italic;}
+.ecti-1000{ font-style: italic;}
+.ecti-1000{ font-style: italic;}
+.ecti-1000{ font-style: italic;}
+.ecti-1000{ font-style: italic;}
+.ecti-1000{ font-style: italic;}
+.ecti-1000{ font-style: italic;}
+.ecti-1000{ font-style: italic;}
+.ecti-1000{ font-style: italic;}
+.ecti-1000{ font-style: italic;}
+.eufm-10x-x-80{font-size:66%;}
 .small-caps{font-variant: small-caps; }
 p{margin-top:0;margin-bottom:0}
 p.indent{text-indent:0;}
@@ -158,9 +363,9 @@ span.underaccent span.accent{font-size:80%; position:relative; top:1.6ex; left:-
 span.sout {text-decoration: line-through }
 span.xout {text-decoration: line-through }
 span.uwave {text-decoration:underline }
-.underline-d{ border-bottom: 3px double black; margin-bottom:1pt; }
 .rotatebox{display: inline-block;}
 .figure img.graphics {margin-left:10%;}
+.underline-d{ border-bottom: 3px double black; margin-bottom:1pt; }
 .subfigcaption {margin-top:1em; margin-left:1em; text-align:center;}
 div.subfigure {text-align:center;display:inline-block;}
 div.caption {text-align:left;font-size:83%;text-indent:0em; margin-left:2em; margin-right:2em; }

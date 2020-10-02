@@ -50,7 +50,7 @@ shown to be a consequence of (
 PF-GIC
 and RIC). In this case, the consumer’s optimal
 behavior is easy to describe. We can calculate the point at which the unconstrained
-consumer would choose c = m from equation (21):
+consumer would choose c = m from equation (??):
 m# = (m# − 1 + h)κ
 m# (1 − κ) = (h − 1)κ
 
@@ -440,6 +440,8 @@ zero.
 
 8
 
+
+
 
 
  and 
@@ -449,10 +451,13 @@ RIC
 
 
 References
+Ma, Qingyin, and Alexis Akira Toda (2020): “Asymptotic Marginal Propensity
+to Consume,” Manuscript, Australian National University.
+Stachurski, John, and Alexis Akira Toda (2019): “An Impossibility Theorem
+for Wealth in Heterogeneous-agent Models with Limited Heterogeneity,” Journal of
+Economic Theory, 182, 1–24.
 
 6
-
-
 
 Table 1 Taxonomy of Perfect Foresight Liquidity Constrained Model Outcomes
 For constrained c̀ and unconstrained c̄ consumption functions

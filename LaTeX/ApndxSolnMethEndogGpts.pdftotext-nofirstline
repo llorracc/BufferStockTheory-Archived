@@ -45,11 +45,16 @@ cm = ca /(1 + ca )
 and we call the vector of MPC’s at the m
 ~ t gridpoints ~κt .
 
-References
-
 1
 
 The software can also solve a version of the model with explicit liquidity constraints, where the
 Envelope condition does not hold.
+
+References
+Carroll, Christopher D. (2006): “The Method of Endogenous Gridpoints for
+Solving Dynamic Stochastic Optimization Problems,” Economics Letters, 91(3), 312–
+320, http://econ.jhu.edu/people/ccarroll/EndogenousGridpoints.pdf.
+
+2
 
 
