@@ -50,7 +50,7 @@ shown to be a consequence of (
 PF-GIC
 and RIC). In this case, the consumer’s optimal
 behavior is easy to describe. We can calculate the point at which the unconstrained
-consumer would choose c = m from equation (21):
+consumer would choose c = m from equation (??):
 m# = (m# − 1 + h)κ
 m# (1 − κ) = (h − 1)κ
 
@@ -75,8 +75,8 @@ limiting function is c̀(m) = min[m, 1].
 consumer would choose to consume more than m; for such m, the constrained consumer
 is obliged to choose c̀(m) = m.4 For any m > m# the constraint will never bind and the
 consumer will choose to spend the same amount as the unconstrained consumer, c̄(m).
-(Stachurski and Toda (2019) obtain a similar lower bound on consumption and use it
-to study the tail behavior of the wealth distribution.)
+(? obtain a similar lower bound on consumption and use it to study the tail behavior
+of the wealth distribution.)
 
 1.2 If PF-GIC Holds
 Imposition of the PF-GIC reverses the inequality in (3), and thus reverses the conclusion:
@@ -417,10 +417,10 @@ foresight case is zero, it is not possible for the upper bound in the model with
 to be greater than zero, because for any κ > 0 the level of consumption in the model
 with uncertainty would eventually exceed the level of consumption in the absence of
 uncertainty.
-Ma and Toda (2020) characterize the limits of MPC in a more general framework that
-allows for non-CRRA utility as well as capital and labor income risks in a Markovian
-setting, and find that in that much more general framework the limiting MPC is also
-zero.
+? characterize the limits of MPC in a more general framework that allows for nonCRRA utility as well as capital and labor income risks in a Markovian setting, and find
+that in that much more general framework the limiting MPC is also zero.
+
+References
 
 5
 
@@ -440,6 +440,8 @@ zero.
 
 8
 
+
+
 
 
  and 
@@ -448,13 +450,7 @@ FHWC
 RIC
 
 
-References
-
-6
-
-
-
-Table 1 Taxonomy of Perfect Foresight Liquidity Constrained Model Outcomes
+Table 1 Taxonomy of Perfect Foresight Liquidity Constrained Model Outcomes
 For constrained c̀ and unconstrained c̄ consumption functions
 Main Condition
 Subcondition
@@ -465,17 +461,15 @@ Outcome, Comments or Results
 (
 (
 (
-Þ
 PF-GIC
-1<
-/Γ Constraint never binds for m ≥ 1
+1 < Þ /Γ Constraint never binds for m ≥ 1
 and RIC
 Þ /R < 1
 FHWC holds (R > Γ); c̀(m) = c̄(m) for m ≥ 1
 
 
-
-and RIC
+and 
+RIC
 1 < Þ /R
 c̀(m) is degenerate: c̀(m) = 0
 PF-GIC
@@ -489,11 +483,9 @@ limm↑∞ c̄(m) − c̀(m) = 0
 limm↑∞ κ̀
 
 
-
-
-
-
-and RIC
+
+and 
+RIC
 1 < Þ /R 
 FHWC
 κ(m) = 0
@@ -505,6 +497,6 @@ PF-GIC
 consumption function is degenerate; the next row indicates that whenever the PF-GIC holds, the constraint will
 bind in finite time.
 
-7
+6
 
 

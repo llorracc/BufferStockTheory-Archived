@@ -1,7 +1,7 @@
-\input{./econtexRoot}\documentclass[\econtexRoot/BufferStockTheory.tex]{subfiles}
+\input{./econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
 \input{./econtexRoot}\input{\ApndxDir/onlyinsubfile}
 
-\onlyinsubfile{\externaldocument{BufferStockTheory}} % Get xrefs -- esp to appendix -- from main file; only works properly if main file has already been compiled;
+\onlyinsubfile{\externaldocument{\econtexRoot/BufferStockTheory}} % Get xrefs -- esp to appendix -- from main file; only works properly if main file has already been compiled;
 \begin{document}
 
 \section{Existence of a Concave Consumption Function}\label{sec:ApndxcExists}
@@ -49,25 +49,25 @@ $\mathfrak{v}_{t}(a) $ is well-defined iff $\aRat>0$; it is similarly
 straightforward to show the other properties required for $\mathfrak{v}_{t}(a) $ to
 be nice.  (See Hiraguchi~\citeyearpar{hiraguchiBSProofs}.)
 
-Next define $\underline{\vFunc}_{t}(\mRat,\cRat)$ as
+Next define $\ushort{\vFunc}_{t}(\mRat,\cRat)$ as
 \begin{equation}
-\underline{\vFunc}_{t}(\mRat,\cRat)=\uFunc(c)+\mathfrak{v}_{t}(\mRat-c)
+\ushort{\vFunc}_{t}(\mRat,\cRat)=\uFunc(c)+\mathfrak{v}_{t}(\mRat-c)
 \end{equation}
 which is $\mathbf{C}^{3}$ since $\mathfrak{v}_{t}$ and $\uFunc$ are both
 $\mathbf{C}^{3},$ and note that our problem's value function defined
 in \eqref{\localorexternallabel{eq:veqn}} can be written as
 \begin{align}
-\vFunc_{t}(\mRat)  & =  \max_{\cRat}~\underline{\vFunc}_{t}(\mRat,\cRat).
+\vFunc_{t}(\mRat)  & =  \max_{\cRat}~\ushort{\vFunc}_{t}(\mRat,\cRat).
 \end{align}
 
-$\underline{\vFunc}_{t}$ is well-defined if and only if $0<c<m$.  Furthermore,
+$\ushort{\vFunc}_{t}$ is well-defined if and only if $0<c<m$.  Furthermore,
 $\lim_{c \downarrow
-  0}\underline{\vFunc}_{t}(\mRat,\cRat)=\lim_{c\uparrow m} \underline{\vFunc}_{t}(\mRat,\cRat)=-\infty $, $\frac{\partial ^{2}\underline{\vFunc}_{t}(\mRat,\cRat)}{\partial c^{2}}%
-<0$, $\lim_{c \downarrow 0}\frac{\partial \underline{\vFunc}_{t}(\mRat,\cRat)}{\partial c}%
-=+\infty $, and $\lim_{c\uparrow m} \frac{\partial \underline{\vFunc}_{t}(\mRat,\cRat)}{%
+  0}\ushort{\vFunc}_{t}(\mRat,\cRat)=\lim_{c\uparrow m} \ushort{\vFunc}_{t}(\mRat,\cRat)=-\infty $, $\frac{\partial ^{2}\ushort{\vFunc}_{t}(\mRat,\cRat)}{\partial c^{2}}%
+<0$, $\lim_{c \downarrow 0}\frac{\partial \ushort{\vFunc}_{t}(\mRat,\cRat)}{\partial c}%
+=+\infty $, and $\lim_{c\uparrow m} \frac{\partial \ushort{\vFunc}_{t}(\mRat,\cRat)}{%
 \partial c}=-\infty $. It follows that the $\cFunc_{t}(\mRat)$ defined by
 \begin{align}
-\cFunc_{t}(\mRat)  & = \underset{0<c<m}{\arg \max }~\underline{\vFunc}_{t}(\mRat,\cRat)
+\cFunc_{t}(\mRat)  & = \underset{0<c<m}{\arg \max }~\ushort{\vFunc}_{t}(\mRat,\cRat)
 \end{align}
 exists and is unique, and \eqref{\localorexternallabel{eq:veqn}} has an internal
 solution that satisfies
@@ -253,13 +253,13 @@ But since $\eta$ is an arbitrary constant that we can pick, the proof thus reduc
  ~~~ =  & \pNotZero\DiscFac\Ex_{t}\left[{\PGro}_{t+1}^{1-\CRRA}((1-\MaxMPC)\mRat_{t}\Rnorm_{t+1}+\tShkEmp_{t+1}/\pNotZero)^{1-\CRRA}\right]
  +\mRat_{t}^{1-\CRRA}\left(\underbrace{\pZero^{1/\CRRA}\frac{(\Rfree\DiscFac)^{1/\CRRA}}{\Rfree}}_{<1~\text{by
        \WRIC}}-1\right) \label{eq:WRICBites} \\
- ~~~< &\pNotZero\DiscFac\Ex_{t}\left[{\PGro}_{t+1}^{1-\CRRA}(\underline{\tShkEmp}/\pNotZero)^{1-\CRRA}\right]=\DiscAlt\pNotZero^{\CRRA}\underline{\tShkEmp}^{1-\CRRA} \notag
+ ~~~< &\pNotZero\DiscFac\Ex_{t}\left[{\PGro}_{t+1}^{1-\CRRA}(\ushort{\tShkEmp}/\pNotZero)^{1-\CRRA}\right]=\DiscAlt\pNotZero^{\CRRA}\ushort{\tShkEmp}^{1-\CRRA} \notag
  .
 \end{align}
 
 We can thus conclude that equation \eqref{\localorexternallabel{eq:KeyCondition}} will certainly hold for any:
 \begin{align}
- \eta>\underline{\eta}=\frac{\DiscAlt\pNotZero^{\CRRA}\underline{\tShkEmp}^{1-\CRRA}}{1-\DiscAlt}
+ \eta>\ushort{\eta}=\frac{\DiscAlt\pNotZero^{\CRRA}\ushort{\tShkEmp}^{1-\CRRA}}{1-\DiscAlt}
 \end{align}
 which is a positive finite number under our assumptions.
 
