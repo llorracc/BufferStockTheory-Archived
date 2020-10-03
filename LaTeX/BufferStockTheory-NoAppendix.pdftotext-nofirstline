@@ -1,4 +1,6 @@
 
+public-commit: 521d427
+
 Theoretical Foundations of
 Buffer Stock Saving
 September 29, 2020
@@ -65,7 +67,7 @@ floor or liquidity constraints) defines a contraction mapping with a nondegenera
 Another contribution is to specify the conditions under which the resulting consumption
 function implies there is a ‘target’ wealth-to-permanent-income ratio (so the model
 exhibits ‘buffer stock’ saving behavior.) The key requirement for existence of a target
-is that the model’s parameters satisfy a “Growth Impatience Condition” (equation (34))
+is that the model’s parameters satisfy a “Growth Impatience Condition” (equation (31))
 that relates preferences and uncertainty to the predictable growth rate of income.
 Even without a formal proof, target saving of this kind has been intuitively understood
 to underlie central numerical results from the heterogeneous agent macroeconomics
@@ -380,20 +382,17 @@ be smaller than the interest rate at which that income is being discounted.
 2.4.2 Unconstrained Solution
 The consumption Euler equation holds in every period; with u0 (c) = c−ρ , this says
 ct+1 /ct = (Rβ)1/ρ ≡ Þ
-
-(13)
-
-Þ < 1,
-
-(14)
-
-Þ R ≡ Þ /R
-
-(15)
-
 where the Old English letter ‘thorn’ represents what we will call the ‘absolute patience
 factor’ (Rβ)1/ρ .14 The sense in which Þ captures patience is that if the ‘absolute
 impatience condition’ (AIC) holds,
+Þ < 1,
+
+(13)
+
+Þ R ≡ Þ /R
+
+(14)
+
 the consumer will choose to spend an amount too large to sustain indefinitely (the level
 of consumption must fall over time). We call such a consumer ‘absolutely impatient’
 (this is the key condition in Bewley (1977)).
@@ -409,7 +408,7 @@ PDVt (c) = 1 + Þ R + Þ 2R + ... + Þ TR −t ct
 ct
 1 − ÞR
 
-(16)
+(15)
 
 from which the IBC (10) implies
 
@@ -425,7 +424,7 @@ ct =
 (bt + ht )
 1 − Þ TR −t+1
 
-(17)
+(16)
 
 which defines a normalized finite-horizon perfect foresight consumption function
 =bT −n
@@ -433,14 +432,10 @@ which defines a normalized finite-horizon perfect foresight consumption function
 z }| {
 c̄T −n (mT −n ) = (mT −n − 1 +hT −n )κT −n
 
-(18)
+(17)
 
 where κt is the marginal propensity to consume (MPC) because it answers the question
 ‘if the consumer had an extra unit of wealth, how much more would he spend.’ (The
-overbar on c reflects the fact that this will be an upper bound as we modify the problem
-to incorporate constraints and uncertainty; analogously, the underbar for κ indicates
-that it is a lower bound). Equation (17) makes plain that for the limiting MPC to be
-strictly positive as n = T − t goes to infinity we must impose the Return Impatience
 14 Impatience conditions of one kind or another have figured in intertemporal optimization problems since such problems
 were first formalized in economics, most notably by Ramsey (1928). Discussion of these issues was prominent in the
 literature of the 1960s and 1970s, and no brief citations here could do justice to the literature on the topic, so I refrain
@@ -448,32 +443,35 @@ from the attempt.
 
 8
 
-Condition: condition
-(19)
-
-Þ R < 1,
-
+overbar on c reflects the fact that this will be an upper bound as we modify the problem
+to incorporate constraints and uncertainty; analogously, the underbar for κ indicates
+that it is a lower bound). Equation (16) makes plain that for the limiting MPC to be
+strictly positive as n = T − t goes to infinity we must impose the Return Impatience
+Condition: condition
 so that
 
+(18)
+
+ÞR < 1,
 0 < κ ≡ 1 − Þ R = lim κT −n .
 
-(20)
+(19)
 
 c̄(m) = (m + h − 1)κ,
 
-(21)
+(20)
 
 vt = u(ct ) + βu(ctÞ ) + β 2 u(ctÞ 2 ) + ...
 
-(22)
+(21)
 
 n→∞
 
-Equation (19) thus imposes a second kind of ‘impatience:’ The consumer cannot be
+Equation (18) thus imposes a second kind of ‘impatience:’ The consumer cannot be
 so pathologically patient as to wish, in the limit as the horizon approaches infinity, to
 spend nothing today out of an increase in current wealth; that is, the condition rules
 out the degenerate limiting solution c̄(m) = 0. Because the return patience factor Þ R
-is the absolute patience factor divided by the return, we call equation (19) the ‘return
+is the absolute patience factor divided by the return, we call equation (18) the ‘return
 impatience condition’ or RIC; we will say that a consumer who satisfies the condition is
 ‘return impatient.’
 Given that the RIC holds, and defining limiting objects by the absence of a time
@@ -482,12 +480,17 @@ and we now see that in order to rule out the degenerate limiting solution c̄(m)
 need h to be finite so we must impose the finite human wealth condition (12).
 A final useful point is that since the perfect foresight growth factor for consumption
 is Þ , again using u(xy) = x1−ρ u(y), yields an analytical expression for value:
+1−ρ
+
+1−ρ 2
+
 
-Þ1−ρ + (βÞ
-Þ1−ρ )2 + ...
+Þ
+Þ ) + ...
 = u(ct ) 1 + βÞ
-
++ (βÞ
 
+
 Þ1−ρ )T −t+1
 1 − (βÞ
 = u(ct )
@@ -501,41 +504,41 @@ can be shown to be equivalent to the RIC.15 Thus, the same conditions that guara
 a nondegenerate limiting consumption function also guarantee a nondegenerate limiting
 value function (which will not be true in the version of the model that incorporates
 uncertainty).
-2.4.3 Constrained Solution
-If a liquidity constraint requiring b ≥ 0 is ever to be relevant, it must be relevant at
-the lowest possible level of market resources, mt = 1, which obtains for a consumer who
-enters period t with bt = 0. The constraint is ‘relevant’ if it prevents the choice that
 15
 
-β((Rβ)1/ρ )1−ρ < 1
 β(Rβ)1/ρ /Rβ < 1
 (Rβ)1/ρ /R < 1
+
 .
 
 9
 
-would otherwise be optimal; at mt = 1 the constraint is relevant if the marginal utility
+2.4.3 Constrained Solution
+If a liquidity constraint requiring b ≥ 0 is ever to be relevant, it must be relevant at
+the lowest possible level of market resources, mt = 1, which obtains for a consumer who
+enters period t with bt = 0. The constraint is ‘relevant’ if it prevents the choice that
+would otherwise be optimal; at mt = 1 the constraint is relevant if the marginal utility
 from spending all of today’s resources ct = mt = 1, exceeds the marginal utility from
 doing the same thing next period, ct+1 = 1; that is, if such choices would violate the
 Euler equation (8):
 1−ρ > Rβ(Γ)−ρ 1−ρ .
 
-(23)
+(22)
 
 By analogy to the return patience factor, we therefore define a ‘perfect foresight growth
 patience factor’ as
 Þ Γ = Þ /Γ,
 
-(24)
+(23)
 
 ÞΓ < 1
 
-(25)
+(24)
 
 and define a ‘perfect foresight growth impatience condition’ (PF-GIC)
-which is equivalent to (23) (exponentiate both sides by 1/ρ).
+which is equivalent to (22) (exponentiate both sides by 1/ρ).
 If the RIC and the FHWC hold, appendix A shows that, for some 0 < m# < 1,
-an unconstrained consumer behaving according to (21) would choose c < m for all
+an unconstrained consumer behaving according to (20) would choose c < m for all
 m > m# . The solution to the constrained consumer’s problem in this case is simple:
 For any m ≥ m# the constraint does not bind (and will never bind in the future) and
 so the constrained consumption function is identical to the unconstrained one. If the
@@ -546,7 +549,7 @@ limiting constrained consumption function:
 m
 if m < m#
 c̊(m) =
-(26)
+(25)
 c̄(m) if m ≥ m# .
 
 More useful is the case where the perfect foresight growth and return impatience
@@ -565,31 +568,25 @@ exists because the constraint prevents the consumer from borrowing against infin
 human wealth to finance infinite current consumption. Under these circumstances, the
 consumer who starts with any amount of resources bt > 1 will, over time, run those
 resources down so that by some finite number of periods n in the future the consumer
-will reach bt+n = 0, and thereafter will set c = m = 1 for eternity, a policy that will
-(using (22)) yield value of
-
-vt+n = u(pt+n ) 1 + βΓ1−ρ + (βΓ1−ρ )2 + ...
-
 16 “Somehow”
 
 because m < 1 could only be obtained by entering the period with b < 0 which the constraint forbids.
 
 10
 
-n(1−ρ)
-
-=Γ
-
-
-u(pt )
-
-which will be finite whenever
-
-1 − (βΓ1−ρ )T −(t+n)+1
-1 − βΓ1−ρ
-
+will reach bt+n = 0, and thereafter will set c = m = 1 for eternity, a policy that will
+(using (21)) yield value of
+
+vt+n = u(pt+n ) 1 + βΓ1−ρ + (βΓ1−ρ )2 + ...
 
+
+1 − (βΓ1−ρ )T −(t+n)+1
+n(1−ρ)
 ,
+=Γ
+u(pt )
+1 − βΓ1−ρ
+which will be finite whenever
 
 ≡i
 
@@ -597,7 +594,7 @@ z }| {
 βΓ1−ρ < 1
 βRΓ−ρ < R/Γ
 
-(27)
+(26)
 
 Þ Γ < (R/Γ)1/ρ
 
@@ -605,7 +602,7 @@ which we call the Perfect Foresight Finite Value of Autarky Condition, PF-FVAC,
 because it guarantees that a consumer who always spends all his permanent income
 will have finite value (the consumer has ‘finite autarky value’). Note that the version of
  (R < Γ) holds. So,
-the PF-FVAC in (27) implies the PF-GIC Þ Γ < 1 whenever 
+the PF-FVAC in (26) implies the PF-GIC ÞΓ < 1 whenever 
 FHWC
  value for any finite m will be the sum of two finite numbers: The component
 if 
@@ -638,72 +635,56 @@ to the model with constraints but without uncertainty.
 
 2.5 Uncertainty-Modified Conditions
 2.5.1 Impatience
-ψ̄
-Now define ≡ ψ −1 and = Et [ t+1 ].
 When uncertainty is introduced, the expectation of bt+1 can be rewritten as:
-ψ
-
 −1
 Et [bt+1 ] = at Et [Rt+1 ] = at R Et [ψt+1
 ]
-ψ̄
-= at R Et [ t+1 ] = at R
-
-(28)
-(29)
-
-ψ
-
-ψ
-
-where Jensen’s inequality guarantees that the expectation of the inverse of the permanent
-shock is strictly greater than one. It will be convenient to define the object
-ψ ≡ (E[ψ −1 ])−1
-ψ̄
-≡ −1
 
 11
 
-because this permits us to write expressions like the RHS of (28) compactly as, e.g.,
+(27)
+
+where Jensen’s inequality guarantees that the expectation of the inverse of the permanent
+shock is strictly greater than one. It will be convenient to define the object
+ψ ≡ (E[ψ −1 ])−1
+
+because this permits us to write expressions like the RHS of (27) compactly as, e.g.,
 at R/ψ −1 .17 We refer to this as the ‘compensated return,’ because it compensates (in a
 risk-neutral way) for the effect of uncertainty on the expected growth-normalized return
-(in the sense implicitly defined in (28)).
-We can now transparently generalize the PF-GIC (25) by defining a ‘compensated
+(in the sense implicitly defined in (27)).
+We can now transparently generalize the PF-GIC (24) by defining a ‘compensated
 growth factor’
 Γ = Γψ
 
-(30)
+(28)
 
 and a compensated Growth Patience Pactor (GPF):
 Þ Γ = Þ /Γ
-ψ̄
-= ÞΓ
  
 Þ
 =E
 Γψ
 
-(31)
-(32)
-(33)
+(29)
+(30)
 
-and a straightforward derivation in (46) below yields the conclusion that
-lim Et [mt+1 /mt ] = Þ Γ ,
+and a straightforward derivation in (43) below yields the conclusion that
+lim Et [mt+1 /mt ] = ÞΓ ,
 
 mt →∞
 
 which implies that if we wish to prevent m from heading to infinity (that is, if we want
 m to be guaranteed to be expected to fall for some large enough value of m) we must
-impose a generalized version of the Perfect Foresight Growth Impatience Conditon (25)
+impose a generalized version of the Perfect Foresight Growth Impatience Conditon (24)
 which we call simply the ‘growth impatience condition’ (GIC):18
 ÞΓ < 1
 
-(34)
+(31)
 
-which is stronger than the perfect foresight version (25) because Γ < Γ (Jensen’s
+which is stronger than the perfect foresight version (24) because Γ < Γ (Jensen’s
 inequality implies that ψ < 1 for nondegenerate ψ).
 2.5.2 Autarky Value
-Analogously to (22), a consumer who spent his permanent income every period would
+Analogously to (21), a consumer who spent his permanent income every period would
 have value determined by the product of the expectation of the (independent) future
 shocks to permanent income:
 
@@ -721,20 +702,18 @@ t+1 ]... Et [ΓT ]
 1 − (βΓ1−ρ E[ψ 1−ρ ])T −t+1
 = u(pt )
 1 − βΓ1−ρ E[ψ 1−ρ ]
-
-which invites the definition of a utility-compensated equivalent of the permanent shock,
-ψ = (E[ψ 1−ρ ])1/(1−ρ)
-
 17 One way to think of ψ is as a particular kind of a ‘certainty equivalent’ of the shock; this captures the intuition that
 mean-one shock renders a given mean level of income less valuable than if the shock did not exist, so that ψ < 1.
 
-18 Equation (34) is a bit easier to satisfy than the similar condition imposed by Deaton (1991): E[ψ −ρ ] 1/ρ Þ < 1
+18 Equation (31) is a bit easier to satisfy than the similar condition imposed by Deaton (1991): E[ψ −ρ ] 1/ρ Þ < 1
 Γ
 to guarantee that his problem defined a contraction mapping.
 
 12
 
-which will satisfy ψ < 1 for ρ > 1 and nondegenerate ψ (and ψ < ψ for the preferred
+which invites the definition of a utility-compensated equivalent of the permanent shock,
+ψ = (E[ψ 1−ρ ])1/(1−ρ)
+which will satisfy ψ < 1 for ρ > 1 and nondegenerate ψ (and ψ < ψ for the preferred
 (though not required) case of ρ > 2); defining Γ = Γψ we can see that vt will be finite
 as T approaches ∞ if
 ≡i
@@ -742,14 +721,16 @@ as T approaches ∞ if
 z }| {
 βΓ1−ρ < 1
 
-(35)
+(32)
+ρ−1
 
-β < Γρ−1
+β<Γ
+
 which we call the ‘finite value of autarky’ condition (FVAC) because it guarantees that
 value is finite for a consumer who always consumes the (now stochastic) permanent
 income. For nondegenerate ψ, this condition is stronger (harder to satisfy in the sense
-of requiring lower β) than the perfect foresight version (27) because Γ < Γ.
-To see this, rewrite (35) as
+of requiring lower β) than the perfect foresight version (26) because Γ < Γ.
+To see this, rewrite (32) as
 βR < RΓρ−1
 (βR)1/ρ < R1/ρ Γ1−1/ρ ψ 1−1/ρ
 Þ Γ < (R/Γ)1/ρ ψ 1−1/ρ
@@ -767,16 +748,13 @@ purpose is to show that this appearance is not deceptive); we call the limiting 
 c(m) ≡ lim cT −n (m).
 n→∞
 
-(36)
+(33)
 
 2.7 Concave Consumption Function Characteristics
 A precondition for the main proof is that the maximization problem (7) defines a
 sequence of continuously differentiable strictly increasing strictly concave19 functions
 {cT , cT −1 , ...}.20 The straightforward but tedious proof is relegated to appendix B. For
 present purposes, the most important point is the following intuition: ct (m) < m for
-all periods t < T because a consumer who spent all available resources would arrive in
-period t + 1 with balances bt+1 of zero, and then might earn zero noncapital income over
-the remaining horizon (an unbroken series of zero-income events is unlikely but possible).
 19 There
 
 is one obvious exception: cT (m) is a linear (and so only weakly concave) function.
@@ -973,7 +951,10 @@ Figure 1 Convergence of the Consumption Rules
 
 15
 
-In such a case, the budget constraint and the can’t-die-in-debt condition mean that the
+all periods t < T because a consumer who spent all available resources would arrive in
+period t + 1 with balances bt+1 of zero, and then might earn zero noncapital income over
+the remaining horizon (an unbroken series of zero-income events is unlikely but possible).
+In such a case, the budget constraint and the can’t-die-in-debt condition mean that the
 consumer would be forced to spend zero, incurring negative infinite utility. To avoid
 this disaster, the consumer never spends everything. (This is an example of the ‘natural
 borrowing constraint’ induced by a precautionary motive (Zeldes (1989)).)21
@@ -1003,32 +984,18 @@ for the (inverse of the) limiting MPC:
 κ−1
 t = 1 + Þ R κt+1 .
 
-(37)
+(34)
 
 2.8.1 WeakRICConditions
 It turns out that there is a parallel expression for the limiting maximal MPC as m ↓ 0:
-appendix equation (98) shows that, as mt ↑ ∞,
-Then κ̄−1
-T −n
-℘1/ρÞ R
-
-
-∞
-n=0
-
+appendix equation (95) shows that, as mt ↑ ∞,
 1/ρ
 κ̄−1
 Þ R κ̄−1
 t = 1+℘
 t+1 .
 
-(38)
-
-0 ≤℘1/ρÞ R < 1,
-
-(39)
-
-is a decreasing convergent sequence if the ‘weak return patience factor’
+(35)
 
 21 It would perhaps be better to call it the ‘utility-induced borrowing constraint’ as it follows from the assumptions on
 the utility function (in particular, limc↓0 u(c) = −∞); for example, no such constraint arises if utility is of the (implausible)
@@ -1036,17 +1003,30 @@ Constant Absolute Risk Aversion form.
 
 16
 
-a condition that we dub the ‘Weak Return Impatience Condition’ (WRIC) because with
+
+Then κ̄−1
+T −n
+℘1/ρÞ R
+
+∞
+n=0
+
+is a decreasing convergent sequence if the ‘weak return patience factor’
+0 ≤℘1/ρÞ R < 1,
+
+(36)
+
+κt mt ≤ct (mt ) ≤ κ̄t mt
+
+(37)
+
+a condition that we dub the ‘Weak Return Impatience Condition’ (WRIC) because with
 ÞR < 1).
 ℘ < 1 it will hold more easily (for a larger set of parameter values) than the RIC (Þ
 The essence of the argument is that as wealth approaches zero, the overriding consideration that limits consumption is the (recursive) fear of the zero income events.
 (That consideration is why the probability of the zero income event ℘ appears in the
 expression.)
 We are now in position to observe that the optimal consumption function must satisfy
-κt mt ≤ct (mt ) ≤ κ̄t mt
-
-(40)
-
 because consumption starts at zero and is continuously differentiable (as argued above),
 is strictly concave (Carroll and Kimball (1996)), and always exhibits a slope between κt
 and κ̄t (the formal proof is provided in appendix D).
@@ -1071,23 +1051,26 @@ Alvarez and Stokey (1998) showed how to address the homogeneous case (of which
 CRRA formulation is an example) in a deterministic framework; Durán (2003) showed
 how to extend Boyd (1990) approach to the stochastic case.
 Definition 1. Consider any function • ∈ C(A, B) where C(A, B) is the space of continuous functions from A to B. Suppose z ∈ C(A, B) with B ⊆ R and z > 0. Then • is
-z-bounded if the z-norm of •,
-
-
-| • (m)|
-,
-(41)
-k • kz = sup
-z(m)
-m
-is finite.
 
 22 See Yao (2012) for a detailed discussion of the reasons the existing literature up through Matkowski and Nowak
 (2011) cannot handle the problem described here.
 
 17
 
-For Cz (A, B) defined as the set of functions in C(A, B) that are z-bounded; w, x, y,
+z-bounded if the z-norm of •,
+
+
+| • (m)|
+k • kz = sup
+,
+z(m)
+m
+
+
+(38)
+
+is finite.
+For Cz (A, B) defined as the set of functions in C(A, B) that are z-bounded; w, x, y,
 and z as examples of z-bounded functions; and using 0(m) = 0 to indicate the function
 that returns zero for any argument, Boyd (1990) proves the following.
 Boyd’s Weighted Contraction Mapping Theorem. Let T : Cz (A, B) → C (A, B)
@@ -1112,27 +1095,22 @@ ct ∈[κmt ,κ̄mt ]
 
 u(ct ) + β ({Ez}(mt − ct )) .
 
-(42)
+(39)
 
 We can show that our operator T satisfies the conditions that Boyd requires of his
 operator T, if we impose two restrictions on parameter values. The first restriction is
-the WRIC necessary for convergence of the maximal MPC, equation (39) above. A
+the WRIC necessary for convergence of the maximal MPC, equation (36) above. A
 more serious restriction is the utility-compensated Finite Value of Autarky condition,
-equation (35). (We discuss the interpretation of these restrictions in detail in section
+equation (32). (We discuss the interpretation of these restrictions in detail in section
 2.11 below.) Imposing these restrictions, we are now in position to state the central
 theorem of the paper.
-Theorem 1. T is a contraction mapping if the restrictions on parameter values (39)
-and (35) are true (that is, if the weak return impatience condition and the finite value
+Theorem 1. T is a contraction mapping if the restrictions on parameter values (36)
+and (32) are true (that is, if the weak return impatience condition and the finite value
 of autarky condition hold).
 Intuitively, Boyd’s theorem shows that if you can find a z that is everywhere finite but
 goes to infinity ‘as fast or faster’ than the function you are normalizing with z, the normalized problem defines a contraction mapping. The intuition for the FVAC condition
 is just that, with an infinite horizon, with any initial amount of bank balances b0 , in the
 limit your value can always be made greater than you would get by consuming all of your
-permanent income and nothing else every period (say, by consuming (r/RF ree)b0 − 
-for some small  > 0).
-The details of the proof are cumbersome, and are therefore relegated to appendix D.
-Given that the value function converges, appendix D.3 shows that the consumption
-functions converge.
 23 We
 
 will usually denote the function that results from the mapping as, e.g., {Tw}.
@@ -1146,7 +1124,13 @@ sum of continuous z-bounded functions z) and the compactness of [κmt , κ̄mt ]
 
 18
 
-2.10 The Liquidity Constrained Solution as a Limit
+permanent income and nothing else every period (say, by consuming (r/RF ree)b0 − 
+for some small  > 0).
+The details of the proof are cumbersome, and are therefore relegated to appendix D.
+Given that the value function converges, appendix D.3 shows that the consumption
+functions converge.
+
+2.10 The Liquidity Constrained Solution as a Limit
 This section shows that a related problem commonly considered in the literature (e.g.,
 with a simpler income process, by Deaton (1991)), with a liquidity constraint and a
 positive minimum value of income, is the limit of the problem considered here as the
@@ -1184,21 +1168,20 @@ R < (R/Γ)1/ρ Γψ 1−1/ρ
 R/Γ < (R/Γ)1/ρ ψ 1−1/ρ
 (R/Γ)1−1/ρ < ψ 1−1/ρ
 
-(43)
+19
 
-but since ψ < 1 and 0 < 1 − 1/ρ < 1 (because we have assumed ρ > 1), this
+(40)
+
+but since ψ < 1 and 0 < 1 − 1/ρ < 1 (because we have assumed ρ > 1), this
 can hold only if R/Γ < 1; that is, given the FVAC, the RIC can fail only if human
 wealth is unbounded. Unbounded human wealth is permitted here, as in the perfect
 
 
-foresight liquidity constrained problem. But, from equation (37), an implication of 
+foresight liquidity constrained problem. But, from equation (34), an implication of 
 RIC
 is that limm↑∞ c0 (m) = 0. Thus, interestingly, the presence of uncertainty both permits
 unlimited human wealth and at the same time prevents that unlimited wealth from
-
-19
-
-resulting in infinite consumption. That is, in the presence of uncertainty, pathological
+resulting in infinite consumption. That is, in the presence of uncertainty, pathological
 patience (which in the perfect foresight model with finite wealth results in consumption
 of zero) plus infinite human wealth (which the perfect foresight model rules out because
 it leads to infinite consumption) combine here to yield a unique finite limiting MPC for
@@ -1216,7 +1199,7 @@ seen by asking ‘under what circumstances would the FVAC hold but the WRIC fail
 Algebraically, the requirement is
 βΓ1−ρ ψ 1−ρ < 1 < (℘β)1/ρ /R1−1/ρ .
 
-(44)
+(41)
 
 If there were no conceivable parameter values that could satisfy both of these inequalities, the WRIC would have no force; it would be redundant. And if we require R ≥ 1,
 the WRIC is indeed redundant because now β < 1 < Rρ−1 , so that the RIC (and WRIC)
@@ -1224,7 +1207,7 @@ must hold.
 But neither theory nor evidence demands that we assume R ≥ 1. We can therefore
 approach the question of the WRIC’s relevance by asking just how low R must be for the
 condition to be relevant. Suppose for illustration that ρ = 2, ψ 1−ρ = 1.01, Γ1−ρ = 1.01−1
-and ℘ = 0.10. In that case (44) reduces to
+and ℘ = 0.10. In that case (41) reduces to
 β < 1 < (0.1β/R)1/2
 but since β < 1 by assumption, the binding requirement is that
 R < β/10
@@ -1236,22 +1219,13 @@ values for which the WRIC is relevant shrinks out of existence as ℘ → 0, whi
 2.10 showed was the precise limiting condition under which behavior becomes arbitrarily
 close to the liquidity constrained solution (in the absence of other risks). On the other
 hand, when ℘ = 1, the consumer has no noncapital income (so that the FHWC holds)
-and with ℘ = 1 the WRIC is identical to the RIC; but the RIC is the only condition
-required for a solution to exist for a perfect foresight consumer with no noncapital
-income. Thus the WRIC forms a sort of ‘bridge’ between the liquidity constrained and
-the unconstrained problems as ℘ moves from 0 to 1.
 
 20
 
-c
-
-Et[∆mt+1] = 0
-
-c(mt)
-
-m
-
-Figure 2 Example Solution when FVAC Holds but GIC Does Not
+and with ℘ = 1 the WRIC is identical to the RIC; but the RIC is the only condition
+required for a solution to exist for a perfect foresight consumer with no noncapital
+income. Thus the WRIC forms a sort of ‘bridge’ between the liquidity constrained and
+the unconstrained problems as ℘ moves from 0 to 1.
 2.11.3 When the GIC Fails
 If both the GIC and the RIC hold, the arguments above establish that the limiting
 consumption function asymptotes to the consumption function for the perfect foresight
@@ -1278,6 +1252,18 @@ between the various conditions in the presence and the absence of uncertainty.
 is because Et [mt+1 ] = Et [Rt+1 (mt − ct )] + 1; solve m = (m − c)Rψ −1 + 1 for c and differentiate.
 
 21
+
+c
+
+Et[∆mt+1] = 0
+
+c(mt)
+
+m
+
+Figure 2 Example Solution when FVAC Holds but GIC Does Not
+
+22
 
 3 Analysis of the Converged Consumption Function
 Figures 3 and 4a,b capture the main properties of the converged consumption rule when
@@ -1308,7 +1294,7 @@ c(m) = κm
 which is the solution to an infinite-horizon problem with no noncapital income (ξt+n =
 0 ∀ n ≥ 1); clearly c(m) < c(m), since allowing the possibility of future noncapital
 income cannot reduce current consumption.30
-Assuming the FHWC holds, the infinite horizon perfect foresight solution (21) constitutes an upper bound on consumption in the presence of uncertainty, since Carroll and
+Assuming the FHWC holds, the infinite horizon perfect foresight solution (20) constitutes an upper bound on consumption in the presence of uncertainty, since Carroll and
 Kimball (1996) show that the introduction of uncertainty strictly decreases the level of
 consumption at any m.
 
@@ -1326,7 +1312,7 @@ consumer who faced binding liquidity constraints. Detailed analysis of this spec
 warrant inclusion in the paper.
 28 If
 
-22
+23
 
 Growth Rate
 
@@ -1344,7 +1330,7 @@ Thus, we can write
 c(m) <c(m) < c̄(m)
 1 <c(m)/c(m) < c̄(m)/c(m).
 
-(45)
+(42)
 
 But
 lim c̄(m)/c(m) = lim (m − 1 + h)/m
@@ -1372,7 +1358,7 @@ mt ↑∞
 
 mt ↑∞
 
-23
+24
 
 1.0
 
@@ -1436,8 +1422,8 @@ mt
 
 
 
-(46)
-(47)
+(43)
+(44)
 
 because limmt ↑∞ a0 (m) = Þ R 31 and Γt+1 ξt+1 /mt ≤ (Γψ̄ θ̄/(1 − ℘))/mt which goes to zero
 as mt goes to infinity.
@@ -1451,7 +1437,7 @@ foresight model.
 
 is because limmt ↑∞ a(mt )/mt = 1 − limmt ↑∞ c(mt )/mt = 1 − limmt ↑∞ c0 (mt ) = Þ R .
 
-24
+25
 
 c
 c(m) = κm = (1 − ℘1/ρÞ R)m
@@ -1481,7 +1467,7 @@ m̌
 Target m
 
 Figure 5 The Consumption Function
-25
+26
 
 This argument applies equally well to the problem of the restrained consumer, because
 as m approaches infinity the constraint becomes irrelevant (assuming the FHWC holds).
@@ -1489,7 +1475,7 @@ as m approaches infinity the constraint becomes irrelevant (assuming the FHWC ho
 3.2 Limits as mt ↓ 0
 
 Now consider the limits of behavior as mt gets arbitrarily small.
-Equation (38) shows that the limiting value of κ̄ is
+Equation (35) shows that the limiting value of κ̄ is
 κ̄ = 1 − R−1 (℘Rβ)1/ρ .
 
 Defining e(m) = c(m)/m as before we have
@@ -1568,20 +1554,20 @@ m̌ and its properties in the following theorem.
 
 same arguments establish limm↓0 Et [ct+1 /ct ] = ∞ for the problem of the restrained consumer.
 
-26
+27
 
-Theorem 2. For the problem defined in section 2.1, if the GIC (34), WRIC (39), and
-FVAC (35) hold, then there exists a unique cash-on-hand-to-income ratio m̌ > 0 such
+Theorem 2. For the problem defined in section 2.1, if the GIC (31), WRIC (36), and
+FVAC (32) hold, then there exists a unique cash-on-hand-to-income ratio m̌ > 0 such
 that
 Et [mt+1 /mt ] = 1 if mt = m̌.
 
-(48)
+(45)
 
 Moreover, m̌ is stable in the sense that
 ∀mt ∈ (0, m̌), Et [mt+1 ] > mt
 ∀mt ∈ (m̌, ∞), Et [mt+1 ] < mt .
 
-(49)
+(46)
 
 The elements of the proof are:
 • Existence and continuity of Et [mt+1 /mt ]
@@ -1608,16 +1594,16 @@ mt ↑∞
 mt
 ÞR ]
 = Et [(R/Γt+1 )Þ
-(50)
+(47)
 Þ/Γt+1 ]
 = Et [Þ
 <1
-where the last line is a restatement of the GIC (34).
+where the last line is a restatement of the GIC (31).
 Finally, the Intermediate Value Theorem tells us that if Et [mt+1 /mt ] is continuous,
 and takes on values above and below 1, there must be at least one point at which it is
 equal to one.
 
-27
+28
 
 3.3.3 Et [mt+1 /mt ] is monotonically decreasing.
 Now define ζ (mt ) ≡ Et [mt+1 ] − mt and note that
@@ -1642,9 +1628,9 @@ dmt
 dmt
 = R̄ (1 − c0 (mt )) − 1
 
-(51)
+(48)
 
-(52)
+(49)
 
 Note that the statement of theorem 2 did not require the RIC to hold. Now, we
 show that (given our other assumptions) ζ 0 (m) is decreasing (but for different reasons)
@@ -1686,7 +1672,7 @@ m↑∞ c (m) = 0. Concavity of the consumption
 function means that c is a decreasing function, so everywhere
 R̄ (1 − c0 (mt )) < R̄
 
-which means that ζ 0 (mt ) from (52) is guaranteed to be negative if
+which means that ζ 0 (mt ) from (49) is guaranteed to be negative if
  
 R
 R̄ ≡ Et
@@ -1716,11 +1702,11 @@ R
 < R/Þ
 Et
 Γψ
-28
+29
 
-(53)
+(50)
 
-which satisfies our requirement in (53).33
+which satisfies our requirement in (50).33
 The foregoing arguments rely on the continuous differentiability of c(m), so the
 arguments do not directly go through for the restrained consumer’s problem in which
 the existence of liquidity constraints can lead to discrete changes in the slope c0 (m) at
@@ -1770,7 +1756,7 @@ c(m̌)
 
  0
 c (m̌) 
-Et [Γt+1 ] Et [mt+1 − m̌] +covt (Γt+1 , mt+1 ) (54)
+Et [Γt+1 ] Et [mt+1 − m̌] +covt (Γt+1 , mt+1 ) (51)
 =Γ+
 |
 {z
@@ -1779,16 +1765,16 @@ c(m̌)
 =0
 
 and since mt+1 = (R/Γt+1 )a(m̌) + ξt+1 and a(m̌) > 0 it is clear that covt (Γt+1 , mt+1 ) < 0
-which implies that the entire term added to Γ in (54) is negative, as required.
+which implies that the entire term added to Γ in (51) is negative, as required.
 
 3.5 Expected Consumption Growth Is a Declining Function of mt (or Is
 It?)
 Figure 3 depicts the expected consumption growth factor as a strictly declining function
 of the cash-on-hand ratio. To investigate this, define
 Υ (mt ) ≡ Γt+1 c(Rt+1 a(mt ) + ξt+1 )/c(mt ) = ct+1 /ct
-interesting sidenote is that (53) is a close cousin to the FHWC: instead of R/Γ < 1 we have (R/Γ)
+interesting sidenote is that (50) is a close cousin to the FHWC: instead of R/Γ < 1 we have (R/Γ)
 
-29
+30
 
 ψ
 
@@ -1812,10 +1798,10 @@ Et Γt+1
 < 0.
 c(mt )2
 
-(55)
+(52)
 
 Henceforth indicating appropriate arguments by the corresponding subscript (e.g.
-≡ c0 (mt+1 )), since Γt+1 Rt+1 = R, the portion of the LHS of equation (55) in
+≡ c0 (mt+1 )), since Γt+1 Rt+1 = R, the portion of the LHS of equation (52) in
 brackets can be manipulated to yield
 
 c0t+1
@@ -1823,7 +1809,7 @@ c0t+1
 ctΥ 0t+1 = c0t+1 a0t R − c0t Γt+1 ct+1 /ct
 = c0t+1 a0t R − c0tΥ t+1 .
 
-(56)
+(53)
 
 Now differentiate the Euler equation with respect to mt :
 Υ−ρ
@@ -1849,15 +1835,15 @@ Et [Υ
 t+1 , Υ t+1 )/ Et [Υ
 t+1 ]
 
-(57)
+(54)
 
-but since Υ t+1 > 0 we can see from (57) that (55) is equivalent to
+but since Υ t+1 > 0 we can see from (54) that (52) is equivalent to
 0
 Υ−ρ−1
 covt (Υ
 t+1 , Υ t+1 ) > 0
 
-which, using (56), will be true if
+which, using (53), will be true if
 0
 0
 0
@@ -1893,7 +1879,7 @@ the other hand, the c−ρ−1
 t+1
 could be to decrease the first term in the covariance, leading to a negative covariance
 
-30
+31
 
 with the second term. (Analogously, a lower permanent shock ψt+1 can also lead a
 negative correlation.)
@@ -1937,7 +1923,7 @@ permanent income matches the mean idiosyncratic permanent income of the populati
 equilibrium version of such a model, see Carroll, Slacalek, and Tokuoka (2015).
 36 Szeidl’s proof supplants simulation evidence of ergodicity that appeared in an earlier version of this paper.
 
-31
+32
 
 where γ = log Γ and the last equality follows because the invariance of F c (see Szeidl
 (2012)) means that M [log ct+n ] = M [log ct ].37
@@ -2003,7 +1989,7 @@ in the simulation literature have observed an approximate equivalence between th
 idiosyncratic consumption and permanent income, but formal proof was not possible until Szeidl’s proof of ergodicity.
 38 Since we assume number of the households are normalized to 1, aggregate and average variables are identical.
 
-32
+33
 
 Unfortunately, it is clear that the covariance term in the numerator, while generally
 small, will not in general be zero. This is because the realization of the permanent shock
@@ -2032,7 +2018,7 @@ host of numerical results.
 Another contribution is integration of the paper’s results with the open-source EconARK toolkit, which is used to generate all of the quantitative results of the paper, and
 which integrally incorporates all of the analytical insights of the paper.
 
-33
+34
 
 Table 3 Definitions and Comparisons of Conditions
 Perfect Foresight Versions
@@ -2111,7 +2097,7 @@ PF-FVAC because for ρ > 1 and
 income each period should be finite.
 nondegenerate ψ, E[ψ 1−ρ ] > 1.
 
-34
+35
 
 Table 4 Sufficient Conditions for Nondegenerate‡ Solution
 Model
@@ -2168,7 +2154,7 @@ PF-GIC
 as well as sufficient. ∗ Solution also exists for (
 m ≥ 1.
 
-35
+36
 
 References
 Abowd, John M., and David Card (1989): “On the Covariance Structure of Earnings
@@ -2211,7 +2197,7 @@ Concavity of the Consumption Function,” Econometrica, 64(4), 981–992, http:
 Carroll, Christopher D., and Andrew A. Samwick (1997): “The Nature of
 Precautionary Wealth,” Journal of Monetary Economics, 40(1), 41–71.
 
-36
+37
 
 Carroll, Christopher D, Jiri Slacalek, and Kiichi Tokuoka (2015): “Bufferstock saving in a Krusell–Smith world,” Economics Letters, 132, 97–100, At
 http://econ.jhu.edu/people/ccarroll/papers/BSinKS.pdf.
@@ -2248,7 +2234,7 @@ Structure of Earnings in a Longitudinal Data Analysis,” Journal of Econometric
 Martins-da Rocha, V Filipe, and Yiannis Vailakis (2010): “Existence and
 uniqueness of a fixed point for local contractions,” Econometrica, 78(3), 1127–1141.
 
-37
+38
 
 Matkowski, Janusz, and Andrzej S. Nowak (2011): “On Discounted Dynamic
 Programming With Unbounded Returns,” Economic Theory, 46, 455–474.
@@ -2292,6 +2278,6 @@ Zeldes, Stephen P. (1989): “Optimal Consumption with Stochastic Income:
 Deviations from Certainty Equivalence,” Quarterly Journal of Economics, 104(2),
 275–298.
 
-38
+39
 
 
