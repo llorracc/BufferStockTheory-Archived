@@ -51,7 +51,7 @@ shown to be a consequence of (
 PF-GIC
 and RIC). In this case, the consumer’s optimal
 behavior is easy to describe. We can calculate the point at which the unconstrained
-consumer would choose c = m from equation (??):
+consumer would choose c = m from equation (21):
 m# = (m# − 1 + h)κ
 1
 
@@ -78,8 +78,8 @@ which (under these assumptions) satisfies 0 < m# < 1.3 For m < m# the unconstrai
 consumer would choose to consume more than m; for such m, the constrained consumer
 is obliged to choose c̀(m) = m.4 For any m > m# the constraint will never bind and the
 consumer will choose to spend the same amount as the unconstrained consumer, c̄(m).
-(Stachurski and Toda (2019) obtain a similar lower bound on consumption and use it
-to study the tail behavior of the wealth distribution.)
+(? obtain a similar lower bound on consumption and use it to study the tail behavior
+of the wealth distribution.)
 
 A.2 If PF-GIC Holds
 Imposition of the PF-GIC reverses the inequality in (3), and thus reverses the conclusion:
@@ -421,7 +421,7 @@ foresight case is zero, it is not possible for the upper bound in the model with
 to be greater than zero, because for any κ > 0 the level of consumption in the model
 with uncertainty would eventually exceed the level of consumption in the absence of
 uncertainty.
-Ma and Toda (2020) characterize the limits of MPC in a more general framework that
+? characterize the limits of MPC in a more general framework that allows for non-
 
 5
 
@@ -451,12 +451,11 @@ FHWC
 RIC
 
 
-allows for non-CRRA utility as well as capital and labor income risks in a Markovian
-setting, and find that in that much more general framework the limiting MPC is also
-zero.
+CRRA utility as well as capital and labor income risks in a Markovian setting, and find
+that in that much more general framework the limiting MPC is also zero.
 
 B Existence of a Concave Consumption Function
-To show that (??) defines a sequence of continuously differentiable strictly increasing
+To show that (7) defines a sequence of continuously differentiable strictly increasing
 concave functions {cT , cT −1 , ..., cT −k }, we start with a definition. We will say that a
 function n(z) is ‘nice’ if it satisfies
 1. n(z) is well-defined iff z > 0
@@ -482,14 +481,14 @@ vt (a) = β Et Γt+1
 
 Since there is a positive probability that ξt+1 will attain its minimum of zero and since
 Rt+1 > 0, it is clear that lima↓0 vt (a) = −∞ and lima↓0 v0t (a) = ∞. So vt (a) is welldefined iff a > 0; it is similarly straightforward to show the other properties required for
-vt (a) to be nice. (See Hiraguchi (2003).)
+vt (a) to be nice. (See Hiraguchi (?).)
 Next define vt (m, c) as
 (23)
 
 vt (m, c) = u(c) + vt (m − c)
 
 which is C3 since vt and u are both C3 , and note that our problem’s value function
-defined in (??) can be written as
+defined in (7) can be written as
 (24)
 
 vt (m) = max vt (m, c).
@@ -508,7 +507,7 @@ follows that the ct (m) defined by
 ct (m) = arg max vt (m, c)
 0<c<m
 
-exists and is unique, and (??) has an internal solution that satisfies
+exists and is unique, and (7) has an internal solution that satisfies
 (26)
 
 u0 (ct (m)) = v0t (m − ct (m)).
@@ -638,7 +637,7 @@ D Proof that T Is a Contraction Mapping
 We must show that our operator T satisfies all of Boyd’s conditions.
 Boyd’s operator T maps from Cz (A, B) to C(A, B). A preliminary requirement is
 therefore that {Tz} be continuous for any z−bounded z, {Tz} ∈ C(R++ , R). This is
-not difficult to show; see Hiraguchi (2003).
+not difficult to show; see Hiraguchi (?).
 Consider condition (1). For this problem,
 
 
@@ -708,7 +707,7 @@ t+1 (ât Rt+1 + ξt+1 )
 | {z }
 =i
 
-which by imposing PF-FVAC (equation (??), which says i < 1) can be rewritten as:
+which by imposing PF-FVAC (equation (27), which says i < 1) can be rewritten as:
 
 
 1−ρ
@@ -808,7 +807,7 @@ R
 t+1 (θ/(1 − ℘))
 8
 
-Section ?? proves existence of a continuously differentiable consumption function, which implies
+Section 2.7 proves existence of a continuously differentiable consumption function, which implies
 the existence of a corresponding continuously differentiable assets function.
 9
 The remainder of the proof could be reformulated using the second-to-last line at a small cost to
@@ -821,15 +820,15 @@ i(1 − ℘)ρ θ1−ρ
 (32)
 1−i
 which is a positive finite number under our assumptions.
-The proof that T defines a contraction mapping under the conditions (??) and (??)
-is now complete.
+The proof that T defines a contraction mapping under the conditions (39) and (35) is
+now complete.
 η>η=
 
 D.1 T and v
 In defining our operator T we made the restriction κmt ≤ ct ≤ κ̄mt . However, in the
-discussion of the consumption function bounds, we showed only (in (??)) that κt mt ≤
+discussion of the consumption function bounds, we showed only (in (40)) that κt mt ≤
 ct (mt ) ≤ κ̄t mt . (The difference is in the presence or absence of time subscripts on the
-MPC’s.) We have therefore not proven (yet) that the sequence of value functions (??)
+MPC’s.) We have therefore not proven (yet) that the sequence of value functions (7)
 defines a contraction mapping.
 Fortunately, the proof of that proposition is identical to the proof above, except that
 we must replace κ̄ with κ̄T −1 and the WRIC must be replaced by a slightly stronger
@@ -842,7 +841,7 @@ condition is
 
 (℘β)1/(1−ρ) (1 − (1 + ℘1/ρÞ R )−1 ) > 1
 
-where we have used (??) for κ̄T −1 (and in the second step the reversal of the inequality
+where we have used (38) for κ̄T −1 (and in the second step the reversal of the inequality
 occurs because we have assumed ρ > 1 so that we are exponentiating both sides by the
 negative number 1 − ρ). To see that this is a weak condition, note that for small values
 of ℘ this expression can be further simplified using (1 + ℘1/ρÞ R )−1 ≈ 1 − ℘1/ρÞ R so that
@@ -866,8 +865,8 @@ defined by our operator T. Thus, under our slightly stronger (but still quite we
 
 10
 
-conditions, not only do the value functions defined by (??) converge, they converge to
-the same unique v defined by T.10
+conditions, not only do the value functions defined by (7) converge, they converge to the
+same unique v defined by T.10
 
 D.2 Convergence of vt in Euclidian Space
 Boyd’s theorem shows that T defines a contraction mapping in a z-bounded space. We
@@ -948,7 +947,7 @@ paper and is therefore left for future work.
 
 E The Limiting MPC’s
 For mt > 0 we can define et (mt ) = ct (mt )/mt and at (mt ) = mt − ct (mt ) and the Euler
-equation (??) can be rewritten
+equation (8) can be rewritten
 
 
 −ρ 
@@ -1039,7 +1038,7 @@ t+1 .
 
 (41)
 
-As noted in the main text, we need the WRIC (??) for this to be a convergent sequence:
+As noted in the main text, we need the WRIC (39) for this to be a convergent sequence:
 0 ≤ ℘1/ρÞ R < 1,
 
 (42)
@@ -1178,10 +1177,9 @@ position will be
 àT −1 (m) = max[0, à∗T −1 (m)],
 
 reflecting the inability of the restrained consumer to spend more than current resources,
-and note (as pointed out by Deaton (1991)) that
+and note (as pointed out by Deaton (?)) that
 −1/ρ
 m1# = v̀0T −1 (0)
-
 is the cusp value of m at which the constraint makes the transition between binding and
 non-binding in period T − 1.
 Analogously to (49), defining
@@ -1234,12 +1232,12 @@ lim κ̄ = 1,
 which makes sense because the marginal propensity to consume for a constrained restrained consumer is 1 by our definitions of ‘constrained’ and ‘restrained.’
 
 G Endogenous Gridpoints Solution Method
-The model is solved using an extension of the method of endogenous gridpoints (Carroll
-(2006)): A grid of possible values of end-of-period assets ~a is defined, and at these points,
-marginal end-of-period-t value is computed as the discounted next-period expected
-marginal utility of consumption (which the Envelope theorem says matches expected
-marginal value). The results are then used to identify the corresponding levels of
-consumption at the beginning of the period:11
+The model is solved using an extension of the method of endogenous gridpoints (?): A
+grid of possible values of end-of-period assets ~a is defined, and at these points, marginal
+end-of-period-t value is computed as the discounted next-period expected marginal
+utility of consumption (which the Envelope theorem says matches expected marginal
+value). The results are then used to identify the corresponding levels of consumption at
+the beginning of the period:11
 
 11
 
@@ -1496,21 +1494,5 @@ consumption function is degenerate; the next row indicates that whenever the PF-
 bind in finite time.
 
 20
-
-References
-Carroll, Christopher D. (2006): “The Method of Endogenous Gridpoints for
-Solving Dynamic Stochastic Optimization Problems,” Economics Letters, 91(3), 312–
-320, http://econ.jhu.edu/people/ccarroll/EndogenousGridpoints.pdf.
-Deaton, Angus S. (1991): “Saving and Liquidity Constraints,” Econometrica, 59,
-1221–1248, http://www.jstor.org/stable/2938366.
-Hiraguchi, Ryoji (2003): “On the Convergence of Consumption Rules,” Manuscript,
-Johns Hopkins University.
-Ma, Qingyin, and Alexis Akira Toda (2020): “Asymptotic Marginal Propensity
-to Consume,” Manuscript, Australian National University.
-Stachurski, John, and Alexis Akira Toda (2019): “An Impossibility Theorem
-for Wealth in Heterogeneous-agent Models with Limited Heterogeneity,” Journal of
-Economic Theory, 182, 1–24.
-
-21
 
 
