@@ -13,14 +13,17 @@ and the Euler equation \eqref{\localorexternallabel{eq:scaledeuler}} can be rewr
 \\  & = \phantom{ + }\pNotZero \DiscFac \Rfree \mRat_{t}^{\CRRA} \Ex_{t}\left[ \left(\eFunc_{t+1}(\mRat_{t+1}) \mRat_{t+1}\PGro_{t+1}\right)^{-\CRRA} |~ \tShkAll_{t+1}>0 \right] \notag
 \\ &  + \pZero  \DiscFac \Rfree^{1-\CRRA} \Ex_{t}\left[\left(\eFunc_{t+1}(\mathcal{R}_{t+1}\aFunc_{t}(\mRat_{t}))\frac{\mRat_t-\cFunc_{t}(\mRat_{t})}{\mRat_{t}}\right)^{-\CRRA} |~ \tShkAll_{t+1} = 0 \right]   .
 \end{align}
+
+
+
 Consider the first conditional expectation in \eqref{\localorexternallabel{eq:eFuncEuler}},
 recalling that if $\tShkAll_{t+1}>0$ then $\tShkAll_{t+1} \equiv
 \tShkEmp_{t+1}/\pNotZero$.  Since $\lim_{m \downarrow 0}
 \aFunc_{t}(\mRat) = 0$,
 $\Ex_{t}[(\eFunc_{t+1}(\mRat_{t+1})\mRat_{t+1}\PGro_{t+1})^{-\CRRA}~|~\tShkAll_{t+1}>0]$
 is contained within bounds defined by
-$(\eFunc_{t+1}(\underline{\tShkEmp}/\pNotZero) \PGro\underline{\pShk}
-\underline{\tShkEmp}/\pNotZero)^{-\CRRA}$ and
+$(\eFunc_{t+1}(\ushort{\tShkEmp}/\pNotZero) \PGro\ushort{\pShk}
+\ushort{\tShkEmp}/\pNotZero)^{-\CRRA}$ and
 $(\eFunc_{t+1}(\bar{\tShkEmp}/\pNotZero) \PGro\bar{\pShk}
 \bar{\tShkEmp}/\pNotZero)^{-\CRRA}$ both of which are finite numbers,
 implying that the whole term multiplied by $\pNotZero$ goes to zero as
@@ -44,10 +47,12 @@ which yields a useful recursive formula for the maximal marginal propensity to c
 \\ \MaxMPC_{t}^{-1}(1-\MaxMPC_{t})  & = \MinMPS \MaxMPC_{t+1}^{-1}   \notag
 \\ \MaxMPC_{t}^{-1}  & = 1+\MinMPS \MaxMPC_{t+1}^{-1} \label{eq:MaxMPCInvApndx}.
 \end{align}
+
 As noted in the main text, we need the \WRIC~\eqref{\localorexternallabel{eq:WRIC}} for this to be a convergent sequence:
 \begin{align}
   0 \leq & ~\pZero^{1/\CRRA} \PatR < 1 \label{eq:WRICapndx},
 \end{align}
+
 Since $\MaxMPC_{T}=1$, iterating \eqref{\localorexternallabel{eq:MaxMPCInvApndx}} backward to
 infinity (because we are interested in the limiting consumption function) we obtain:
 \begin{align}
@@ -55,6 +60,7 @@ infinity (because we are interested in the limiting consumption function) we obt
 & = \MaxMPC \equiv 1-\pZero^{1/\CRRA}\PatR  \label{eq:MaxMPCDef}
 \end{align}
 and we will therefore call $\MaxMPC$ the `limiting maximal MPC.'
+
 The minimal MPC's are obtained by considering the case where
 $\mRat_{t} \uparrow \infty$.  If the \FHWC~holds, then as
 $\mRat_{t} \uparrow \infty$ the proportion of current and future
@@ -67,7 +73,7 @@ neglected, leading to a revised limiting Euler equation
 and we know from L'H\^opital's rule that $\lim_{\mRat_{t} \rightarrow \infty} \eFunc_{t}(\mRat_{t}) = \MinMPC_{t}$, and $\lim_{\mRat_{t} \rightarrow \infty} \eFunc_{t+1}(\aFunc_{t}(\mRat_{t})\Rnorm_{t+1}) = \MinMPC_{t+1}$ so a further limit of the Euler equation is\hypertarget{MPCnvrs}{}
 \begin{eqnarray*}
   (\mRat_{t}\MinMPC_{t})^{-\CRRA}  & = & \DiscFac \Rfree \left(\MinMPC_{t+1} \Rfree (1-\MinMPC_{t})\mRat_{t}\right)^{-\CRRA}
-\\ \underbrace{{\Rfree}^{-1}{\Pat}}_{\equiv \MaxMPS = (1-\underline{\MPC})} \MinMPC_{t}  & = & (1-\MinMPC_{t}) \MinMPC_{t+1}
+\\ \underbrace{{\Rfree}^{-1}{\Pat}}_{\equiv \MaxMPS = (1-\ushort{\MPC})} \MinMPC_{t}  & = & (1-\MinMPC_{t}) \MinMPC_{t+1}
 \end{eqnarray*}
 and the same sequence of derivations used above yields the conclusion
 that if the \RIC~$0 \leq \PatR < 1$ holds, then a recursive formula for the
@@ -82,8 +88,10 @@ convergent sequence, and we define
 \end{align}
 as the limiting (inverse) marginal MPC.  If the \RIC~does \textit{not} hold, then $\lim_{n \rightarrow \infty} \MinMPC_{T-n}^{-1} = \infty$
 and so the limiting MPC is $\MinMPC = 0.$
+
 For the purpose of constructing the limiting perfect foresight consumption function, it is useful further to note that
 the PDV of consumption is given by\hypertarget{MPCnvrsIsCPDV}{}
+
 \begin{eqnarray*}
   \cRat_{t}\underbrace{\left(1 + \PatR + \PatR^{2} + ... \right)}_{=1+\PatR(1+\PatR\MinMPC_{t+2}^{-1})...}   & = \cRat_{t}\MinMPC_{T-n}^{-1}.
 \end{eqnarray*}
@@ -91,6 +99,7 @@ which, combined with the intertemporal budget constraint, yields the usual formu
 \begin{align}
   \cRat_{t} & = (\bRat_{t}+\hRat_{t})\MinMPC_{t}
 \end{align}
+
 \end{document}
 % Local Variables:
 % eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)  :help "Run Biber") TeX-command-list))

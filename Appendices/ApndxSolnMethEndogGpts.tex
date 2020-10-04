@@ -1,11 +1,16 @@
 \input{./econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
 \input{./econtexRoot}
+\provideboolean{Metin}\setboolean{Metin}{true}\newcommand{\Metin}[2]{\ifthenelse{\boolean{Metin}}{\marginpar{\large Metin}\{{#1}\} $\rightarrow$ \{{#2}\}}{#2}}% PrivateMsg: Comments by Metin Uyanik
+
 \input{\ApndxDir/onlyinsubfile}
 \onlyinsubfile{\externaldocument{\econtexRoot/BufferStockTheory}} % Get xrefs -- esp to appendix -- from main file; only works properly if main file has already been compiled;
 \begin{document}
+
 %\begin{verbatimwrite}{\ApndxDir/ApndxSolnMethEndogGpts.tex}
 \section{Endogenous Gridpoints Solution Method}
+
 The model is solved using an extension of the method of endogenous gridpoints (\cite{carrollEGM}): A grid of possible values of end-of-period assets $\vec{\aRat}$ is defined, and at these points, marginal end-of-period-$t$ value is computed as the discounted next-period expected marginal utility of consumption (which the Envelope theorem says matches expected marginal value).  The results are then used to identify the corresponding levels of consumption at the beginning of the period:\footnote{The software can also solve a version of the model with explicit liquidity constraints, where the Envelope condition does not hold.}
+
 \begin{align}
   \uP(\cEndFunc_{t}(\vec{\aRat}))  & = \Rfree \beta \Ex_{t}[ \uP(\PGro_{t+1}
   \cFunc_{t+1}(\Rnorm_{t+1}\vec{\aRat} + \tShk_{t+1}))] \label{eq:cEulerEndog}
@@ -13,10 +18,12 @@ The model is solved using an extension of the method of endogenous gridpoints (\
       \cFunc_{t+1}(\Rnorm_{t+1}\vec{\aRat} +
       \tShk_{t+1})\right)^{-\CRRA}\right]\right)^{-1/\CRRA}. \notag
 \end{align}
+
 The dynamic budget constraint can then be used to generate the corresponding $\mRat$'s:
 \begin{eqnarray*}
   \vec{\mRat}_{t}  & = \vec{\aRat}+\vec{c}_{t}.
 \end{eqnarray*}
+
 An approximation to the consumption function could be constructed by
 linear interpolation between the $\{\vec{\mRat},\vec{\cRat}\}$ points.
 But a vastly more accurate approximation can be made (for a given
@@ -38,20 +45,24 @@ propensity to have consumed by noting that, if we define $\mathfrak{m}(a) = \cEn
 \end{align*}
 which, together with the chain rule $\cEndFunc^{\aRat}  = \cFunc^{\mRat}\mathfrak{m}^{\aRat}$,
 yields the MPC from
+
 \begin{align*}
    \cFunc^{\mRat}(\cEndFunc^{\aRat}+1)  & = \cEndFunc^{\aRat}
 \\ \cFunc^{\mRat}  & = \cEndFunc^{\aRat}/(1+\cEndFunc^{\aRat}) \label{eq:MPCfromMPTHC}
 \end{align*}
 and we call the vector of MPC's at the $\vec{\mRat}_{t}$ gridpoints $\vec{\MPC}_{t}$.
 \begin{comment}
+
 Standard polynomial interpolation methods can then be used to
 construct a function that matches the level and first derivative at a
 set of points; the actual solution code uses the built-in
 interpolation tools of {\it Mathematica} for this purpose.
+
 With the level and derivative of the consumption function defined at a discrete set of gridpoints,
 it is possible to construct an interpolating function that is a highly accurate approximation to
 the true consumption function within the grid.  But if any such interpolation is extended beyond the
 boundaries defined by the minimum and maximum gridpoints, it is sure to go badly astray.
+
 A solution to this problem is given by defining a `precautionary savings function':
 \begin{align}
   \sFunc_{t}(\mRat)  & = \bar{\cFunc}_{t}(\mRat) - \cFunc_{t}(\mRat)
@@ -83,9 +94,13 @@ evaluate the function is $\mRat=0$ but $\log 0 = -\infty$ which is difficult for
   \hat{\cFunc}_{t}(\mRat)  & = \bar{\cFunc}_{t}(\mRat)-\exp(\hat{\varsigma}_{t}(\log \mRat)).
 \end{align}
 \end{comment}
+
+
 %\end{verbatimwrite}%\input {\ApndxDir/ApndxSolnMethEndogGpts.tex}
+
 % When compiling main file, bibliography goes at the end of document, not at the end of this appendix
 \onlyinsubfile{\bibliography{\econtexRoot/BufferStockTheory,economics}}
+
 \end{document}
 % Local Variables:
 % eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)  :help "Run Biber") TeX-command-list))
