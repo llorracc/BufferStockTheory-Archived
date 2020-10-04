@@ -78,8 +78,8 @@ which (under these assumptions) satisfies 0 < m# < 1.3 For m < m# the unconstrai
 consumer would choose to consume more than m; for such m, the constrained consumer
 is obliged to choose c̀(m) = m.4 For any m > m# the constraint will never bind and the
 consumer will choose to spend the same amount as the unconstrained consumer, c̄(m).
-(Stachurski and Toda (2019) obtain a similar lower bound on consumption and use it
-to study the tail behavior of the wealth distribution.)
+(? obtain a similar lower bound on consumption and use it to study the tail behavior
+of the wealth distribution.)
 
 A.2 If PF-GIC Holds
 Imposition of the PF-GIC reverses the inequality in (3), and thus reverses the conclusion:
@@ -421,7 +421,7 @@ foresight case is zero, it is not possible for the upper bound in the model with
 to be greater than zero, because for any κ > 0 the level of consumption in the model
 with uncertainty would eventually exceed the level of consumption in the absence of
 uncertainty.
-Ma and Toda (2020) characterize the limits of MPC in a more general framework that
+? characterize the limits of MPC in a more general framework that allows for non-
 
 5
 
@@ -451,9 +451,8 @@ FHWC
 RIC
 
 
-allows for non-CRRA utility as well as capital and labor income risks in a Markovian
-setting, and find that in that much more general framework the limiting MPC is also
-zero.
+CRRA utility as well as capital and labor income risks in a Markovian setting, and find
+that in that much more general framework the limiting MPC is also zero.
 
 B Existence of a Concave Consumption Function
 To show that (??) defines a sequence of continuously differentiable strictly increasing
@@ -482,7 +481,7 @@ vt (a) = β Et Γt+1
 
 Since there is a positive probability that ξt+1 will attain its minimum of zero and since
 Rt+1 > 0, it is clear that lima↓0 vt (a) = −∞ and lima↓0 v0t (a) = ∞. So vt (a) is welldefined iff a > 0; it is similarly straightforward to show the other properties required for
-vt (a) to be nice. (See Hiraguchi (2003).)
+vt (a) to be nice. (See Hiraguchi (?).)
 Next define vt (m, c) as
 (23)
 
@@ -638,7 +637,7 @@ D Proof that T Is a Contraction Mapping
 We must show that our operator T satisfies all of Boyd’s conditions.
 Boyd’s operator T maps from Cz (A, B) to C(A, B). A preliminary requirement is
 therefore that {Tz} be continuous for any z−bounded z, {Tz} ∈ C(R++ , R). This is
-not difficult to show; see Hiraguchi (2003).
+not difficult to show; see Hiraguchi (?).
 Consider condition (1). For this problem,
 
 
@@ -1178,10 +1177,9 @@ position will be
 àT −1 (m) = max[0, à∗T −1 (m)],
 
 reflecting the inability of the restrained consumer to spend more than current resources,
-and note (as pointed out by Deaton (1991)) that
+and note (as pointed out by Deaton (?)) that
 −1/ρ
 m1# = v̀0T −1 (0)
-
 is the cusp value of m at which the constraint makes the transition between binding and
 non-binding in period T − 1.
 Analogously to (49), defining
@@ -1234,12 +1232,12 @@ lim κ̄ = 1,
 which makes sense because the marginal propensity to consume for a constrained restrained consumer is 1 by our definitions of ‘constrained’ and ‘restrained.’
 
 G Endogenous Gridpoints Solution Method
-The model is solved using an extension of the method of endogenous gridpoints (Carroll
-(2006)): A grid of possible values of end-of-period assets ~a is defined, and at these points,
-marginal end-of-period-t value is computed as the discounted next-period expected
-marginal utility of consumption (which the Envelope theorem says matches expected
-marginal value). The results are then used to identify the corresponding levels of
-consumption at the beginning of the period:11
+The model is solved using an extension of the method of endogenous gridpoints (?): A
+grid of possible values of end-of-period assets ~a is defined, and at these points, marginal
+end-of-period-t value is computed as the discounted next-period expected marginal
+utility of consumption (which the Envelope theorem says matches expected marginal
+value). The results are then used to identify the corresponding levels of consumption at
+the beginning of the period:11
 
 11
 
@@ -1496,21 +1494,5 @@ consumption function is degenerate; the next row indicates that whenever the PF-
 bind in finite time.
 
 20
-
-References
-Carroll, Christopher D. (2006): “The Method of Endogenous Gridpoints for
-Solving Dynamic Stochastic Optimization Problems,” Economics Letters, 91(3), 312–
-320, http://econ.jhu.edu/people/ccarroll/EndogenousGridpoints.pdf.
-Deaton, Angus S. (1991): “Saving and Liquidity Constraints,” Econometrica, 59,
-1221–1248, http://www.jstor.org/stable/2938366.
-Hiraguchi, Ryoji (2003): “On the Convergence of Consumption Rules,” Manuscript,
-Johns Hopkins University.
-Ma, Qingyin, and Alexis Akira Toda (2020): “Asymptotic Marginal Propensity
-to Consume,” Manuscript, Australian National University.
-Stachurski, John, and Alexis Akira Toda (2019): “An Impossibility Theorem
-for Wealth in Heterogeneous-agent Models with Limited Heterogeneity,” Journal of
-Economic Theory, 182, 1–24.
-
-21
 
 
