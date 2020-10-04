@@ -219,7 +219,6 @@ The Perfect Foresight Problem
 The Real Problem
 
 Limit as horizon T goes to infinity of
-
 at = mt − ct
 
 (1)
@@ -231,7 +230,6 @@ pt+1 = pt Γψt+1
 ≡Γt+1
 
 mt+1 = bt+1 + pt+1 ξt+1 ,
-
 ξt+n
 
 (
@@ -262,7 +260,7 @@ Surely This Problem Has Been Solved?
 
 No.
 Can’t Use Stokey et. al. theorems because CRRA utility
-Lit thru ? Can’t Handle Permanent Shocks
+Lit thru Matkowski and Nowak (2011) Can’t Handle Permanent Shocks
 Must Use Boyd’s ‘Weighted’ Contraction Mapping Theorem
 Surprisingly Subtle
 Fortunately, the Conclusions Are Simple!
@@ -284,7 +282,7 @@ Surely This Problem Has Been Solved?
 
 No.
 Can’t Use Stokey et. al. theorems because CRRA utility
-Lit thru ? Can’t Handle Permanent Shocks
+Lit thru Matkowski and Nowak (2011) Can’t Handle Permanent Shocks
 Must Use Boyd’s ‘Weighted’ Contraction Mapping Theorem
 Surprisingly Subtle
 Fortunately, the Conclusions Are Simple!
@@ -306,7 +304,7 @@ Surely This Problem Has Been Solved?
 
 No.
 Can’t Use Stokey et. al. theorems because CRRA utility
-Lit thru ? Can’t Handle Permanent Shocks
+Lit thru Matkowski and Nowak (2011) Can’t Handle Permanent Shocks
 Must Use Boyd’s ‘Weighted’ Contraction Mapping Theorem
 Surprisingly Subtle
 Fortunately, the Conclusions Are Simple!
@@ -354,7 +352,7 @@ Condition
 Buffer Stock Theory
 
 (Rβ)1/ρ
-Þ /R
+Þ/R
 Þ /Γ
 
 Implication
@@ -426,8 +424,8 @@ The Real Problem
 What If There Are Liquidity Constraints?
 
 FHWC is not necessary for solution to exist
-Other Key Condition For Useful Solution is
-‘Perfect Foresight Finite Value of Autarky Condition (PFFVAC )’:
+Other Key Condition For Useful Solution is ‘Perfect Foresight Finite
+Value of Autarky Condition (PFFVAC )’:
 βΓ1−ρ < 1
 Without RIC , Constraints Are Irrelevant
 Because Wealth Always Wants To Rise, So Constraint Never Binds
@@ -450,8 +448,8 @@ The Real Problem
 What If There Are Liquidity Constraints?
 
 FHWC is not necessary for solution to exist
-Other Key Condition For Useful Solution is
-‘Perfect Foresight Finite Value of Autarky Condition (PFFVAC )’:
+Other Key Condition For Useful Solution is ‘Perfect Foresight Finite
+Value of Autarky Condition (PFFVAC )’:
 βΓ1−ρ < 1
 Without RIC , Constraints Are Irrelevant
 Because Wealth Always Wants To Rise, So Constraint Never Binds
@@ -499,6 +497,7 @@ The Perfect Foresight Problem
 The Real Problem
 
 Contraction Mapping Requirements
+
 Finite Value of Autarky Condition: Same As In Liq Constr Problem!
 ≡i
 
@@ -534,9 +533,7 @@ Definitions: ‘Uncertainty-Adjusted’ Growth:
 
 (9)
 
-Þ Γ = Þ /Γ
-ψ̄
-= ÞΓ
+ÞΓ = Þ/Γ
  
 Þ
 =E
@@ -546,11 +543,11 @@ Definitions: ‘Uncertainty-Adjusted’ Growth:
 
 ÞΓ < 1
 
-(13)
+(12)
 
 Adjusted Growth Patience Factor:
+
 (11)
-(12)
 
 Growth Impatience Condition:
 
@@ -558,13 +555,15 @@ Why? Because it can be shown that
 
 
 mt+1
-Buffer Stock
-lim ECarroll
-= Theory
-ÞΓ
-t
+= ÞΓ
+lim Et
+mt →∞
+mt
+Carroll
 
-(14)
+Buffer Stock Theory
+
+(13)
 
 Introduction
 The Problem
@@ -739,7 +738,7 @@ The Invariant Distribution
 Balanced Growth Equilbrium
 
 Convergence To The Invariant Distribution
-? Proves Existence of an Invariant Distribution of m, c, a, etc.
+Szeidl (2012) Proves Existence of an Invariant Distribution of m, c, a, etc.
 ℱ
 1.0
 ℱ1a ⟶
@@ -796,10 +795,9 @@ Yt+1 /Yt = Ct+1 /Ct
 
 = Γ
 
-(15)
+(14)
 
-Fisherian Separation Fails, Even Without Liquidity Constraints!
-Insight:
+Fisherian Separation Fails, Even Without Liquidity Constraints! Insight:
 Precautionary Saving ≈ Liquidity Constraints
 If c̀(m) is solution for constrained consumer,
 lim c(m; ℘) = c̀(m)
@@ -809,7 +807,7 @@ Carroll
 
 Buffer Stock Theory
 
-(16)
+(15)
 
 Introduction
 The Problem
@@ -826,10 +824,9 @@ Yt+1 /Yt = Ct+1 /Ct
 
 = Γ
 
-(15)
+(14)
 
-Fisherian Separation Fails, Even Without Liquidity Constraints!
-Insight:
+Fisherian Separation Fails, Even Without Liquidity Constraints! Insight:
 Precautionary Saving ≈ Liquidity Constraints
 If c̀(m) is solution for constrained consumer,
 lim c(m; ℘) = c̀(m)
@@ -839,7 +836,7 @@ Carroll
 
 Buffer Stock Theory
 
-(16)
+(15)
 
 Introduction
 The Problem
@@ -856,10 +853,9 @@ Yt+1 /Yt = Ct+1 /Ct
 
 = Γ
 
-(15)
+(14)
 
-Fisherian Separation Fails, Even Without Liquidity Constraints!
-Insight:
+Fisherian Separation Fails, Even Without Liquidity Constraints! Insight:
 Precautionary Saving ≈ Liquidity Constraints
 If c̀(m) is solution for constrained consumer,
 lim c(m; ℘) = c̀(m)
@@ -869,7 +865,7 @@ Carroll
 
 Buffer Stock Theory
 
-(16)
+(15)
 
 Introduction
 The Problem
@@ -882,9 +878,8 @@ Balanced Growth Equilbrium
 
 The MPC Out Of Permanent Shocks
 
-http://econ.jhu.edu/people/ccarroll/papers/MPCPerm.pdf
-Lots of Recent Papers Trying to Measure the MPCP
-Paper Proves:
+http://econ.jhu.edu/people/ccarroll/papers/MPCPerm.pdf Lots of
+Recent Papers Trying to Measure the MPCP Paper Proves:
 MPCP < 1
 But not a lot less:
 0.75 to 0.95 (annual rate) for wide range of parameter values
@@ -915,6 +910,11 @@ The Problem
 Features Of the Solution
 A Small Open Buffer Stock Economy
 Conclusions
+
+Matkowski, Janusz, and Andrzej S. Nowak (2011): “On Discounted Dynamic Programming With Unbounded Returns,”
+Economic Theory, 46, 455–474.
+Szeidl, Adam (2012): “Stable Invariant Distribution in Buffer-Stock Saving and Stochastic Growth Models,” Manuscript,
+Central European University.
 
 Carroll
 
