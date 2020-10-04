@@ -1,7 +1,7 @@
 
 Theoretical Foundations of
 Buffer Stock Saving
-October 3, 2020
+October 4, 2020
 
 Christopher D. Carroll1
 
@@ -1588,7 +1588,7 @@ The elements of the proof are:
 
 • Existence and continuity of Et [mt+1 /mt ]
 • Existence of a point where Et [mt+1 /mt ] = 1
-• Et [mt+1 − mt ] is monotonically decreasing
+• Et [mt+1 ] − mt is monotonically decreasing
 3.3.1 Existence and Continuity of Et [mt+1 /mt ].
 The consumption function exists because we have imposed the conditions (the WRIC and
 FVAC) that theorem 1 establishes are sufficient for its existence. (Indeed, Appendix C
@@ -1615,10 +1615,11 @@ mt
 = Et [Þ
 <1
 where the last two lines are merely a restatement of the GIC (34).
-Finally, the Intermediate Value Theorem tells us that if Et [mt+1 /mt ] is continuous,
-and takes on values above and below 1, there must be at least one point at which it is
-equal to one.
-3.3.3 Et [mt+1 /mt ] is monotonically decreasing.
+The Intermediate Value Theorem tells us that if Et [mt+1 /mt ] is continuous, and takes
+on values above and below 1, there must be at least one point at which it is equal to
+one.
+3.3.3 Et [mt+1 ] − mt is monotonically decreasing.
+
 Now define ζ (mt ) ≡ Et [mt+1 ] − mt and note that
 
 ζ (mt ) < 0 ↔ Et [mt+1 /mt ] < 1

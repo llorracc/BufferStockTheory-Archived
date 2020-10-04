@@ -40,14 +40,14 @@ obtained as follows.  Assuming that the consumer's behavior in period
 $T$ is given by $\cFunc_{T}(\mRat)$ (in practice, this will be
 $\cFunc_{T}(\mRat)=m$), consider the unrestrained optimization problem
 \begin{align}
-  \grave{\aFunc}^{*}_{T-1}(\mRat)  & = \underset{\aRat}{\arg \max} \left\{\uFunc(\mRat-\aRat) +  \int_{\underline{\tShkEmp}}^{\bar{\tShkEmp}} \vFunc_{T}(a+\tShkEmp) d\CDF_{\tShkEmp} \right\}. \label{eq:vUnconstr}
+  \grave{\aFunc}^{*}_{T-1}(\mRat)  & = \underset{\aRat}{\arg \max} \left\{\uFunc(\mRat-\aRat) +  \int_{\ushort{\tShkEmp}}^{\bar{\tShkEmp}} \vFunc_{T}(a+\tShkEmp) d\CDF_{\tShkEmp} \right\}. \label{eq:vUnconstr}
 \end{align}
 
 As usual, the envelope theorem tells us that
 $\vFunc_{T}^{\prime}(\mRat)=\uP(\cFunc_{T}(\mRat))$ so the expected marginal
 value of ending period $T-1$ with assets $\aRat$ can be defined as
 \begin{align}
-  \grave{\mathfrak{v}}_{T-1}^{\prime}(a)  & \equiv  \int_{\underline{\tShkEmp}}^{\bar{\tShkEmp}} \uP(\cFunc_{T}(a+\tShkEmp)) d\CDF_{\tShkEmp}, \notag
+  \grave{\mathfrak{v}}_{T-1}^{\prime}(a)  & \equiv  \int_{\ushort{\tShkEmp}}^{\bar{\tShkEmp}} \uP(\cFunc_{T}(a+\tShkEmp)) d\CDF_{\tShkEmp}, \notag
 \end{align}
 and the solution to \eqref{\localorexternallabel{eq:vUnconstr}} will satisfy
 \begin{align}
@@ -75,7 +75,7 @@ transition between binding and non-binding in period $T-1$.
 
 Analogously to \eqref{\localorexternallabel{eq:uPConstr}}, defining
 \begin{align}
-  \mathfrak{v}_{T-1}^{\prime}(a;\pZero)  & \equiv  \left[\pZero \aRat^{-\CRRA}+\pNotZero\int_{\underline{\tShkEmp}}^{\bar{\tShkEmp}} \left(\cFunc_{T}(a+\tShkEmp/\pNotZero)\right)^{-\CRRA} d\CDF_{\tShkEmp}\right], \label{eq:vFrakPrime}
+  \mathfrak{v}_{T-1}^{\prime}(a;\pZero)  & \equiv  \left[\pZero \aRat^{-\CRRA}+\pNotZero\int_{\ushort{\tShkEmp}}^{\bar{\tShkEmp}} \left(\cFunc_{T}(a+\tShkEmp/\pNotZero)\right)^{-\CRRA} d\CDF_{\tShkEmp}\right], \label{eq:vFrakPrime}
 \end{align}
 the Euler equation for the original consumer's problem implies
 \begin{align}
