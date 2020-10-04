@@ -1,9 +1,13 @@
 \input{./econtexRoot}\input{\econtexRoot/LaTeX/econtexPaths}\documentclass[titlepage]{\econtex}\providecommand{\texname}{BufferStockTheory-Appendix}% Indicate the keyname for the bibtex entry corresponding to this paper
+
 \usepackage{\econtexRoot/LaTeX/BufferStockTheory}
+
 \externaldocument{\econtexRoot/BufferStockTheory-NoAppendix}
 \begin{document}
+
 \renewcommand{\onlyinsubfile}[1]{}
 \renewcommand{\notinsubfile}[1]{#1}
+
 \hypertarget{Appendices}{}
 \appendix \centerline{\LARGE Appendices}\vspace{0.2in}
 \subfile{\ApndxDir/ApndxLiqConstr}
@@ -15,10 +19,15 @@
 \subfile{\ApndxDir/ApndxSolnMethEndogGpts}
 \subfile{\ApndxDir/ApndxSolnMethTermFunc}
 \subfile{\ApndxDir/ApndxConditionDiagrams}
+
 \clearpage\vfill\eject
+
 \normalsize
+
 \bibliography{\econtexRoot/LaTeX/BufferStockTheory,economics}
+
 \end{document}
+
 % Local Variables:
 % eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)  :help "Run Biber") TeX-command-list))
 % eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) LaTeX/%s" TeX-run-BibTeX nil t                                                                              :help "Run BibTeX") TeX-command-list))
