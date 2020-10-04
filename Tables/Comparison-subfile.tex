@@ -1,16 +1,12 @@
 \input{./econtexRoot}\input{\econtexRoot/LaTeX/econtexPaths}\documentclass[../BufferStockTheory]{subfiles}\input{./econtexRoot}
-
 % This needed to be a subfile to tweak the use of the makecell \thead commands
 % without having to recompile the whole document
 \let\TableWidth\relax % Necessary to allow redefinition of tablewidth, which might already be defined
 \newlength\TableWidth
-
 \renewcommand\theadalign{tl}
 \renewcommand\theadfont{\normalsize}
 \begin{document}
-
 \notinsubfile{\renewcommand{\TableDir}{./Tables}} % Not sure why this needs to be redefined here; if not, tries to write to ../../Tables
-
 \begin{verbatimwrite}{\TableDir/Comparison}
   \let\TableWidth\relax
   \newlength\TableWidth
@@ -76,7 +72,6 @@ equivalently $\Pat/\PGro  < (\Rfree/\PGro)^{1/\CRRA}$ & \\
 \end{verbatimwrite}
 \clearpage
 \input{\TableDir/Comparison}
-
 \end{document}
 % Local Variables:
 % eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)  :help "Run Biber") TeX-command-list))

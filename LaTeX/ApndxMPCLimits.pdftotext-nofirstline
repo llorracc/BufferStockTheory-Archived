@@ -99,16 +99,16 @@ lim κ̄T −n = κ̄ ≡ 1 − ℘1/ρÞ R
 
 (6)
 
-Since κ̄T = 1, iterating (4) backward to infinity (because we are interested in the
-limiting consumption function) we obtain:
+Since κ̄T = 1, iterating (4) backward to infinity (because we are interested in the limiting
+consumption function) we obtain:
 n→∞
 
-and we will therefore call κ̄ the ‘limiting maximal MPC.’
-The minimal MPC’s are obtained by considering the case where mt ↑ ∞. If the
-FHWC holds, then as mt ↑ ∞ the proportion of current and future consumption that
-will be financed out of capital approaches 1. Thus, the terms involving ξt+1 in (1) can
+and we will therefore call κ̄ the ‘limiting maximal MPC.’ The minimal MPC’s are
+obtained by considering the case where mt ↑ ∞. If the FHWC holds, then as mt ↑ ∞
+the proportion of current and future consumption that will be financed out of capital
+approaches 1. Thus, the terms involving ξt+1 in (1) can be neglected, leading to a revised
 
-be neglected, leading to a revised limiting Euler equation
+limiting Euler equation
 
 
 (mt et (mt ))−ρ = βR Et (et+1 (at (mt )Rt+1 ) (Rat (mt )))−ρ
@@ -146,15 +146,15 @@ n↑∞
 
 as the limiting (inverse) marginal MPC. If the RIC does not hold, then limn→∞ κ−1
 T −n =
-∞ and so the limiting MPC is κ = 0.
-For the purpose of constructing the limiting perfect foresight consumption function,
-it is useful further to note that the PDV of consumption is given by
+∞ and so the limiting MPC is κ = 0. For the purpose of constructing the limiting perfect
+foresight consumption function, it is useful further to note that the PDV of consumption
+is given by
 
-ct 1 + Þ R + Þ 2R + ... = ct κ−1
+ct 1 + ÞR + Þ2R + ... = ct κ−1
 T −n .
+|
 {z
 }
-|
 Þ R (1+Þ
 Þ R κ−1
 =1+Þ
