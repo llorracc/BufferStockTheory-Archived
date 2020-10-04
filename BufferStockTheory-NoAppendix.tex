@@ -27,7 +27,7 @@
 
 \jelclass{D81, D91, E21}
 
-\renewcommand{\forcedate}{October 3, 2020}
+\renewcommand{\forcedate}{October 4, 2020}
 \date{\forcedate}
 
 \maketitle %% Version finally sent back to QE, as MS 354
@@ -1407,14 +1407,13 @@ We now prove the existence of a target cash-on-hand-to-income ratio $\mTarg$ tow
     \forall {\mRat}_t\in(\mTarg,\infty), \,\,& \Ex_t [{\mRat}_{t+1}] < {\mRat}_t. \notag
   \end{align}
 
-
 \end{theorem}
 
 The elements of the proof are:
 \begin{itemize}
 \item Existence and continuity of $\Ex_t [{\mRat}_{t+1}/\mRat_t]$
 \item Existence of a point where $\Ex_t [{\mRat}_{t+1}/\mRat_t] = 1$
- \item $\Ex_t [{\mRat}_{t+1}-\mRat_{t}]$ is monotonically decreasing
+ \item $\Ex_t [{\mRat}_{t+1}]-\mRat_{t}$ is monotonically decreasing
 \end{itemize}
 
 \subsubsection{Existence and Continuity of $\Ex_t [{\mRat}_{t+1}/\mRat_t]$.}
@@ -1436,9 +1435,9 @@ to infinity is
 \end{align}
 where the last two lines are merely a restatement of the \GIC~\eqref{eq:GIC}.
 
-Finally, the Intermediate Value Theorem tells us that if $\Ex_t [{\mRat}_{t+1}/\mRat_t]$ is continuous, and takes on values above and below 1, there must be at least one point at which it is equal to one.
+The Intermediate Value Theorem tells us that if $\Ex_t [{\mRat}_{t+1}/\mRat_t]$ is continuous, and takes on values above and below 1, there must be at least one point at which it is equal to one.
 
-\subsubsection{$\Ex_t [{\mRat}_{t+1}/\mRat_t]$ is monotonically decreasing.}
+\subsubsection{$\Ex_t [{\mRat}_{t+1}] -\mRat_t$ is monotonically decreasing.}
 
   Now define \providecommand{\difFunc}{\pmb{\zeta}} $\difFunc(\mRat_t) \equiv 
 \Ex_t[\mRat_{t+1}] - \mRat_t$ and note that
@@ -1756,7 +1755,8 @@ Another contribution is integration of the paper's results with the open-source 
 % TeX-source-correlate-mode: t
 % TeX-source-correlate-start-server: 0
 % TeX-parse-self: t
+% eval: (cond ((string-equal system-type "darwin") (progn (setq 'TeX-view-program-list '(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n LaTeX/%o %b"))))))
 % End:
 
 %%% TeX-view-program-list: (("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n LaTeX/%o %b"))
-% eval: (cond ((string-equal system-type "darwin") (progn (setq 'TeX-view-program-list '(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n LaTeX/%o %b"))))))
+
