@@ -1,7 +1,7 @@
 
 Theoretical Foundations of
 Buffer Stock Saving
-October 3, 2020
+October 4, 2020
 
 Christopher D. Carroll1
 
@@ -1124,11 +1124,12 @@ theorem of the paper.
 Theorem 1. T is a contraction mapping if the restrictions on parameter values (39)
 and (35) are true (that is, if the weak return impatience condition and the finite value
 of autarky condition hold).
-Intuitively, Boyd’s theorem shows that if you can find a z that is everywhere finite but
-goes to infinity ‘as fast or faster’ than the function you are normalizing with z, the normalized problem defines a contraction mapping. The intuition for the FVAC condition
-is just that, with an infinite horizon, with any initial amount of bank balances b0 , in the
-limit your value can always be made greater than you would get by consuming all of your
-permanent income and nothing else every period (say, by consuming (r/RF ree)b0 − 
+Intuitively, Boyd’s theorem shows that if you can find a z that is everywhere finite
+but goes to infinity ‘as fast or faster’ than the function you are normalizing with z,
+the normalized problem defines a contraction mapping. The intuition for the FVAC
+condition is just that, with an infinite horizon, with any initial amount of bank balances
+b0 , in the limit your value can always be made greater than you would get by consuming
+all of your permanent income and nothing else every period (say, by consuming (r/R)b0 −
 for some small  > 0).
 The details of the proof are cumbersome, and are therefore relegated to appendix D.
 Given that the value function converges, appendix D.3 shows that the consumption
@@ -1586,7 +1587,7 @@ The elements of the proof are:
 
 • Existence and continuity of Et [mt+1 /mt ]
 • Existence of a point where Et [mt+1 /mt ] = 1
-• Et [mt+1 − mt ] is monotonically decreasing
+• Et [mt+1 ] − mt is monotonically decreasing
 3.3.1 Existence and Continuity of Et [mt+1 /mt ].
 The consumption function exists because we have imposed the conditions (the WRIC and
 FVAC) that theorem 1 establishes are sufficient for its existence. (Indeed, Appendix C
@@ -1613,10 +1614,11 @@ mt
 = Et [Þ
 <1
 where the last two lines are merely a restatement of the GIC (34).
-Finally, the Intermediate Value Theorem tells us that if Et [mt+1 /mt ] is continuous,
-and takes on values above and below 1, there must be at least one point at which it is
-equal to one.
-3.3.3 Et [mt+1 /mt ] is monotonically decreasing.
+The Intermediate Value Theorem tells us that if Et [mt+1 /mt ] is continuous, and takes
+on values above and below 1, there must be at least one point at which it is equal to
+one.
+3.3.3 Et [mt+1 ] − mt is monotonically decreasing.
+
 Now define ζ (mt ) ≡ Et [mt+1 ] − mt and note that
 
 ζ (mt ) < 0 ↔ Et [mt+1 /mt ] < 1

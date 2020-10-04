@@ -1,6 +1,6 @@
 \RequirePackage{wasysym
 ,psibycus % Greek language package, including koppa 
-,ushort
+,underline
 %,lscape % Pages in landscape mode go inside \begin{landscape}\end{landscape} % CONFLICTS WITH EPSTOPDF 
 }
 
@@ -86,7 +86,7 @@
     \providecommand{\textSizeDefault}{\large}
     \providecommand{\titlepagefinish}{\newpage\textSizeDefault}
     \providecommand{\abstractSizeDefault}{\large}
-    \providecommand{\ushort}{\underline} % ushort seems to not work properly for tex4ht
+    \providecommand{\underline}{\underline} % underline seems to not work properly for tex4ht
     \let\footnoterule\relax
     \makeatletter
     \renewenvironment{abstract}{%
