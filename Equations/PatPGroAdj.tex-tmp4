@@ -1,4 +1,0 @@
-  \begin{align}
-    \PatPGroAdj  & = \Pat/\PGroAdj
-    \\ & = \Ex\left(\frac{\Pat}{\PGro \psi}\right)
-  \end{align}
