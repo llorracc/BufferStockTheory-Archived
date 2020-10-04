@@ -2,8 +2,10 @@
 # ---
 # jupyter:
 #   jupytext:
-#     cell_metadata_filter: ExecuteTime,autoscroll,heading_collapsed,hidden,-hide_ouput,-code_folding
+#     cell_metadata_filter: ExecuteTime,autoscroll,heading_collapsed,hidden,slideshow,-hide_ouput,-code_folding
+#     cell_metadata_json: true
 #     formats: ipynb,py:percent
+#     notebook_metadata_filter: all
 #     text_representation:
 #       extension: .py
 #       format_name: percent
@@ -13,6 +15,16 @@
 #     display_name: Python 3
 #     language: python
 #     name: python3
+#   language_info:
+#     codemirror_mode:
+#       name: ipython
+#       version: 3
+#     file_extension: .py
+#     mimetype: text/x-python
+#     name: python
+#     nbconvert_exporter: python
+#     pygments_lexer: ipython3
+#     version: 3.7.4
 # ---
 
 # %% [markdown]
@@ -42,12 +54,10 @@ from copy import deepcopy
 
 # Plotting tools
 import matplotlib.pyplot as plt
-from matplotlib.pyplot import plot, draw, show
 
 # The warnings package allows us to ignore some harmless but alarming warning messages
 import warnings
 warnings.filterwarnings("ignore")
-
 
 # Code to allow a master "Generator" and derived "Generated" versions
 #   - allows "$nb-Problems-And-Solutions → $nb-Problems → $nb"
@@ -78,7 +88,7 @@ if not find_gui():
     saveFigs = True
 
 # this can be removed if we pass in saveFigs and drawFigs in every call to make('figure')
-def make(figure_name, target_dir="Figures"):
+def make(figure_name, target_dir="../../Figures"):
     make_figs(figure_name, saveFigs, drawFigs, target_dir)
 
 # %%
@@ -186,7 +196,7 @@ baseAgent_Fin = IndShockConsumerType(**base_params)
 baseAgent_Fin.cycles = 100   # Set finite horizon (T = 100)
 
 baseAgent_Fin.solve()        # Solve the model
-baseAgent_Fin.unpackcFunc()  # Make the consumption function easily accessible
+baseAgent_Fin.unpack('cFunc')  # Make the consumption function easily accessible
 
 
 # %%
@@ -366,6 +376,7 @@ GIC_fails_dictionary['PermGroFac'] = [1.00]
 
 GICFailsExample = IndShockConsumerType(
     cycles=0, # cycles=0 makes this an infinite horizon consumer
+    verbose=0, # by deafult, check conditions shouldn't print out any information
     **GIC_fails_dictionary)
 
 
@@ -378,7 +389,7 @@ GICFailsExample = IndShockConsumerType(
 # The checkConditions method does what it sounds like it would
 # verbose=0: Print nothing;
 # verbose=3: Print all available info
-GICFailsExample.checkConditions(verbose=3)
+GICFailsExample.checkConditions(verbose=0)
 
 # %% [markdown]
 # ### The Sustainable Level of Consumption
@@ -415,7 +426,7 @@ EmDelEq0      = lambda m : 1 + (m-1)*(ErNrmRte/ERNrmFac)  # "sustainable" c wher
 # Plot GICFailsExample consumption function against the sustainable level of consumption
 
 GICFailsExample.solve()        # Above, we set up the problem but did not solve it
-GICFailsExample.unpackcFunc()  # Make the consumption function easily accessible for plotting
+GICFailsExample.unpack('cFunc')  # Make the consumption function easily accessible for plotting
 m = np.linspace(mPlotMin,5,mPts)
 c_Limt = GICFailsExample.cFunc[0](m)
 c_Sstn = EmDelEq0(m) # "sustainable" consumption
@@ -445,7 +456,7 @@ make('FVACnotGIC') # Save figures (if appropriate/possible)
 # Conditions can also be checked without solving the model
 # verbose=0: Print nothing
 # verbose=3: Print all available results
-GICFailsExample.checkConditions(verbose=3)  
+GICFailsExample.checkConditions(verbose=0)  
 
 
 # %% [markdown]
@@ -454,10 +465,10 @@ GICFailsExample.checkConditions(verbose=3)
 
 # %%
 # cycles=0 tells the solver to find the infinite horizon solution
-baseAgent_Inf = IndShockConsumerType(cycles=0,**base_params)
+baseAgent_Inf = IndShockConsumerType(cycles=0,verbose=0, **base_params)
 
 baseAgent_Inf.solve()
-baseAgent_Inf.unpackcFunc()
+baseAgent_Inf.unpack('cFunc')
 
 # %% [markdown]
 # ### [Target $m$, Expected Consumption Growth, and Permanent Income Growth](https://econ.jhu.edu/people/ccarroll/papers/BufferStockTheory/#AnalysisoftheConvergedConsumptionFunction)
@@ -854,3 +865,38 @@ make('MPCLimits')
 #    1. `git clone https://github.com/econ-ark/REMARK --recursive`
 #    1. `cd REMARK/REMARKs/BufferStockTheory`
 #    1. `jupyter notebook BufferStockTheory.ipynb`
+
+# %% [markdown]
+# ## Appendix: a perfect foresight agent that fails both the FHWC and RIC
+
+# %%
+from copy import copy
+from HARK.ConsumptionSaving.ConsIndShockModel import PerfForesightConsumerType
+fig6_par = copy(base_params)
+
+# Replace parameters.
+fig6_par['Rfree'] = 0.98
+fig6_par['DiscFac'] = 1
+fig6_par['PermGroFac'] = [0.99]
+fig6_par['CRRA'] = 2
+fig6_par['BoroCnstArt']  = 0
+fig6_par['T_cycle'] = 0
+fig6_par['cycles'] = 0
+fig6_par['quiet'] = False
+
+# Create the agent
+RichButPatientAgent = PerfForesightConsumerType(**fig6_par)
+# Check conditions
+RichButPatientAgent.checkConditions(verbose = 3)
+# Solve
+RichButPatientAgent.solve()
+
+# Plot
+mPlotMin, mPlotMax = 1, 9.5
+plt.figure(figsize = (8,4))
+m_grid = np.linspace(mPlotMin,mPlotMax,500)
+plt.plot(m_grid-1, RichButPatientAgent.solution[0].cFunc(m_grid), color="black")
+plt.text(mPlotMax-1+0.05,1,r"$b$",fontsize = 26)
+plt.text(mPlotMin-1,1.017,r"$c$",fontsize = 26)
+plt.xlim(mPlotMin-1,mPlotMax-1)
+plt.ylim(mPlotMin,1.016)
