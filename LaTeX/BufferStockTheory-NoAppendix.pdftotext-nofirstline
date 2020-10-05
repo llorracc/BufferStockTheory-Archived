@@ -997,7 +997,7 @@ The MPC bound as wealth approaches infinity is easy to understand: In this case,
 that will be financed out of human wealth approaches zero. The consequence is that
 the proportional difference between the solution to the model with uncertainty and the
 perfect foresight model shrinks to zero.
-In the course of proving this point, appendix E provides a useful recursive expression
+In the course of proving this point, appendix F provides a useful recursive expression
 for the (inverse of the) limiting MPC:
 −1
 κ−1
@@ -1166,7 +1166,7 @@ Another way to think about this is just to think of the liquidity constraint as 
 imposed by specifying a component of the utility function that is zero whenever the
 consumer ends the period with (weakly) positive assets, but negative infinity if the
 consumer ended the period with (strictly) negative assets.
-See appendix F for the formal proof justifying the foregoing intuitive discussion.
+See appendix G for the formal proof justifying the foregoing intuitive discussion.
 
 2.11 Discussion of Parametric Restrictions
 2.11.1 The RIC
@@ -2018,9 +2018,9 @@ death that exceed a threshold that depends on the size of the permanent shocks, 
 distribution of permanent income has a finite variance. In such cases, numerical results
 confirm the intuition that the growth rate of aggregate assets ends up matching the
 growth rate of permanent income.
-Matters are simpler if there are no permanent shocks; ?? for a proof that in that case
-the growth rate of assets (and other variables) does eventually converge to the growth
-rate of aggregate permanent income.
+Matters are simpler if there are no permanent shocks; see E for a proof that in that
+case the growth rate of assets (and other variables) does eventually converge to the
+growth rate of aggregate permanent income.
 
 5 Conclusions
 This paper provides theoretical foundations for many characteristics of buffer stock
