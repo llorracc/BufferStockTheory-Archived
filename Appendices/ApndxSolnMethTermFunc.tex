@@ -1,10 +1,10 @@
 \input{./econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
 \input{./econtexRoot}\input{\econtexRoot/LaTeX/econtexPaths}
-\input{\ApndxDir/onlyinsubfile}
+\input{\LaTeXFiles/onlyinsubfile.sty}
 \onlyinsubfile{\externaldocument{\econtexRoot/BufferStockTheory}} % Get xrefs -- esp to appendix -- from main file; only works properly if main file has already been compiled;
 \begin{document}
 
-%\begin{verbatimwrite}{\ApndxDir/ApndxSolnMethTermFunc.tex}
+%\begin{verbatimwrite}{\LaTeXFiles/ApndxSolnMethTermFunc.tex}
 \section{The Terminal/Limiting Consumption Function}
 
   For any set of parameter values that satisfy the conditions required
@@ -114,14 +114,14 @@ Similarly, we can solve \eqref{\localorexternallabel{eq:ChiDef}} for
 Thus, having approximated $\chi_{t}$, we can recover from it
 the level and derivative(s) of $\cFunc_{t}$.
 
-%\end{verbatimwrite}%\input {\ApndxDir/ApndxSolnMethTermFunc.tex}
+%\end{verbatimwrite}%\input {\LaTeXFiles/ApndxSolnMethTermFunc.tex}
 
 \end{document}
 % Local Variables:
 % eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)  :help "Run Biber") TeX-command-list))
 % eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) %s" TeX-run-BibTeX nil t                                                                              :help "Run BibTeX") TeX-command-list))
 % eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) %s" TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode) :help "Run BibTeX") TeX-command-list))
-% eval: (add-to-list 'TeX-command-list	'("BibTeX" "%(bibtex) LaTeX/%s" TeX-run-BibTeX nil t :help "Run BibTeX") t)
+% eval: (add-to-list 'TeX-command-list	'("BibTeX" "%(bibtex) ../LaTeX/%s" TeX-run-BibTeX nil t :help "Run BibTeX") t)
 % TeX-PDF-mode: t
 % TeX-file-line-error: t
 % TeX-debug-warnings: t

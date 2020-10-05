@@ -1,8 +1,8 @@
 \input{./econtexRoot}\input{\econtexRoot/LaTeX/econtexPaths}\documentclass[titlepage]{\econtex}\providecommand{\texname}{BufferStockTheory-Appendix}% Indicate the keyname for the bibtex entry corresponding to this paper
+\input{./econtexRoot}
 
 \usepackage{\econtexRoot/LaTeX/BufferStockTheory}
 
-\externaldocument{\econtexRoot/BufferStockTheory-NoAppendix}
 \begin{document}
 
 \renewcommand{\onlyinsubfile}[1]{}
@@ -30,8 +30,8 @@
 
 % Local Variables:
 % eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)  :help "Run Biber") TeX-command-list))
-% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) LaTeX/%s" TeX-run-BibTeX nil t                                                                              :help "Run BibTeX") TeX-command-list))
-% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) LaTeX/%s" TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode) :help "Run BibTeX") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) ../LaTeX/%s" TeX-run-BibTeX nil t                                                                              :help "Run BibTeX") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) ../LaTeX/%s" TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode) :help "Run BibTeX") TeX-command-list))
 % eval: (add-to-list 'TeX-command-list	'("BibTeX" "%(bibtex) %s" TeX-run-BibTeX nil t :help "Run BibTeX") t)
 % eval: (cond ((string-equal system-type "darwin") (progn (setq 'TeX-view-program-list '(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b"))))))
 % TeX-PDF-mode: t

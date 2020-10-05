@@ -6,6 +6,8 @@
 % 0. Being compiled as subfile of main document
 % * Not clear what proper order is; might NOT matter
 
+\usepackage{\LaTeXFiles/onlyinsubfile} 
+
 \onlyinsubfile{\externaldocument{BufferStockTheory}} % Get xrefs -- esp to appendix -- from main file; only works properly if main file has already been compiled; 
 
 \begin{document}
@@ -1738,7 +1740,7 @@ Another contribution is integration of the paper's results with the open-source 
 
 \clearpage\vfill\eject
 
-\onlyinsubfile{\bibliography{\LaTeXFiles/BufferStockTheory,economics}}
+\onlyinsubfile{\bibliography{\econtexRoot/LaTeX/BufferStockTheory,economics}}
 
 % Replace defaults with commands that know that generated files are in ./LaTeX
 
