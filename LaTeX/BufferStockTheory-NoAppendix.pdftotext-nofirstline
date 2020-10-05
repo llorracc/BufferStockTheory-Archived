@@ -1,4 +1,6 @@
 
+public-commit: 65bd587
+
 Theoretical Foundations of
 Buffer Stock Saving
 October 5, 2020
@@ -65,7 +67,7 @@ floor or liquidity constraints) defines a contraction mapping with a nondegenera
 Another contribution is to specify the conditions under which the resulting consumption
 function implies there is a ‘target’ wealth-to-permanent-income ratio (so the model
 exhibits ‘buffer stock’ saving behavior.) The key requirement for existence of a target
-is that the model’s parameters satisfy a “Growth Impatience Condition” (equation (34))
+is that the model’s parameters satisfy a “Growth Impatience Condition” (equation (32))
 that relates preferences and uncertainty to the predictable growth rate of income.
 Even without a formal proof, target saving of this kind has been intuitively understood
 to underlie central numerical results from the heterogeneous agent macroeconomics
@@ -638,29 +640,16 @@ to the model with constraints but without uncertainty.
 
 2.5 Uncertainty-Modified Conditions
 2.5.1 Impatience
-ψ̄
-Now define ≡ ψ −1 and = Et [ t+1 ].
 When uncertainty is introduced, the expectation of bt+1 can be rewritten as:
-ψ
-
 −1
 Et [bt+1 ] = at Et [Rt+1 ] = at R Et [ψt+1
 ]
-ψ̄
-= at R Et [ t+1 ] = at R
 
 (28)
-(29)
-
-ψ
-
-ψ
 
 where Jensen’s inequality guarantees that the expectation of the inverse of the permanent
 shock is strictly greater than one. It will be convenient to define the object
 ψ ≡ (E[ψ −1 ])−1
-ψ̄
-≡ −1
 
 11
 
@@ -672,22 +661,19 @@ We can now transparently generalize the PF-GIC (25) by defining a ‘compensated
 growth factor’
 Γ = Γψ
 
-(30)
+(29)
 
 and a compensated Growth Patience Pactor (GPF):
 Þ Γ = Þ /Γ
-ψ̄
-= ÞΓ
  
 Þ
 =E
 Γψ
 
+(30)
 (31)
-(32)
-(33)
 
-and a straightforward derivation in (46) below yields the conclusion that
+and a straightforward derivation in (44) below yields the conclusion that
 lim Et [mt+1 /mt ] = Þ Γ ,
 
 mt →∞
@@ -698,7 +684,7 @@ impose a generalized version of the Perfect Foresight Growth Impatience Conditon
 which we call simply the ‘growth impatience condition’ (GIC):18
 ÞΓ < 1
 
-(34)
+(32)
 
 which is stronger than the perfect foresight version (25) because Γ < Γ (Jensen’s
 inequality implies that ψ < 1 for nondegenerate ψ).
@@ -728,7 +714,7 @@ which invites the definition of a utility-compensated equivalent of the permanen
 17 One way to think of ψ is as a particular kind of a ‘certainty equivalent’ of the shock; this captures the intuition that
 mean-one shock renders a given mean level of income less valuable than if the shock did not exist, so that ψ < 1.
 
-18 Equation (34) is a bit easier to satisfy than the similar condition imposed by Deaton (1991): E[ψ −ρ ] 1/ρ Þ < 1
+18 Equation (32) is a bit easier to satisfy than the similar condition imposed by Deaton (1991): E[ψ −ρ ] 1/ρ Þ < 1
 Γ
 to guarantee that his problem defined a contraction mapping.
 
@@ -742,14 +728,14 @@ as T approaches ∞ if
 z }| {
 βΓ1−ρ < 1
 
-(35)
+(33)
 
 β < Γρ−1
 which we call the ‘finite value of autarky’ condition (FVAC) because it guarantees that
 value is finite for a consumer who always consumes the (now stochastic) permanent
 income. For nondegenerate ψ, this condition is stronger (harder to satisfy in the sense
 of requiring lower β) than the perfect foresight version (27) because Γ < Γ.
-To see this, rewrite (35) as
+To see this, rewrite (33) as
 βR < RΓρ−1
 (βR)1/ρ < R1/ρ Γ1−1/ρ ψ 1−1/ρ
 Þ Γ < (R/Γ)1/ρ ψ 1−1/ρ
@@ -767,7 +753,7 @@ purpose is to show that this appearance is not deceptive); we call the limiting 
 c(m) ≡ lim cT −n (m).
 n→∞
 
-(36)
+(34)
 
 2.7 Concave Consumption Function Characteristics
 A precondition for the main proof is that the maximization problem (7) defines a
@@ -1003,11 +989,11 @@ for the (inverse of the) limiting MPC:
 κ−1
 t = 1 + Þ R κt+1 .
 
-(37)
+(35)
 
 2.8.1 WeakRICConditions
 It turns out that there is a parallel expression for the limiting maximal MPC as m ↓ 0:
-appendix equation (98) shows that, as mt ↑ ∞,
+appendix equation (96) shows that, as mt ↑ ∞,
 Then κ̄−1
 T −n
 ℘1/ρÞ R
@@ -1022,11 +1008,11 @@ n=0
 t = 1+℘
 t+1 .
 
-(38)
+(36)
 
 0 ≤℘1/ρÞ R < 1,
 
-(39)
+(37)
 
 is a decreasing convergent sequence if the ‘weak return patience factor’
 
@@ -1045,7 +1031,7 @@ expression.)
 We are now in position to observe that the optimal consumption function must satisfy
 κt mt ≤ct (mt ) ≤ κ̄t mt
 
-(40)
+(38)
 
 because consumption starts at zero and is continuously differentiable (as argued above),
 is strictly concave (Carroll and Kimball (1996)), and always exhibits a slope between κt
@@ -1076,7 +1062,7 @@ z-bounded if the z-norm of •,
 
 | • (m)|
 ,
-(41)
+(39)
 k • kz = sup
 z(m)
 m
@@ -1112,17 +1098,17 @@ ct ∈[κmt ,κ̄mt ]
 
 u(ct ) + β ({Ez}(mt − ct )) .
 
-(42)
+(40)
 
 We can show that our operator T satisfies the conditions that Boyd requires of his
 operator T, if we impose two restrictions on parameter values. The first restriction is
-the WRIC necessary for convergence of the maximal MPC, equation (39) above. A
+the WRIC necessary for convergence of the maximal MPC, equation (37) above. A
 more serious restriction is the utility-compensated Finite Value of Autarky condition,
-equation (35). (We discuss the interpretation of these restrictions in detail in section
+equation (33). (We discuss the interpretation of these restrictions in detail in section
 2.11 below.) Imposing these restrictions, we are now in position to state the central
 theorem of the paper.
-Theorem 1. T is a contraction mapping if the restrictions on parameter values (39)
-and (35) are true (that is, if the weak return impatience condition and the finite value
+Theorem 1. T is a contraction mapping if the restrictions on parameter values (37)
+and (33) are true (that is, if the weak return impatience condition and the finite value
 of autarky condition hold).
 Intuitively, Boyd’s theorem shows that if you can find a z that is everywhere finite
 but goes to infinity ‘as fast or faster’ than the function you are normalizing with z,
@@ -1185,14 +1171,14 @@ R < (R/Γ)1/ρ Γψ 1−1/ρ
 R/Γ < (R/Γ)1/ρ ψ 1−1/ρ
 (R/Γ)1−1/ρ < ψ 1−1/ρ
 
-(43)
+(41)
 
 but since ψ < 1 and 0 < 1 − 1/ρ < 1 (because we have assumed ρ > 1), this
 can hold only if R/Γ < 1; that is, given the FVAC, the RIC can fail only if human
 wealth is unbounded. Unbounded human wealth is permitted here, as in the perfect
 
 
-foresight liquidity constrained problem. But, from equation (37), an implication of 
+foresight liquidity constrained problem. But, from equation (35), an implication of 
 RIC
 is that limm↑∞ c0 (m) = 0. Thus, interestingly, the presence of uncertainty both permits
 unlimited human wealth and at the same time prevents that unlimited wealth from
@@ -1217,7 +1203,7 @@ seen by asking ‘under what circumstances would the FVAC hold but the WRIC fail
 Algebraically, the requirement is
 βΓ1−ρ ψ 1−ρ < 1 < (℘β)1/ρ /R1−1/ρ .
 
-(44)
+(42)
 
 If there were no conceivable parameter values that could satisfy both of these inequalities, the WRIC would have no force; it would be redundant. And if we require R ≥ 1,
 the WRIC is indeed redundant because now β < 1 < Rρ−1 , so that the RIC (and WRIC)
@@ -1225,7 +1211,7 @@ must hold.
 But neither theory nor evidence demands that we assume R ≥ 1. We can therefore
 approach the question of the WRIC’s relevance by asking just how low R must be for the
 condition to be relevant. Suppose for illustration that ρ = 2, ψ 1−ρ = 1.01, Γ1−ρ = 1.01−1
-and ℘ = 0.10. In that case (44) reduces to
+and ℘ = 0.10. In that case (42) reduces to
 β < 1 < (0.1β/R)1/2
 but since β < 1 by assumption, the binding requirement is that
 R < β/10
@@ -1345,7 +1331,7 @@ Thus, we can write
 c(m) <c(m) < c̄(m)
 1 <c(m)/c(m) < c̄(m)/c(m).
 
-(45)
+(43)
 
 But
 lim c̄(m)/c(m) = lim (m − 1 + h)/m
@@ -1437,8 +1423,8 @@ mt
 
 
 
-(46)
-(47)
+(44)
+(45)
 
 because limmt ↑∞ a0 (m) = Þ R 31 and Γt+1 ξt+1 /mt ≤ (Γψ̄ θ̄/(1 − ℘))/mt which goes to zero
 as mt goes to infinity.
@@ -1490,7 +1476,7 @@ as m approaches infinity the constraint becomes irrelevant (assuming the FHWC ho
 3.2 Limits as mt ↓ 0
 
 Now consider the limits of behavior as mt gets arbitrarily small.
-Equation (38) shows that the limiting value of κ̄ is
+Equation (36) shows that the limiting value of κ̄ is
 κ̄ = 1 − R−1 (℘Rβ)1/ρ .
 
 Defining e(m) = c(m)/m as before we have
@@ -1571,17 +1557,17 @@ same arguments establish limm↓0 Et [ct+1 /ct ] = ∞ for the problem of the re
 
 26
 
-Theorem 2. For the problem defined in section 2.1, if the GIC (34), and WRIC (39),
+Theorem 2. For the problem defined in section 2.1, if the GIC (32), and WRIC (37),
 , then there exists a unique cash-on-hand-to-income ratio m̌ > 0 such that
 Et [mt+1 /mt ] = 1 if mt = m̌.
 
-(48)
+(46)
 
 Moreover, m̌ is stable in the sense that
 ∀mt ∈ (0, m̌), Et [mt+1 ] > mt
 ∀mt ∈ (m̌, ∞), Et [mt+1 ] < mt .
 
-(49)
+(47)
 
 The elements of the proof are:
 
@@ -1609,11 +1595,11 @@ mt ↑∞
 mt
 ÞR ]
 = Et [(R/Γt+1 )Þ
-(50)
+(48)
 Þ/Γt+1 ]
 = Et [Þ
 <1
-where the last two lines are merely a restatement of the GIC (34).
+where the last two lines are merely a restatement of the GIC (32).
 The Intermediate Value Theorem tells us that if Et [mt+1 /mt ] is continuous, and takes
 on values above and below 1, there must be at least one point at which it is equal to
 one.
@@ -1624,7 +1610,7 @@ Now define ζ (mt ) ≡ Et [mt+1 ] − mt and note that
 ζ (mt ) < 0 ↔ Et [mt+1 /mt ] < 1
 27
 
-(51)
+(49)
 
 ζ (mt ) = 0 ↔ Et [mt+1 /mt ] = 1
 ζ (mt ) > 0 ↔ Et [mt+1 /mt ] > 1,
@@ -1641,7 +1627,7 @@ d
 ζ (mt ) ≡
 ζ (mt ) = Et
 (Rt+1 (mt − c(mt )) + ξt+1 − mt )
-(52)
+(50)
 dmt
 dmt
 = R̄ (1 − c0 (mt )) − 1
@@ -1685,14 +1671,14 @@ m↑∞ c (m) = 0. Concavity of the consumption
 function means that c is a decreasing function, so everywhere
 R̄ (1 − c0 (mt )) < R̄
 
-which means that ζ 0 (mt ) from (52) is guaranteed to be negative if
+which means that ζ 0 (mt ) from (50) is guaranteed to be negative if
  
 R
 R̄ ≡ Et
 <1
 Γψ
 
-(53)
+(51)
 
 But the combination of the GIC holding and the RIC failing can be written:
 ÞΓ
@@ -1719,9 +1705,9 @@ R
 Et
 Γψ
 
-which satisfies our requirement in (53).33
+which satisfies our requirement in (51).33
 The foregoing arguments rely on the continuous differentiability of c(m), so the
-interesting sidenote is that (53) is a close cousin to the FHWC: instead of R/Γ < 1 we have (R/Γ)
+interesting sidenote is that (51) is a close cousin to the FHWC: instead of R/Γ < 1 we have (R/Γ)
 
 28
 
@@ -1780,7 +1766,7 @@ c(m̌)
 
 c (m̌) 
 =Γ+
-Et [Γt+1 ] Et [mt+1 − m̌] +covt (Γt+1 , mt+1 ) (54)
+Et [Γt+1 ] Et [mt+1 − m̌] +covt (Γt+1 , mt+1 ) (52)
 {z
 }
 |
@@ -1788,7 +1774,7 @@ c(m̌)
 =0
 
 and since mt+1 = (R/Γt+1 )a(m̌) + ξt+1 and a(m̌) > 0 it is clear that covt (Γt+1 , mt+1 ) < 0
-which implies that the entire term added to Γ in (54) is negative, as required.
+which implies that the entire term added to Γ in (52) is negative, as required.
 
 3.5 Expected Consumption Growth Is a Declining Function of mt (or Is
 It?)
@@ -1815,15 +1801,15 @@ Et Γt+1
 < 0.
 c(mt )2
 
-(55)
+(53)
 
 Henceforth indicating appropriate arguments by the corresponding subscript (e.g.
-c0t+1 ≡ c0 (mt+1 )), since Γt+1 Rt+1 = R, the portion of the LHS of equation (55) in
+c0t+1 ≡ c0 (mt+1 )), since Γt+1 Rt+1 = R, the portion of the LHS of equation (53) in
 brackets can be manipulated to yield
 ctΥ 0t+1 = c0t+1 a0t R − c0t Γt+1 ct+1 /ct
 = c0t+1 a0t R − c0tΥ t+1 .
 
-(56)
+(54)
 
 Now differentiate the Euler equation with respect to mt :
 Υ−ρ
@@ -1849,15 +1835,15 @@ Et [Υ
 t+1 , Υ t+1 )/ Et [Υ
 t+1 ]
 
-(57)
+(55)
 
-but since Υ t+1 > 0 we can see from (57) that (55) is equivalent to
+but since Υ t+1 > 0 we can see from (55) that (53) is equivalent to
 0
 Υ−ρ−1
 covt (Υ
 t+1 , Υ t+1 ) > 0
 
-which, using (56), will be true if
+which, using (54), will be true if
 0
 0
 0
@@ -2171,36 +2157,127 @@ m ≥ 1.
 35
 
 References
+Abowd, John M., and David Card (1989): “On the Covariance Structure of Earnings
+and Hours Changes,” Econometrica, 57, 411–445.
+Alvarez, Fernando, and Nancy L Stokey (1998): “Dynamic programming with
+homogeneous functions,” Journal of economic theory, 82(1), 167–189.
+Attanasio, Orazio, and Guglielmo Weber (1995): “Is Consumption Growth
+Consistent with Intertemporal Optimization?
+Evidence from the Consumer
+Expenditure Survey,” Journal of Political Economy, 103(6), 1121–57.
 Bellman, Richard (1957): Dynamic Programming. Princeton University Press,
 Princeton, NJ, USA, 1 edn.
 Benhabib, Jess, Alberto Bisin, and Shenghao Zhu (2015): “The wealth
 distribution in Bewley economies with capital income risk,” Journal of Economic
 Theory, 159, 489–515, Available at https://www.nber.org/papers/w20157.pdf.
+Bewley, Truman (1977): “The Permanent Income Hypothesis:
+Formulation,” Journal of Economic Theory, 16, 252–292.
+
+A Theoretical
+
+Blanchard, Olivier J. (1985): “Debt, Deficits, and Finite Horizons,” Journal of
+Political Economy, 93(2), 223–247.
+Blundell, Richard, Hamish Low, and Ian Preston (2008): “Decomposing
+Changes in Income Risk Using Consumption Data,” Manusscript, University College
+London.
+Boyd, John H. (1990): “Recursive Utility and the Ramsey Problem,” Journal of
+Economic Theory, 50(2), 326–345.
+Carroll, Christopher D., Karsten Chipeniuk, Kiichi Tokuoka, and
+Weifeng Wu (2020): “The Method of Moderation,” Manuscript, Johns Hopkins
+University.
 Carroll, Christopher D., Alexander M. Kaufman, Jacqueline L. Kazil,
 Nathan M. Palmer, and Matthew N. White (2018): “The Econ-ARK and
 HARK: Open Source Tools for Computational Economics,” in Proceedings of the 17th
 Python in Science Conference, ed. by Fatih Akici, David Lippa, Dillon Niederhut, and
 M Pacer, pp. 25 – 30. doi: 10.5281/zenodo.1001067.
+Carroll, Christopher D., and Miles S. Kimball (1996):
+“On the
+Concavity of the Consumption Function,” Econometrica, 64(4), 981–992, http:
+//econ.jhu.edu/people/ccarroll/concavity.pdf.
+Carroll, Christopher D., and Andrew A. Samwick (1997): “The Nature of
+Precautionary Wealth,” Journal of Monetary Economics, 40(1), 41–71.
+
+36
+
+Carroll, Christopher D, Jiri Slacalek, and Kiichi Tokuoka (2015): “Bufferstock saving in a Krusell–Smith world,” Economics Letters, 132, 97–100, At
+http://econ.jhu.edu/people/ccarroll/papers/BSinKS.pdf.
+Carroll, Christopher D., Jiri Slacalek, Kiichi Tokuoka, and
+Matthew N. White (2017):
+“The Distribution of Wealth and the
+Marginal Propensity to Consume,” Quantitative Economics, 8, 977–1020, At
+http://econ.jhu.edu/people/ccarroll/papers/cstwMPC.
+Clarida, Richard H. (1987): “Consumption, Liquidity Constraints, and Asset
+Accumulation in the Face of Random Fluctuations in Income,” International Economic
+Review, XXVIII, 339–351.
 Deaton, Angus S. (1991): “Saving and Liquidity Constraints,” Econometrica, 59,
 1221–1248, http://www.jstor.org/stable/2938366.
 (1992): Understanding Consumption. Oxford University Press, New York.
+Durán, Jorge (2003): “Discounting long run average growth in stochastic dynamic
+programs,” Economic Theory, 22(2), 395–413.
 Friedman, Milton A. (1957): A Theory of the Consumption Function. Princeton
 University Press.
+Jappelli, Tullio, and Luigi Pistaferri (2000): “Intertemporal Choice and
+Consumption Mobility,” Econometric Society World Congress 2000 Contributed Paper
+Number 0118.
 Krueger, Dirk, Kurt Mitman, and Fabrizio Perri (2016): “Macroeconomics
 and Household Heterogeneity,” Handbook of Macroeconomics, 2, 843–921.
+Li, Huiyu, and John Stachurski (2014): “Solving the income fluctuation problem
+with unbounded rewards,” Journal of Economic Dynamics and Control, 45, 353–365.
 Ma, Qingyin, John Stachurski, and Alexis Akira Toda (2018): “The Income
 Fluctuation Problem with Capital Income Risk: Optimality and Stability,” arXiv
 preprint arXiv:1812.01320.
-Matkowski, Janusz, and Andrzej S. Nowak (2011): “On Discounted Dynamic
+(2020): “The Income Fluctuation Problem and the Evolution of Wealth,”
+Journal of Economic Theory, 187, 105003.
+MaCurdy, Thomas (1982): “The Use of Time Series Processes to Model the Error
+Structure of Earnings in a Longitudinal Data Analysis,” Journal of Econometrics,
+18(1), 83–114.
+Martins-da Rocha, V Filipe, and Yiannis Vailakis (2010): “Existence and
+uniqueness of a fixed point for local contractions,” Econometrica, 78(3), 1127–1141.
+
+37
+
+Matkowski, Janusz, and Andrzej S. Nowak (2011): “On Discounted Dynamic
 Programming With Unbounded Returns,” Economic Theory, 46, 455–474.
+Muth, John F. (1960): “Optimal Properties of Exponentially Weighted Forecasts,”
+Journal of the American Statistical Association, 55(290), 299–306.
+Rabault, Guillaume (2002): “When do borrowing constraints bind? Some new
+results on the income fluctuation problem,” Journal of Economic Dynamics and
+Control, 26(2), 217–245.
+Ramsey, Frank (1928): “A Mathematical Theory of Saving,” Economic Journal,
+38(152), 543–559.
+Rincón-Zapatero, Juan Pablo, and Carlos Rodríguez-Palmero (2003):
+“Existence and uniqueness of solutions to the Bellman equation in the unbounded
+case,” Econometrica, 71(5), 1519–1555.
+Schechtman, Jack, and Vera Escudero (1977): “Some results on ‘An Income
+Fluctuation Problem’,” Journal of Economic Theory, 16, 151–166.
+Scheinkman, José, and Laurence Weiss (1986): “Borrowing Constraints and
+Aggregate Economic Activity,” Econometrica, 54(1), 23–46.
 Stokey, Nancy L., Robert E. Lucas, and Edward C. Prescott (1989):
 Recursive Methods in Economic Dynamics. Harvard University Press.
+Storesletten, Kjetil, Chris I. Telmer, and Amir Yaron (2004): “Consumption
+and Risk Sharing Over the Life Cycle,” Journal of Monetary Economics, 51(3), 609–
+633.
 Szeidl, Adam (2012): “Stable Invariant Distribution in Buffer-Stock Saving and
 Stochastic Growth Models,” Manuscript, Central European University.
+Toche,
+Patrick
+(2005):
+“A
+Tractable
+Model
+of
+Precautionary
+Saving in Continuous Time,”
+Economics Letters,
+87(2),
+267–272,
+http://ideas.repec.org/a/eee/ecolet/v87y2005i2p267-272.html.
+Yao, Jiaxiong (2012): “The Theoretical Foundations of Buffer Stock Saving: A Note,”
+Manuscript, Johns Hopkins University.
 Zeldes, Stephen P. (1989): “Optimal Consumption with Stochastic Income:
 Deviations from Certainty Equivalence,” Quarterly Journal of Economics, 104(2),
 275–298.
 
-36
+38
 
 
