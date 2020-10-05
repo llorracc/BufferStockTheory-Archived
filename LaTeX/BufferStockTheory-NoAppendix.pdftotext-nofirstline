@@ -1,15 +1,15 @@
 
 Theoretical Foundations of
 Buffer Stock Saving
-October 5, 2020
+October 6, 2020
 
 Christopher D. Carroll1
 
 Abstract
 This paper builds theoretical foundations for rigorous and intuitive understanding of ‘buffer
 stock’ saving models, pairing each theoretical result with a quantitative exploration. After
-describing conditions under which the consumption function converges, the paper shows that
-a ‘target’ buffer stock exists only under conditions strictly stronger than those that guarantee
+describing conditions under which the consumption function exists, the paper shows that a
+‘target’ buffer stock exists only under conditions strictly stronger than those that guarantee
 convergence of the consumption and value functions. It also shows that the average growth
 rate of consumption equals the average growth rate of permanent income (in a small open
 economy populated by buffer stock savers). Together, the (provided) numerical tools and
@@ -24,30 +24,34 @@ to consume, permanent income hypothesis
 JEL codes
 
 D81, D91, E21
+Powered by Econ-ARK
 
-Archive:
+Dashboard:
 PDF:
 Slides:
-Web:
+html:
 Appendix:
+bibtex:
 GitHub:
 
-http://www.econ2.jhu.edu/people/ccarroll/BufferStockTheory.zip
-http://llorracc.github.io/BufferStockTheory/BufferStockTheory.pdf
-http://llorracc.github.io/BufferStockTheory/BufferStockTheory-Slides.pdf
-http://llorracc.github.io/BufferStockTheory/BufferStockTheory/
-http://llorracc.github.io/BufferStockTheory/BufferStockTheory#Appendices
-http://github.com/llorracc/BufferStockTheory
-(In GitHub repo, see /Code for tools for solving and simulating the model)
+https://econ-ark.org/materials/BufferStockTheory?dashboard
+https://llorracc.github.io/BufferStockTheory/BufferStockTheory.pdf
+https://llorracc.github.io/BufferStockTheory/BufferStockTheory-Slides.pdf
+https://llorracc.github.io/BufferStockTheory/BufferStockTheory/
+https://llorracc.github.io/BufferStockTheory/BufferStockTheory#Appendices
+https://llorracc.github.io/BufferStockTheory/LaTeX/BufferStockTheory-Self.bib
+https://github.com/llorracc/BufferStockTheory
 
-CLICK HERE for an interactive Jupyter Notebook that uses the Econ-ARK/HARK toolkit to
-produce all of the paper’s figures (warning: the notebook may take several minutes to launch).
-Information about citing the toolkit can be found at Acknowleding Econ-ARK.
+The dashboard will launch a live interactive Jupyter Notebook that uses the Econ-ARK/HARK toolkit to produce all of
+the paper’s figures (warning: the dashboard may take several minutes to launch).
 
 1 Contact: ccarroll@jhu.edu, Department of Economics, 590 Wyman Hall, Johns Hopkins University, Baltimore, MD
 21218, http://econ.jhu.edu/people/ccarroll, and National Bureau of Economic Research.
 
-All numerical results herein were produced using the Econ-ARK/HARK toolkit, which can be cited per our references
+All numerical results were produced using the Econ-ARK/HARK toolkit, which can be cited per our references
+(Carroll, Kaufman, Kazil, Palmer, and White (2018)); for reference to the toolkit itself see Acknowleding Econ-ARK.
+Thanks to the Consumer Financial Protection Bureau for funding the original creation of the Econ-ARK toolkit, whose
+latest version we used to produce all the results in this paper; and to the Sloan Foundation for funding Econ-ARK’s
 
 1 Introduction
 In the presence of empirically realistic transitory and permanent shocks to income a
@@ -76,22 +80,23 @@ uncertain does not change the urgent imperatives of the poor (their high u0 (c))
 they have little room to maneuver. Increased labor income uncertainty does not change
 the behavior of the rich because the increase in uncertainty does not threaten their
 consumption much. Only people in the middle have both the motivation and the wiggleroom to reduce their discretionary spending.
-Conveniently, elements required for the convergence proof turn out to provide analytical foundations for many other results that have become familiar from the numerical
 1 It is unclear whether newer methods such as those of Matkowski and Nowak (2011) could overcome this problem,
 or how difficult it would be to do so; but in any case this particular problem does not seem to have been tackled by those
 methods or any others.
 
-(Carroll, Kaufman, Kazil, Palmer, and White (2018)); for reference to the toolkit itself see Acknowleding Econ-ARK.
-Thanks to James Feigenbaum, Joseph Kaboski, Miles Kimball, Qingyin Ma, Misuzu Otsuka, Damiano Sandri, John
-Stachurski, Adam Szeidl, Metin Uyanik, Weifeng Wu, Xudong Zheng, and Jiaxiong Yao for comments on earlier versions
-of this paper, John Boyd for help in applying his weighted contraction mapping theorem, Ryoji Hiraguchi for extraordinary
-mathematical insight that improved the paper greatly, David Zervos for early guidance to the literature, and participants
-in a seminar at Johns Hopkins University and a presentation at the 2009 meetings of the Society of Economic Dynamics
-for their insights.
+extensive further development that brought it to the point where it could be used for this project. The toolkit can
+be cited with its digital object identifier, 10.5281/zenodo.1001067, as is done in the paper’s own references as Carroll,
+Kaufman, Kazil, Palmer, and White (2018). Thanks to James Feigenbaum, Joseph Kaboski, Miles Kimball, Qingyin
+Ma, Misuzu Otsuka, Damiano Sandri, John Stachurski, Adam Szeidl, Metin Uyanik, Weifeng Wu, Xudong Zheng, and
+Jiaxiong Yao for comments on earlier versions of this paper, John Boyd for help in applying his weighted contraction
+mapping theorem, Ryoji Hiraguchi for extraordinary mathematical insight that improved the paper greatly, David Zervos
+for early guidance to the literature, and participants in a seminar at Johns Hopkins University and a presentation at the
+2009 meetings of the Society of Economic Dynamics for their insights.
 
 2
 
-literature. All theoretical conclusions are paired with numerically computed illustrations
+Conveniently, elements required for the convergence proof turn out to provide analytical foundations for many other results that have become familiar from the numerical
+literature. All theoretical conclusions are paired with numerically computed illustrations
 (using an open-source toolkit available from the Econ-ARK project). All of the insights
 of this paper are instantiated in the toolkit, which algorithmically flags parametric
 choices under which a problem fails to define a contraction mapping, under which a
@@ -2171,36 +2176,127 @@ m ≥ 1.
 35
 
 References
+Abowd, John M., and David Card (1989): “On the Covariance Structure of Earnings
+and Hours Changes,” Econometrica, 57, 411–445.
+Alvarez, Fernando, and Nancy L Stokey (1998): “Dynamic programming with
+homogeneous functions,” Journal of economic theory, 82(1), 167–189.
+Attanasio, Orazio, and Guglielmo Weber (1995): “Is Consumption Growth
+Consistent with Intertemporal Optimization?
+Evidence from the Consumer
+Expenditure Survey,” Journal of Political Economy, 103(6), 1121–57.
 Bellman, Richard (1957): Dynamic Programming. Princeton University Press,
 Princeton, NJ, USA, 1 edn.
 Benhabib, Jess, Alberto Bisin, and Shenghao Zhu (2015): “The wealth
 distribution in Bewley economies with capital income risk,” Journal of Economic
 Theory, 159, 489–515, Available at https://www.nber.org/papers/w20157.pdf.
+Bewley, Truman (1977): “The Permanent Income Hypothesis:
+Formulation,” Journal of Economic Theory, 16, 252–292.
+
+A Theoretical
+
+Blanchard, Olivier J. (1985): “Debt, Deficits, and Finite Horizons,” Journal of
+Political Economy, 93(2), 223–247.
+Blundell, Richard, Hamish Low, and Ian Preston (2008): “Decomposing
+Changes in Income Risk Using Consumption Data,” Manusscript, University College
+London.
+Boyd, John H. (1990): “Recursive Utility and the Ramsey Problem,” Journal of
+Economic Theory, 50(2), 326–345.
+Carroll, Christopher D., Karsten Chipeniuk, Kiichi Tokuoka, and
+Weifeng Wu (2020): “The Method of Moderation,” Manuscript, Johns Hopkins
+University.
 Carroll, Christopher D., Alexander M. Kaufman, Jacqueline L. Kazil,
 Nathan M. Palmer, and Matthew N. White (2018): “The Econ-ARK and
 HARK: Open Source Tools for Computational Economics,” in Proceedings of the 17th
 Python in Science Conference, ed. by Fatih Akici, David Lippa, Dillon Niederhut, and
 M Pacer, pp. 25 – 30. doi: 10.5281/zenodo.1001067.
+Carroll, Christopher D., and Miles S. Kimball (1996):
+“On the
+Concavity of the Consumption Function,” Econometrica, 64(4), 981–992, http:
+//econ.jhu.edu/people/ccarroll/concavity.pdf.
+Carroll, Christopher D., and Andrew A. Samwick (1997): “The Nature of
+Precautionary Wealth,” Journal of Monetary Economics, 40(1), 41–71.
+
+36
+
+Carroll, Christopher D, Jiri Slacalek, and Kiichi Tokuoka (2015): “Bufferstock saving in a Krusell–Smith world,” Economics Letters, 132, 97–100, At
+http://econ.jhu.edu/people/ccarroll/papers/BSinKS.pdf.
+Carroll, Christopher D., Jiri Slacalek, Kiichi Tokuoka, and
+Matthew N. White (2017):
+“The Distribution of Wealth and the
+Marginal Propensity to Consume,” Quantitative Economics, 8, 977–1020, At
+http://econ.jhu.edu/people/ccarroll/papers/cstwMPC.
+Clarida, Richard H. (1987): “Consumption, Liquidity Constraints, and Asset
+Accumulation in the Face of Random Fluctuations in Income,” International Economic
+Review, XXVIII, 339–351.
 Deaton, Angus S. (1991): “Saving and Liquidity Constraints,” Econometrica, 59,
 1221–1248, http://www.jstor.org/stable/2938366.
 (1992): Understanding Consumption. Oxford University Press, New York.
+Durán, Jorge (2003): “Discounting long run average growth in stochastic dynamic
+programs,” Economic Theory, 22(2), 395–413.
 Friedman, Milton A. (1957): A Theory of the Consumption Function. Princeton
 University Press.
+Jappelli, Tullio, and Luigi Pistaferri (2000): “Intertemporal Choice and
+Consumption Mobility,” Econometric Society World Congress 2000 Contributed Paper
+Number 0118.
 Krueger, Dirk, Kurt Mitman, and Fabrizio Perri (2016): “Macroeconomics
 and Household Heterogeneity,” Handbook of Macroeconomics, 2, 843–921.
+Li, Huiyu, and John Stachurski (2014): “Solving the income fluctuation problem
+with unbounded rewards,” Journal of Economic Dynamics and Control, 45, 353–365.
 Ma, Qingyin, John Stachurski, and Alexis Akira Toda (2018): “The Income
 Fluctuation Problem with Capital Income Risk: Optimality and Stability,” arXiv
 preprint arXiv:1812.01320.
-Matkowski, Janusz, and Andrzej S. Nowak (2011): “On Discounted Dynamic
+(2020): “The Income Fluctuation Problem and the Evolution of Wealth,”
+Journal of Economic Theory, 187, 105003.
+MaCurdy, Thomas (1982): “The Use of Time Series Processes to Model the Error
+Structure of Earnings in a Longitudinal Data Analysis,” Journal of Econometrics,
+18(1), 83–114.
+Martins-da Rocha, V Filipe, and Yiannis Vailakis (2010): “Existence and
+uniqueness of a fixed point for local contractions,” Econometrica, 78(3), 1127–1141.
+
+37
+
+Matkowski, Janusz, and Andrzej S. Nowak (2011): “On Discounted Dynamic
 Programming With Unbounded Returns,” Economic Theory, 46, 455–474.
+Muth, John F. (1960): “Optimal Properties of Exponentially Weighted Forecasts,”
+Journal of the American Statistical Association, 55(290), 299–306.
+Rabault, Guillaume (2002): “When do borrowing constraints bind? Some new
+results on the income fluctuation problem,” Journal of Economic Dynamics and
+Control, 26(2), 217–245.
+Ramsey, Frank (1928): “A Mathematical Theory of Saving,” Economic Journal,
+38(152), 543–559.
+Rincón-Zapatero, Juan Pablo, and Carlos Rodríguez-Palmero (2003):
+“Existence and uniqueness of solutions to the Bellman equation in the unbounded
+case,” Econometrica, 71(5), 1519–1555.
+Schechtman, Jack, and Vera Escudero (1977): “Some results on ‘An Income
+Fluctuation Problem’,” Journal of Economic Theory, 16, 151–166.
+Scheinkman, José, and Laurence Weiss (1986): “Borrowing Constraints and
+Aggregate Economic Activity,” Econometrica, 54(1), 23–46.
 Stokey, Nancy L., Robert E. Lucas, and Edward C. Prescott (1989):
 Recursive Methods in Economic Dynamics. Harvard University Press.
+Storesletten, Kjetil, Chris I. Telmer, and Amir Yaron (2004): “Consumption
+and Risk Sharing Over the Life Cycle,” Journal of Monetary Economics, 51(3), 609–
+633.
 Szeidl, Adam (2012): “Stable Invariant Distribution in Buffer-Stock Saving and
 Stochastic Growth Models,” Manuscript, Central European University.
+Toche,
+Patrick
+(2005):
+“A
+Tractable
+Model
+of
+Precautionary
+Saving in Continuous Time,”
+Economics Letters,
+87(2),
+267–272,
+http://ideas.repec.org/a/eee/ecolet/v87y2005i2p267-272.html.
+Yao, Jiaxiong (2012): “The Theoretical Foundations of Buffer Stock Saving: A Note,”
+Manuscript, Johns Hopkins University.
 Zeldes, Stephen P. (1989): “Optimal Consumption with Stochastic Income:
 Deviations from Certainty Equivalence,” Quarterly Journal of Economics, 104(2),
 275–298.
 
-36
+38
 
 

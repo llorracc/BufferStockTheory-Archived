@@ -1,15 +1,15 @@
 
 Theoretical Foundations of
 Buffer Stock Saving
-October 5, 2020
+October 6, 2020
 
 Christopher D. Carroll1
 
 Abstract
 This paper builds theoretical foundations for rigorous and intuitive understanding of ‘buffer
 stock’ saving models, pairing each theoretical result with a quantitative exploration. After
-describing conditions under which the consumption function converges, the paper shows that
-a ‘target’ buffer stock exists only under conditions strictly stronger than those that guarantee
+describing conditions under which the consumption function exists, the paper shows that a
+‘target’ buffer stock exists only under conditions strictly stronger than those that guarantee
 convergence of the consumption and value functions. It also shows that the average growth
 rate of consumption equals the average growth rate of permanent income (in a small open
 economy populated by buffer stock savers). Together, the (provided) numerical tools and
@@ -24,30 +24,34 @@ to consume, permanent income hypothesis
 JEL codes
 
 D81, D91, E21
+Powered by Econ-ARK
 
-Archive:
+Dashboard:
 PDF:
 Slides:
-Web:
+html:
 Appendix:
+bibtex:
 GitHub:
 
-http://www.econ2.jhu.edu/people/ccarroll/BufferStockTheory.zip
-http://llorracc.github.io/BufferStockTheory/BufferStockTheory.pdf
-http://llorracc.github.io/BufferStockTheory/BufferStockTheory-Slides.pdf
-http://llorracc.github.io/BufferStockTheory/BufferStockTheory/
-http://llorracc.github.io/BufferStockTheory/BufferStockTheory#Appendices
-http://github.com/llorracc/BufferStockTheory
-(In GitHub repo, see /Code for tools for solving and simulating the model)
+https://econ-ark.org/materials/BufferStockTheory?dashboard
+https://llorracc.github.io/BufferStockTheory/BufferStockTheory.pdf
+https://llorracc.github.io/BufferStockTheory/BufferStockTheory-Slides.pdf
+https://llorracc.github.io/BufferStockTheory/BufferStockTheory/
+https://llorracc.github.io/BufferStockTheory/BufferStockTheory#Appendices
+https://llorracc.github.io/BufferStockTheory/LaTeX/BufferStockTheory-Self.bib
+https://github.com/llorracc/BufferStockTheory
 
-CLICK HERE for an interactive Jupyter Notebook that uses the Econ-ARK/HARK toolkit to
-produce all of the paper’s figures (warning: the notebook may take several minutes to launch).
-Information about citing the toolkit can be found at Acknowleding Econ-ARK.
+The dashboard will launch a live interactive Jupyter Notebook that uses the Econ-ARK/HARK toolkit to produce all of
+the paper’s figures (warning: the dashboard may take several minutes to launch).
 
 1 Contact: ccarroll@jhu.edu, Department of Economics, 590 Wyman Hall, Johns Hopkins University, Baltimore, MD
 21218, http://econ.jhu.edu/people/ccarroll, and National Bureau of Economic Research.
 
-All numerical results herein were produced using the Econ-ARK/HARK toolkit, which can be cited per our references
+All numerical results were produced using the Econ-ARK/HARK toolkit, which can be cited per our references
+(Carroll, Kaufman, Kazil, Palmer, and White (2018)); for reference to the toolkit itself see Acknowleding Econ-ARK.
+Thanks to the Consumer Financial Protection Bureau for funding the original creation of the Econ-ARK toolkit, whose
+latest version we used to produce all the results in this paper; and to the Sloan Foundation for funding Econ-ARK’s
 
 1 Introduction
 In the presence of empirically realistic transitory and permanent shocks to income a
@@ -76,22 +80,23 @@ uncertain does not change the urgent imperatives of the poor (their high u0 (c))
 they have little room to maneuver. Increased labor income uncertainty does not change
 the behavior of the rich because the increase in uncertainty does not threaten their
 consumption much. Only people in the middle have both the motivation and the wiggleroom to reduce their discretionary spending.
-Conveniently, elements required for the convergence proof turn out to provide analytical foundations for many other results that have become familiar from the numerical
 1 It is unclear whether newer methods such as those of Matkowski and Nowak (2011) could overcome this problem,
 or how difficult it would be to do so; but in any case this particular problem does not seem to have been tackled by those
 methods or any others.
 
-(Carroll, Kaufman, Kazil, Palmer, and White (2018)); for reference to the toolkit itself see Acknowleding Econ-ARK.
-Thanks to James Feigenbaum, Joseph Kaboski, Miles Kimball, Qingyin Ma, Misuzu Otsuka, Damiano Sandri, John
-Stachurski, Adam Szeidl, Metin Uyanik, Weifeng Wu, Xudong Zheng, and Jiaxiong Yao for comments on earlier versions
-of this paper, John Boyd for help in applying his weighted contraction mapping theorem, Ryoji Hiraguchi for extraordinary
-mathematical insight that improved the paper greatly, David Zervos for early guidance to the literature, and participants
-in a seminar at Johns Hopkins University and a presentation at the 2009 meetings of the Society of Economic Dynamics
-for their insights.
+extensive further development that brought it to the point where it could be used for this project. The toolkit can
+be cited with its digital object identifier, 10.5281/zenodo.1001067, as is done in the paper’s own references as Carroll,
+Kaufman, Kazil, Palmer, and White (2018). Thanks to James Feigenbaum, Joseph Kaboski, Miles Kimball, Qingyin
+Ma, Misuzu Otsuka, Damiano Sandri, John Stachurski, Adam Szeidl, Metin Uyanik, Weifeng Wu, Xudong Zheng, and
+Jiaxiong Yao for comments on earlier versions of this paper, John Boyd for help in applying his weighted contraction
+mapping theorem, Ryoji Hiraguchi for extraordinary mathematical insight that improved the paper greatly, David Zervos
+for early guidance to the literature, and participants in a seminar at Johns Hopkins University and a presentation at the
+2009 meetings of the Society of Economic Dynamics for their insights.
 
 2
 
-literature. All theoretical conclusions are paired with numerically computed illustrations
+Conveniently, elements required for the convergence proof turn out to provide analytical foundations for many other results that have become familiar from the numerical
+literature. All theoretical conclusions are paired with numerically computed illustrations
 (using an open-source toolkit available from the Econ-ARK project). All of the insights
 of this paper are instantiated in the toolkit, which algorithmically flags parametric
 choices under which a problem fails to define a contraction mapping, under which a
