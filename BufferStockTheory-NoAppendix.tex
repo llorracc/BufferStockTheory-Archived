@@ -11,12 +11,10 @@
 
 \begin{document}
 
-
 \providecommand{\versn}{} % Version; like, web or pdf or journal submission
 \ifthenelse{\boolean{ifWeb}}{  \renewcommand{\ushort}{\underline}\renewcommand{\versn}{Web} }{} % ushort does not work in tex4ht
 
 \hfill{\tiny \jobname~\versn~\today~{at} \DTMcurrenttime, \input{.git-source-commit}~~\input{.git-public-commit}}
-
 
 \title{Theoretical Foundations of \\ Buffer Stock Saving}
 
@@ -24,43 +22,47 @@
 
 \keywords{Precautionary saving, buffer stock saving, marginal propensity to consume, permanent income hypothesis}
 
-\jelclass{D81, D91, E21}
+\jelclass{D81, D91, E21\\
+  \href{https://econ-ark.org}{\includegraphics[width=0.2\textwidth]{./Figures/PoweredByEconARK}}
+}
 
-\renewcommand{\forcedate}{October 5, 2020}
+\renewcommand{\forcedate}{October 6, 2020}
 \date{\forcedate}
 
-\maketitle 
+\maketitle %% Version finally sent back to QE, as MS 354
 \hypertarget{abstract}{}
 \begin{abstract}
-  This paper builds theoretical foundations for rigorous and intuitive understanding of `buffer stock' saving models, pairing each theoretical result with a quantitative exploration.  After describing conditions under which the consumption function converges, the paper shows that a `target' buffer stock exists only under conditions strictly stronger than those that guarantee convergence of the consumption and value functions.  It also shows that the average growth rate of consumption equals the average growth rate of permanent income (in a small open economy populated by buffer stock savers).  Together, the (provided) numerical tools and (proven) analytical results constitute a comprehensive toolkit for understanding buffer stock models.
+  This paper builds theoretical foundations for rigorous and intuitive understanding of `buffer stock' saving models, pairing each theoretical result with a quantitative exploration.  After describing conditions under which the consumption function exists, the paper shows that a `target' buffer stock exists only under conditions strictly stronger than those that guarantee convergence of the consumption and value functions.  It also shows that the average growth rate of consumption equals the average growth rate of permanent income (in a small open economy populated by buffer stock savers).  Together, the (provided) numerical tools and (proven) analytical results constitute a comprehensive toolkit for understanding buffer stock models.
 \end{abstract}
 
 % Various resources 
 \hypertarget{links}{}
-\begin{small}
+\begin{footnotesize}
   \parbox{\textwidth}{
     \begin{center}
       \begin{tabbing}
-        \texttt{~Archive:~} \= \= \url{http://www.econ2.jhu.edu/people/ccarroll/BufferStockTheory.zip} \\  %
-        \texttt{~~~~~PDF:~} \> \> \url{http://llorracc.github.io/BufferStockTheory/BufferStockTheory.pdf} \\
-        \texttt{~~Slides:~} \> \> \url{http://llorracc.github.io/BufferStockTheory/BufferStockTheory-Slides.pdf} \\
-        \texttt{~~~~~Web:~} \> \> \url{http://llorracc.github.io/BufferStockTheory/BufferStockTheory/}    \\
-        \texttt{Appendix:~} \> \> \url{http://llorracc.github.io/BufferStockTheory/BufferStockTheory\#Appendices}    \\
-        % \texttt{~~bibtex:~} \> \> \url{http://llorracc.github.io/BufferStockTheory/BufferStockTheory.bib}  \\
-        \texttt{~~GitHub:~} \> \> \url{http://github.com/llorracc/BufferStockTheory} \\
-        \texttt{~~~~~~~~~~} \> \> \textit{(In GitHub repo, see \texttt{/Code} for tools for solving and simulating the model)} \\
+        % \texttt{~Archive:~} \= \= \url{https://www.econ2.jhu.edu/people/ccarroll/BufferStockTheory.zip} \\  %
+        \texttt{Dashboard:~} \= \= \url{https://econ-ark.org/materials/BufferStockTheory?dashboard} \\
+        \texttt{~~~~~~PDF:~} \> \> \url{https://llorracc.github.io/BufferStockTheory/BufferStockTheory.pdf} \\
+        \texttt{~~~Slides:~} \> \> \url{https://llorracc.github.io/BufferStockTheory/BufferStockTheory-Slides.pdf} \\
+        \texttt{~~~~~html:~} \> \> \url{https://llorracc.github.io/BufferStockTheory/BufferStockTheory/}    \\
+        \texttt{~Appendix:~} \> \> \url{https://llorracc.github.io/BufferStockTheory/BufferStockTheory\#Appendices}    \\
+        \texttt{~~~bibtex:~} \> \> \url{https://llorracc.github.io/BufferStockTheory/LaTeX/BufferStockTheory-Self.bib}  \\
+        \texttt{~~~GitHub:~} \> \> \url{https://github.com/llorracc/BufferStockTheory} \\
+        % \texttt{~~~~~~~~~~} \> \> \textit{(In GitHub repo, see \texttt{/Code} for tools for solving and simulating the model)} \\
       \end{tabbing}
     \end{center}
     
-    \href{https://econ-ark.org/materials/BufferStockTheory}{CLICK HERE} for an interactive \href{https://en.wikipedia.org/wiki/Project\_Jupyter\#Jupyter_Notebook}{Jupyter Notebook} that uses the \href{https://econ-ark/HARK}{Econ-ARK/HARK} toolkit to produce all of the paper's figures (warning: the notebook may take several minutes to launch).  Information about citing the toolkit can be found at \href{https://econ-ark.org/acknowledging/}{Acknowleding Econ-ARK}.
+    The \href{https://econ-ark.org/materials/BufferStockTheory?dashboard}{dashboard} will launch a live interactive \href{https://en.wikipedia.org/wiki/Project\_Jupyter\#Jupyter_Notebook}{Jupyter Notebook} that uses the \href{https://econ-ark/HARK}{Econ-ARK/HARK} toolkit to produce all of the paper's figures (warning: the dashboard may take several minutes to launch).
   } % end parbox{\textwidth}
-\end{small}
+\end{footnotesize}
 
 \begin{authorsinfo}
   \name{Contact: \href{mailto:ccarroll@jhu.edu}{\texttt{ccarroll@jhu.edu}}, Department of Economics, 590 Wyman Hall, Johns Hopkins University, Baltimore, MD 21218, \url{http://econ.jhu.edu/people/ccarroll}, and National Bureau of Economic Research.}
 \end{authorsinfo}
 
-\newcommand{\thankstext}{All numerical results herein were produced using the \href{https://econ-ark/HARK}{Econ-ARK/HARK} toolkit, which can be cited per our references (\cite{carroll_et_al-proc-scipy-2018}); for reference to the toolkit itself see \href{https://econ-ark.org/acknowledging/}{Acknowleding Econ-ARK}.  Thanks to James Feigenbaum, Joseph Kaboski, Miles Kimball, Qingyin Ma, Misuzu Otsuka, Damiano Sandri, John Stachurski, Adam Szeidl, Metin Uyanik, Weifeng Wu, Xudong Zheng,  and Jiaxiong Yao for comments on earlier versions of this paper, John Boyd for help
+\newcommand{\thankstext}{All numerical results were produced using the \href{https://econ-ark/HARK}{Econ-ARK/HARK} toolkit, which can be cited per our references (\cite{carroll_et_al-proc-scipy-2018}); for reference to the toolkit itself see \href{https://econ-ark.org/acknowledging/}{Acknowleding Econ-ARK}.  Thanks to the \href{https://consumerfinance.gov}{Consumer Financial Protection Bureau} for funding the original creation of the \href{https://econ-ark.org}{Econ-ARK} toolkit, whose latest version we used to produce all the results in this paper; and to the \href{https://sloan.org}{Sloan Foundation} for funding Econ-ARK's \href{https://sloan.org/grant-detail/8071}{extensive further development} that brought it to the point where it could be used for this project.  The toolkit can be cited with its digital object identifier, \href{https://doi.org/10.5281/zenodo.1001067}{10.5281/zenodo.1001067}, as is done in the paper's own references as \cite{carroll_et_al-proc-scipy-2018}.  
+  Thanks to James Feigenbaum, Joseph Kaboski, Miles Kimball, Qingyin Ma, Misuzu Otsuka, Damiano Sandri, John Stachurski, Adam Szeidl, Metin Uyanik, Weifeng Wu, Xudong Zheng,  and Jiaxiong Yao for comments on earlier versions of this paper, John Boyd for help
   in applying his weighted contraction mapping theorem, Ryoji
   Hiraguchi for extraordinary mathematical insight that improved the
   paper greatly, David Zervos for early guidance to the literature,
@@ -83,6 +85,7 @@
 
 \label{sec:intro}
 
+%%% Following the success of Modigliani and Brumberg's~\citeyearpar{modigliani&brumberg:lifecycle} Life Cycle model and Friedman's~\citeyearpar{friedmanATheory} Permanent Income Hypothesis, a vast literature in the 1960s and 1970s formalized the idea that household spending can be modeled as reflecting optimal intertemporal choice.  Bewley~\citeyearpar{bewleyPIH} and \cite{seIncFluct} capped this literature, paving the way for the ascendancy of dynamic stochastic optimizing models in economics.
 
 
 
@@ -153,7 +156,7 @@ disarticulate the steps so that individual ingredients can be separately examine
 \end{verbatimwrite}
 \input{\EqDir/DBCparts.tex} where $\aLevBF_{t}$ indicates the consumer's assets at the end of period $t$, which grow by a fixed interest factor $\Rfree =(1+\rfree)$ between periods,\footnote{See \cite{mstCapIncFluct} for interesting new work that considers the case where capital returns are stochastic and liquidity constraints exist.  \cite{benhabibWealth} examines implications of capital income risk for the distribution of wealth.}  so that $\bLevBF_{t+1}$ is the consumer's financial (`bank') balances before next period's consumption choice;\footnote{Allowing a stochastic interest factor is straightforward but adds little insight.  The effects are more interesting for analysis of the invariant distribution (\cite{szeidlInvariant}).} $\mLevBF_{t+1}$ (`market resources' or `money') is the sum of financial wealth $\bLevBF_{t+1}$ and noncapital income $\pLevBF_{t+1}\tShkAll_{t+1}$ (permanent noncapital income $\pLevBF_{t+1}$ multiplied by a mean-one iid transitory income shock factor $\tShkAll_{t+1}$; future transitory shocks are assumed to satisfy $\Ex_{t}[{\tShkAll}_{t+n}]=1~\forall~n\geq 1$). Permanent noncapital income in period $t+1$ is equal to its previous value, multiplied by a growth factor $\PGro$, modified by a mean-one iid shock $\pShk_{t+1}$, $\Ex_{t}[{\pShk}_{t+n}]=1~\forall~n \geq 1$ satisfying $\pShk \in [\ushort{\pShk},\bar{\pShk}]$ for $0 < \ushort{\pShk} \leq 1 \leq \bar{\pShk} < \infty$ where $\ushort{\pShk}=\bar{\pShk}=1$ is the degenerate case with no permanent shocks.\footnote{It is useful to emphasize that permanent noncapital income as defined here differs from what Deaton~\citeyearpar{deatonUnderstandingC} calls permanent income (which is often adopted in the macro literature).  Deaton defines permanent income as the amount that a perfect foresight consumer could spend while leaving total (human and nonhuman) wealth constant.  Relatedly, we refer to $\mLevBF_{t}$ as `cash-on-hand' or `market resources' rather than as wealth to avoid any confusion for readers accustomed to thinking of the discounted value of future noncapital income as a part of wealth.  The `market resources' terminology is motivated by the model's assumption that human wealth cannot be capitalized, an implication of anti-slavery laws.}$^{,}$\footnote{Hereafter for brevity we occasionally drop time subscripts, e.g.\ $\Ex[\pShk^{-\CRRA}]$ signifies $\Ex_{t}[\pShk_{t+1}^{-\CRRA}]$.}
 
-%\onlyinsubfile{\bibliography{\LaTeXFiles/BufferStockTheory,economics}}\end{document}
+% \onlyinsubfile{\bibliography{\LaTeXFiles/BufferStockTheory,economics}}\end{document}
 
 In future periods $t+n ~\forall~ n \geq 1$ there is a small probability $\pZero$ that income will
 be zero (a `zero-income event'),
@@ -231,6 +234,7 @@ x^{1-\CRRA}\uFunc(y)$.
 
 \hypertarget{The-Related-Problem}{}
 Now, in a one-time deviation from the notational convention established in the last paragraph, define nonbold `normalized value' not as $\vLevBF_{t}/\pLevBF_{t}$ but as $\vFunc_{t} = \vLevBF_{t}/\pLevBF_{t}^{1-\CRRA}$, because this allows us to use the related problem 
+%% \begin{verbatimwrite}{\EqDir/veqn.tex} % Weirdly, if \label{eq:veqn} is in verbatimwritten file, reference is not correctly constructed, so comment out verbatimrwite here
 \begin{align}
   \vFunc_{t}(\mRat_{t})  & = \max_{\{\cFunc\}_{t}^{T}}~  \uFunc(\cFunc_{t}) +\DiscFac \Ex_{t}[\PGro_{t+1}^{1-\CRRA}\vFunc_{t+1}({\mRat}_{t+1})] \notag \\
                          & \mbox{s.t.}  \label{eq:veqn} 
@@ -238,6 +242,7 @@ Now, in a one-time deviation from the notational convention established in the l
   \\ {\bRat}_{t+1}  & = (\Rfree/\PGro_{t+1})\aRat_{t}  ~ = ~ \Rnorm_{t+1}\aRat_{t}  \notag
   \\ \mRat_{t+1}  & = \bRat_{t+1}+\tShkAll_{t+1}  \notag %
 \end{align}
+%% \end{verbatimwrite}\input{\EqDir/veqn.tex}
 where $\Rnorm_{t+1}\equiv (\Rfree/\PGro_{t+1})$ is a `growth-normalized' return factor, and the problem's first order condition is
 \begin{align}
   c_{t}^{-\CRRA}  & = \Rfree \DiscFac \Ex_{t}[ {\PGro}_{t+1}^{-\CRRA} {\cRat}
@@ -301,6 +306,7 @@ the interest rate at which that income is being discounted.
 \hypertarget{AIC}{}
 The consumption Euler equation holds in every period; with $\uP(\cLevBF)=\cLevBF^{-\CRRA}$, this says\hypertarget{Pat}{}
 \begin{align}
+  %% \cLevBF_{t}^{-\CRRA}  & = \Rfree\DiscFac \cLevBF_{t+1}^{-\CRRA} \\ \notag
   \cLevBF_{t+1}/\cLevBF_{t}  & = (\Rfree\DiscFac)^{1/\CRRA} \equiv \Pat   \label{eq:Pat}
 \end{align}
 where the Old English letter `thorn' represents what we will call the
@@ -373,6 +379,7 @@ x^{1-\CRRA}\uFunc(y)$, yields an analytical expression for value:
 which asymptotes to a finite number as $n=T-t$ approaches $+\infty$ if $\DiscFac \Pat^{1-\CRRA} < 1$ (related to a condition in \cite{asHomogeneous}); with a bit of algebra, this requirement can be shown to be equivalent to the \RIC.\footnote{
   \begin{align*}
     \DiscFac ((\Rfree \DiscFac)^{1/\CRRA})^{1-\CRRA}  & < 1
+    %% \\ \DiscFac (\Rfree\DiscFac)^{(1-\CRRA)/\CRRA}  & < 1
     \\ \DiscFac (\Rfree\DiscFac)^{1/\CRRA}/\Rfree\DiscFac  & < 1
     \\ (\Rfree \DiscFac)^{1/\CRRA} /\Rfree  & < 1
   \end{align*}.
@@ -468,16 +475,19 @@ but the absence of liquidity constraints (also tabulated for comparison)).  The 
 
 
 
+Now define $\isp \equiv \psi^{-1}$ and $\bar{\isp} = \Ex_{t}[\isp_{t+1}]$.  % PrivateMsg
 
 
 When uncertainty is introduced, the expectation of $\bRat_{t+1}$ can be rewritten as:  
 \begin{align}
   \Ex_{t}[\bRat_{t+1}]  & =  \aRat_{t}\Ex_{t}[\Rnorm_{t+1}] = \aRat_{t}\Rnorm\Ex_{t}[\pShk_{t+1}^{-1}] \label{eq:EbRat}
+  \\ & = \aRat_{t}\Rnorm\Ex_{t}[\isp_{t+1}] = \aRat_{t}\Rnorm\bar{\isp} % PrivateMsg
 \end{align}
 where Jensen's inequality guarantees that the expectation of the inverse of the permanent
 shock is strictly greater than one.  It will be convenient to define the object \hypertarget{InvEpShkInv}{}
 \begin{align*}
   \InvEpShkInv  & \equiv  (\EpShkInv)^{-1}
+  \\ &                  \equiv \bar{\isp}^{-1}  % PrivateMsg
 \end{align*}
 because this permits us to write expressions like the RHS of
 \eqref{eq:EbRat} compactly as, e.g., $\aRat_{t}\Rnorm/
@@ -502,6 +512,7 @@ and a compensated Growth Patience Pactor (GPF):\hypertarget{GIF}{}
 \begin{verbatimwrite}{\EqDir/PatPGroAdj}
   \begin{align}
     \PatPGroAdj  & = \Pat/\PGroAdj
+    \\ & = \bar{\isp}\PatPGro  % PrivateMsg
     \\ & = \Ex\left(\frac{\Pat}{\PGro \psi}\right)
   \end{align}
 \end{verbatimwrite}
@@ -611,6 +622,13 @@ resources.)
 \providecommand{\figFile}{cFuncsConverge} %  and on filename
 \hypertarget{\figFile}{}
 \hypertarget{\figName}{}
+%% \begin{verbatimwrite}{\econtexRoot/\FigsTeX/cFuncsConverge} % Store the tex for standalone compilation 
+%%   \begin{figure}[tbp]
+%%     \centerline{\includegraphics[width=6in]{\econtexRoot/\FigsRaw/cFuncsConverge}}
+%%     \caption{Convergence of the Consumption Rules}
+%%     \label{fig:cFuncsConverge}
+%%   \end{figure}
+%% \end{verbatimwrite} % end storing of tex
 \input{\econtexRoot/\FigsTeX/cFuncsConverge} % Read in the tex to generate the figure
 
 In the figure, the consumption rules appear to converge as the horizon
@@ -1036,6 +1054,13 @@ would keep $\mRat$ stable (in expectation).
 
 \renewcommand{\figFile}{FVACnotGIC}
 \hypertarget{\figFile}{}
+%% \begin{verbatimwrite}{\econtexRoot/\FigsTeX/FVACnotGIC}
+%%   \begin{figure}[tbp]
+%%     \centerline{\includegraphics[width=6in]{\econtexRoot/\FigsRaw/FVACnotGIC}}
+%%     \caption{Example Solution when \FVAC~Holds but \GIC~Does Not}
+%%     \label{fig:FVACnotGIC}
+%%   \end{figure}
+%% \end{verbatimwrite}
 \input{\econtexRoot/\FigsTeX/FVACnotGIC}
 
 \begin{comment}
@@ -1168,6 +1193,13 @@ present.\footnote{Throughout the remaining analysis I make a final
 
 \renewcommand{\figFile}{cGroTargetFig}
 \hypertarget{\figFile}{}
+%% \begin{verbatimwrite}{\econtexRoot/\FigsTeX/cGroTargetFig}
+%%   \begin{figure}[tbp]
+%%     \centerline{\includegraphics[width=6in]{\econtexRoot/\FigsRaw/cGroTargetFig}}
+%%     \caption{Target $\mRat$, Expected Consumption Growth, and Permanent Income Growth}
+%%     \label{fig:cGroTargetFig}
+%%   \end{figure}
+%% \end{verbatimwrite}
 \input{\econtexRoot/\FigsTeX/cGroTargetFig}
 
 \hypertarget{LimitsAsmtToInfty}{}
@@ -1224,10 +1256,26 @@ plot shows the converged consumption function along with its upper and lower bou
 while the lower plot shows the marginal propensity to consume.
 \renewcommand{\figFile}{mpclimits}
 \hypertarget{\figFile}{}
+%% \begin{verbatimwrite}{\econtexRoot/\FigsTeX/MPCLimits}
+%%   \begin{figure}
+%%     \centerline{\includegraphics[width=6in]{\econtexRoot/\FigsRaw/MPCLimits}}
+%%     \caption{Limiting MPC's}
+%%     \label{fig:mpclimits}
+%%   \end{figure}
+%% \end{verbatimwrite}
 \input{\econtexRoot/\FigsTeX/MPCLimits}
 
 \renewcommand{\figFile}{cFuncBounds}
 \hypertarget{\figFile}{}
+%% \begin{verbatimwrite}{\econtexRoot/\FigsTeX/cFuncBounds}
+%%   \begin{figure}
+%%     \centering
+%%     \subfigure[\large Bounds]{\includegraphics[width=6in]{\econtexRoot/\FigsRaw/cFuncBounds}}
+%%     \subfigure[\large Target $\mRat$]{\includegraphics[width=6in]{\econtexRoot/\FigsRaw/cRatTargetFig}}
+%%     \caption{The Consumption Function}
+%%     \label{fig:cFuncBounds}
+%%   \end{figure}
+%% \end{verbatimwrite}
 \input{\econtexRoot/\FigsTeX/cFuncBounds}
 
 
@@ -1367,7 +1415,7 @@ The elements of the proof are:
 \begin{itemize}
 \item Existence and continuity of $\Ex_t [{\mRat}_{t+1}/\mRat_t]$
 \item Existence of a point where $\Ex_t [{\mRat}_{t+1}/\mRat_t] = 1$
- \item $\Ex_t [{\mRat}_{t+1}]-\mRat_{t}$ is monotonically decreasing
+\item $\Ex_t [{\mRat}_{t+1}]-\mRat_{t}$ is monotonically decreasing
 \end{itemize}
 
 \subsubsection{Existence and Continuity of $\Ex_t [{\mRat}_{t+1}/\mRat_t]$.}
@@ -1393,7 +1441,7 @@ The Intermediate Value Theorem tells us that if $\Ex_t [{\mRat}_{t+1}/\mRat_t]$ 
 
 \subsubsection{$\Ex_t [{\mRat}_{t+1}] -\mRat_t$ is monotonically decreasing.}
 
-  Now define \providecommand{\difFunc}{\pmb{\zeta}} $\difFunc(\mRat_t) \equiv 
+Now define \providecommand{\difFunc}{\pmb{\zeta}} $\difFunc(\mRat_t) \equiv 
 \Ex_t[\mRat_{t+1}] - \mRat_t$ and note that
 \begin{align}\label{eq:difRatioEquiv}
   \difFunc(\mRat_t) < 0 &\leftrightarrow \Ex_t[{\mRat}_{t+1}/\mRat_t] < 1 
@@ -1405,28 +1453,28 @@ The Intermediate Value Theorem tells us that if $\Ex_t [{\mRat}_{t+1}/\mRat_t]$ 
 so that $\difFunc(\mTarg)=0$. Our goal is to prove that $\difFunc(\bullet)$ is strictly 
 decreasing on $(0,\infty)$ since
 \begin{align}
-\difFunc^{\prime}(\mRat_{t}) \equiv  \left( \frac{d}{d\mRat_{t}}\right) \difFunc(\mRat_t)  & = \Ex_{t}\left[
-                                                          \left( \frac{d}{d\mRat_{t}}\right) \left( 
-                                                          {\Rnorm}_{t+1}(\mRat_{t}-\cFunc(\mRat_{t}))+%
-                                                          {\tShkAll}_{t+1} - {\mRat}_t\right) \right] \label{eq:difFuncDecreases} \\
-                                                        & = \bar{\Rnorm}\left(1-\cFunc^{\prime}({\mRat}_t)\right) - 1  \notag
+  \difFunc^{\prime}(\mRat_{t}) \equiv  \left( \frac{d}{d\mRat_{t}}\right) \difFunc(\mRat_t)  & = \Ex_{t}\left[
+                                                                                               \left( \frac{d}{d\mRat_{t}}\right) \left( 
+                                                                                               {\Rnorm}_{t+1}(\mRat_{t}-\cFunc(\mRat_{t}))+%
+                                                                                               {\tShkAll}_{t+1} - {\mRat}_t\right) \right] \label{eq:difFuncDecreases} \\
+                                                                                             & = \bar{\Rnorm}\left(1-\cFunc^{\prime}({\mRat}_t)\right) - 1  \notag
 \end{align}
 
 Note that the statement of theorem~\ref{thm:target} did not require the {\RIC} to hold.  Now, we show that (given our other assumptions) $\difFunc^{\prime}(\mRat)$ is decreasing (but for different reasons) whether the {\RIC} holds or fails (\cncl{\RIC}).
 
 \textbf{If {\RIC} holds}.   We show elsewhere that if the {\RIC} holds then $0 < \MinMPC < \cFunc^{\prime}(\mRat_{t}) < 1$ so that 
 \begin{align*}
-\bar{\Rnorm}\left(1-\cFunc^{\prime}({\mRat}_t)\right) - 1 & <  \bar{\Rnorm}(1-\underbrace{(1-\PatR)}_{\MinMPC}) - 1  \\
-                                                          & = \bar{\Rnorm}\PatR - 1 \\
-                                                          & = \Ex_{t}\left[\frac{\Rfree}{\PGro \pShk}\frac{\Pat}{\Rfree}\right] - 1 \\
-                                                          & = \underbrace{\Ex_{t}\left[\frac{\Pat}{\PGro \pShk}\right]}_{= \PatPGroAdj} - 1 
+  \bar{\Rnorm}\left(1-\cFunc^{\prime}({\mRat}_t)\right) - 1 & <  \bar{\Rnorm}(1-\underbrace{(1-\PatR)}_{\MinMPC}) - 1  \\
+                                                            & = \bar{\Rnorm}\PatR - 1 \\
+                                                            & = \Ex_{t}\left[\frac{\Rfree}{\PGro \pShk}\frac{\Pat}{\Rfree}\right] - 1 \\
+                                                            & = \underbrace{\Ex_{t}\left[\frac{\Pat}{\PGro \pShk}\right]}_{= \PatPGroAdj} - 1 
 \end{align*}
 which is negative because the {\GIC} says $\PatPGroAdj < 1$.  
 
 \textbf{If {\RIC} fails.}
 Under \cncl{\RIC}, recall that $\lim_{\mRat \uparrow \infty} \cFunc^{\prime}(\mRat) = 0$.  Concavity of the consumption function means that $\cFunc^{\prime}$ is a decreasing function, so everywhere 
 \begin{align*}
- \bar{\Rnorm}\left(1-\cFunc^{\prime}({\mRat}_t)\right) & < \bar{\Rnorm}
+  \bar{\Rnorm}\left(1-\cFunc^{\prime}({\mRat}_t)\right) & < \bar{\Rnorm}
 \end{align*}
 which means that $\difFunc^{\prime}(\mRat_{t})$ from \eqref{eq:difFuncDecreases} is guaranteed to be negative if
 \begin{align}
@@ -1671,7 +1719,7 @@ rate of idiosyncratic log consumption matches the growth rate of idiosyncratic l
 
   There is a simple solution to that problem, however. In practice most modelers incorporate a constant positive probability of death in their models, following \cite{blanchardFinite}.  \cite{cstwMPC} show that for probabilities of death that exceed a threshold that depends on the size of the permanent shocks, the distribution of permanent income has a finite variance.  In such cases, numerical results confirm the intuition that the growth rate of aggregate assets ends up matching the growth rate of permanent income.
 
-  Matters are simpler if there are no permanent shocks; \ref{sec:ApndxCGroIsPGro} for a proof that in that case the growth rate of assets (and other variables) does eventually converge to the growth rate of aggregate permanent income.
+  Matters are simpler if there are no permanent shocks; see \ref{sec:ApndxCGroIsPGro} for a proof that in that case the growth rate of assets (and other variables) does eventually converge to the growth rate of aggregate permanent income.
 
 } % end ShorterYN
 % }% end showBody
@@ -1712,4 +1760,6 @@ Another contribution is integration of the paper's results with the open-source 
 % eval: (cond ((string-equal system-type "darwin") (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n LaTeX/%o %b"))))))
 % End:
 
+%%% TeX-view-program-list: (("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n LaTeX/%o %b"))
 
+%%% (case system-type 	  ((gnu/linux) "notify-send") 	  ((darwin) "growlnotify -a Emacs.app -m"))
