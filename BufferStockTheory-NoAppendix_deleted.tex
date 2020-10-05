@@ -1,5 +1,5 @@
 \providecommand{\versn}{} % Version; like, web or pdf or journal submission
-\ifthenelse{\boolean{ifWeb}}{  \renewcommand{\ushort}{\underline}\renewcommand{\versn}{Web} }{} % underline does not work in tex4ht
+\ifthenelse{\boolean{ifWeb}}{  \renewcommand{\underline}{\underline}\renewcommand{\versn}{Web} }{} % underline does not work in tex4ht
 
 \hfill{\tiny \jobname~\versn~\today~{at} \DTMcurrenttime, \input{.git-source-commit}~~\input{.git-public-commit}}
 
