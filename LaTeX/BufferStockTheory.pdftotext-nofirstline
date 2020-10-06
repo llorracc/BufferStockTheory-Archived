@@ -47,6 +47,12 @@ the paper’s figures (warning: the dashboard may take several minutes to launch
 1 Contact: ccarroll@jhu.edu, Department of Economics, 590 Wyman Hall, Johns Hopkins University, Baltimore, MD
 21218, http://econ.jhu.edu/people/ccarroll, and National Bureau of Economic Research.
 
+All numerical results were produced using the Econ-ARK/HARK toolkit, which can be cited per our references
+(Carroll, Kaufman, Kazil, Palmer, and White (2018)); for reference to the toolkit itself see Acknowleding Econ-ARK.
+Thanks to the Consumer Financial Protection Bureau for funding the original creation of the Econ-ARK toolkit, whose
+latest version we used to produce all the results in this paper; and to the Sloan Foundation for funding Econ-ARK’s
+extensive further development that brought it to the point where it could be used for this project. The toolkit can
+
 1 Introduction
 In the presence of empirically realistic transitory and permanent shocks to income a
 la Friedman (1957), one further ingredient is required to construct a testable model of
@@ -75,18 +81,26 @@ they have little room to maneuver). And, increased labor income uncertainty does
 change the behavior of the rich because it does not threaten their consumption much.
 Only people in the middle have both the motivation and the wiggle-room to reduce their
 discretionary spending.
-Conveniently, it turns out that elements required for the convergence proof provide
-analytical foundations for many other results that have become familiar from the numerical literature. All theoretical conclusions are paired with numerically computed
-illustrations (using an open-source toolkit available from the Econ-ARK project). All
-of the insights of this paper are instantiated in the toolkit, whose buffer stock saving
-module algorithmically flags parametric choices under which a problem fails to define a
 1 It is unclear whether newer methods such as those of Matkowski and Nowak (2011) could overcome this problem,
 or how difficult it would be to do so; but in any case this particular problem does not seem to have been tackled by those
 methods or any others.
 
+be cited with its digital object identifier, 10.5281/zenodo.1001067, as is done in the paper’s own references as Carroll,
+Kaufman, Kazil, Palmer, and White (2018). Thanks to James Feigenbaum, Joseph Kaboski, Miles Kimball, Qingyin
+Ma, Misuzu Otsuka, Damiano Sandri, John Stachurski, Adam Szeidl, Metin Uyanik, Mateo Velasquez-Griraldo, Weifeng
+Wu, Xudong Zheng, and Jiaxiong Yao for comments on earlier versions of this paper, John Boyd for help in applying his
+weighted contraction mapping theorem, Ryoji Hiraguchi for extraordinary mathematical insight that improved the paper
+greatly, David Zervos for early guidance to the literature, and participants in a seminar at Johns Hopkins University and
+a presentation at the 2009 meetings of the Society of Economic Dynamics for their insights.
+
 2
 
-contraction mapping; a target level of wealth does not exist; or the solution is otherwise
+Conveniently, it turns out that elements required for the convergence proof provide
+analytical foundations for many other results that have become familiar from the numerical literature. All theoretical conclusions are paired with numerically computed
+illustrations (using an open-source toolkit available from the Econ-ARK project). All
+of the insights of this paper are instantiated in the toolkit, whose buffer stock saving
+module algorithmically flags parametric choices under which a problem fails to define a
+contraction mapping; a target level of wealth does not exist; or the solution is otherwise
 degenerate.
 The theoretical foundations provided here are valuable both because they provide
 intuition about the determinants of saving targets, and because they make it easier
@@ -120,7 +134,6 @@ aggregate interest rate that differs from the time preference rate, an economy p
 by buffer stock consumers converges to a balanced growth equilibrium in which the
 growth rate of consumption tends toward the (exogenous) growth rate of permanent
 income.
-
 2 Szeidl’s proof supplants the analysis in an earlier draft of this paper, which conjectured the result and provided
 supportive simulation evidence.
 
