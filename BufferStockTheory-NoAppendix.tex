@@ -83,11 +83,11 @@
 % \begin{Web}
 %   If web version, then just incorporate thanks at beginning of text
 %   instead of in frontmatter
-\ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\tiny
-    \thankstext} \medskip \medskip \medskip
-    \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax
-  }{\pagebreak 
-} % \end{Web}
+%\ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\tiny    \thankstext} \medskip \medskip \medskip \\    \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax  }{\pagebreak } % \end{Web}
+
+% If web version, then just incorporate thanks at beginning of text instead of in frontmatter
+\ifthenelse{\boolean{ifWeb}}{\medskip \noindent {\footnotesize \thankstext} \\  {\centering \medskip \medskip \medskip  \noindent \hrule height 0.4pt depth 0.0pt width \textwidth \relax}}{\pagebreak } % \end{Web}
+
 
 \medskip \medskip
 
