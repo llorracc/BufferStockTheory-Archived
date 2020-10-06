@@ -546,11 +546,9 @@ Definitions: ‘Uncertainty-Adjusted’ Growth:
 
 ÞΓ < 1
 
-(13)
+(11)
 
 Adjusted Growth Patience Factor:
-(11)
-(12)
 
 Growth Impatience Condition:
 
@@ -564,7 +562,7 @@ lim ECarroll
 ÞΓ
 t
 
-(14)
+(12)
 
 Introduction
 The Problem
@@ -796,7 +794,7 @@ Yt+1 /Yt = Ct+1 /Ct
 
 = Γ
 
-(15)
+(13)
 
 Fisherian Separation Fails, Even Without Liquidity Constraints!
 Insight:
@@ -809,7 +807,7 @@ Carroll
 
 Buffer Stock Theory
 
-(16)
+(14)
 
 Introduction
 The Problem
@@ -826,7 +824,7 @@ Yt+1 /Yt = Ct+1 /Ct
 
 = Γ
 
-(15)
+(13)
 
 Fisherian Separation Fails, Even Without Liquidity Constraints!
 Insight:
@@ -839,7 +837,7 @@ Carroll
 
 Buffer Stock Theory
 
-(16)
+(14)
 
 Introduction
 The Problem
@@ -856,7 +854,7 @@ Yt+1 /Yt = Ct+1 /Ct
 
 = Γ
 
-(15)
+(13)
 
 Fisherian Separation Fails, Even Without Liquidity Constraints!
 Insight:
@@ -869,7 +867,7 @@ Carroll
 
 Buffer Stock Theory
 
-(16)
+(14)
 
 Introduction
 The Problem
