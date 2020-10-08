@@ -7,13 +7,11 @@
 % * Not clear what proper order is; might NOT matter
 
 \onlyinsubfile{\externaldocument{BufferStockTheory}} % Get xrefs -- esp to appendix -- from main file; only works properly if main file has already been compiled; 
-\input{\LaTeXFiles/onlyinsubfile.sty} 
 
 \begin{document}
 
 \providecommand{\versn}{} % Version; like, web or pdf or journal submission
 \ifthenelse{\boolean{ifWeb}}{  \renewcommand{\ushort}{\underline}\renewcommand{\versn}{Web} }{} % ushort does not work in tex4ht
-
 
 \hfill{\tiny \jobname~\versn~\today~{at} \DTMcurrenttime, \input{.git-source-commit}~~\input{.git-public-commit}}
 
@@ -27,10 +25,10 @@
   \href{https://econ-ark.org}{\includegraphics{./Figures/PoweredByEconARK}}
 }
 
-\renewcommand{\forcedate}{October 7, 2020}
+\renewcommand{\forcedate}{October 8, 2020}
 \date{\forcedate}
 
-\maketitle %% Version finally sent back to QE, as MS 354
+\maketitle 
 \hypertarget{abstract}{}
 \begin{abstract}
   This paper builds theoretical foundations for rigorous and intuitive understanding of `buffer stock' saving models, pairing each theoretical result with a quantitative exploration.  After describing conditions under which the consumption function exists, the paper shows that a `target' buffer stock exists only under conditions strictly stronger than those that guarantee convergence of the consumption and value functions.  Furthermore, the average growth rate of consumption equals the average growth rate of permanent income (in a small open economy populated by buffer stock savers).  Together, the (provided) numerical tools and (proven) analytical results constitute a comprehensive toolkit for understanding buffer stock models.
@@ -75,9 +73,6 @@
 
 \titlepagefinish
 
-
-\newtheorem{defn}{Definition}
-\newtheorem{theorem}{Theorem}
 
 
 % \begin{Web}
@@ -1755,6 +1750,7 @@ Another contribution is integration of the paper's results with the open-source 
 % eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)  :help "Run Biber") TeX-command-list))
 % eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) %s" TeX-run-BibTeX nil t                                                                              :help "Run BibTeX") TeX-command-list))
 % eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) %s" TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode) :help "Run BibTeX") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) ../LaTeX/%s" TeX-run-BibTeX nil t :help "Run BibTeX") t)
 % eval: (add-to-list 'TeX-command-list	'("BibTeX" "%(bibtex) LaTeX/%s" TeX-run-BibTeX nil t :help "Run BibTeX") t)
 % TeX-PDF-mode: t
 % TeX-file-line-error: t
@@ -1765,7 +1761,3 @@ Another contribution is integration of the paper's results with the open-source 
 % TeX-parse-self: t
 % eval: (cond ((string-equal system-type "darwin") (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n LaTeX/%o %b"))))))
 % End:
-
-%%% TeX-view-program-list: (("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n LaTeX/%o %b"))
-
-%%% (case system-type 	  ((gnu/linux) "notify-send") 	  ((darwin) "growlnotify -a Emacs.app -m"))
