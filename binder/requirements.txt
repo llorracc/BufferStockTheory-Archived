@@ -1,7 +1,5 @@
-matplotlib==2.1.2
-numpy==1.14.0
-ipywidgets==7.2.1
-scipy==1.0.0
-jupyter
-cite2c
-econ-ark
+econ-ark==0.10.7
+numpy==1.19.2
+voila==0.2.2
+matplotlib==3.3.2
+ipywidgets==7.5.1
