@@ -19,7 +19,7 @@ vt+1 (Rt+1 a + ξt+1 ) .
 (1)
 Since there is a positive probability that ξt+1 will attain its minimum of zero and since
 Rt+1 > 0, it is clear that lima↓0 vt (a) = −∞ and lima↓0 v0t (a) = ∞. So vt (a) is welldefined iff a > 0; it is similarly straightforward to show the other properties required for
-vt (a) to be nice. (See Hiraguchi (?).)
+vt (a) to be nice. (See Hiraguchi (2003).)
 Next define vt (m, c) as
 vt (m, c) = u(c) + vt (m − c)
 
@@ -173,7 +173,7 @@ Since v00t (at (m)) is continuous, c00t (m) is also continuous.
 We must show that our operator T satisfies all of Boyd’s conditions.
 Boyd’s operator T maps from Cz (A, B) to C(A, B). A preliminary requirement is
 therefore that {Tz} be continuous for any z−bounded z, {Tz} ∈ C(R++ , R). This is
-not difficult to show; see Hiraguchi (?).
+not difficult to show; see Hiraguchi (2003).
 
 2
 
@@ -393,6 +393,8 @@ conditions, not only do the value functions defined by (??) converge, they conve
 the same unique v defined by T.4
 
 References
+Hiraguchi, Ryoji (2003): “On the Convergence of Consumption Rules,” Manuscript,
+Johns Hopkins University.
 
 4
 
