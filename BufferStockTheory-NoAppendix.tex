@@ -27,7 +27,7 @@
   \href{https://econ-ark.org}{\includegraphics{./Figures/PoweredByEconARK}}
 }
 
-\renewcommand{\forcedate}{October 7, 2020}
+\renewcommand{\forcedate}{October 8, 2020}
 \date{\forcedate}
 
 \maketitle %% Version finally sent back to QE, as MS 354
@@ -75,9 +75,6 @@
 
 \titlepagefinish
 
-
-\newtheorem{defn}{Definition}
-\newtheorem{theorem}{Theorem}
 
 
 % \begin{Web}
@@ -1755,6 +1752,7 @@ Another contribution is integration of the paper's results with the open-source 
 % eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)  :help "Run Biber") TeX-command-list))
 % eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) %s" TeX-run-BibTeX nil t                                                                              :help "Run BibTeX") TeX-command-list))
 % eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) %s" TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode) :help "Run BibTeX") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) ../LaTeX/%s" TeX-run-BibTeX nil t :help "Run BibTeX") t)
 % eval: (add-to-list 'TeX-command-list	'("BibTeX" "%(bibtex) LaTeX/%s" TeX-run-BibTeX nil t :help "Run BibTeX") t)
 % TeX-PDF-mode: t
 % TeX-file-line-error: t
@@ -1765,7 +1763,3 @@ Another contribution is integration of the paper's results with the open-source 
 % TeX-parse-self: t
 % eval: (cond ((string-equal system-type "darwin") (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n LaTeX/%o %b"))))))
 % End:
-
-%%% TeX-view-program-list: (("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n LaTeX/%o %b"))
-
-%%% (case system-type 	  ((gnu/linux) "notify-send") 	  ((darwin) "growlnotify -a Emacs.app -m"))
