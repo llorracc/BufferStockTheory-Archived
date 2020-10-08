@@ -7,13 +7,11 @@
 % * Not clear what proper order is; might NOT matter
 
 \onlyinsubfile{\externaldocument{BufferStockTheory}} % Get xrefs -- esp to appendix -- from main file; only works properly if main file has already been compiled; 
-\input{\LaTeXFiles/onlyinsubfile.sty} 
 
 \begin{document}
 
 \providecommand{\versn}{} % Version; like, web or pdf or journal submission
 \ifthenelse{\boolean{ifWeb}}{  \renewcommand{\ushort}{\underline}\renewcommand{\versn}{Web} }{} % ushort does not work in tex4ht
-
 
 \hfill{\tiny \jobname~\versn~\today~{at} \DTMcurrenttime, \input{.git-source-commit}~~\input{.git-public-commit}}
 
@@ -30,7 +28,7 @@
 \renewcommand{\forcedate}{October 8, 2020}
 \date{\forcedate}
 
-\maketitle %% Version finally sent back to QE, as MS 354
+\maketitle 
 \hypertarget{abstract}{}
 \begin{abstract}
   This paper builds theoretical foundations for rigorous and intuitive understanding of `buffer stock' saving models, pairing each theoretical result with a quantitative exploration.  After describing conditions under which the consumption function exists, the paper shows that a `target' buffer stock exists only under conditions strictly stronger than those that guarantee convergence of the consumption and value functions.  Furthermore, the average growth rate of consumption equals the average growth rate of permanent income (in a small open economy populated by buffer stock savers).  Together, the (provided) numerical tools and (proven) analytical results constitute a comprehensive toolkit for understanding buffer stock models.
