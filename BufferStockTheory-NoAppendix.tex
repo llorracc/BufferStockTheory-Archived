@@ -22,10 +22,10 @@
 \keywords{Precautionary saving, buffer stock saving, marginal propensity to consume, permanent income hypothesis}
 
 \jelclass{D81, D91, E21\\
-  \href{https://econ-ark.org}{\includegraphics{./Figures/PoweredByEconARK}}
+  \href{https://econ-ark.org}{\includegraphics{\ResourcesDir/PoweredByEconARK}}
 }
 
-\renewcommand{\forcedate}{October 8, 2020}
+\renewcommand{\forcedate}{October 12, 2020}
 \date{\forcedate}
 
 \maketitle 
@@ -40,15 +40,13 @@
   \parbox{\textwidth}{
     \begin{center}
       \begin{tabbing}
-        % \texttt{~Archive:~} \= \= \url{https://www.econ2.jhu.edu/people/ccarroll/BufferStockTheory.zip} \\  %
-        \texttt{Dashboard:~} \= \= \url{https://econ-ark.org/materials/BufferStockTheory?dashboard} \\
-        \texttt{~~~~~~PDF:~} \> \> \url{https://llorracc.github.io/BufferStockTheory/BufferStockTheory.pdf} \\
-        \texttt{~~~Slides:~} \> \> \url{https://llorracc.github.io/BufferStockTheory/BufferStockTheory-Slides.pdf} \\
-        \texttt{~~~~~html:~} \> \> \url{https://llorracc.github.io/BufferStockTheory/BufferStockTheory/}    \\
-        \texttt{~Appendix:~} \> \> \url{https://llorracc.github.io/BufferStockTheory/BufferStockTheory\#Appendices}    \\
-        \texttt{~~~bibtex:~} \> \> \url{https://llorracc.github.io/BufferStockTheory/LaTeX/BufferStockTheory-Self.bib}  \\
-        \texttt{~~~GitHub:~} \> \> \url{https://github.com/llorracc/BufferStockTheory} \\
-        % \texttt{~~~~~~~~~~} \> \> \textit{(In GitHub repo, see \texttt{/Code} for tools for solving and simulating the model)} \\
+        \texttt{Dashboard:~} \= \= \texttt{\href{https://econ-ark.org/materials/BufferStockTheory?dashboard}{https://econ-ark.org/materials/BufferStockTheory?dashboard}} \\
+        \texttt{~~~~~~PDF:~} \> \> \texttt{\href{https://\owner.github.io/BufferStockTheory/BufferStockTheory.pdf}{https://\owner.github.io/BufferStockTheory/BufferStockTheory.pdf}} \\
+        \texttt{~~~Slides:~} \> \> \texttt{\href{https://\owner.github.io/BufferStockTheory/BufferStockTheory-Slides.pdf}{https://\owner.github.io/BufferStockTheory/BufferStockTheory-Slides.pdf}} \\
+        \texttt{~~~~~html:~} \> \> \texttt{\href{https://\owner.github.io/BufferStockTheory/BufferStockTheory/}{https://\owner.github.io/BufferStockTheory/BufferStockTheory/}}    \\
+        \texttt{~Appendix:~} \> \> \texttt{\href{https://\owner.github.io/BufferStockTheory/BufferStockTheory\#Appendices}{https://\owner.github.io/BufferStockTheory/BufferStockTheory\#Appendices}}    \\
+        \texttt{~~~bibtex:~} \> \> \texttt{\href{https://\owner.github.io/BufferStockTheory/LaTeX/BufferStockTheory-Self.bib}{https://\owner.github.io/BufferStockTheory/LaTeX/BufferStockTheory-Self.bib}}  \\
+        \texttt{~~~GitHub:~} \> \> \texttt{\href{https://github.com/\owner/BufferStockTheory}{https://github.com/\owner/BufferStockTheory}} \\
       \end{tabbing}
     \end{center}
     
@@ -60,7 +58,7 @@
   \name{Contact: \href{mailto:ccarroll@jhu.edu}{\texttt{ccarroll@jhu.edu}}, Department of Economics, 590 Wyman Hall, Johns Hopkins University, Baltimore, MD 21218, \url{http://econ.jhu.edu/people/ccarroll}, and National Bureau of Economic Research.}
 \end{authorsinfo}
 
-\newcommand{\thankstext}{All numerical results were produced using the \href{https://econ-ark/HARK}{Econ-ARK/HARK} toolkit, which can be cited per our references (\cite{carroll_et_al-proc-scipy-2018}); for reference to the toolkit itself see \href{https://econ-ark.org/acknowledging/}{Acknowleding Econ-ARK}.  Thanks to the \href{https://consumerfinance.gov}{Consumer Financial Protection Bureau} for funding the original creation of the \href{https://econ-ark.org}{Econ-ARK} toolkit, whose latest version we used to produce all the results in this paper; and to the \href{https://sloan.org}{Sloan Foundation} for funding Econ-ARK's \href{https://sloan.org/grant-detail/8071}{extensive further development} that brought it to the point where it could be used for this project.  The toolkit can be cited with its digital object identifier, \href{https://doi.org/10.5281/zenodo.1001067}{10.5281/zenodo.1001067}, as is done in the paper's own references as \cite{carroll_et_al-proc-scipy-2018}.  
+\newcommand{\thankstext}{All numerical results \href{https://econ-ark.org/materials/BufferStockTheory?launch}{can be reproduced interactively} using the \href{https://econ-ark/HARK}{Econ-ARK/HARK} toolkit, which can be cited per our references (\cite{carroll_et_al-proc-scipy-2018}); for reference to the toolkit itself see \href{https://econ-ark.org/acknowledging/}{Acknowleding Econ-ARK}.  Thanks to the \href{https://consumerfinance.gov}{Consumer Financial Protection Bureau} for funding the original creation of the \href{https://econ-ark.org}{Econ-ARK} toolkit; and to the \href{https://sloan.org}{Sloan Foundation} for funding Econ-ARK's \href{https://sloan.org/grant-detail/8071}{extensive further development} that brought it to the point where it could be used for this project.  The toolkit can be cited with its digital object identifier, \href{https://doi.org/10.5281/zenodo.1001067}{10.5281/zenodo.1001067}, as is done in the paper's own references as \cite{carroll_et_al-proc-scipy-2018}.  
   Thanks to James Feigenbaum, Joseph Kaboski, Miles Kimball, Qingyin Ma, Misuzu Otsuka, Damiano Sandri, John Stachurski, Adam Szeidl, Metin Uyanik, Mateo Velasquez-Griraldo, Weifeng Wu, Xudong Zheng,  and Jiaxiong Yao for comments on earlier versions of this paper, John Boyd for help
   in applying his weighted contraction mapping theorem, Ryoji
   Hiraguchi for extraordinary mathematical insight that improved the
@@ -1750,7 +1748,6 @@ Another contribution is integration of the paper's results with the open-source 
 % eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)  :help "Run Biber") TeX-command-list))
 % eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) %s" TeX-run-BibTeX nil t                                                                              :help "Run BibTeX") TeX-command-list))
 % eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) %s" TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode) :help "Run BibTeX") TeX-command-list))
-% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) ../LaTeX/%s" TeX-run-BibTeX nil t :help "Run BibTeX") t)
 % eval: (add-to-list 'TeX-command-list	'("BibTeX" "%(bibtex) LaTeX/%s" TeX-run-BibTeX nil t :help "Run BibTeX") t)
 % TeX-PDF-mode: t
 % TeX-file-line-error: t
@@ -1759,5 +1756,6 @@ Another contribution is integration of the paper's results with the open-source 
 % TeX-source-correlate-mode: t
 % TeX-source-correlate-start-server: 0
 % TeX-parse-self: t
-% eval: (cond ((string-equal system-type "darwin") (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n LaTeX/%o %b"))))))
+% eval: (cond ((string-equal system-type "darwin") (progn (setq TeX-view-program-list '(("Run Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n LaTeX/%o %b"))))))
+% TeX-parse-all-errors: t
 % End:
