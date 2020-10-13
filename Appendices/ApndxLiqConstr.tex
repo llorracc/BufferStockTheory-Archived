@@ -4,7 +4,7 @@
 \begin{document}
 \let\TableWidth\relax
 \newlength\TableWidth
-\providecommand{\FigsRawApndx}{\econtexRoot/Code/Mathematica/Results/BufferStockTheory/Figures}
+\providecommand{\FigDirApndx}{\econtexRoot/Code/Mathematica/Results/BufferStockTheory/Figures}
 
 \section{Perfect Foresight Liquidity Constrained Solution}\label{sec:ApndxLiqConstr}
 
@@ -205,6 +205,8 @@ Given failure of \FHWC, \eqref{\localorexternallabel{eq:bToInfty}} requires
   \\   \lim_{n \rightarrow \infty} \left(\frac{\PatR}{\PatR-1}-\frac{\Rnorm^{-1}}{\Rnorm^{-1}-1}\right)\Rnorm^{-n}-\left(\frac{\PatPGro^{-n}}{\PatR-1}\right)  & = \infty \label{eq:FHWCfails} 
   % \\   \lim_{n \rightarrow \infty} \left(\frac{\PatR(\Rnorm^{-1}-1)}{(\Rnorm^{-1}-1)(\PatR-1)}-\frac{\Rnorm^{-1}(\Rnorm^{-1}-1)}{(\Rnorm^{-1}-1)(\PatR-1)}\right)\Rnorm^{-n}-\left(\frac{\PatPGro^{-n}}{\PatR-1}\right)  & = \infty. 
 \end{align}
+\hypertarget{PFGICHoldsFHWCFailsRICFailsDiscuss}{}
+
 
 \noindent {\bf If \RIC~Holds}.  When the \RIC~holds, rearranging \eqref{\localorexternallabel{eq:FHWCfails}} gives
 \begin{eqnarray*}
@@ -270,8 +272,8 @@ value, and consequently the consumption function is {\it not} the
 degenerate $\grave{\cFunc}(\mRat)=0$.  (Figure~\ref{fig:PFGICHoldsFHWCFailsRICFails} presents an example for $\CRRA=2$, $\Rfree=0.98$, $\Discount = 1.00$, $\PGro = 0.99$; note that the horizontal axis is bank balances $\bRat = \mRat-1$; the part of the consumption function below the depicted points is uninteresting -- $\cRat = \mRat$ -- so not worth plotting).
 
 
-% \input{\FigsRawApndx/PFGICHoldsFHWCFailsRICFails}
-\input{\econtexRoot/\FigsTeX/PFGICHoldsFHWCFailsRICFails.tex}
+% \input{\FigDirApndx/PFGICHoldsFHWCFailsRICFails}
+\input{\FigDir/PFGICHoldsFHWCFailsRICFails.tex}
 
 
 \begin{comment}
